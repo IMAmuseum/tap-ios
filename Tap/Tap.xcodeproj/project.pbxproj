@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* TapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TapAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
+		73993C5F0F6AA00D002137F5 /* ImageStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73993C5E0F6AA00D002137F5 /* ImageStopController.m */; };
+		8B193E111035BA49000266D6 /* bg-poll-bar-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */; };
+		8B193E121035BA49000266D6 /* bg-poll-bar-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */; };
+		8B193E131035BA49000266D6 /* bg-poll-bar-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */; };
+		8B193E141035BA49000266D6 /* tap-title-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */; };
+		8B193E151035BA49000266D6 /* tap-title-screen-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E101035BA49000266D6 /* tap-title-screen-top.png */; };
+		8B27161E0FBC761A004E35A5 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B27161C0FBC761A004E35A5 /* bg-header.png */; };
+		8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FAC6D10580FCB00E6A44A /* Analytics.m */; };
+		8B56A4B30F7932E4006675F9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B56A4B20F7932E4006675F9 /* Default.png */; };
+		8B5A06CD0F5DBFE2000BAB32 /* KeypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */; };
+		8B5CD29F0F7C190100183A17 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CD29E0F7C190100183A17 /* Icon.png */; };
+		8B6C627E0F65567200598AB1 /* StopGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C627D0F65567200598AB1 /* StopGroupController.m */; };
+		8B7D1F550F65A6BE00BB87F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */; };
+		8B7FEC831034595200311CB9 /* PollResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FEC821034595200311CB9 /* PollResults.m */; };
+		8B9241CD0FCC6A8600C172AC /* WebStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9241CB0FCC6A8600C172AC /* WebStopController.m */; };
+		8B9646B20FCC81870006494F /* PollStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9646B10FCC81870006494F /* PollStop.m */; };
+		8B9646BE0FCC85730006494F /* PollStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9646BC0FCC85730006494F /* PollStopController.m */; };
+		8B98F985105AD5250003FB0A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B98F983105AD5250003FB0A /* Localizable.strings */; };
+		8BB31DD81039AF3900DDA1C8 /* TapDetectingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB31DD71039AF3900DDA1C8 /* TapDetectingImageView.m */; };
+		8BB5CC061164EEDE001142F0 /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5CC041164EEDE001142F0 /* click.aif */; };
+		8BB5CC071164EEDE001142F0 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5CC051164EEDE001142F0 /* error.aif */; };
+		8BB71D570FC47DC20081C3D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */; };
+		8BC1E3831030554A000E14C4 /* Keypad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3811030554A000E14C4 /* Keypad.xib */; };
+		8BC1E3ED103061B9000E14C4 /* bg-poll-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */; };
+		8BC1E3EE103061B9000E14C4 /* bg-poll-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */; };
+		8BC1E3F8103063FD000E14C4 /* submit-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3F7103063FD000E14C4 /* submit-btn.png */; };
+		8BC4D2821157BEE000750A4F /* TaraDonovan:Untitled.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BC4D2811157BEE000750A4F /* TaraDonovan:Untitled.bundle */; };
+		8BD6398D0FDFEA1D00A3E1FC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */; };
+		8BD937AB0FDEC6A100A902A2 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */; };
+		8BD937CB0FDEC96300A902A2 /* bg-main.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD937CA0FDEC96300A902A2 /* bg-main.png */; };
+		8BD938080FDECC3B00A902A2 /* bg-main-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD938070FDECC3B00A902A2 /* bg-main-tile.png */; };
+		8BD9A2E50FC19FA3001E97D9 /* VideoStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9A2E40FC19FA3001E97D9 /* VideoStop.m */; };
+		8BD9A35C0FC1A776001E97D9 /* StopFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9A35B0FC1A776001E97D9 /* StopFactory.m */; };
+		8BD9A45F0FC1AE6C001E97D9 /* ImageStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9A45E0FC1AE6C001E97D9 /* ImageStop.m */; };
+		8BD9A4620FC1AE76001E97D9 /* WebStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9A4610FC1AE76001E97D9 /* WebStop.m */; };
+		8BDFF03F0F791DFB001A6BF6 /* TourMLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDFF03E0F791DFB001A6BF6 /* TourMLUtils.m */; };
+		8BE419840FBDB9E500EE1396 /* BaseStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE419830FBDB9E500EE1396 /* BaseStop.m */; };
+		8BE419870FBDBF9200EE1396 /* StopGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE419860FBDBF9200EE1396 /* StopGroup.m */; };
+		8BE41AE00FBDF35900EE1396 /* icon-webpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */; };
+		8BE41AE10FBDF35900EE1396 /* icon-video.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADC0FBDF35900EE1396 /* icon-video.png */; };
+		8BE41AE20FBDF35900EE1396 /* icon-poll.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADD0FBDF35900EE1396 /* icon-poll.png */; };
+		8BE41AE30FBDF35900EE1396 /* icon-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADE0FBDF35900EE1396 /* icon-image.png */; };
+		8BE41AE40FBDF35900EE1396 /* icon-audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADF0FBDF35900EE1396 /* icon-audio.png */; };
+		8BF0D48A0FBC6B850088A5F1 /* keypad-number-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */; };
+		8BF0D48B0FBC6B850088A5F1 /* keypad-go-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */; };
+		8BF0D48C0FBC6B850088A5F1 /* keypad-clear-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */; };
+		8BF0D4910FBC6BAD0088A5F1 /* keypad-clear-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */; };
+		8BF0D4920FBC6BAD0088A5F1 /* keypad-go-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */; };
+		8BF0D4930FBC6BAD0088A5F1 /* keypad-number-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */; };
+		8BF0D4940FBC6BAD0088A5F1 /* keypad-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */; };
+		8BF5915C0FCEFD080049DD27 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5915A0FCEFD080049DD27 /* MainWindow.xib */; };
+		8BF591920FCF00200049DD27 /* ImageStop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5918E0FCF00200049DD27 /* ImageStop.xib */; };
+		8BF591930FCF00200049DD27 /* StopGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF591900FCF00200049DD27 /* StopGroup.xib */; };
+		8BF591960FCF004B0049DD27 /* PollStop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF591940FCF004B0049DD27 /* PollStop.xib */; };
+		8BF591990FCF00570049DD27 /* WebStop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF591970FCF00570049DD27 /* WebStop.xib */; };
+		8BF9F85D0FCECCCB00F2764D /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF9F85C0FCECCCB00F2764D /* Entitlements.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* TapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* TapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765070DF74369002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AB4B0D9B1048005BE974 /* Tap_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tap_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73993C5D0F6AA00D002137F5 /* ImageStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStopController.h; sourceTree = "<group>"; };
+		73993C5E0F6AA00D002137F5 /* ImageStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStopController.m; sourceTree = "<group>"; };
+		8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-left.png"; sourceTree = "<group>"; };
+		8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-middle.png"; sourceTree = "<group>"; };
+		8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-right.png"; sourceTree = "<group>"; };
+		8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-btm.png"; sourceTree = "<group>"; };
+		8B193E101035BA49000266D6 /* tap-title-screen-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-top.png"; sourceTree = "<group>"; };
+		8B27161C0FBC761A004E35A5 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header.png"; sourceTree = "<group>"; };
+		8B4FAC6C10580FCB00E6A44A /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		8B4FAC6D10580FCB00E6A44A /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
+		8B56A4B20F7932E4006675F9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
+		8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadController.h; sourceTree = "<group>"; };
+		8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadController.m; sourceTree = "<group>"; };
+		8B5CD29E0F7C190100183A17 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		8B6C627C0F65567200598AB1 /* StopGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroupController.h; sourceTree = "<group>"; };
+		8B6C627D0F65567200598AB1 /* StopGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroupController.m; sourceTree = "<group>"; };
+		8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8B7FEC811034595200311CB9 /* PollResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollResults.h; sourceTree = "<group>"; };
+		8B7FEC821034595200311CB9 /* PollResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollResults.m; sourceTree = "<group>"; };
+		8B9241CA0FCC6A8600C172AC /* WebStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebStopController.h; sourceTree = "<group>"; };
+		8B9241CB0FCC6A8600C172AC /* WebStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebStopController.m; sourceTree = "<group>"; };
+		8B9646B00FCC81870006494F /* PollStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollStop.h; sourceTree = "<group>"; };
+		8B9646B10FCC81870006494F /* PollStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollStop.m; sourceTree = "<group>"; };
+		8B9646BB0FCC85730006494F /* PollStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollStopController.h; sourceTree = "<group>"; };
+		8B9646BC0FCC85730006494F /* PollStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollStopController.m; sourceTree = "<group>"; };
+		8B98F8F8105ACC620003FB0A /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = Resources/es.lproj/Keypad.xib; sourceTree = "<group>"; };
+		8B98F8F9105ACC620003FB0A /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = Resources/es.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		8B98F8FA105ACC620003FB0A /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = Resources/es.lproj/PollStop.xib; sourceTree = "<group>"; };
+		8B98F984105AD5250003FB0A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8BB31DD61039AF3900DDA1C8 /* TapDetectingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapDetectingImageView.h; sourceTree = "<group>"; };
+		8BB31DD71039AF3900DDA1C8 /* TapDetectingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapDetectingImageView.m; sourceTree = "<group>"; };
+		8BB5CC041164EEDE001142F0 /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
+		8BB5CC051164EEDE001142F0 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
+		8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8BC1E3821030554A000E14C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/Keypad.xib; sourceTree = "<group>"; };
+		8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-landscape.png"; sourceTree = "<group>"; };
+		8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-portrait.png"; sourceTree = "<group>"; };
+		8BC1E3F7103063FD000E14C4 /* submit-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submit-btn.png"; sourceTree = "<group>"; };
+		8BC4D2811157BEE000750A4F /* TaraDonovan:Untitled.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "TaraDonovan:Untitled.bundle"; path = "../TaraDonovan:Untitled.bundle"; sourceTree = SOURCE_ROOT; };
+		8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header-wide.png"; sourceTree = "<group>"; };
+		8BD937CA0FDEC96300A902A2 /* bg-main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main.png"; sourceTree = "<group>"; };
+		8BD938070FDECC3B00A902A2 /* bg-main-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main-tile.png"; sourceTree = "<group>"; };
+		8BD9A2E30FC19FA3001E97D9 /* VideoStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStop.h; sourceTree = "<group>"; };
+		8BD9A2E40FC19FA3001E97D9 /* VideoStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStop.m; sourceTree = "<group>"; };
+		8BD9A35A0FC1A776001E97D9 /* StopFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopFactory.h; sourceTree = "<group>"; };
+		8BD9A35B0FC1A776001E97D9 /* StopFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopFactory.m; sourceTree = "<group>"; };
+		8BD9A45D0FC1AE6C001E97D9 /* ImageStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStop.h; sourceTree = "<group>"; };
+		8BD9A45E0FC1AE6C001E97D9 /* ImageStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStop.m; sourceTree = "<group>"; };
+		8BD9A4600FC1AE76001E97D9 /* WebStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebStop.h; sourceTree = "<group>"; };
+		8BD9A4610FC1AE76001E97D9 /* WebStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebStop.m; sourceTree = "<group>"; };
+		8BDFF03D0F791DFB001A6BF6 /* TourMLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourMLUtils.h; sourceTree = "<group>"; };
+		8BDFF03E0F791DFB001A6BF6 /* TourMLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourMLUtils.m; sourceTree = "<group>"; };
+		8BE419820FBDB9E500EE1396 /* BaseStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseStop.h; sourceTree = "<group>"; };
+		8BE419830FBDB9E500EE1396 /* BaseStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseStop.m; sourceTree = "<group>"; };
+		8BE419850FBDBF9200EE1396 /* StopGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroup.h; sourceTree = "<group>"; };
+		8BE419860FBDBF9200EE1396 /* StopGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroup.m; sourceTree = "<group>"; };
+		8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-webpage.png"; sourceTree = "<group>"; };
+		8BE41ADC0FBDF35900EE1396 /* icon-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-video.png"; sourceTree = "<group>"; };
+		8BE41ADD0FBDF35900EE1396 /* icon-poll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-poll.png"; sourceTree = "<group>"; };
+		8BE41ADE0FBDF35900EE1396 /* icon-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-image.png"; sourceTree = "<group>"; };
+		8BE41ADF0FBDF35900EE1396 /* icon-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio.png"; sourceTree = "<group>"; };
+		8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-down.png"; sourceTree = "<group>"; };
+		8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down.png"; sourceTree = "<group>"; };
+		8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-down.png"; sourceTree = "<group>"; };
+		8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-up.png"; sourceTree = "<group>"; };
+		8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-up.png"; sourceTree = "<group>"; };
+		8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-up.png"; sourceTree = "<group>"; };
+		8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-textfield.png"; sourceTree = "<group>"; };
+		8BF5915B0FCEFD080049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		8BF5918F0FCF00200049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/ImageStop.xib; sourceTree = "<group>"; };
+		8BF591910FCF00200049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/StopGroup.xib; sourceTree = "<group>"; };
+		8BF591950FCF004B0049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/PollStop.xib; sourceTree = "<group>"; };
+		8BF591980FCF00570049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/WebStop.xib; sourceTree = "<group>"; };
+		8BF9F85C0FCECCCB00F2764D /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
+				8B7D1F550F65A6BE00BB87F4 /* MediaPlayer.framework in Frameworks */,
+				8BB71D570FC47DC20081C3D3 /* QuartzCore.framework in Frameworks */,
+				8BD6398D0FDFEA1D00A3E1FC /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8BD9A2560FC1960E001E97D9 /* Controllers */,
+				8BD9A2570FC1962A001E97D9 /* Stops */,
+				8BD9A2580FC1963F001E97D9 /* Utils */,
+				1D3623240D0F684500981E51 /* TapAppDelegate.h */,
+				1D3623250D0F684500981E51 /* TapAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* Tap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				8BC4D2811157BEE000750A4F /* TaraDonovan:Untitled.bundle */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				8BF9F85C0FCECCCB00F2764D /* Entitlements.plist */,
+			);
+			name = Tap;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AB4B0D9B1048005BE974 /* Tap_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8BD639770FDFE80A00A3E1FC /* Audio */,
+				8BD9A2550FC195F4001E97D9 /* Nibs */,
+				8BD9A2540FC195E5001E97D9 /* Images */,
+				8B56A4B20F7932E4006675F9 /* Default.png */,
+				8B5CD29E0F7C190100183A17 /* Icon.png */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				8B98F983105AD5250003FB0A /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */,
+				8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */,
+				8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765070DF74369002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BD639770FDFE80A00A3E1FC /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				8BB5CC041164EEDE001142F0 /* click.aif */,
+				8BB5CC051164EEDE001142F0 /* error.aif */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		8BD9A2540FC195E5001E97D9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */,
+				8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */,
+				8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */,
+				8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */,
+				8B193E101035BA49000266D6 /* tap-title-screen-top.png */,
+				8BC1E3F7103063FD000E14C4 /* submit-btn.png */,
+				8B27161C0FBC761A004E35A5 /* bg-header.png */,
+				8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */,
+				8BD937CA0FDEC96300A902A2 /* bg-main.png */,
+				8BD938070FDECC3B00A902A2 /* bg-main-tile.png */,
+				8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */,
+				8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */,
+				8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */,
+				8BE41ADC0FBDF35900EE1396 /* icon-video.png */,
+				8BE41ADD0FBDF35900EE1396 /* icon-poll.png */,
+				8BE41ADE0FBDF35900EE1396 /* icon-image.png */,
+				8BE41ADF0FBDF35900EE1396 /* icon-audio.png */,
+				8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */,
+				8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */,
+				8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */,
+				8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */,
+				8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */,
+				8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */,
+				8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		8BD9A2550FC195F4001E97D9 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5915A0FCEFD080049DD27 /* MainWindow.xib */,
+				8BF5918E0FCF00200049DD27 /* ImageStop.xib */,
+				8BC1E3811030554A000E14C4 /* Keypad.xib */,
+				8BF591940FCF004B0049DD27 /* PollStop.xib */,
+				8BF591900FCF00200049DD27 /* StopGroup.xib */,
+				8BF591970FCF00570049DD27 /* WebStop.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		8BD9A2560FC1960E001E97D9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */,
+				8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */,
+				73993C5D0F6AA00D002137F5 /* ImageStopController.h */,
+				73993C5E0F6AA00D002137F5 /* ImageStopController.m */,
+				8B9646BB0FCC85730006494F /* PollStopController.h */,
+				8B9646BC0FCC85730006494F /* PollStopController.m */,
+				8B6C627C0F65567200598AB1 /* StopGroupController.h */,
+				8B6C627D0F65567200598AB1 /* StopGroupController.m */,
+				8B9241CA0FCC6A8600C172AC /* WebStopController.h */,
+				8B9241CB0FCC6A8600C172AC /* WebStopController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8BD9A2570FC1962A001E97D9 /* Stops */ = {
+			isa = PBXGroup;
+			children = (
+				8BE419820FBDB9E500EE1396 /* BaseStop.h */,
+				8BE419830FBDB9E500EE1396 /* BaseStop.m */,
+				8BD9A45D0FC1AE6C001E97D9 /* ImageStop.h */,
+				8BD9A45E0FC1AE6C001E97D9 /* ImageStop.m */,
+				8BE419850FBDBF9200EE1396 /* StopGroup.h */,
+				8BE419860FBDBF9200EE1396 /* StopGroup.m */,
+				8BD9A2E30FC19FA3001E97D9 /* VideoStop.h */,
+				8BD9A2E40FC19FA3001E97D9 /* VideoStop.m */,
+				8BD9A35A0FC1A776001E97D9 /* StopFactory.h */,
+				8BD9A35B0FC1A776001E97D9 /* StopFactory.m */,
+				8BD9A4600FC1AE76001E97D9 /* WebStop.h */,
+				8BD9A4610FC1AE76001E97D9 /* WebStop.m */,
+				8B9646B00FCC81870006494F /* PollStop.h */,
+				8B9646B10FCC81870006494F /* PollStop.m */,
+			);
+			name = Stops;
+			sourceTree = "<group>";
+		};
+		8BD9A2580FC1963F001E97D9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8B4FAC6C10580FCB00E6A44A /* Analytics.h */,
+				8B4FAC6D10580FCB00E6A44A /* Analytics.m */,
+				8BDFF03D0F791DFB001A6BF6 /* TourMLUtils.h */,
+				8BDFF03E0F791DFB001A6BF6 /* TourMLUtils.m */,
+				8B7FEC811034595200311CB9 /* PollResults.h */,
+				8B7FEC821034595200311CB9 /* PollResults.m */,
+				8BB31DD61039AF3900DDA1C8 /* TapDetectingImageView.h */,
+				8BB31DD71039AF3900DDA1C8 /* TapDetectingImageView.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Tap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Tap" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tap;
+			productName = Tap;
+			productReference = 1D6058910D05DD3D006BFB54 /* Tap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Tap" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+				es,
+				Spanish,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Tap */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Tap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B56A4B30F7932E4006675F9 /* Default.png in Resources */,
+				8B5CD29F0F7C190100183A17 /* Icon.png in Resources */,
+				8BF0D48A0FBC6B850088A5F1 /* keypad-number-down.png in Resources */,
+				8BF0D48B0FBC6B850088A5F1 /* keypad-go-down.png in Resources */,
+				8BF0D48C0FBC6B850088A5F1 /* keypad-clear-down.png in Resources */,
+				8BF0D4910FBC6BAD0088A5F1 /* keypad-clear-up.png in Resources */,
+				8BF0D4920FBC6BAD0088A5F1 /* keypad-go-up.png in Resources */,
+				8BF0D4930FBC6BAD0088A5F1 /* keypad-number-up.png in Resources */,
+				8BF0D4940FBC6BAD0088A5F1 /* keypad-textfield.png in Resources */,
+				8B27161E0FBC761A004E35A5 /* bg-header.png in Resources */,
+				8BE41AE00FBDF35900EE1396 /* icon-webpage.png in Resources */,
+				8BE41AE10FBDF35900EE1396 /* icon-video.png in Resources */,
+				8BE41AE20FBDF35900EE1396 /* icon-poll.png in Resources */,
+				8BE41AE30FBDF35900EE1396 /* icon-image.png in Resources */,
+				8BE41AE40FBDF35900EE1396 /* icon-audio.png in Resources */,
+				8BF9F85D0FCECCCB00F2764D /* Entitlements.plist in Resources */,
+				8BF5915C0FCEFD080049DD27 /* MainWindow.xib in Resources */,
+				8BF591920FCF00200049DD27 /* ImageStop.xib in Resources */,
+				8BF591930FCF00200049DD27 /* StopGroup.xib in Resources */,
+				8BF591960FCF004B0049DD27 /* PollStop.xib in Resources */,
+				8BF591990FCF00570049DD27 /* WebStop.xib in Resources */,
+				8BD937AB0FDEC6A100A902A2 /* bg-header-wide.png in Resources */,
+				8BD937CB0FDEC96300A902A2 /* bg-main.png in Resources */,
+				8BD938080FDECC3B00A902A2 /* bg-main-tile.png in Resources */,
+				8BC1E3831030554A000E14C4 /* Keypad.xib in Resources */,
+				8BC1E3ED103061B9000E14C4 /* bg-poll-landscape.png in Resources */,
+				8BC1E3EE103061B9000E14C4 /* bg-poll-portrait.png in Resources */,
+				8BC1E3F8103063FD000E14C4 /* submit-btn.png in Resources */,
+				8B193E111035BA49000266D6 /* bg-poll-bar-left.png in Resources */,
+				8B193E121035BA49000266D6 /* bg-poll-bar-middle.png in Resources */,
+				8B193E131035BA49000266D6 /* bg-poll-bar-right.png in Resources */,
+				8B193E141035BA49000266D6 /* tap-title-screen-btm.png in Resources */,
+				8B193E151035BA49000266D6 /* tap-title-screen-top.png in Resources */,
+				8B98F985105AD5250003FB0A /* Localizable.strings in Resources */,
+				8BC4D2821157BEE000750A4F /* TaraDonovan:Untitled.bundle in Resources */,
+				8BB5CC061164EEDE001142F0 /* click.aif in Resources */,
+				8BB5CC071164EEDE001142F0 /* error.aif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* TapAppDelegate.m in Sources */,
+				8B5A06CD0F5DBFE2000BAB32 /* KeypadController.m in Sources */,
+				8B6C627E0F65567200598AB1 /* StopGroupController.m in Sources */,
+				73993C5F0F6AA00D002137F5 /* ImageStopController.m in Sources */,
+				8BDFF03F0F791DFB001A6BF6 /* TourMLUtils.m in Sources */,
+				8BE419840FBDB9E500EE1396 /* BaseStop.m in Sources */,
+				8BE419870FBDBF9200EE1396 /* StopGroup.m in Sources */,
+				8BD9A2E50FC19FA3001E97D9 /* VideoStop.m in Sources */,
+				8BD9A35C0FC1A776001E97D9 /* StopFactory.m in Sources */,
+				8BD9A45F0FC1AE6C001E97D9 /* ImageStop.m in Sources */,
+				8BD9A4620FC1AE76001E97D9 /* WebStop.m in Sources */,
+				8B9241CD0FCC6A8600C172AC /* WebStopController.m in Sources */,
+				8B9646B20FCC81870006494F /* PollStop.m in Sources */,
+				8B9646BE0FCC85730006494F /* PollStopController.m in Sources */,
+				8B7FEC831034595200311CB9 /* PollResults.m in Sources */,
+				8BB31DD81039AF3900DDA1C8 /* TapDetectingImageView.m in Sources */,
+				8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8B98F983105AD5250003FB0A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B98F984105AD5250003FB0A /* Localizable.strings */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		8BC1E3811030554A000E14C4 /* Keypad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BC1E3821030554A000E14C4 /* en */,
+				8B98F8F8105ACC620003FB0A /* es */,
+			);
+			name = Keypad.xib;
+			sourceTree = "<group>";
+		};
+		8BF5915A0FCEFD080049DD27 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF5915B0FCEFD080049DD27 /* en */,
+				8B98F8F9105ACC620003FB0A /* es */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		8BF5918E0FCF00200049DD27 /* ImageStop.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF5918F0FCF00200049DD27 /* en */,
+			);
+			name = ImageStop.xib;
+			sourceTree = "<group>";
+		};
+		8BF591900FCF00200049DD27 /* StopGroup.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF591910FCF00200049DD27 /* en */,
+			);
+			name = StopGroup.xib;
+			sourceTree = "<group>";
+		};
+		8BF591940FCF004B0049DD27 /* PollStop.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF591950FCF004B0049DD27 /* en */,
+				8B98F8FA105ACC620003FB0A /* es */,
+			);
+			name = PollStop.xib;
+			sourceTree = "<group>";
+		};
+		8BF591970FCF00570049DD27 /* WebStop.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF591980FCF00570049DD27 /* en */,
+			);
+			name = WebStop.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Tap_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = Tap;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Tap_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = Tap;
+			};
+			name = Release;
+		};
+		8BF9F8430FCECBF200F2764D /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Indianapolis Museum of Art";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D992C2E-5D5C-4BF5-8CDC-1D2BDF2657ED";
+				SDKROOT = iphoneos3.0;
+			};
+			name = Distribution;
+		};
+		8BF9F8440FCECBF200F2764D /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Tap_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				PRODUCT_NAME = Tap;
+			};
+			name = Distribution;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.0;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos2.2.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Tap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				8BF9F8440FCECBF200F2764D /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Tap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				8BF9F8430FCECBF200F2764D /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
