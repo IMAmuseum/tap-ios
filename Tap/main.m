@@ -2,8 +2,9 @@
 //  main.m
 //  Tap
 //
-//  Created by Charlie Moad on 3/3/09.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Created by Charles Moad <cmoad@imamuseum.org>.
+//  Copyright Indianapolis Museum of Art 2009.
+//  See LICENCE file included with source.
 //
 
 #import <UIKit/UIKit.h>

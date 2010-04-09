@@ -1,3 +1,9 @@
+//
+//  Created by Charles Moad <cmoad@imamuseum.org>.
+//  Copyright Indianapolis Museum of Art 2009.
+//  See LICENCE file included with source.
+//
+
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
@@ -6,8 +12,8 @@
 #import "StopFactory.h"
 #import "Analytics.h"
 
-#define TAP_TOUR_BUNDLE_NAME        @"TaraDonovan:Untitled"
-#define TAP_TOUR_BUNDLE_IDENTIFIER  @"org.imamuseum.tap.TaraDonovan:Untitled"
+#define TAP_TOUR_BUNDLE_NAME        @"<fill_me_in>" // ex. SacredSpain
+#define TAP_TOUR_BUNDLE_IDENTIFIER  @"<fill_me_in>" // ex. org.imamuseum.tap.SacredSpain
 #define TAP_HELP_STOP				@"411"
 #define TAP_HELP_VIDEO_CODE			@"41111"
 

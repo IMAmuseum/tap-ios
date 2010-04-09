@@ -1,11 +1,3 @@
-//
-//  XMLStopUtils.h
-//  Tap
-//
-//  Created by Charlie Moad on 3/24/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 #import <libxml/tree.h>

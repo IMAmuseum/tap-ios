@@ -1,11 +1,3 @@
-//
-//  XMLStopUtils.m
-//  Tap
-//
-//  Created by Charlie Moad on 3/24/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
-
 #import "TourMLUtils.h"
 
 

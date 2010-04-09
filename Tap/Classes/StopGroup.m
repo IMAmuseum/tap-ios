@@ -1,11 +1,3 @@
-//
-//  StopGroup.m
-//  Tap
-//
-//  Created by Charlie Moad on 5/15/09.
-//  Copyright 2009 Indianapolis Museum of Art. All rights reserved.
-//
-
 #import "StopGroup.h"
 
 #import "StopGroupController.h"
