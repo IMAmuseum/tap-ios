@@ -47,7 +47,6 @@
 	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
 	MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
 		
-	[moviePlayer setMovieControlMode:MPMovieControlModeDefault];
 	[moviePlayer setScalingMode:MPMovieScalingModeAspectFit];
 	
 	// Add finished observer
