@@ -44,18 +44,18 @@
 										  inDirectory:[videoSrc stringByDeletingLastPathComponent]];
 	if (!videoPath) return NO;
 	
-	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
-	MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
-		
-	[moviePlayer setScalingMode:MPMovieScalingModeAspectFit];
+	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];	
+	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
 	
 	// Add finished observer
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(moviePlayBackDidFinish:)
 												 name:MPMoviePlayerPlaybackDidFinishNotification
-											   object:moviePlayer];
+											   object:[movieController moviePlayer]];
 	
-	[moviePlayer play];
+	TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+	[[[appDelegate navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
 	
 	return YES;
 }
@@ -84,7 +84,6 @@
 	
 	[Analytics trackAction:@"movie-stop" forStop:[self getStopId]];
 	
-	[moviePlayer release];
 	[self release];
 }
 
