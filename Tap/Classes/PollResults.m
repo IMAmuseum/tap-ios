@@ -17,15 +17,17 @@
 
     // Try to parse the data as xml
     if (data != nil && [data length] > 0) {
-		NSString* resultXml = [NSString stringWithCString:[data bytes] encoding:NSUTF8StringEncoding];
-        resultDoc = xmlParseDoc((xmlChar*)[resultXml UTF8String]);
-        
+		resultDoc = xmlReadMemory([data bytes], [data length], [resultsFilename UTF8String], NULL, 0);
+		        
         if (resultDoc != NULL) {
             // we got a good result so save it
             if (![[NSFileManager defaultManager] createFileAtPath:resultsDataPath contents:data attributes:nil]) {
                 NSLog(@"Failed to save results file to %@", resultsDataPath);
             }
-        }
+        } else {
+			xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
+			NSLog(@"xmlError: %@", [NSString stringWithUTF8String:theLastErrorPtr->message]);
+		}
     }
     
     // Try to load an old result if we didn't get a new one
@@ -180,7 +182,7 @@
         NSString *txt = [NSString stringWithFormat:@"%.0f%% %@", percent * 100, [answers objectAtIndex:idx]];
 		[[cell textLabel] setText:txt];
 		[[cell textLabel] setBackgroundColor:[UIColor clearColor]];
-		NSLog(@"%@", [cell bounds]);
+		//NSLog(@"%@", [cell bounds]);
         
         // Add a chart bar to the background
         CGRect chartBarFrame = CGRectMake([[cell contentView] frame].origin.x,
