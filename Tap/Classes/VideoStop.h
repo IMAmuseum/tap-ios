@@ -3,7 +3,7 @@
 
 #import "BaseStop.h"
 
-@interface VideoStop : BaseStop {
+@interface VideoStop : BaseStop <Stop> {
 	
 	BOOL isAudio;
 	

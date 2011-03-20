@@ -7,7 +7,7 @@
 
 -(id)initWithStopNode:(xmlNodePtr)stop
 {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		[self setStopNode:stop];
 	}
 	

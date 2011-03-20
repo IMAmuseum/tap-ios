@@ -3,6 +3,7 @@
 
 #import "TapAppDelegate.h"
 #import "TapDetectingImageView.h"
+#import "ImageStop.h"
 
 @interface ImageStopController : UIViewController <UIScrollViewDelegate, TapDetectingImageViewDelegate> {
 

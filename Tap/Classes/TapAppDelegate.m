@@ -41,7 +41,7 @@
 	[self loadStop:[StopFactory newStopForStopNode:helpStopNode]];
 }
 
-- (BOOL)loadStop:(BaseStop*)stop
+- (BOOL)loadStop:(id<Stop>)stop
 {
 	if ([stop providesViewController]) {
 		[navigationController pushViewController:[stop newViewController] animated:YES];		

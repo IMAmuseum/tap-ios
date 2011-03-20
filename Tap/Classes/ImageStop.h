@@ -3,7 +3,7 @@
 #import "BaseStop.h"
 
 
-@interface ImageStop : BaseStop {
+@interface ImageStop : BaseStop <Stop> {
 
 }
 

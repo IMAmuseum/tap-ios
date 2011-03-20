@@ -1,16 +1,12 @@
 #import <Foundation/Foundation.h>
 
-#import "ImageStop.h"
-#import "PollStop.h"
-#import "StopGroup.h"
-#import "VideoStop.h"
-#import "WebStop.h"
+#import "Stop.h"
 
 
 @interface StopFactory : NSObject {
 
 }
 
-+(id)newStopForStopNode:(xmlNodePtr)stop;
++(id<Stop>)newStopForStopNode:(xmlNodePtr)stop;
 
 @end

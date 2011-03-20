@@ -1,15 +1,10 @@
 #import <Foundation/Foundation.h>
 
-#import "Stop.h"
+#import "TourMLUtils.h"
 
-@interface BaseStop : NSObject <Stop> {
-	
-	xmlNodePtr stopNode;
+@protocol Stop <NSObject>
 
-}
-
-@property xmlNodePtr stopNode;
-
+// Initialize the instance with an xml stop
 -(id)initWithStopNode:(xmlNodePtr)stop;
 
 // Get the internal stop id

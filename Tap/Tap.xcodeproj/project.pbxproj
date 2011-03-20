@@ -99,6 +99,7 @@
 		8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8B7FEC811034595200311CB9 /* PollResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollResults.h; sourceTree = "<group>"; };
 		8B7FEC821034595200311CB9 /* PollResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollResults.m; sourceTree = "<group>"; };
+		8B8D509D133687F800DFE553 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		8B9241CA0FCC6A8600C172AC /* WebStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebStopController.h; sourceTree = "<group>"; };
 		8B9241CB0FCC6A8600C172AC /* WebStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebStopController.m; sourceTree = "<group>"; };
 		8B9646B00FCC81870006494F /* PollStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollStop.h; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 				8BD9A4610FC1AE76001E97D9 /* WebStop.m */,
 				8B9646B00FCC81870006494F /* PollStop.h */,
 				8B9646B10FCC81870006494F /* PollStop.m */,
+				8B8D509D133687F800DFE553 /* Stop.h */,
 			);
 			name = Stops;
 			sourceTree = "<group>";
@@ -558,6 +560,7 @@
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = Tap;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -587,6 +590,7 @@
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = Tap;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};

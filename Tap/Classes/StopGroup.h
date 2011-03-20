@@ -4,7 +4,7 @@
 #import "StopFactory.h"
 
 
-@interface StopGroup : BaseStop {
+@interface StopGroup : BaseStop <Stop> {
 
 }
 

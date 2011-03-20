@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TapAppDelegate.h"
+#import "WebStop.h"
 
 @interface WebStopController : UIViewController {
 

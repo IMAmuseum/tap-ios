@@ -8,7 +8,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "TourMLUtils.h"
+#import "Stop.h"
 #import "StopFactory.h"
 #import "Analytics.h"
 
@@ -53,7 +53,7 @@
 
 - (IBAction)helpButtonClicked:(id)sender;
 
-- (BOOL)loadStop:(BaseStop*)stop;
+- (BOOL)loadStop:(id<Stop>)stop;
 
 - (void)playClick;
 - (void)playError;

@@ -2,7 +2,7 @@
 
 #import "BaseStop.h"
 
-@interface PollStop : BaseStop {
+@interface PollStop : BaseStop <Stop> {
 
 }
 
