@@ -14,7 +14,7 @@
 
 - (id)initWithImageStop:(ImageStop*)stop
 {
-	if (self = [super initWithNibName:@"ImageStop" bundle:[NSBundle mainBundle]]) {
+	if ((self = [super initWithNibName:@"ImageStop" bundle:[NSBundle mainBundle]])) {
 		[self setImageStop:stop];
 		
 		[self autorelease];
@@ -27,7 +27,8 @@
 {
 	[imageView release];
 	[imageStop release];
-	
+	[scrollView release];
+    
 	[super dealloc];
 }
 
