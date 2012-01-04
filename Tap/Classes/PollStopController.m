@@ -19,7 +19,7 @@
 
 - (id)initWithPollStop:(PollStop*)stop
 {
-	if (self = [super initWithNibName:@"PollStop" bundle:[NSBundle mainBundle]]) {
+	if ((self = [super initWithNibName:@"PollStop" bundle:[NSBundle mainBundle]])) {
 		[self setPollStop:stop];
 	}
 	

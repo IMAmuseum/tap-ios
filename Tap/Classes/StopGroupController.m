@@ -13,7 +13,7 @@
 
 - (id)initWithStopGroup:(StopGroup*)stop
 {
-	if (self = [super initWithNibName:@"StopGroup" bundle:[NSBundle mainBundle]]) {
+	if ((self = [super initWithNibName:@"StopGroup" bundle:[NSBundle mainBundle]])) {
 		[self setStopGroup:stop];
 		[self setTitle:[stopGroup getTitle]];
 	}
@@ -135,33 +135,35 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	NSUInteger idx = [indexPath row];
-	BaseStop *refStop = [[[self stopGroup] stopAtIndex:idx] autorelease];
-	NSString *cellIdent = [NSString stringWithFormat:@"stop-cell-%d", idx];
+	BaseStop *refStop = [[self stopGroup] stopAtIndex:idx];
+	//NSString *cellIdent = [NSString stringWithFormat:@"stop-cell-%d", idx];
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdent];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
 	if (cell == nil) {
 		// Create a new reusable table cell
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdent] autorelease];
-		
-		// Set the title
-		[[cell textLabel] setText:[refStop getTitle]];
-		
-		
-		// Set the description if available
-		[[cell detailTextLabel] setText:[refStop getDescription]];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
+        
 		//[[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
 		//[[cell detailTextLabel] setNumberOfLines:0];
-
+        
 		[[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
 		[[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
 		//[[cell detailTextLabel] setNumberOfLines:2];
 		
-		// Set the associated icon
-		[[cell imageView] setImage:[UIImage imageWithContentsOfFile:[refStop getIconPath]]];
-		
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 	
+    // Set the title
+    [[cell textLabel] setText:[refStop getTitle]];
+    
+    // Set the description if available
+    [[cell detailTextLabel] setText:[refStop getDescription]];
+    
+    // Set the associated icon
+    [[cell imageView] setImage:[UIImage imageWithContentsOfFile:[refStop getIconPath]]];
+    
+    [refStop release];
+    
 	return cell;
 }
 

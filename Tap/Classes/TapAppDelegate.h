@@ -12,13 +12,6 @@
 #import "StopFactory.h"
 #import "Analytics.h"
 
-#define TAP_TOUR_BUNDLE_NAME        @"<fill_me_in>" // ex. SacredSpain
-#define TAP_TOUR_BUNDLE_IDENTIFIER  @"<fill_me_in>" // ex. org.imamuseum.tap.SacredSpain
-#define TAP_HELP_STOP				@"411"
-#define TAP_HELP_VIDEO_CODE			@"41111"
-
-#define TOUR_FILENAME				@"tour"
-
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
 
@@ -26,6 +19,7 @@
 
     IBOutlet UIWindow *window;
 	IBOutlet UINavigationController *navigationController;
+    IBOutlet UIBarButtonItem *helpButton;
     
 	NSBundle *tourBundle; // The bundle holding the tour
 	xmlDocPtr tourDoc; // The parsed tour document
@@ -36,13 +30,19 @@
     SystemSoundID errorFileObject;
 	//CFURLRef swooshFileURLRef;
     //SystemSoundID swooshFileObject;
+    
+    NSDictionary *tapConfig;
+    NSMutableDictionary *tourBundles;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, retain) UIBarButtonItem *helpButton;
 
 @property (nonatomic, retain) NSBundle *tourBundle;
 @property xmlDocPtr tourDoc;
+@property (nonatomic, retain) NSDictionary *tapConfig;
+@property (nonatomic, retain) NSMutableDictionary *tourBundles;
 
 @property(readwrite) CFURLRef clickFileURLRef;
 @property(readonly) SystemSoundID clickFileObject;
@@ -59,4 +59,7 @@
 - (void)playError;
 //- (void)playSwoosh;
 
+- (void)setActiveTour:(NSString *)tourBundleName;
+
+- (void)animateSplashImage;
 @end

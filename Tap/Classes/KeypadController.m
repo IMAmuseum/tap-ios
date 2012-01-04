@@ -145,27 +145,10 @@
 
 - (void)viewDidLoad
 {
+    [[self navigationItem] setTitle:@"Keypad"];
+    
     [self clearCode];
 	[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main.png"]]];
-	
-	// See if we need to slide apart the splash image
-	UIWindow *window = (UIWindow*)[[[UIApplication sharedApplication] windows] objectAtIndex:0];
-	UIView *splashTop = [window viewWithTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
-	UIView *splashBtm = [window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
-	
-	if (splashTop != nil && splashBtm != nil)
-	{
-		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationDuration:1.0f];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-		[UIView setAnimationDelegate:(TapAppDelegate*)[[UIApplication sharedApplication] delegate]];
-		[UIView setAnimationDidStopSelector:@selector(splashSlideAnimationDidStop:finished:context:)];
-	
-		[splashTop setFrame:CGRectMake(0.0f, -480.0f, CGRectGetWidth([splashTop frame]), CGRectGetHeight([splashTop frame]))];
-		[splashBtm setFrame:CGRectMake(0.0f, 480.0f, CGRectGetWidth([splashBtm frame]), CGRectGetHeight([splashBtm frame]))];
-	
-		[UIView commitAnimations];
-	}
 }
 
 - (void)viewWillAppear:(BOOL)animated

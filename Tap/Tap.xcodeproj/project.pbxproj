@@ -14,14 +14,7 @@
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		73993C5F0F6AA00D002137F5 /* ImageStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73993C5E0F6AA00D002137F5 /* ImageStopController.m */; };
 		8B0C13A3116F622A00F3CE1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8B0C13A2116F622A00F3CE1B /* LICENSE */; };
-		8B193E111035BA49000266D6 /* bg-poll-bar-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */; };
-		8B193E121035BA49000266D6 /* bg-poll-bar-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */; };
-		8B193E131035BA49000266D6 /* bg-poll-bar-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */; };
-		8B193E141035BA49000266D6 /* tap-title-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */; };
-		8B193E151035BA49000266D6 /* tap-title-screen-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B193E101035BA49000266D6 /* tap-title-screen-top.png */; };
-		8B27161E0FBC761A004E35A5 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B27161C0FBC761A004E35A5 /* bg-header.png */; };
 		8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FAC6D10580FCB00E6A44A /* Analytics.m */; };
-		8B56A4B30F7932E4006675F9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B56A4B20F7932E4006675F9 /* Default.png */; };
 		8B5A06CD0F5DBFE2000BAB32 /* KeypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */; };
 		8B5CD29F0F7C190100183A17 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CD29E0F7C190100183A17 /* Icon.png */; };
 		8B6C627E0F65567200598AB1 /* StopGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C627D0F65567200598AB1 /* StopGroupController.m */; };
@@ -36,11 +29,8 @@
 		8BB5CC071164EEDE001142F0 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5CC051164EEDE001142F0 /* error.aif */; };
 		8BB71D570FC47DC20081C3D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */; };
 		8BC1E3831030554A000E14C4 /* Keypad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3811030554A000E14C4 /* Keypad.xib */; };
-		8BC1E3ED103061B9000E14C4 /* bg-poll-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */; };
-		8BC1E3EE103061B9000E14C4 /* bg-poll-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */; };
 		8BC1E3F8103063FD000E14C4 /* submit-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BC1E3F7103063FD000E14C4 /* submit-btn.png */; };
 		8BD6398D0FDFEA1D00A3E1FC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */; };
-		8BD937AB0FDEC6A100A902A2 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */; };
 		8BD937CB0FDEC96300A902A2 /* bg-main.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD937CA0FDEC96300A902A2 /* bg-main.png */; };
 		8BD938080FDECC3B00A902A2 /* bg-main-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD938070FDECC3B00A902A2 /* bg-main-tile.png */; };
 		8BD9A2E50FC19FA3001E97D9 /* VideoStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9A2E40FC19FA3001E97D9 /* VideoStop.m */; };
@@ -51,15 +41,9 @@
 		8BE419840FBDB9E500EE1396 /* BaseStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE419830FBDB9E500EE1396 /* BaseStop.m */; };
 		8BE419870FBDBF9200EE1396 /* StopGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE419860FBDBF9200EE1396 /* StopGroup.m */; };
 		8BE41AE00FBDF35900EE1396 /* icon-webpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */; };
-		8BE41AE10FBDF35900EE1396 /* icon-video.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADC0FBDF35900EE1396 /* icon-video.png */; };
-		8BE41AE20FBDF35900EE1396 /* icon-poll.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADD0FBDF35900EE1396 /* icon-poll.png */; };
-		8BE41AE30FBDF35900EE1396 /* icon-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADE0FBDF35900EE1396 /* icon-image.png */; };
-		8BE41AE40FBDF35900EE1396 /* icon-audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BE41ADF0FBDF35900EE1396 /* icon-audio.png */; };
 		8BF0D48A0FBC6B850088A5F1 /* keypad-number-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */; };
-		8BF0D48B0FBC6B850088A5F1 /* keypad-go-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */; };
 		8BF0D48C0FBC6B850088A5F1 /* keypad-clear-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */; };
 		8BF0D4910FBC6BAD0088A5F1 /* keypad-clear-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */; };
-		8BF0D4920FBC6BAD0088A5F1 /* keypad-go-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */; };
 		8BF0D4930FBC6BAD0088A5F1 /* keypad-number-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */; };
 		8BF0D4940FBC6BAD0088A5F1 /* keypad-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */; };
 		8BF5915C0FCEFD080049DD27 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5915A0FCEFD080049DD27 /* MainWindow.xib */; };
@@ -68,6 +52,27 @@
 		8BF591960FCF004B0049DD27 /* PollStop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF591940FCF004B0049DD27 /* PollStop.xib */; };
 		8BF591990FCF00570049DD27 /* WebStop.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF591970FCF00570049DD27 /* WebStop.xib */; };
 		8BF9F85D0FCECCCB00F2764D /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF9F85C0FCECCCB00F2764D /* Entitlements.plist */; };
+		A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43321B114B3EECA0018A8F8 /* TourSelectionController.m */; };
+		A43321B514B3EF960018A8F8 /* TourSelectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43321B414B3EF960018A8F8 /* TourSelectionController.xib */; };
+		A43321BB14B3F1B00018A8F8 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A43321BA14B3F1B00018A8F8 /* TapConfig.plist */; };
+		A43321BD14B3F1F80018A8F8 /* TAPintoThawApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */; };
+		A43321BF14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */; };
+		A43321C114B3F3770018A8F8 /* tap-title-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C014B3F3770018A8F8 /* tap-title-screen-btm.png */; };
+		A43321C414B3F3A50018A8F8 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C214B3F3A50018A8F8 /* bg-header-wide.png */; };
+		A43321C514B3F3A50018A8F8 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C314B3F3A50018A8F8 /* bg-header.png */; };
+		A43321CA14B3F3E90018A8F8 /* icon-audio.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C614B3F3DF0018A8F8 /* icon-audio.png */; };
+		A43321CB14B3F3E90018A8F8 /* icon-image.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C714B3F3DF0018A8F8 /* icon-image.png */; };
+		A43321CC14B3F3E90018A8F8 /* icon-poll.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C814B3F3E10018A8F8 /* icon-poll.png */; };
+		A43321CD14B3F3E90018A8F8 /* icon-video.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C914B3F3E40018A8F8 /* icon-video.png */; };
+		A43321D014B3F4550018A8F8 /* bg-poll-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321CE14B3F4540018A8F8 /* bg-poll-landscape.png */; };
+		A43321D114B3F4550018A8F8 /* bg-poll-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321CF14B3F4550018A8F8 /* bg-poll-portrait.png */; };
+		A43321D514B3F4800018A8F8 /* bg-poll-bar-left.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321D214B3F47F0018A8F8 /* bg-poll-bar-left.png */; };
+		A43321D614B3F4800018A8F8 /* bg-poll-bar-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321D314B3F47F0018A8F8 /* bg-poll-bar-middle.png */; };
+		A43321D714B3F4800018A8F8 /* bg-poll-bar-right.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321D414B3F4800018A8F8 /* bg-poll-bar-right.png */; };
+		A43321D914B3F4900018A8F8 /* tap-title-screen-top.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321D814B3F48F0018A8F8 /* tap-title-screen-top.png */; };
+		A43321DC14B3F4CA0018A8F8 /* keypad-go-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DA14B3F4C30018A8F8 /* keypad-go-down.png */; };
+		A43321DD14B3F4CA0018A8F8 /* keypad-go-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */; };
+		A43321DF14B3F50D0018A8F8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DE14B3F50C0018A8F8 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,15 +87,8 @@
 		73993C5D0F6AA00D002137F5 /* ImageStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStopController.h; sourceTree = "<group>"; };
 		73993C5E0F6AA00D002137F5 /* ImageStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStopController.m; sourceTree = "<group>"; };
 		8B0C13A2116F622A00F3CE1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-left.png"; sourceTree = "<group>"; };
-		8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-middle.png"; sourceTree = "<group>"; };
-		8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-right.png"; sourceTree = "<group>"; };
-		8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-btm.png"; sourceTree = "<group>"; };
-		8B193E101035BA49000266D6 /* tap-title-screen-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-top.png"; sourceTree = "<group>"; };
-		8B27161C0FBC761A004E35A5 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header.png"; sourceTree = "<group>"; };
 		8B4FAC6C10580FCB00E6A44A /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		8B4FAC6D10580FCB00E6A44A /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
-		8B56A4B20F7932E4006675F9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadController.h; sourceTree = "<group>"; };
 		8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadController.m; sourceTree = "<group>"; };
 		8B5CD29E0F7C190100183A17 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
@@ -116,11 +114,8 @@
 		8BB5CC051164EEDE001142F0 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
 		8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8BC1E3821030554A000E14C4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/Keypad.xib; sourceTree = "<group>"; };
-		8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-landscape.png"; sourceTree = "<group>"; };
-		8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-portrait.png"; sourceTree = "<group>"; };
 		8BC1E3F7103063FD000E14C4 /* submit-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submit-btn.png"; sourceTree = "<group>"; };
 		8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header-wide.png"; sourceTree = "<group>"; };
 		8BD937CA0FDEC96300A902A2 /* bg-main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main.png"; sourceTree = "<group>"; };
 		8BD938070FDECC3B00A902A2 /* bg-main-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main-tile.png"; sourceTree = "<group>"; };
 		8BD9A2E30FC19FA3001E97D9 /* VideoStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStop.h; sourceTree = "<group>"; };
@@ -138,15 +133,9 @@
 		8BE419850FBDBF9200EE1396 /* StopGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroup.h; sourceTree = "<group>"; };
 		8BE419860FBDBF9200EE1396 /* StopGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroup.m; sourceTree = "<group>"; };
 		8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-webpage.png"; sourceTree = "<group>"; };
-		8BE41ADC0FBDF35900EE1396 /* icon-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-video.png"; sourceTree = "<group>"; };
-		8BE41ADD0FBDF35900EE1396 /* icon-poll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-poll.png"; sourceTree = "<group>"; };
-		8BE41ADE0FBDF35900EE1396 /* icon-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-image.png"; sourceTree = "<group>"; };
-		8BE41ADF0FBDF35900EE1396 /* icon-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio.png"; sourceTree = "<group>"; };
 		8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-down.png"; sourceTree = "<group>"; };
-		8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down.png"; sourceTree = "<group>"; };
 		8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-down.png"; sourceTree = "<group>"; };
 		8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-up.png"; sourceTree = "<group>"; };
-		8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-up.png"; sourceTree = "<group>"; };
 		8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-up.png"; sourceTree = "<group>"; };
 		8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-textfield.png"; sourceTree = "<group>"; };
 		8BF5915B0FCEFD080049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/MainWindow.xib; sourceTree = "<group>"; };
@@ -156,6 +145,28 @@
 		8BF591980FCF00570049DD27 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Resources/en.lproj/WebStop.xib; sourceTree = "<group>"; };
 		8BF9F85C0FCECCCB00F2764D /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43321B014B3EECA0018A8F8 /* TourSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourSelectionController.h; sourceTree = "<group>"; };
+		A43321B114B3EECA0018A8F8 /* TourSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourSelectionController.m; sourceTree = "<group>"; };
+		A43321B414B3EF960018A8F8 /* TourSelectionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourSelectionController.xib; sourceTree = "<group>"; };
+		A43321BA14B3F1B00018A8F8 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
+		A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TAPintoThawApp.bundle; path = ../../../Downloads/TAPintoThawApp.bundle; sourceTree = "<group>"; };
+		A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "DynastyandDivinity:IfeArtInAncientNigeria.bundle"; path = "../../../Downloads/DynastyandDivinity:IfeArtInAncientNigeria.bundle"; sourceTree = "<group>"; };
+		A43321C014B3F3770018A8F8 /* tap-title-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-btm.png"; sourceTree = "<group>"; };
+		A43321C214B3F3A50018A8F8 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header-wide.png"; sourceTree = "<group>"; };
+		A43321C314B3F3A50018A8F8 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header.png"; sourceTree = "<group>"; };
+		A43321C614B3F3DF0018A8F8 /* icon-audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio.png"; sourceTree = "<group>"; };
+		A43321C714B3F3DF0018A8F8 /* icon-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-image.png"; sourceTree = "<group>"; };
+		A43321C814B3F3E10018A8F8 /* icon-poll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-poll.png"; sourceTree = "<group>"; };
+		A43321C914B3F3E40018A8F8 /* icon-video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-video.png"; sourceTree = "<group>"; };
+		A43321CE14B3F4540018A8F8 /* bg-poll-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-landscape.png"; sourceTree = "<group>"; };
+		A43321CF14B3F4550018A8F8 /* bg-poll-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-portrait.png"; sourceTree = "<group>"; };
+		A43321D214B3F47F0018A8F8 /* bg-poll-bar-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-left.png"; sourceTree = "<group>"; };
+		A43321D314B3F47F0018A8F8 /* bg-poll-bar-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-middle.png"; sourceTree = "<group>"; };
+		A43321D414B3F4800018A8F8 /* bg-poll-bar-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-right.png"; sourceTree = "<group>"; };
+		A43321D814B3F48F0018A8F8 /* tap-title-screen-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-top.png"; sourceTree = "<group>"; };
+		A43321DA14B3F4C30018A8F8 /* keypad-go-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down.png"; sourceTree = "<group>"; };
+		A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-up.png"; sourceTree = "<group>"; };
+		A43321DE14B3F50C0018A8F8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +209,8 @@
 		29B97314FDCFA39411CA2CEA /* Tap */ = {
 			isa = PBXGroup;
 			children = (
+				A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */,
+				A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -224,10 +237,11 @@
 				8BD639770FDFE80A00A3E1FC /* Audio */,
 				8BD9A2550FC195F4001E97D9 /* Nibs */,
 				8BD9A2540FC195E5001E97D9 /* Images */,
-				8B56A4B20F7932E4006675F9 /* Default.png */,
+				A43321DE14B3F50C0018A8F8 /* Default.png */,
 				8B5CD29E0F7C190100183A17 /* Icon.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				8B98F983105AD5250003FB0A /* Localizable.strings */,
+				A43321BA14B3F1B00018A8F8 /* TapConfig.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -257,29 +271,29 @@
 		8BD9A2540FC195E5001E97D9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				8B193E0C1035BA49000266D6 /* bg-poll-bar-left.png */,
-				8B193E0D1035BA49000266D6 /* bg-poll-bar-middle.png */,
-				8B193E0E1035BA49000266D6 /* bg-poll-bar-right.png */,
-				8B193E0F1035BA49000266D6 /* tap-title-screen-btm.png */,
-				8B193E101035BA49000266D6 /* tap-title-screen-top.png */,
+				A43321DA14B3F4C30018A8F8 /* keypad-go-down.png */,
+				A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */,
+				A43321D814B3F48F0018A8F8 /* tap-title-screen-top.png */,
+				A43321D214B3F47F0018A8F8 /* bg-poll-bar-left.png */,
+				A43321D314B3F47F0018A8F8 /* bg-poll-bar-middle.png */,
+				A43321D414B3F4800018A8F8 /* bg-poll-bar-right.png */,
+				A43321CE14B3F4540018A8F8 /* bg-poll-landscape.png */,
+				A43321CF14B3F4550018A8F8 /* bg-poll-portrait.png */,
+				A43321C614B3F3DF0018A8F8 /* icon-audio.png */,
+				A43321C714B3F3DF0018A8F8 /* icon-image.png */,
+				A43321C814B3F3E10018A8F8 /* icon-poll.png */,
+				A43321C914B3F3E40018A8F8 /* icon-video.png */,
+				A43321C214B3F3A50018A8F8 /* bg-header-wide.png */,
+				A43321C314B3F3A50018A8F8 /* bg-header.png */,
+				A43321C014B3F3770018A8F8 /* tap-title-screen-btm.png */,
 				8BC1E3F7103063FD000E14C4 /* submit-btn.png */,
-				8B27161C0FBC761A004E35A5 /* bg-header.png */,
-				8BD937AA0FDEC6A100A902A2 /* bg-header-wide.png */,
 				8BD937CA0FDEC96300A902A2 /* bg-main.png */,
 				8BD938070FDECC3B00A902A2 /* bg-main-tile.png */,
-				8BC1E3EB103061B9000E14C4 /* bg-poll-landscape.png */,
-				8BC1E3EC103061B9000E14C4 /* bg-poll-portrait.png */,
 				8BE41ADB0FBDF35900EE1396 /* icon-webpage.png */,
-				8BE41ADC0FBDF35900EE1396 /* icon-video.png */,
-				8BE41ADD0FBDF35900EE1396 /* icon-poll.png */,
-				8BE41ADE0FBDF35900EE1396 /* icon-image.png */,
-				8BE41ADF0FBDF35900EE1396 /* icon-audio.png */,
 				8BF0D48F0FBC6BAD0088A5F1 /* keypad-number-up.png */,
 				8BF0D4870FBC6B850088A5F1 /* keypad-number-down.png */,
 				8BF0D48D0FBC6BAD0088A5F1 /* keypad-clear-up.png */,
 				8BF0D4890FBC6B850088A5F1 /* keypad-clear-down.png */,
-				8BF0D48E0FBC6BAD0088A5F1 /* keypad-go-up.png */,
-				8BF0D4880FBC6B850088A5F1 /* keypad-go-down.png */,
 				8BF0D4900FBC6BAD0088A5F1 /* keypad-textfield.png */,
 			);
 			name = Images;
@@ -288,6 +302,7 @@
 		8BD9A2550FC195F4001E97D9 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				A43321B414B3EF960018A8F8 /* TourSelectionController.xib */,
 				8BF5915A0FCEFD080049DD27 /* MainWindow.xib */,
 				8BF5918E0FCF00200049DD27 /* ImageStop.xib */,
 				8BC1E3811030554A000E14C4 /* Keypad.xib */,
@@ -311,6 +326,8 @@
 				8B6C627D0F65567200598AB1 /* StopGroupController.m */,
 				8B9241CA0FCC6A8600C172AC /* WebStopController.h */,
 				8B9241CB0FCC6A8600C172AC /* WebStopController.m */,
+				A43321B014B3EECA0018A8F8 /* TourSelectionController.h */,
+				A43321B114B3EECA0018A8F8 /* TourSelectionController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -404,43 +421,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B56A4B30F7932E4006675F9 /* Default.png in Resources */,
 				8B5CD29F0F7C190100183A17 /* Icon.png in Resources */,
 				8BF0D48A0FBC6B850088A5F1 /* keypad-number-down.png in Resources */,
-				8BF0D48B0FBC6B850088A5F1 /* keypad-go-down.png in Resources */,
 				8BF0D48C0FBC6B850088A5F1 /* keypad-clear-down.png in Resources */,
 				8BF0D4910FBC6BAD0088A5F1 /* keypad-clear-up.png in Resources */,
-				8BF0D4920FBC6BAD0088A5F1 /* keypad-go-up.png in Resources */,
 				8BF0D4930FBC6BAD0088A5F1 /* keypad-number-up.png in Resources */,
 				8BF0D4940FBC6BAD0088A5F1 /* keypad-textfield.png in Resources */,
-				8B27161E0FBC761A004E35A5 /* bg-header.png in Resources */,
 				8BE41AE00FBDF35900EE1396 /* icon-webpage.png in Resources */,
-				8BE41AE10FBDF35900EE1396 /* icon-video.png in Resources */,
-				8BE41AE20FBDF35900EE1396 /* icon-poll.png in Resources */,
-				8BE41AE30FBDF35900EE1396 /* icon-image.png in Resources */,
-				8BE41AE40FBDF35900EE1396 /* icon-audio.png in Resources */,
 				8BF9F85D0FCECCCB00F2764D /* Entitlements.plist in Resources */,
 				8BF5915C0FCEFD080049DD27 /* MainWindow.xib in Resources */,
 				8BF591920FCF00200049DD27 /* ImageStop.xib in Resources */,
 				8BF591930FCF00200049DD27 /* StopGroup.xib in Resources */,
 				8BF591960FCF004B0049DD27 /* PollStop.xib in Resources */,
 				8BF591990FCF00570049DD27 /* WebStop.xib in Resources */,
-				8BD937AB0FDEC6A100A902A2 /* bg-header-wide.png in Resources */,
 				8BD937CB0FDEC96300A902A2 /* bg-main.png in Resources */,
 				8BD938080FDECC3B00A902A2 /* bg-main-tile.png in Resources */,
 				8BC1E3831030554A000E14C4 /* Keypad.xib in Resources */,
-				8BC1E3ED103061B9000E14C4 /* bg-poll-landscape.png in Resources */,
-				8BC1E3EE103061B9000E14C4 /* bg-poll-portrait.png in Resources */,
 				8BC1E3F8103063FD000E14C4 /* submit-btn.png in Resources */,
-				8B193E111035BA49000266D6 /* bg-poll-bar-left.png in Resources */,
-				8B193E121035BA49000266D6 /* bg-poll-bar-middle.png in Resources */,
-				8B193E131035BA49000266D6 /* bg-poll-bar-right.png in Resources */,
-				8B193E141035BA49000266D6 /* tap-title-screen-btm.png in Resources */,
-				8B193E151035BA49000266D6 /* tap-title-screen-top.png in Resources */,
 				8B98F985105AD5250003FB0A /* Localizable.strings in Resources */,
 				8BB5CC061164EEDE001142F0 /* click.aif in Resources */,
 				8BB5CC071164EEDE001142F0 /* error.aif in Resources */,
 				8B0C13A3116F622A00F3CE1B /* LICENSE in Resources */,
+				A43321B514B3EF960018A8F8 /* TourSelectionController.xib in Resources */,
+				A43321BB14B3F1B00018A8F8 /* TapConfig.plist in Resources */,
+				A43321BD14B3F1F80018A8F8 /* TAPintoThawApp.bundle in Resources */,
+				A43321BF14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle in Resources */,
+				A43321C114B3F3770018A8F8 /* tap-title-screen-btm.png in Resources */,
+				A43321C414B3F3A50018A8F8 /* bg-header-wide.png in Resources */,
+				A43321C514B3F3A50018A8F8 /* bg-header.png in Resources */,
+				A43321CA14B3F3E90018A8F8 /* icon-audio.png in Resources */,
+				A43321CB14B3F3E90018A8F8 /* icon-image.png in Resources */,
+				A43321CC14B3F3E90018A8F8 /* icon-poll.png in Resources */,
+				A43321CD14B3F3E90018A8F8 /* icon-video.png in Resources */,
+				A43321D014B3F4550018A8F8 /* bg-poll-landscape.png in Resources */,
+				A43321D114B3F4550018A8F8 /* bg-poll-portrait.png in Resources */,
+				A43321D514B3F4800018A8F8 /* bg-poll-bar-left.png in Resources */,
+				A43321D614B3F4800018A8F8 /* bg-poll-bar-middle.png in Resources */,
+				A43321D714B3F4800018A8F8 /* bg-poll-bar-right.png in Resources */,
+				A43321D914B3F4900018A8F8 /* tap-title-screen-top.png in Resources */,
+				A43321DC14B3F4CA0018A8F8 /* keypad-go-down.png in Resources */,
+				A43321DD14B3F4CA0018A8F8 /* keypad-go-up.png in Resources */,
+				A43321DF14B3F50D0018A8F8 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +490,7 @@
 				8B7FEC831034595200311CB9 /* PollResults.m in Sources */,
 				8BB31DD81039AF3900DDA1C8 /* TapDetectingImageView.m in Sources */,
 				8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */,
+				A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Tap;
 			};
 			name = Debug;
@@ -559,6 +582,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
 			};
@@ -589,6 +613,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
 			};

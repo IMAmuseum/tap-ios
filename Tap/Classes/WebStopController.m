@@ -8,7 +8,7 @@
 
 - (id)initWithWebStop:(WebStop*)stop
 {
-	if (self = [super initWithNibName:@"WebStop" bundle:[NSBundle mainBundle]]) {
+	if ((self = [super initWithNibName:@"WebStop" bundle:[NSBundle mainBundle]])) {
 		[self setWebStop:stop];
 	}
 	
