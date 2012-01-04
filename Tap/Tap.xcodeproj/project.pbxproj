@@ -55,8 +55,6 @@
 		A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43321B114B3EECA0018A8F8 /* TourSelectionController.m */; };
 		A43321B514B3EF960018A8F8 /* TourSelectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43321B414B3EF960018A8F8 /* TourSelectionController.xib */; };
 		A43321BB14B3F1B00018A8F8 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A43321BA14B3F1B00018A8F8 /* TapConfig.plist */; };
-		A43321BD14B3F1F80018A8F8 /* TAPintoThawApp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */; };
-		A43321BF14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */; };
 		A43321C114B3F3770018A8F8 /* tap-title-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C014B3F3770018A8F8 /* tap-title-screen-btm.png */; };
 		A43321C414B3F3A50018A8F8 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C214B3F3A50018A8F8 /* bg-header-wide.png */; };
 		A43321C514B3F3A50018A8F8 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321C314B3F3A50018A8F8 /* bg-header.png */; };
@@ -149,8 +147,6 @@
 		A43321B114B3EECA0018A8F8 /* TourSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourSelectionController.m; sourceTree = "<group>"; };
 		A43321B414B3EF960018A8F8 /* TourSelectionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourSelectionController.xib; sourceTree = "<group>"; };
 		A43321BA14B3F1B00018A8F8 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
-		A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TAPintoThawApp.bundle; path = ../../../Downloads/TAPintoThawApp.bundle; sourceTree = "<group>"; };
-		A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "DynastyandDivinity:IfeArtInAncientNigeria.bundle"; path = "../../../Downloads/DynastyandDivinity:IfeArtInAncientNigeria.bundle"; sourceTree = "<group>"; };
 		A43321C014B3F3770018A8F8 /* tap-title-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-btm.png"; sourceTree = "<group>"; };
 		A43321C214B3F3A50018A8F8 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header-wide.png"; sourceTree = "<group>"; };
 		A43321C314B3F3A50018A8F8 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header.png"; sourceTree = "<group>"; };
@@ -209,8 +205,6 @@
 		29B97314FDCFA39411CA2CEA /* Tap */ = {
 			isa = PBXGroup;
 			children = (
-				A43321BE14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle */,
-				A43321BC14B3F1F80018A8F8 /* TAPintoThawApp.bundle */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -444,8 +438,6 @@
 				8B0C13A3116F622A00F3CE1B /* LICENSE in Resources */,
 				A43321B514B3EF960018A8F8 /* TourSelectionController.xib in Resources */,
 				A43321BB14B3F1B00018A8F8 /* TapConfig.plist in Resources */,
-				A43321BD14B3F1F80018A8F8 /* TAPintoThawApp.bundle in Resources */,
-				A43321BF14B3F2C50018A8F8 /* DynastyandDivinity:IfeArtInAncientNigeria.bundle in Resources */,
 				A43321C114B3F3770018A8F8 /* tap-title-screen-btm.png in Resources */,
 				A43321C414B3F3A50018A8F8 /* bg-header-wide.png in Resources */,
 				A43321C514B3F3A50018A8F8 /* bg-header.png in Resources */,

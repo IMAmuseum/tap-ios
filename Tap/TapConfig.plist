@@ -7,10 +7,7 @@
 	<key>TapHelpStopVideoCode</key>
 	<integer>41111</integer>
 	<key>TapTourBundleNames</key>
-	<array>
-		<string>DynastyandDivinity:IfeArtInAncientNigeria</string>
-		<string>TAPintoThawApp</string>
-	</array>
+	<array/>
 	<key>TapTourFilename</key>
 	<string>tour</string>
 </dict>
