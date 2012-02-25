@@ -44,11 +44,13 @@
 {
 	if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
 	{
-		[Analytics trackAction:@"rotate-portrait" forStop:[imageStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-portrait" forStop:[imageStop getStopId]];
 	}
 	else
 	{
-		[Analytics trackAction:@"rotate-landscape" forStop:[imageStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-landscape" forStop:[imageStop getStopId]];
 	}
 }
 
@@ -100,28 +102,32 @@
 		// Zoom all the way in
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView maximumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-in" forStop:[imageStop getStopId]];
+		// TODO: GANTracker
+        //[Analytics trackAction:@"zoom-in" forStop:[imageStop getStopId]];
 	}
 	else if ([scrollView zoomScale] == [scrollView maximumZoomScale])
 	{
 		// Zoom all the way out
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView minimumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
 	}
 	else if (([scrollView zoomScale] - [scrollView minimumZoomScale]) < ([scrollView maximumZoomScale] - [scrollView zoomScale]))
 	{
 		// Zoom out if closer to min zoom
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView minimumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
 	}
 	else
 	{
 		// Zoom in if closer to max zoom
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView maximumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
 	}
 }
 

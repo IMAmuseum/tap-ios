@@ -46,14 +46,16 @@
 		[bannerImage setImage:[UIImage imageNamed:@"bg-header.png"]];
 		headerImageSrc = [stopGroup getHeaderPortraitImage];
 		
-		[Analytics trackAction:@"rotate-portrait" forStop:[stopGroup getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-portrait" forStop:[stopGroup getStopId]];
 	}
 	else
 	{
 		[bannerImage setImage:[UIImage imageNamed:@"bg-header-wide.png"]];
 		headerImageSrc = [stopGroup getHeaderLandscapeImage];
 		
-		[Analytics trackAction:@"rotate-landscape" forStop:[stopGroup getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-landscape" forStop:[stopGroup getStopId]];
 	}
 	
 	UIView *headerImage = [[stopTable tableHeaderView] viewWithTag:HEADER_IMAGE_VIEW_TAG];

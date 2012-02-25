@@ -82,7 +82,8 @@
 		[(KeypadController*)[[appDelegate navigationController] visibleViewController] clearCode];
 	}
 	
-	[Analytics trackAction:@"movie-stop" forStop:[self getStopId]];
+    // TODO: GANTracker
+	//[Analytics trackAction:@"movie-stop" forStop:[self getStopId]];
 	
 	[self release];
 }

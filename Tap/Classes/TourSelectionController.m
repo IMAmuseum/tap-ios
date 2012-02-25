@@ -76,7 +76,8 @@
         
     [(TapAppDelegate*)[[UIApplication sharedApplication] delegate] setActiveTour:bundle];
     
-    [Analytics trackAction:[NSString stringWithFormat:@"Selected Tour: %@",bundle] forStop:@"TourSelect"];
+    // TODO: GANTracker
+    //[Analytics trackAction:[NSString stringWithFormat:@"Selected Tour: %@",bundle] forStop:@"TourSelect"];
     
     KeypadController *keypad = [[KeypadController alloc] init];
     [[self navigationController] pushViewController:keypad animated:YES];

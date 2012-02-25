@@ -86,12 +86,15 @@
 {
 	if ([stop providesViewController]) {
 		[navigationController pushViewController:[stop newViewController] animated:YES];		
-		[Analytics trackAction:@"view" forStop:[stop getStopId]];
+		
+        // TODO: GANTracker
+        //[Analytics trackAction:@"view" forStop:[stop getStopId]];
 		return YES; // success
 
 	} else {
 		// This stop controls itself
-		[Analytics trackAction:@"view" forStop:[stop getStopId]];
+		// TODO: GANTracker
+        //[Analytics trackAction:@"view" forStop:[stop getStopId]];
 		return [stop loadStopView];
 	}
 }
@@ -205,8 +208,10 @@
     [splashTop release];
     [splashBtm release];
 
-    // Record the launch event
-    [Analytics trackAction:NSLocalizedString(@"launch - en", @"App starting") forStop:@"tap"];
+    // Initialize Google Analytics tracker
+    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-0000000-1"
+                                           dispatchPeriod:kGANDispatchPeriodSec
+                                                 delegate:nil];
 
     UIViewController *startController;
     if ([tourBundles count] > 1) {

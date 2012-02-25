@@ -10,10 +10,13 @@
 
 #import "Stop.h"
 #import "StopFactory.h"
-#import "Analytics.h"
+#import "GANTracker.h"
 
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
+
+// Dispatch period in seconds
+static const NSInteger kGANDispatchPeriodSec = 10;
 
 @interface TapAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
 

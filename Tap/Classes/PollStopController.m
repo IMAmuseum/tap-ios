@@ -96,7 +96,8 @@
         [alert release];
     }
 	
-	[Analytics trackAction:@"voted" forStop:[pollStop getStopId]];
+    // TODO: GANTracker
+	//[Analytics trackAction:@"voted" forStop:[pollStop getStopId]];
 }
 
 - (void)showResults:(NSTimer*)timer
@@ -170,7 +171,8 @@
 		[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-poll-portrait.png"]]];
 		[self.view setNeedsLayout];
 		
-		[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
 	}
 	else
 	{
@@ -181,7 +183,8 @@
 		[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-poll-landscape.png"]]];
 		[self.view setNeedsLayout];
 		
-		[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
 	}
 }
 

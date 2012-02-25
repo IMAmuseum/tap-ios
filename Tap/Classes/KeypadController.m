@@ -64,7 +64,8 @@
 	{
 		[appDelegate playError];
 		
-		[Analytics trackAction:@"bad-code" forStop:[NSString stringWithFormat:@"<%@>", stopCode]];
+        // TODO: GANTracker
+		//[Analytics trackAction:@"bad-code" forStop:[NSString stringWithFormat:@"<%@>", stopCode]];
 		
 		UIAlertView *alert = [[UIAlertView alloc]
 							  initWithTitle:nil
@@ -120,7 +121,10 @@
 		[button0 setFrame:CGRectMake(6, 344, 100, 66)];
 		[buttonClear setFrame:CGRectMake(109, 344, 203, 66)];
 		
-		if (duration > 0) [Analytics trackAction:@"rotate-portrait" forStop:@"keypad"];
+		if (duration > 0) {
+            // TODO: GANTracker
+            //[Analytics trackAction:@"rotate-portrait" forStop:@"keypad"];
+        }
 	}
 	else
 	{
@@ -139,7 +143,10 @@
 		[button0 setFrame:CGRectMake(382, 205, 92, 62)];
 		[buttonClear setFrame:CGRectMake(315, 68, 159, 66)];
 		
-		if (duration > 0) [Analytics trackAction:@"rotate-landscape" forStop:@"keypad"];
+		if (duration > 0) {
+            // TODO: GANTracker
+            //[Analytics trackAction:@"rotate-landscape" forStop:@"keypad"];
+        }
 	}
 }
 
