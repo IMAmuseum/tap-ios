@@ -22,6 +22,10 @@
 //@synthesize swooshFileURLRef;
 //@synthesize swooshFileObject;
 
+// Google Analytic settings. TODO: Read from TourML Bundle
+static NSString* ganTrackerCode = @"UA-0000000-1";
+static NSInteger ganDispatchPeriod = 10;
+
 - (void)setActiveTour:(NSString *)tourBundleName
 {
     tourBundle = [tourBundles objectForKey:tourBundleName];
@@ -87,8 +91,13 @@
 	if ([stop providesViewController]) {
 		[navigationController pushViewController:[stop newViewController] animated:YES];		
 		
-        // TODO: GANTracker
-        //[Analytics trackAction:@"view" forStop:[stop getStopId]];
+        NSError *error;
+        if (![[GANTracker sharedTracker]
+            trackPageview:[NSString stringWithFormat:@"stop/{%@}%@/%@", [tourBundle bundleIdentifier], [stop getStopId], [stop getTitle]]
+              withError:&error]) {
+            NSLog(@"GANTracker error: %@", error);
+        }
+        
 		return YES; // success
 
 	} else {
@@ -209,9 +218,11 @@
     [splashBtm release];
 
     // Initialize Google Analytics tracker
-    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-0000000-1"
-                                           dispatchPeriod:kGANDispatchPeriodSec
+    [[GANTracker sharedTracker] startTrackerWithAccountID:ganTrackerCode
+                                           dispatchPeriod:ganDispatchPeriod
                                                  delegate:nil];
+    [[GANTracker sharedTracker] setDryRun:TRUE]; // TODO: Remove
+    [[GANTracker sharedTracker] setDebug:TRUE]; // TODO: Remove
 
     UIViewController *startController;
     if ([tourBundles count] > 1) {
