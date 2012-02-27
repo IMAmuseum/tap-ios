@@ -33,6 +33,7 @@
     
     NSDictionary *tapConfig;
     NSMutableDictionary *tourBundles;
+    NSMutableArray *availableTours;
 }
 
 @property (nonatomic, retain) UIWindow *window;
@@ -43,6 +44,7 @@
 @property xmlDocPtr tourDoc;
 @property (nonatomic, retain) NSDictionary *tapConfig;
 @property (nonatomic, retain) NSMutableDictionary *tourBundles;
+@property (nonatomic, retain) NSMutableArray *availableTours;
 
 @property(readwrite) CFURLRef clickFileURLRef;
 @property(readonly) SystemSoundID clickFileObject;

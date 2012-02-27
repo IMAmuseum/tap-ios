@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TapAppDelegate.h"
 
-@interface TourSelectionController : UIViewController {
+@interface TourSelectionController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     
-    
+    IBOutlet UITableView *tourTable;
     
 }
 
-- (IBAction)buttonDown:(id)sender;
-- (IBAction)buttonUpInside:(id)sender;
+@property (nonatomic, retain) UITableView *tourTable;
 
 @end

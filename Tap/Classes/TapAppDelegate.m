@@ -2,6 +2,7 @@
 #import "KeypadController.h"
 #import "StopGroupController.h"
 #import "TourSelectionController.h"
+#import "TourMLUtils.h"
 
 
 @implementation TapAppDelegate
@@ -14,6 +15,7 @@
 @synthesize tourDoc;
 @synthesize tapConfig;
 @synthesize tourBundles;
+@synthesize availableTours;
 
 @synthesize clickFileURLRef;
 @synthesize clickFileObject;
@@ -148,37 +150,54 @@
     //Load the config data
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"TapConfig" ofType:@"plist"];
     tapConfig = [[NSDictionary dictionaryWithContentsOfFile:plistPath] retain];
-
     tourBundles = [[NSMutableDictionary alloc] init];
+    availableTours = [[NSMutableArray alloc] init];
 
-    for (NSString *bundleName in [tapConfig objectForKey:@"TapTourBundleNames"]) {
-        // Load the tour bundle so it is available by identifier
-        NSString *tourBundlePath = [[NSBundle mainBundle] pathForResource:bundleName ofType:@"bundle"];
-       
-        NSBundle *bundle = [NSBundle bundleWithPath:tourBundlePath];
-        if (!bundle)
+    NSString *bundleDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Bundles"];
+    NSDirectoryEnumerator *bundleEnum;
+    bundleEnum = [[NSFileManager defaultManager] enumeratorAtPath:bundleDir];
+    if(bundleEnum)
+    {
+        NSString *currBundlePath;
+        while(currBundlePath = [bundleEnum nextObject])
         {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle:nil
-                                  message:[NSString stringWithFormat:@"Unable to find the tour bundle, %@!", bundleName]
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-            [alert show];
-            [alert release];
-           
-            return;
-        }
-        else
-        {
-            // Load the bundle to register it
-            [bundle load];
-            [tourBundles setValue:bundle forKey:bundleName];
+            if([[currBundlePath pathExtension] isEqualToString:@"bundle"])
+            {                
+                NSString *tourBundlePath = [bundleDir stringByAppendingPathComponent:currBundlePath];
+                NSBundle *bundle = [NSBundle bundleWithPath:tourBundlePath];
+                if (!bundle)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc]
+                                          initWithTitle:nil
+                                          message:[NSString stringWithFormat:@"Unable to find the tour bundle, %@!", @"ENTER BUNDLE NAME"]
+                                          delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+                    [alert show];
+                    [alert release];
+                    
+                    return;
+                }
+                else
+                {                    
+                    NSString *bundleName = [[bundle infoDictionary] objectForKey:@"CFBundleName"];
+                    [tourBundles setValue:bundle forKey:bundleName];
+                 
+                    // Load the bundle to register it
+                    [bundle load];                    
+                    
+                    [self setActiveTour:bundleName];
+                    
+                    NSString *tourName = [TourMLUtils getTourTitle:tourDoc];
+                    
+                    NSDictionary *tour = [[NSMutableDictionary alloc] init];
+                    [tour setValue:tourName forKey:@"Name"];
+                    [tour setValue:bundleName forKey:@"BundleName"];
+                    [availableTours addObject:tour];
+                }
+            }
         }
     }
-
-    //Load the first tour so that the help video will work
-    [self setActiveTour:[[tapConfig objectForKey:@"TapTourBundleNames"] objectAtIndex:0]];
 
     // Allocate the sounds
     CFBundleRef mainBundle = CFBundleGetMainBundle();

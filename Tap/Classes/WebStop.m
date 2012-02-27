@@ -7,12 +7,22 @@
 
 -(NSString*)getSourcePath
 {
-	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) {
-		if (xmlStrEqual(child->name, (xmlChar*)"Source")) {
-			char *src = (char*)xmlNodeGetContent(child);
-			NSString *result = [NSString stringWithUTF8String:src];
-			free(src);
-			return result;
+	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) 
+    {
+		if (xmlStrEqual(child->name, (xmlChar*)"AssetRef")) 
+        {
+            NSString *assetId = [NSString stringWithUTF8String:(char*) xmlGetProp(child, (xmlChar*)"id")];
+            xmlNodePtr asset = [TourMLUtils getAsset:stopNode->doc withIdentifier:assetId];
+            for (xmlNodePtr assetChild = asset->children; assetChild != NULL; assetChild = assetChild->next) 
+            {
+                if (xmlStrEqual(assetChild->name, (xmlChar*)"Source")) 
+                {
+                    xmlChar *uri = xmlGetProp(assetChild, (xmlChar*)"uri");
+                    NSString *result = [NSString stringWithUTF8String:(char*)uri];
+                    xmlFree(uri);
+                    return result;                        
+                }
+            }
 		}
 	}
 	

@@ -11,6 +11,8 @@
 
 @implementation TourSelectionController
 
+@synthesize tourTable;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -40,7 +42,6 @@
     [super viewDidLoad];
 
     [[self navigationItem] setTitle:@"Tours"];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main.png"]]];
 }
 
 - (void)viewDidUnload
@@ -58,22 +59,51 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [tourTable deselectRowAtIndexPath:[tourTable indexPathForSelectedRow] animated:animated];
+    
 	[self willRotateToInterfaceOrientation:[self interfaceOrientation] duration:0.0];
+    
+	[super viewWillAppear:animated];
 }
 
-#pragma mark NIB Actions
+#pragma mark UITableViewDataSource
 
-- (IBAction)buttonDown:(id)sender
-{
-	[(TapAppDelegate*)[[UIApplication sharedApplication] delegate] playClick];
-}
-
-- (IBAction)buttonUpInside:(id)sender
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     TapAppDelegate *delegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    NSString *bundle = [[[delegate tapConfig] objectForKey:@"TapTourBundleNames"] objectAtIndex:[sender tag]];
+	return [[delegate availableTours] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TapAppDelegate *delegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+	NSDictionary *tour = [[delegate availableTours] objectAtIndex:indexPath.row];
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tour-cell"];
+	if (cell == nil) {
+		// Create a new reusable table cell
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tour-cell"] autorelease];
         
+		[[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
+		[[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
+		
+		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+	}
+	
+    // Set the title
+    [[cell textLabel] setText:[tour objectForKey:@"Name"]];
+    
+	return cell;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{	
+    TapAppDelegate *delegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSString *bundle = [[[delegate availableTours] objectAtIndex:indexPath.row] objectForKey:@"BundleName"];
+    
     [(TapAppDelegate*)[[UIApplication sharedApplication] delegate] setActiveTour:bundle];
     
     [Analytics trackAction:[NSString stringWithFormat:@"Selected Tour: %@",bundle] forStop:@"TourSelect"];
@@ -82,5 +112,4 @@
     [[self navigationController] pushViewController:keypad animated:YES];
     [keypad release];
 }
-
 @end

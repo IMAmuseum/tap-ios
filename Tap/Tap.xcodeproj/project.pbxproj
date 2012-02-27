@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1765DA4514B4B48B0085F1E6 /* MainWindow-iPad.xib */; };
+		17D6F54714F777F600C1F199 /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 17D6F54614F777F600C1F199 /* Bundles */; };
 		1D3623260D0F684500981E51 /* TapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TapAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -74,6 +76,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1765DA4614B4B48B0085F1E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Resources/iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		1765DA4714B4B48B0085F1E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "Resources/iPad/es.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		17D6F54614F777F600C1F199 /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bundles; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* TapAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapAppDelegate.m; sourceTree = "<group>"; };
@@ -194,6 +199,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		1765DA4414B4B4840085F1E6 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				1765DA4514B4B48B0085F1E6 /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +218,11 @@
 		29B97314FDCFA39411CA2CEA /* Tap */ = {
 			isa = PBXGroup;
 			children = (
+				17D6F54614F777F600C1F199 /* Bundles */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				1765DA4414B4B4840085F1E6 /* iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				8B0C13A2116F622A00F3CE1B /* LICENSE */,
@@ -388,6 +403,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Tap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -454,6 +472,8 @@
 				A43321DC14B3F4CA0018A8F8 /* keypad-go-down.png in Resources */,
 				A43321DD14B3F4CA0018A8F8 /* keypad-go-up.png in Resources */,
 				A43321DF14B3F50D0018A8F8 /* Default.png in Resources */,
+				1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */,
+				17D6F54714F777F600C1F199 /* Bundles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +509,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1765DA4514B4B48B0085F1E6 /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1765DA4614B4B48B0085F1E6 /* en */,
+				1765DA4714B4B48B0085F1E6 /* es */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
 		8B98F983105AD5250003FB0A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -561,8 +590,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Tap;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -574,9 +604,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -591,9 +622,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				OTHER_LDFLAGS = "-lxml2";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D992C2E-5D5C-4BF5-8CDC-1D2BDF2657ED";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -605,9 +635,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
 		};
@@ -622,7 +653,6 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -637,9 +667,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				OTHER_LDFLAGS = "-lxml2";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos2.2.1;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

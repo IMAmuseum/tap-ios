@@ -5,29 +5,44 @@
 
 +(id<Stop>)newStopForStopNode:(xmlNodePtr)stop
 {
+    xmlChar* stopType = xmlGetProp(stop, (xmlChar*)"view");
+
     // Check for Video/AudioStop cases where we always use the VideoStop
     // This could be handled more elegantly later
-    if (xmlStrEqual(stop->name, (xmlChar*)"AudioStop"))
+    
+    if (xmlStrEqual(stopType, (xmlChar*)"tour_audio_stop")) 
     {
+        free(stopType);
         VideoStop *videoStop = [[VideoStop alloc] initWithStopNode:stop];
         [videoStop setIsAudio:YES];
         return videoStop;
-    }
-    else if (xmlStrEqual(stop->name, (xmlChar*)"VideoStop"))
+    } 
+    else if (xmlStrEqual(stopType, (xmlChar*)"tour_video_stop")) 
     {
         VideoStop *videoStop = [[VideoStop alloc] initWithStopNode:stop];
         [videoStop setIsAudio:NO];
+        free(stopType);        
         return videoStop;
-    }
-    
-    // Try to dynamically load the class with the matching name (e.g. ImageStop, StopGroup, etc)
-    Class stopClass = NSClassFromString([NSString stringWithUTF8String:(char*)stop->name]);
-    
-    if ((stopClass != nil) && ([stopClass conformsToProtocol:@protocol(Stop)]))
+    } 
+    else if(xmlStrEqual(stopType, (xmlChar*)"tour_image_stop")) 
     {
-        return [[stopClass alloc] initWithStopNode:stop];
+        ImageStop *imageStop = [[ImageStop alloc] initWithStopNode:stop];
+        free(stopType);
+        return imageStop;
+    } 
+    else if(xmlStrEqual(stopType, (xmlChar*)"tour_poll_stop")) 
+    {
+        PollStop *pollStop = [[PollStop alloc] initWithStopNode:stop];
+        free(stopType);
+        return pollStop;        
     }
-    else
+    else if(xmlStrEqual(stopType, (xmlChar*)"tour_group_stop")) 
+    {
+        StopGroup *stopGroup = [[StopGroup alloc] initWithStopNode:stop];
+        free(stopType);
+        return stopGroup;        
+    }     
+    else 
     {
         return nil;
     }

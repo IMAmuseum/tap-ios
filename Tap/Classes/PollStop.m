@@ -7,8 +7,10 @@
 
 -(NSString*)getQuestion
 {
-	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) {
-		if (xmlStrEqual(child->name, (xmlChar*)"Question")) {
+	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) 
+    {
+		if (xmlStrEqual(child->name, (xmlChar*)"Question")) 
+        {
 			char *question = (char*)xmlNodeGetContent(child);
 			NSString *result = [NSString stringWithUTF8String:question];
 			free(question);
@@ -23,8 +25,10 @@
 {
 	NSInteger result = 0;
 	
-	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) {
-		if (xmlStrEqual(child->name, (xmlChar*)"Answer")) {
+	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) 
+    {
+		if (xmlStrEqual(child->name, (xmlChar*)"Answer")) 
+        {
 			result++;
 		}
 	}
@@ -36,8 +40,10 @@
 {
 	NSMutableArray *result = [NSMutableArray array];
 	
-	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) {
-		if (xmlStrEqual(child->name, (xmlChar*)"Answer")) {
+	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) 
+    {
+		if (xmlStrEqual(child->name, (xmlChar*)"Answer")) 
+        {
 			char *answer = (char*)xmlNodeGetContent(child);
 			[result addObject:[NSString stringWithUTF8String:answer]];
 			free(answer);
