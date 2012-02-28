@@ -194,7 +194,7 @@
 		return NO;
     }
 	xmlXPathRegisterNs(xpathCtx, (xmlChar*)TOURML_XML_PREFIX, (xmlChar*)TOURML_XMLNS);
-    NSString *titleXPath = [NSString stringWithFormat:@"/tourml:Tour/tourml:Title"];
+    NSString *titleXPath = [NSString stringWithFormat:@"/tourml:Tour/tourml:TourMetadata/tourml:Title"];
 	xmlChar *xpathExpr = (xmlChar*)[titleXPath UTF8String];
 	xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
     
