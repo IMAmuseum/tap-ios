@@ -106,7 +106,23 @@
     
     [(TapAppDelegate*)[[UIApplication sharedApplication] delegate] setActiveTour:bundle];
     
-    [Analytics trackAction:[NSString stringWithFormat:@"Selected Tour: %@",bundle] forStop:@"TourSelect"];
+    // initialize Google Analytics tracker for selected tracker
+    [delegate initializeGATracker];
+    
+    NSError *error;
+    if (![[GANTracker sharedTracker]
+          setCustomVariableAtIndex:1 
+          name:@"Bundle" 
+          value:[[delegate tourBundle] bundleIdentifier]
+          withError:&error]) {
+        NSLog(@"GANTracker error: %@", error);
+    }
+    
+    if (![[GANTracker sharedTracker] 
+          trackPageview:[NSString stringWithFormat: @"{%@}", [[delegate tourBundle] bundleIdentifier]] 
+          withError:&error]){
+        NSLog(@"GANTracker error: %@", error);
+    }  
     
     KeypadController *keypad = [[KeypadController alloc] init];
     [[self navigationController] pushViewController:keypad animated:YES];

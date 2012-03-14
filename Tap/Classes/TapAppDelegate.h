@@ -10,7 +10,7 @@
 
 #import "Stop.h"
 #import "StopFactory.h"
-#import "Analytics.h"
+#import "GANTracker.h"
 
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
@@ -28,8 +28,6 @@
     SystemSoundID clickFileObject;
 	CFURLRef errorFileURLRef;
     SystemSoundID errorFileObject;
-	//CFURLRef swooshFileURLRef;
-    //SystemSoundID swooshFileObject;
     
     NSDictionary *tapConfig;
     NSMutableDictionary *tourBundles;
@@ -50,8 +48,6 @@
 @property(readonly) SystemSoundID clickFileObject;
 @property(readwrite) CFURLRef errorFileURLRef;
 @property(readonly) SystemSoundID errorFileObject;
-//@property(readwrite) CFURLRef swooshFileURLRef;
-//@property(readonly) SystemSoundID swooshFileObject;
 
 - (IBAction)helpButtonClicked:(id)sender;
 
@@ -59,7 +55,8 @@
 
 - (void)playClick;
 - (void)playError;
-//- (void)playSwoosh;
+
+- (void)initializeGATracker;
 
 - (void)setActiveTour:(NSString *)tourBundleName;
 

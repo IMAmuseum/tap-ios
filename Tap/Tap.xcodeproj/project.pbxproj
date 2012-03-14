@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17551D27150F95BF008B7362 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17551D26150F95BF008B7362 /* libGoogleAnalytics.a */; };
+		17551D2A150F964E008B7362 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 17551D29150F964E008B7362 /* libsqlite3.0.dylib */; };
+		17551D38150F9731008B7362 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17551D37150F9731008B7362 /* CFNetwork.framework */; };
 		1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1765DA4514B4B48B0085F1E6 /* MainWindow-iPad.xib */; };
+		1773392F1510D96D0087AE5D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1773392E1510D96D0087AE5D /* XPathQuery.m */; };
 		17D6F54714F777F600C1F199 /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 17D6F54614F777F600C1F199 /* Bundles */; };
 		1D3623260D0F684500981E51 /* TapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TapAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -16,7 +20,6 @@
 		288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765070DF74369002DB57D /* CoreGraphics.framework */; };
 		73993C5F0F6AA00D002137F5 /* ImageStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73993C5E0F6AA00D002137F5 /* ImageStopController.m */; };
 		8B0C13A3116F622A00F3CE1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8B0C13A2116F622A00F3CE1B /* LICENSE */; };
-		8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FAC6D10580FCB00E6A44A /* Analytics.m */; };
 		8B5A06CD0F5DBFE2000BAB32 /* KeypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */; };
 		8B5CD29F0F7C190100183A17 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CD29E0F7C190100183A17 /* Icon.png */; };
 		8B6C627E0F65567200598AB1 /* StopGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C627D0F65567200598AB1 /* StopGroupController.m */; };
@@ -76,8 +79,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17551D26150F95BF008B7362 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		17551D29150F964E008B7362 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		17551D37150F9731008B7362 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		17551D3A150F9A34008B7362 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		1765DA4614B4B48B0085F1E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Resources/iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		1765DA4714B4B48B0085F1E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "Resources/iPad/es.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		1773392E1510D96D0087AE5D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		177339301510DA330087AE5D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		17D6F54614F777F600C1F199 /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bundles; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapAppDelegate.h; sourceTree = "<group>"; };
@@ -90,8 +99,6 @@
 		73993C5D0F6AA00D002137F5 /* ImageStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStopController.h; sourceTree = "<group>"; };
 		73993C5E0F6AA00D002137F5 /* ImageStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStopController.m; sourceTree = "<group>"; };
 		8B0C13A2116F622A00F3CE1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		8B4FAC6C10580FCB00E6A44A /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
-		8B4FAC6D10580FCB00E6A44A /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
 		8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadController.h; sourceTree = "<group>"; };
 		8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadController.m; sourceTree = "<group>"; };
 		8B5CD29E0F7C190100183A17 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
@@ -175,12 +182,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17551D38150F9731008B7362 /* CFNetwork.framework in Frameworks */,
+				17551D2A150F964E008B7362 /* libsqlite3.0.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765080DF74369002DB57D /* CoreGraphics.framework in Frameworks */,
 				8B7D1F550F65A6BE00BB87F4 /* MediaPlayer.framework in Frameworks */,
 				8BB71D570FC47DC20081C3D3 /* QuartzCore.framework in Frameworks */,
 				8BD6398D0FDFEA1D00A3E1FC /* AudioToolbox.framework in Frameworks */,
+				17551D27150F95BF008B7362 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +268,15 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17551D26150F95BF008B7362 /* libGoogleAnalytics.a */,
+				17551D29150F964E008B7362 /* libsqlite3.0.dylib */,
 				8BD6398C0FDFEA1D00A3E1FC /* AudioToolbox.framework */,
-				8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */,
-				8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				17551D37150F9731008B7362 /* CFNetwork.framework */,
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				8B7D1F540F65A6BE00BB87F4 /* MediaPlayer.framework */,
+				8BB71D560FC47DC20081C3D3 /* QuartzCore.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -366,14 +379,15 @@
 		8BD9A2580FC1963F001E97D9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8B4FAC6C10580FCB00E6A44A /* Analytics.h */,
-				8B4FAC6D10580FCB00E6A44A /* Analytics.m */,
-				8BDFF03D0F791DFB001A6BF6 /* TourMLUtils.h */,
-				8BDFF03E0F791DFB001A6BF6 /* TourMLUtils.m */,
+				17551D3A150F9A34008B7362 /* GANTracker.h */,
 				8B7FEC811034595200311CB9 /* PollResults.h */,
 				8B7FEC821034595200311CB9 /* PollResults.m */,
 				8BB31DD61039AF3900DDA1C8 /* TapDetectingImageView.h */,
 				8BB31DD71039AF3900DDA1C8 /* TapDetectingImageView.m */,
+				8BDFF03D0F791DFB001A6BF6 /* TourMLUtils.h */,
+				8BDFF03E0F791DFB001A6BF6 /* TourMLUtils.m */,
+				177339301510DA330087AE5D /* XPathQuery.h */,
+				1773392E1510D96D0087AE5D /* XPathQuery.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -501,8 +515,8 @@
 				8B9646BE0FCC85730006494F /* PollStopController.m in Sources */,
 				8B7FEC831034595200311CB9 /* PollResults.m in Sources */,
 				8BB31DD81039AF3900DDA1C8 /* TapDetectingImageView.m in Sources */,
-				8B4FAC6E10580FCB00E6A44A /* Analytics.m in Sources */,
 				A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */,
+				1773392F1510D96D0087AE5D /* XPathQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +605,10 @@
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = Tap;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -605,6 +623,10 @@
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -636,6 +658,10 @@
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = Tap;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

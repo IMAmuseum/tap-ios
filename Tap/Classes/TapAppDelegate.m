@@ -21,8 +21,9 @@
 @synthesize clickFileObject;
 @synthesize errorFileURLRef;
 @synthesize errorFileObject;
-//@synthesize swooshFileURLRef;
-//@synthesize swooshFileObject;
+
+// Google Analytic settings. TODO: Read from TourML Bundle
+static const NSInteger ganDispatchPeriod = 10;
 
 - (void)setActiveTour:(NSString *)tourBundleName
 {
@@ -63,6 +64,24 @@
 
 - (IBAction)helpButtonClicked:(id)sender
 {
+    NSError *error;
+    if (![[GANTracker sharedTracker]
+          setCustomVariableAtIndex:1 
+          name: @"Bundle" 
+          value: [tourBundle bundleIdentifier]
+          withError: &error]) {
+        NSLog(@"GANTracker error: %@", error);
+    }
+    
+    if (![[GANTracker sharedTracker] 
+          trackEvent:@"Help" 
+          action:@"clicked" 
+          label:@"Requested help" 
+          value: 1
+          withError: &error]){
+        NSLog(@"GANTracker error: %@", error);
+    }
+    
 	// Play the help video
 	xmlNodePtr helpStopNode = [TourMLUtils getStopInDocument:tourDoc withCode:[tapConfig objectForKey:@"TapHelpStopCode"]];
 	
@@ -86,21 +105,42 @@
 
 - (BOOL)loadStop:(id<Stop>)stop
 {
+    NSError *error;
+    if (![[GANTracker sharedTracker]
+          setCustomVariableAtIndex:1 
+          name:@"Bundle" 
+          value:[tourBundle bundleIdentifier]
+          withError:&error]) {
+        NSLog(@"GANTracker error: %@", error);
+    }
+    
+    if (![[GANTracker sharedTracker] 
+          trackPageview:[NSString stringWithFormat: @"{%@}/%@", [tourBundle bundleIdentifier], [stop getStopId]] 
+          withError:&error]){
+        NSLog(@"GANTracker error: %@", error);
+        
+    }
+    
 	if ([stop providesViewController]) {
-		[navigationController pushViewController:[stop newViewController] animated:YES];		
-		[Analytics trackAction:@"view" forStop:[stop getStopId]];
+        [navigationController pushViewController:[stop newViewController] animated:YES];        
 		return YES; // success
 
 	} else {
 		// This stop controls itself
-		[Analytics trackAction:@"view" forStop:[stop getStopId]];
 		return [stop loadStopView];
 	}
 }
 
+- (void)initializeGATracker
+{
+    NSString *gaTrackerCode = [TourMLUtils getGATrackerCode:tourDoc];
+    // Initialize Google Analytics tracker
+    [[GANTracker sharedTracker] startTrackerWithAccountID:gaTrackerCode 
+                                           dispatchPeriod:ganDispatchPeriod delegate:nil];
+}
+
 - (void)playClick { AudioServicesPlaySystemSound(clickFileObject); }
 - (void)playError { AudioServicesPlaySystemSound(errorFileObject); }
-//- (void)playSwoosh { AudioServicesPlaySystemSound(swooshFileObject); }
 
 - (void)dealloc {
 	[navigationController release];
@@ -116,9 +156,7 @@
     CFRelease(clickFileURLRef);
 	AudioServicesDisposeSystemSoundID(errorFileObject);
     CFRelease(errorFileURLRef);
-	//AudioServicesDisposeSystemSoundID(swooshFileObject);
-    //CFRelease(swooshFileURLRef);
-	
+    
     [super dealloc];
 }
                                
@@ -224,9 +262,9 @@
     [splashTop release];
     [splashBtm release];
 
-    // Record the launch event
-    [Analytics trackAction:NSLocalizedString(@"launch - en", @"App starting") forStop:@"tap"];
-
+    // initialize Google Analytics tracker
+    [self initializeGATracker];
+    
     UIViewController *startController;
     if ([tourBundles count] > 1) {
         startController = [[TourSelectionController alloc] init];

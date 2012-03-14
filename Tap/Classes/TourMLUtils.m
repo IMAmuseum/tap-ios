@@ -1,5 +1,5 @@
 #import "TourMLUtils.h"
-
+#import "XPathQuery.h"
 
 @implementation TourMLUtils
 
@@ -109,8 +109,8 @@
     }
 	xmlXPathRegisterNs(xpathCtx, (xmlChar*)TOURML_XML_PREFIX, (xmlChar*)TOURML_XMLNS);
 	
-	NSString *stopXPath = [NSString stringWithFormat:@"/tourml:Tour/*[tourml:PropertySet/tourml:Property[@tourml:name='code']= %@]", code];
-	xmlChar *xpathExpr = (xmlChar*)[stopXPath UTF8String];
+	NSString *xPath = [NSString stringWithFormat:@"/tourml:Tour/*[tourml:PropertySet/tourml:Property[@tourml:name='code']= %@]", code];
+	xmlChar *xpathExpr = (xmlChar*)[xPath UTF8String];
 	xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
     if(xpathObj == NULL) 
     {
@@ -141,6 +141,7 @@
 
 + (xmlNodePtr)getStopInDocument:(xmlDocPtr)document withIdentifier:(NSString*)ident
 {
+    /*
 	xmlXPathContextPtr xpathCtx;
     xmlXPathObjectPtr xpathObj;
 	
@@ -152,8 +153,8 @@
     }
 	xmlXPathRegisterNs(xpathCtx, (xmlChar*)TOURML_XML_PREFIX, (xmlChar*)TOURML_XMLNS);
 	
-	NSString *stopXPath = [NSString stringWithFormat:@"/tourml:Tour/tourml:Stop[@tourml:id='%@']", ident];
-	xmlChar *xpathExpr = (xmlChar*)[stopXPath UTF8String];
+	NSString *xPath = [NSString stringWithFormat:@"/tourml:Tour/tourml:Stop[@tourml:id='%@']", ident];
+	xmlChar *xpathExpr = (xmlChar*)[xPath UTF8String];
 	xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
     if(xpathObj == NULL) 
     {
@@ -180,50 +181,19 @@
 	xmlXPathFreeObject(xpathObj);
 	
 	return stop;
+    */
 }
 
 + (NSString*)getTourTitle:(xmlDocPtr)document
 {
-	xmlXPathContextPtr xpathCtx;
-    xmlXPathObjectPtr xpathObj;
-	
-	xpathCtx = xmlXPathNewContext(document);
-    if(xpathCtx == NULL) 
-    {
-		NSLog(@"Unable to create new XPath context.");
-		return NO;
-    }
-	xmlXPathRegisterNs(xpathCtx, (xmlChar*)TOURML_XML_PREFIX, (xmlChar*)TOURML_XMLNS);
-    NSString *titleXPath = [NSString stringWithFormat:@"/tourml:Tour/tourml:TourMetadata/tourml:Title"];
-	xmlChar *xpathExpr = (xmlChar*)[titleXPath UTF8String];
-	xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
-    
-    if(xpathObj == NULL) 
-    {
-        NSLog(@"Unable to evaluate xpath expression: %@", xpathExpr);
-		xmlXPathFreeContext(xpathCtx);
-        return NO;
-    }
-	if (xmlXPathNodeSetIsEmpty(xpathObj->nodesetval)) 
-    {
-		NSLog(@"Unable to find matching node.");
-        xmlXPathFreeContext(xpathCtx);
-		xmlXPathFreeObject(xpathObj);
-        return NO;
-	}
-	
-	xmlNodePtr title = NULL;
-	for (int i = 0; i < xpathObj->nodesetval->nodeNr; i++) 
-    {
-		title = xpathObj->nodesetval->nodeTab[i];
-		break;
-	}
-	
-    xmlXPathFreeContext(xpathCtx);
-	xmlXPathFreeObject(xpathObj);
-    NSString *result = [NSString stringWithUTF8String:(char*)xmlNodeGetContent(title)];
-    xmlFree(title);
-    return result;
+    NSArray *nodes = PerformXPathQuery(document, @"/tourml:Tour/tourml:TourMetadata/tourml:Title");
+    return [[nodes objectAtIndex:0] objectForKey:@"nodeContent"];
+}
+
++ (NSString*)getGATrackerCode:(xmlDocPtr)document
+{
+    NSArray *nodes = PerformXPathQuery(document, @"/tourml:Tour/tourml:TourMetadata/tourml:PropertySet/tourml:Property[@tourml:name='google-analytics']");
+    return [[nodes objectAtIndex:0] objectForKey:@"nodeContent"];
 }
 
 @end

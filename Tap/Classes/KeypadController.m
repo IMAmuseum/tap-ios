@@ -63,8 +63,24 @@
 	if (stopNode == NULL)
 	{
 		[appDelegate playError];
-		
-		[Analytics trackAction:@"bad-code" forStop:[NSString stringWithFormat:@"<%@>", stopCode]];
+        
+        NSError *error;
+        if (![[GANTracker sharedTracker]
+              setCustomVariableAtIndex:1 
+              name:@"Bundle" 
+              value:[[appDelegate tourBundle] bundleIdentifier]
+              withError:&error]) {
+            NSLog(@"GANTracker error: %@", error);
+        }
+        
+        if (![[GANTracker sharedTracker] 
+              trackEvent:@"Keypad" 
+              action:@"entered code" 
+              label:@"Invalid code" 
+              value: 1
+              withError: &error]){
+            NSLog(@"GANTracker error: %@", error);
+        }
 		
 		UIAlertView *alert = [[UIAlertView alloc]
 							  initWithTitle:nil
@@ -98,49 +114,6 @@
 {
     //return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 	return interfaceOrientation == UIInterfaceOrientationPortrait;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	// Update the banner image
-	if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
-	{
-		[bannerImage setImage:[UIImage imageNamed:@"bg-header.png"]];
-		
-		// Update button layout
-		[button1 setFrame:CGRectMake(6, 142, 100, 66)];
-		[button2 setFrame:CGRectMake(109, 142, 100, 66)];
-		[button3 setFrame:CGRectMake(212, 142, 100, 66)];
-		[button4 setFrame:CGRectMake(6, 209, 100, 66)];
-		[button5 setFrame:CGRectMake(109, 209, 100, 66)];
-		[button6 setFrame:CGRectMake(212, 209, 100, 66)];
-		[button7 setFrame:CGRectMake(6, 276, 100, 66)];
-		[button8 setFrame:CGRectMake(109, 276, 100, 66)];
-		[button9 setFrame:CGRectMake(212, 276, 100, 66)];
-		[button0 setFrame:CGRectMake(6, 344, 100, 66)];
-		[buttonClear setFrame:CGRectMake(109, 344, 203, 66)];
-		
-		if (duration > 0) [Analytics trackAction:@"rotate-portrait" forStop:@"keypad"];
-	}
-	else
-	{
-		[bannerImage setImage:[UIImage imageNamed:@"bg-header-wide.png"]];
-		
-		// Update button layout
-		[button1 setFrame:CGRectMake(6, 142, 92, 62)];
-		[button2 setFrame:CGRectMake(100, 142, 92, 62)];
-		[button3 setFrame:CGRectMake(194, 142, 92, 62)];
-		[button4 setFrame:CGRectMake(288, 142, 92, 62)];
-		[button5 setFrame:CGRectMake(382, 142, 92, 62)];
-		[button6 setFrame:CGRectMake(6, 205, 92, 62)];
-		[button7 setFrame:CGRectMake(100, 205, 92, 62)];
-		[button8 setFrame:CGRectMake(194, 205, 92, 62)];
-		[button9 setFrame:CGRectMake(288, 205, 92, 62)];
-		[button0 setFrame:CGRectMake(382, 205, 92, 62)];
-		[buttonClear setFrame:CGRectMake(315, 68, 159, 66)];
-		
-		if (duration > 0) [Analytics trackAction:@"rotate-landscape" forStop:@"keypad"];
-	}
 }
 
 - (void)viewDidLoad

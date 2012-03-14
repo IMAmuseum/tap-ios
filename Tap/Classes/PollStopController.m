@@ -96,7 +96,8 @@
         [alert release];
     }
 	
-	[Analytics trackAction:@"voted" forStop:[pollStop getStopId]];
+    // TODO: GANTracker
+	//[Analytics trackAction:@"voted" forStop:[pollStop getStopId]];
 }
 
 - (void)showResults:(NSTimer*)timer
@@ -157,32 +158,6 @@
 	
 	// fake a rotate event to setup layout
 	[self willRotateToInterfaceOrientation:[self interfaceOrientation] duration:0.0f];
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
-	{
-		[questionLabel setFrame:CGRectMake(10.0f, 0.0f, 300.0f, 102.0f)];
-		[submitButton setFrame:CGRectMake(20.0f, 351.0f, 280.0f, 45.0f)];
-		[pickerView setFrame:CGRectMake(0.0f, 110.0f, 320.0f, 216.0f)];
-		
-		[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-poll-portrait.png"]]];
-		[self.view setNeedsLayout];
-		
-		[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
-	}
-	else
-	{
-		[questionLabel setFrame:CGRectMake(7.0f, 0.0f, 144.0f, 183.0f)];
-		[submitButton setFrame:CGRectMake(7.0f, 191.0f, 144.0f, 45.0f)];
-		[pickerView setFrame:CGRectMake(160.0f, 20.0f, 320.0f, 216.0f)];
-		
-		[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-poll-landscape.png"]]];
-		[self.view setNeedsLayout];
-		
-		[Analytics trackAction:@"rotate-portrait" forStop:[pollStop getStopId]];
-	}
 }
 
 #pragma mark UIPickerViewDataSource

@@ -40,18 +40,6 @@
 	return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	if (toInterfaceOrientation == UIInterfaceOrientationPortrait)
-	{
-		[Analytics trackAction:@"rotate-portrait" forStop:[imageStop getStopId]];
-	}
-	else
-	{
-		[Analytics trackAction:@"rotate-landscape" forStop:[imageStop getStopId]];
-	}
-}
-
 - (void)viewDidLoad
 {
 	// Reference the image for this stop
@@ -94,34 +82,73 @@
 
 - (void)tapDetectingImageView:(TapDetectingImageView *)view gotDoubleTapAtPoint:(CGPoint)tapPoint
 {
+    TapAppDelegate *delegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+
+    NSError *error;
+    if (![[GANTracker sharedTracker]
+          setCustomVariableAtIndex:1 
+          name:@"Bundle" 
+          value:[[delegate tourBundle] bundleIdentifier]
+          withError:&error]) {
+        NSLog(@"GANTracker error: %@", error);
+    }
+    
 	// Toggle zoom in or out
 	if ([scrollView zoomScale] == [scrollView minimumZoomScale])
 	{
 		// Zoom all the way in
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView maximumZoomScale] withCenter:tapPoint] animated:YES];
-		
-		[Analytics trackAction:@"zoom-in" forStop:[imageStop getStopId]];
+        
+        if (![[GANTracker sharedTracker] 
+              trackEvent:@"Image" 
+              action:@"zoom-in" 
+              label:@"Zoom-in image" 
+              value: 1
+              withError: &error]){
+            NSLog(@"GANTracker error: %@", error);
+        }
 	}
 	else if ([scrollView zoomScale] == [scrollView maximumZoomScale])
 	{
 		// Zoom all the way out
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView minimumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        if (![[GANTracker sharedTracker] 
+              trackEvent:@"Image" 
+              action:@"zoom-out" 
+              label:@"Zoom-out image" 
+              value: 1
+              withError: &error]){
+            NSLog(@"GANTracker error: %@", error);
+        }
 	}
 	else if (([scrollView zoomScale] - [scrollView minimumZoomScale]) < ([scrollView maximumZoomScale] - [scrollView zoomScale]))
 	{
 		// Zoom out if closer to min zoom
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView minimumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        if (![[GANTracker sharedTracker] 
+              trackEvent:@"Image" 
+              action:@"zoom-out" 
+              label:@"Zoom-out image" 
+              value: 1
+              withError: &error]){
+            NSLog(@"GANTracker error: %@", error);
+        }
 	}
 	else
 	{
 		// Zoom in if closer to max zoom
 		[scrollView zoomToRect:[self zoomRectForScale:[scrollView maximumZoomScale] withCenter:tapPoint] animated:YES];
 		
-		[Analytics trackAction:@"zoom-out" forStop:[imageStop getStopId]];
+        if (![[GANTracker sharedTracker] 
+              trackEvent:@"Image" 
+              action:@"zoom-in" 
+              label:@"Zoom-in image" 
+              value: 1
+              withError: &error]){
+            NSLog(@"GANTracker error: %@", error);
+        }
 	}
 }
 

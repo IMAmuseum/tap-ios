@@ -41,8 +41,11 @@
 
 -(NSString*)getIconPath
 {
-	if (isAudio) return [[NSBundle mainBundle] pathForResource:@"icon-audio" ofType:@"png"];
-	else return [[NSBundle mainBundle] pathForResource:@"icon-video" ofType:@"png"];
+	if (isAudio) {
+        return [[NSBundle mainBundle] pathForResource:@"icon-audio" ofType:@"png"];
+    } else {
+        return [[NSBundle mainBundle] pathForResource:@"icon-video" ofType:@"png"];   
+    }
 }
 
 -(BOOL)loadStopView
@@ -91,8 +94,8 @@
 	{
 		[(KeypadController*)[[appDelegate navigationController] visibleViewController] clearCode];
 	}
-	
-	[Analytics trackAction:@"movie-stop" forStop:[self getStopId]];
+	// TODO: GANTracker
+	//[Analytics trackAction:@"movie-stop" forStop:[self getStopId]];
 	
 	[self release];
 }

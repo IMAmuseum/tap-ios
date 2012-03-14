@@ -26,4 +26,7 @@
 // Retrieve the tour title
 + (NSString*)getTourTitle:(xmlDocPtr)document;
 
+// Retrieve the Google Analytics tracker code
++ (NSString*)getGATrackerCode:(xmlDocPtr)document;
+
 @end
