@@ -9,7 +9,7 @@
 
     // Check for Video/AudioStop cases where we always use the VideoStop
     // This could be handled more elegantly later
-    
+
     if (xmlStrEqual(stopType, (xmlChar*)"tour_audio_stop")) 
     {
         free(stopType);
