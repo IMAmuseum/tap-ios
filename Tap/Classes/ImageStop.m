@@ -1,12 +1,13 @@
 #import "ImageStop.h"
 
-#import "ImageStopController.h"
+#import "ImageGalleryController.h"
 
 
 @implementation ImageStop
 
--(NSString*)getSourcePath
+-(NSArray*)getSources
 {
+    NSMutableArray *sources = [[NSMutableArray alloc] init];
 	for (xmlNodePtr child = stopNode->children; child != NULL; child = child->next) 
     {
 		if (xmlStrEqual(child->name, (xmlChar*)"AssetRef")) 
@@ -18,15 +19,15 @@
                 if (xmlStrEqual(assetChild->name, (xmlChar*)"Source")) 
                 {
                     xmlChar *uri = xmlGetProp(assetChild, (xmlChar*)"uri");
-                    NSString *result = [NSString stringWithUTF8String:(char*)uri];
+                    NSString *source = [NSString stringWithUTF8String:(char*)uri];
                     xmlFree(uri);
-                    return result;
+                    [sources addObject:source];
                 }
             }
 		}
 	}
 	
-	return nil;
+	return sources;
 }
 
 #pragma mark BaseStop
@@ -38,7 +39,7 @@
 
 -(UIViewController*)newViewController
 {
-	return [[ImageStopController alloc] initWithImageStop:self];
+	return [[ImageGalleryController alloc] initWithImageStop:self];
 }
 
 -(NSString*)getIconPath

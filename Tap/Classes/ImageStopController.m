@@ -8,16 +8,13 @@
 
 @synthesize scrollView;
 @synthesize imageView;
+@synthesize imageSrc;
 
-@synthesize imageStop;
 
-
-- (id)initWithImageStop:(ImageStop*)stop
+- (id)initWithImageSource:(NSString*)source
 {
 	if ((self = [super initWithNibName:@"ImageStop" bundle:[NSBundle mainBundle]])) {
-		[self setImageStop:stop];
-		
-		[self autorelease];
+		[self setImageSrc:source];
 	}
 
 	return self;
@@ -26,7 +23,7 @@
 - (void)dealloc
 {
 	[imageView release];
-	[imageStop release];
+	[imageSrc release];
 	[scrollView release];
     
 	[super dealloc];
@@ -44,14 +41,13 @@
 {
 	// Reference the image for this stop
 	NSBundle *tourBundle = [((TapAppDelegate*)[[UIApplication sharedApplication] delegate]) tourBundle];
-	NSString *imageSrc = [imageStop getSourcePath];
 	NSString *imagePath = [tourBundle pathForResource:[[imageSrc lastPathComponent] stringByDeletingPathExtension]
 											   ofType:[[imageSrc lastPathComponent] pathExtension]
 										  inDirectory:[imageSrc stringByDeletingLastPathComponent]];
 	
 	[self setImageView:[[TapDetectingImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]]];
-	[imageView setDelegate:self];
-
+    [imageView setDelegate:self];
+    
 	[imageView setFrame:scrollView.bounds];
 	[imageView setContentMode: (UIViewContentModeScaleAspectFit)];
 	[imageView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];

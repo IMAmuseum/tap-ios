@@ -7,6 +7,6 @@
 
 }
 
--(NSString*)getSourcePath;
+-(NSArray*)getSources;
 
 @end

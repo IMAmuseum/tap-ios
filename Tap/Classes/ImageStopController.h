@@ -10,15 +10,15 @@
 	IBOutlet UIScrollView *scrollView;
 	TapDetectingImageView *imageView;
 	
-	ImageStop *imageStop;
+	NSString *imageSrc;
 
 }
 
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIImageView *imageView;
 
-@property (assign) ImageStop *imageStop;
+@property (assign) NSString *imageSrc;
 
-- (id)initWithImageStop:(ImageStop*)stop;
+- (id)initWithImageSource:(NSString*)source;
 
 @end
