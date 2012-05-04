@@ -36,7 +36,7 @@
         free(stopType);
         return pollStop;        
     }
-    else if(xmlStrEqual(stopType, (xmlChar*)"tour_group_stop")) 
+    else if(xmlStrEqual(stopType, (xmlChar*)"tour_stop_group")) 
     {
         StopGroup *stopGroup = [[StopGroup alloc] initWithStopNode:stop];
         free(stopType);

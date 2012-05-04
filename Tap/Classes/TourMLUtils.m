@@ -141,7 +141,6 @@
 
 + (xmlNodePtr)getStopInDocument:(xmlDocPtr)document withIdentifier:(NSString*)ident
 {
-    /*
 	xmlXPathContextPtr xpathCtx;
     xmlXPathObjectPtr xpathObj;
 	
@@ -181,7 +180,6 @@
 	xmlXPathFreeObject(xpathObj);
 	
 	return stop;
-    */
 }
 
 + (NSString*)getTourTitle:(xmlDocPtr)document
