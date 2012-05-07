@@ -7,7 +7,11 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "KeypadController.h"
+#import "TourSelectionController.h"
+#import "StopGroupListController.h"
+#import "TourSelectionController.h"
+#import "TourMLUtils.h"
 #import "Stop.h"
 #import "StopFactory.h"
 #import "GANTracker.h"
@@ -20,6 +24,9 @@
     IBOutlet UIWindow *window;
 	IBOutlet UINavigationController *navigationController;
     IBOutlet UIBarButtonItem *helpButton;
+    IBOutlet UIBarButtonItem *toggleViewButton;
+    
+    UIViewController *currentViewController;
     
 	NSBundle *tourBundle; // The bundle holding the tour
 	xmlDocPtr tourDoc; // The parsed tour document
@@ -37,6 +44,9 @@
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UINavigationController *navigationController;
 @property (nonatomic, retain) UIBarButtonItem *helpButton;
+@property (nonatomic, retain) UIBarButtonItem *toggleViewButton;
+
+@property (nonatomic, retain) UIViewController *currentViewController;
 
 @property (nonatomic, retain) NSBundle *tourBundle;
 @property xmlDocPtr tourDoc;
@@ -50,15 +60,18 @@
 @property(readonly) SystemSoundID errorFileObject;
 
 - (IBAction)helpButtonClicked:(id)sender;
+- (IBAction)toggleView:(id)sender;
 
 - (BOOL)loadStop:(id<Stop>)stop;
 
 - (void)playClick;
 - (void)playError;
 
+- (void)initializeStopViewController;
 - (void)initializeGATracker;
 
 - (void)setActiveTour:(NSString *)tourBundleName;
 
 - (void)animateSplashImage;
+
 @end

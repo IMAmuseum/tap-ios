@@ -1,15 +1,13 @@
 #import "TapAppDelegate.h"
-#import "KeypadController.h"
-#import "StopGroupController.h"
-#import "TourSelectionController.h"
-#import "TourMLUtils.h"
-
 
 @implementation TapAppDelegate
 
 @synthesize window;
 @synthesize navigationController;
 @synthesize helpButton;
+@synthesize toggleViewButton;
+
+@synthesize currentViewController;
 
 @synthesize tourBundle;
 @synthesize tourDoc;
@@ -103,6 +101,43 @@ static const NSInteger ganDispatchPeriod = 10;
 	[self loadStop:[StopFactory newStopForStopNode:helpStopNode]];
 }
 
+- (IBAction)toggleView:(id)sender
+{
+    NSString *currentController = NSStringFromClass([currentViewController class]);
+    UIViewController *newController;
+    
+    NSMutableArray *controllers = [[self.navigationController.viewControllers mutableCopy] autorelease];
+    [controllers removeLastObject];
+    
+    self.navigationController.viewControllers = controllers;
+    
+    UIButton *button = (UIButton*)toggleViewButton.customView;
+    
+    if([currentController isEqualToString:@"StopGroupListController"]) {
+        newController = [[KeypadController alloc] init];
+        [button setBackgroundImage: [UIImage imageNamed:@"icon-list.png"] forState: UIControlStateNormal];
+    } else {
+        newController = [[StopGroupListController alloc] init];
+        [button setBackgroundImage: [UIImage imageNamed:@"icon-numbers.png"] forState: UIControlStateNormal];
+    }
+
+    NSArray *buttonItems = [[NSArray alloc] initWithObjects:helpButton, toggleViewButton, nil];
+    [[newController navigationItem] setRightBarButtonItems:buttonItems];
+    
+    [UIView transitionWithView:self.navigationController.view
+        duration:1.0 options:UIViewAnimationOptionTransitionFlipFromRight
+        animations:^{ 
+            [self.navigationController 
+            pushViewController:newController 
+            animated:NO];
+        } completion:NULL];
+    
+    currentViewController = newController;
+    
+    [buttonItems release];
+    [newController release];
+}
+
 - (BOOL)loadStop:(id<Stop>)stop
 {
     NSError *error;
@@ -131,6 +166,24 @@ static const NSInteger ganDispatchPeriod = 10;
 	}
 }
 
+- (void)initializeStopViewController
+{
+    currentViewController = [[KeypadController alloc] init];
+    
+    [[currentViewController navigationItem] setRightBarButtonItem:helpButton];
+    [[self navigationController] pushViewController:currentViewController animated:YES];
+    
+    UIButton *toggleView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 30, 30)];
+    [toggleView addTarget:self action:@selector(toggleView:) forControlEvents:UIControlEventTouchUpInside];
+    [toggleView setBackgroundImage: [UIImage imageNamed:@"icon-list.png"] forState: UIControlStateNormal];
+    toggleViewButton = [[UIBarButtonItem alloc] initWithCustomView:toggleView];
+    
+    NSArray *buttonItems = [[NSArray alloc] initWithObjects:helpButton, toggleViewButton, nil];
+    [[currentViewController navigationItem] setRightBarButtonItems:buttonItems];
+    
+    [buttonItems release];
+}
+
 - (void)initializeGATracker
 {
     NSString *gaTrackerCode = [TourMLUtils getGATrackerCode:tourDoc];
@@ -146,6 +199,7 @@ static const NSInteger ganDispatchPeriod = 10;
 	[navigationController release];
     [window release];
 	
+    [toggleViewButton release];
 	[tourBundle release];
 	xmlFreeDoc(tourDoc);
 		
@@ -266,18 +320,19 @@ static const NSInteger ganDispatchPeriod = 10;
     [self initializeGATracker];
     
     UIViewController *startController;
+    
+    helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStyleDone target:self action:@selector(helpButtonClicked:)];
+    
+    currentViewController = [[StopGroupListController alloc] init];
+    
     if ([tourBundles count] > 1) {
         startController = [[TourSelectionController alloc] init];
+        [[startController navigationItem] setRightBarButtonItem:helpButton];
+        [[self navigationController] pushViewController:startController animated:YES];
+        [startController release];        
     } else {
-        startController = [[KeypadController alloc] init];
+        [self initializeStopViewController];
     }
-
-    [[self navigationController] pushViewController:startController animated:YES];
-
-    helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStyleDone target:self action:@selector(helpButtonClicked:)];
-
-    [[startController navigationItem] setRightBarButtonItem:helpButton];
-    [startController release];
 
     [window makeKeyAndVisible];
     

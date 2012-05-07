@@ -124,8 +124,6 @@
         NSLog(@"GANTracker error: %@", error);
     }  
     
-    KeypadController *keypad = [[KeypadController alloc] init];
-    [[self navigationController] pushViewController:keypad animated:YES];
-    [keypad release];
+    [delegate initializeStopViewController];
 }
 @end
