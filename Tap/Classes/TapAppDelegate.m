@@ -170,7 +170,6 @@ static const NSInteger ganDispatchPeriod = 10;
 {
     currentViewController = [[KeypadController alloc] init];
     
-    [[currentViewController navigationItem] setRightBarButtonItem:helpButton];
     [[self navigationController] pushViewController:currentViewController animated:YES];
     
     UIButton *toggleView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 30, 30)];

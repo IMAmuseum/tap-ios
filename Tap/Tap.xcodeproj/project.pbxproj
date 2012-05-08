@@ -80,6 +80,8 @@
 		A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3CD15595551000C70FA /* ImageGallery.xib */; };
 		A44DC3D11559555F000C70FA /* StopGroupListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3D01559555F000C70FA /* StopGroupListController.m */; };
 		A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3D215595567000C70FA /* StopGroupListController.xib */; };
+		A4CD67191559B6CD00F0B0D1 /* icon-list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CD67171559B6CD00F0B0D1 /* icon-list.png */; };
+		A4CD671A1559B6CD00F0B0D1 /* icon-numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CD67181559B6CD00F0B0D1 /* icon-numbers.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +187,8 @@
 		A44DC3CF1559555F000C70FA /* StopGroupListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroupListController.h; sourceTree = "<group>"; };
 		A44DC3D01559555F000C70FA /* StopGroupListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroupListController.m; sourceTree = "<group>"; };
 		A44DC3D215595567000C70FA /* StopGroupListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopGroupListController.xib; path = Classes/StopGroupListController.xib; sourceTree = "<group>"; };
+		A4CD67171559B6CD00F0B0D1 /* icon-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-list.png"; sourceTree = "<group>"; };
+		A4CD67181559B6CD00F0B0D1 /* icon-numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-numbers.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +311,8 @@
 				A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */,
 				A43321D814B3F48F0018A8F8 /* tap-title-screen-top.png */,
 				A43321D214B3F47F0018A8F8 /* bg-poll-bar-left.png */,
+				A4CD67171559B6CD00F0B0D1 /* icon-list.png */,
+				A4CD67181559B6CD00F0B0D1 /* icon-numbers.png */,
 				A43321D314B3F47F0018A8F8 /* bg-poll-bar-middle.png */,
 				A43321D414B3F4800018A8F8 /* bg-poll-bar-right.png */,
 				A43321CE14B3F4540018A8F8 /* bg-poll-landscape.png */,
@@ -506,6 +512,8 @@
 				17D6F54714F777F600C1F199 /* Bundles in Resources */,
 				A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */,
 				A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */,
+				A4CD67191559B6CD00F0B0D1 /* icon-list.png in Resources */,
+				A4CD671A1559B6CD00F0B0D1 /* icon-numbers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
