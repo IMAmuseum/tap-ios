@@ -15,8 +15,6 @@
     UIScrollView *galleryScrollView;
     UIPageControl *pager;
     ImageStop *imageStop;
-    
-    BOOL pageControlBeingUsed;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *galleryScrollView;
