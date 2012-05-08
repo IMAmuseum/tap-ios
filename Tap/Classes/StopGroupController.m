@@ -93,7 +93,7 @@
 	NSUInteger idx = [indexPath row];
 	BaseStop *refStop = [[self stopGroup] stopAtIndex:idx];
 	//NSString *cellIdent = [NSString stringWithFormat:@"stop-cell-%d", idx];
-	
+
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
 	if (cell == nil) {
 		// Create a new reusable table cell
@@ -104,7 +104,7 @@
 		
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
-	
+
     // Set the title
     [[cell textLabel] setText:[refStop getTitle]];
     
