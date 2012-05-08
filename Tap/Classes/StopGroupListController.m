@@ -51,6 +51,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)dealloc
+{
+	[stopGroupTable release];
+	[stopGroups release];
+    
+	[super dealloc];
+}
+
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
