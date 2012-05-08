@@ -76,6 +76,10 @@
 		A43321DC14B3F4CA0018A8F8 /* keypad-go-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DA14B3F4C30018A8F8 /* keypad-go-down.png */; };
 		A43321DD14B3F4CA0018A8F8 /* keypad-go-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */; };
 		A43321DF14B3F50D0018A8F8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DE14B3F50C0018A8F8 /* Default.png */; };
+		A44DC3CB15595549000C70FA /* ImageGalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3CA15595549000C70FA /* ImageGalleryController.m */; };
+		A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3CD15595551000C70FA /* ImageGallery.xib */; };
+		A44DC3D11559555F000C70FA /* StopGroupListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3D01559555F000C70FA /* StopGroupListController.m */; };
+		A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3D215595567000C70FA /* StopGroupListController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +179,12 @@
 		A43321DA14B3F4C30018A8F8 /* keypad-go-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down.png"; sourceTree = "<group>"; };
 		A43321DB14B3F4C50018A8F8 /* keypad-go-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-up.png"; sourceTree = "<group>"; };
 		A43321DE14B3F50C0018A8F8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A44DC3C915595549000C70FA /* ImageGalleryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGalleryController.h; sourceTree = "<group>"; };
+		A44DC3CA15595549000C70FA /* ImageGalleryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGalleryController.m; sourceTree = "<group>"; };
+		A44DC3CD15595551000C70FA /* ImageGallery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageGallery.xib; path = Classes/ImageGallery.xib; sourceTree = "<group>"; };
+		A44DC3CF1559555F000C70FA /* StopGroupListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroupListController.h; sourceTree = "<group>"; };
+		A44DC3D01559555F000C70FA /* StopGroupListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroupListController.m; sourceTree = "<group>"; };
+		A44DC3D215595567000C70FA /* StopGroupListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopGroupListController.xib; path = Classes/StopGroupListController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,9 +337,11 @@
 				A43321B414B3EF960018A8F8 /* TourSelectionController.xib */,
 				8BF5915A0FCEFD080049DD27 /* MainWindow.xib */,
 				8BF5918E0FCF00200049DD27 /* ImageStop.xib */,
+				A44DC3CD15595551000C70FA /* ImageGallery.xib */,
 				8BC1E3811030554A000E14C4 /* Keypad.xib */,
 				8BF591940FCF004B0049DD27 /* PollStop.xib */,
 				8BF591900FCF00200049DD27 /* StopGroup.xib */,
+				A44DC3D215595567000C70FA /* StopGroupListController.xib */,
 				8BF591970FCF00570049DD27 /* WebStop.xib */,
 			);
 			name = Nibs;
@@ -342,10 +354,14 @@
 				8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */,
 				73993C5D0F6AA00D002137F5 /* ImageStopController.h */,
 				73993C5E0F6AA00D002137F5 /* ImageStopController.m */,
+				A44DC3C915595549000C70FA /* ImageGalleryController.h */,
+				A44DC3CA15595549000C70FA /* ImageGalleryController.m */,
 				8B9646BB0FCC85730006494F /* PollStopController.h */,
 				8B9646BC0FCC85730006494F /* PollStopController.m */,
 				8B6C627C0F65567200598AB1 /* StopGroupController.h */,
 				8B6C627D0F65567200598AB1 /* StopGroupController.m */,
+				A44DC3CF1559555F000C70FA /* StopGroupListController.h */,
+				A44DC3D01559555F000C70FA /* StopGroupListController.m */,
 				8B9241CA0FCC6A8600C172AC /* WebStopController.h */,
 				8B9241CB0FCC6A8600C172AC /* WebStopController.m */,
 				A43321B014B3EECA0018A8F8 /* TourSelectionController.h */,
@@ -488,6 +504,8 @@
 				A43321DF14B3F50D0018A8F8 /* Default.png in Resources */,
 				1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */,
 				17D6F54714F777F600C1F199 /* Bundles in Resources */,
+				A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */,
+				A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +535,8 @@
 				8BB31DD81039AF3900DDA1C8 /* TapDetectingImageView.m in Sources */,
 				A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */,
 				1773392F1510D96D0087AE5D /* XPathQuery.m in Sources */,
+				A44DC3CB15595549000C70FA /* ImageGalleryController.m in Sources */,
+				A44DC3D11559555F000C70FA /* StopGroupListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
