@@ -3,6 +3,8 @@
 #import "TapAppDelegate.h"
 
 #define HEADER_IMAGE_VIEW_TAG	8637
+#define CELL_CONTENT_MARGIN 50.0f
+#define CELL_PADDING 40.0f
 
 @implementation StopGroupController
 
@@ -107,9 +109,13 @@
 
     // Set the title
     [[cell textLabel] setText:[refStop getTitle]];
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
     
     // Set the description if available
     [[cell detailTextLabel] setText:[refStop getDescription]];
+    cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.detailTextLabel.numberOfLines = 0;
     
     // Set the associated icon
     [[cell imageView] setImage:[UIImage imageWithContentsOfFile:[refStop getIconPath]]];
@@ -117,6 +123,23 @@
     [refStop release];
     
 	return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    NSUInteger idx = [indexPath row];
+	BaseStop *refStop = [[self stopGroup] stopAtIndex:idx];
+    
+    CGSize constraint = CGSizeMake(320.0f - CELL_CONTENT_MARGIN * 2, 20000.0f);
+    
+    NSString *titleText = [refStop getTitle];
+    CGSize titleSize = [titleText sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+
+    NSString *detailText = [refStop getDescription];
+    CGSize detailSize = [detailText sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+    
+    CGFloat height = MAX(titleSize.height + detailSize.height + CELL_PADDING, CELL_PADDING);
+    return height;
 }
 
 #pragma mark UITableViewDelegate
