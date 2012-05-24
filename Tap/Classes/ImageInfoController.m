@@ -57,7 +57,8 @@
 
 #pragma mark UITableViewDataSource
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {   
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+{
     if(section == 0 && caption != nil) {
         return @"Caption";
     } else if (creditLine != nil) {
@@ -69,7 +70,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     numberOfSections = 0;
-    
     if (caption != nil) {
         numberOfSections++;
     }

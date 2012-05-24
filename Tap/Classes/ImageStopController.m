@@ -189,15 +189,15 @@
 
 - (IBAction)toggleInfoPane:(id)sender
 {   
+    TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
     ImageInfoController *controller = [[[ImageInfoController alloc] init] autorelease];
+
+    [controller setCaption:[ImageStop getCaption:[appDelegate tourDoc] withIdentifier:assetId]];
+    [controller setCreditLine:[ImageStop getCreditLine:[appDelegate tourDoc] withIdentifier:assetId]];
+    
     [controller setDelegate:self];
     [controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [rootController presentModalViewController:controller animated:YES];
-    
-    TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    [controller setCaption:[ImageStop getCaption:[appDelegate tourDoc] withIdentifier:assetId]];
-    [controller setCreditLine:[ImageStop getCreditLine:[appDelegate tourDoc] withIdentifier:assetId]];    
 }
 
 @end
