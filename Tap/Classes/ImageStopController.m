@@ -6,26 +6,28 @@
 
 @implementation ImageStopController
 
+@synthesize rootController;
 @synthesize scrollView;
+@synthesize infoButton;
 @synthesize imageView;
-@synthesize imageSrc;
+@synthesize assetId;
 
 
-- (id)initWithImageSource:(NSString*)source
+- (id)initWithAssetId:(NSString*)asset rootController:(UIViewController*)controller
 {
 	if ((self = [super initWithNibName:@"ImageStop" bundle:[NSBundle mainBundle]])) {
-		[self setImageSrc:source];
+        rootController = controller;
+		[self setAssetId:asset];
 	}
-
 	return self;
 }
 
 - (void)dealloc
 {
-	[imageView release];
-	[imageSrc release];
+	[assetId release];
 	[scrollView release];
-    
+    [infoButton release];
+    [rootController release];
 	[super dealloc];
 }
 
@@ -39,15 +41,18 @@
 
 - (void)viewDidLoad
 {
+    TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSString *imageSrc = [ImageStop getSource:[appDelegate tourDoc] withIdentifier:assetId];
 	// Reference the image for this stop
 	NSBundle *tourBundle = [((TapAppDelegate*)[[UIApplication sharedApplication] delegate]) tourBundle];
 	NSString *imagePath = [tourBundle pathForResource:[[imageSrc lastPathComponent] stringByDeletingPathExtension]
 											   ofType:[[imageSrc lastPathComponent] pathExtension]
 										  inDirectory:[imageSrc stringByDeletingLastPathComponent]];
 	
-	[self setImageView:[[TapDetectingImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]]];
+    TapDetectingImageView *tapDetectingImageView = [[TapDetectingImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:imagePath]];
+	[self setImageView:tapDetectingImageView];
     [imageView setDelegate:self];
-    
+
 	[imageView setFrame:scrollView.bounds];
 	[imageView setContentMode: (UIViewContentModeScaleAspectFit)];
 	[imageView setAutoresizingMask: (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
@@ -59,6 +64,8 @@
 	[scrollView setMinimumZoomScale: 1.0f];
 	[scrollView setMaximumZoomScale: [imageView image].size.width/[imageView frame].size.width];
 	[scrollView addSubview:imageView];
+    
+    [tapDetectingImageView release];
 }
 
 #pragma mark UIScrollViewDelegate 
@@ -169,6 +176,28 @@
 	zoomRect.origin.y    = center.y - (zoomRect.size.height / 2.0);
 			
 	return zoomRect;
+}
+
+#pragma mark - ImageInfo View
+
+#pragma mark IBAction methods
+
+- (void)imageInfoControllerDidFinish:(ImageInfoController *)controller
+{
+    [rootController dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)toggleInfoPane:(id)sender
+{   
+    ImageInfoController *controller = [[[ImageInfoController alloc] init] autorelease];
+    [controller setDelegate:self];
+    [controller setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [rootController presentModalViewController:controller animated:YES];
+    
+    TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    [controller setCaption:[ImageStop getCaption:[appDelegate tourDoc] withIdentifier:assetId]];
+    [controller setCreditLine:[ImageStop getCreditLine:[appDelegate tourDoc] withIdentifier:assetId]];    
 }
 
 @end

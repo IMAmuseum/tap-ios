@@ -47,7 +47,7 @@
 
 + (NSMutableArray*)getStopConnectionsByPriority:(xmlDocPtr)document withSource:(NSString*)sourceId
 {
-    NSMutableDictionary *stops = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *stops;
 	xmlXPathContextPtr xpathCtx;
     xmlXPathObjectPtr xpathObj;
     
@@ -74,6 +74,7 @@
         return NO;
 	}
     
+    stops = [[NSMutableDictionary alloc] init];
 	for (int i = 0; i < xpathObj->nodesetval->nodeNr; i++) 
     {
         int priority = [[NSString stringWithUTF8String:(char*)xmlGetProp(xpathObj->nodesetval->nodeTab[i], (xmlChar*)"priority")] intValue];

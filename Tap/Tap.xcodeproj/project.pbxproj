@@ -12,6 +12,8 @@
 		17551D38150F9731008B7362 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17551D37150F9731008B7362 /* CFNetwork.framework */; };
 		1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1765DA4514B4B48B0085F1E6 /* MainWindow-iPad.xib */; };
 		1773392F1510D96D0087AE5D /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 1773392E1510D96D0087AE5D /* XPathQuery.m */; };
+		17AFBF6D155AAEC700F2DB5E /* ImageInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AFBF6B155AAEC700F2DB5E /* ImageInfoController.m */; };
+		17AFBF6E155AAEC700F2DB5E /* ImageInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AFBF6C155AAEC700F2DB5E /* ImageInfoController.xib */; };
 		17D6F54714F777F600C1F199 /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 17D6F54614F777F600C1F199 /* Bundles */; };
 		1D3623260D0F684500981E51 /* TapAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* TapAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -78,8 +80,8 @@
 		A43321DF14B3F50D0018A8F8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A43321DE14B3F50C0018A8F8 /* Default.png */; };
 		A44DC3CB15595549000C70FA /* ImageGalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3CA15595549000C70FA /* ImageGalleryController.m */; };
 		A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3CD15595551000C70FA /* ImageGallery.xib */; };
-		A44DC3D11559555F000C70FA /* StopGroupListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3D01559555F000C70FA /* StopGroupListController.m */; };
-		A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3D215595567000C70FA /* StopGroupListController.xib */; };
+		A44DC3D11559555F000C70FA /* StopListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44DC3D01559555F000C70FA /* StopListController.m */; };
+		A44DC3D315595567000C70FA /* StopListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44DC3D215595567000C70FA /* StopListController.xib */; };
 		A4CD67191559B6CD00F0B0D1 /* icon-list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CD67171559B6CD00F0B0D1 /* icon-list.png */; };
 		A4CD671A1559B6CD00F0B0D1 /* icon-numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CD67181559B6CD00F0B0D1 /* icon-numbers.png */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,9 @@
 		1765DA4714B4B48B0085F1E6 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "Resources/iPad/es.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		1773392E1510D96D0087AE5D /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		177339301510DA330087AE5D /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		17AFBF6A155AAEC700F2DB5E /* ImageInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageInfoController.h; sourceTree = "<group>"; };
+		17AFBF6B155AAEC700F2DB5E /* ImageInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageInfoController.m; sourceTree = "<group>"; };
+		17AFBF6C155AAEC700F2DB5E /* ImageInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageInfoController.xib; path = Classes/ImageInfoController.xib; sourceTree = "<group>"; };
 		17D6F54614F777F600C1F199 /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Bundles; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* TapAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapAppDelegate.h; sourceTree = "<group>"; };
@@ -184,9 +189,9 @@
 		A44DC3C915595549000C70FA /* ImageGalleryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGalleryController.h; sourceTree = "<group>"; };
 		A44DC3CA15595549000C70FA /* ImageGalleryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGalleryController.m; sourceTree = "<group>"; };
 		A44DC3CD15595551000C70FA /* ImageGallery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ImageGallery.xib; path = Classes/ImageGallery.xib; sourceTree = "<group>"; };
-		A44DC3CF1559555F000C70FA /* StopGroupListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopGroupListController.h; sourceTree = "<group>"; };
-		A44DC3D01559555F000C70FA /* StopGroupListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopGroupListController.m; sourceTree = "<group>"; };
-		A44DC3D215595567000C70FA /* StopGroupListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopGroupListController.xib; path = Classes/StopGroupListController.xib; sourceTree = "<group>"; };
+		A44DC3CF1559555F000C70FA /* StopListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopListController.h; sourceTree = "<group>"; };
+		A44DC3D01559555F000C70FA /* StopListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopListController.m; sourceTree = "<group>"; };
+		A44DC3D215595567000C70FA /* StopListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListController.xib; path = Classes/StopListController.xib; sourceTree = "<group>"; };
 		A4CD67171559B6CD00F0B0D1 /* icon-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-list.png"; sourceTree = "<group>"; };
 		A4CD67181559B6CD00F0B0D1 /* icon-numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-numbers.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,14 +345,15 @@
 		8BD9A2550FC195F4001E97D9 /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
-				A43321B414B3EF960018A8F8 /* TourSelectionController.xib */,
-				8BF5915A0FCEFD080049DD27 /* MainWindow.xib */,
-				8BF5918E0FCF00200049DD27 /* ImageStop.xib */,
 				A44DC3CD15595551000C70FA /* ImageGallery.xib */,
+				17AFBF6C155AAEC700F2DB5E /* ImageInfoController.xib */,
+				8BF5918E0FCF00200049DD27 /* ImageStop.xib */,
 				8BC1E3811030554A000E14C4 /* Keypad.xib */,
+				8BF5915A0FCEFD080049DD27 /* MainWindow.xib */,
 				8BF591940FCF004B0049DD27 /* PollStop.xib */,
 				8BF591900FCF00200049DD27 /* StopGroup.xib */,
-				A44DC3D215595567000C70FA /* StopGroupListController.xib */,
+				A44DC3D215595567000C70FA /* StopListController.xib */,
+				A43321B414B3EF960018A8F8 /* TourSelectionController.xib */,
 				8BF591970FCF00570049DD27 /* WebStop.xib */,
 			);
 			name = Nibs;
@@ -356,22 +362,24 @@
 		8BD9A2560FC1960E001E97D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */,
-				8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */,
-				73993C5D0F6AA00D002137F5 /* ImageStopController.h */,
-				73993C5E0F6AA00D002137F5 /* ImageStopController.m */,
 				A44DC3C915595549000C70FA /* ImageGalleryController.h */,
 				A44DC3CA15595549000C70FA /* ImageGalleryController.m */,
+				17AFBF6A155AAEC700F2DB5E /* ImageInfoController.h */,
+				17AFBF6B155AAEC700F2DB5E /* ImageInfoController.m */,
+				73993C5D0F6AA00D002137F5 /* ImageStopController.h */,
+				73993C5E0F6AA00D002137F5 /* ImageStopController.m */,
+				8B5A06CB0F5DBFE2000BAB32 /* KeypadController.h */,
+				8B5A06CC0F5DBFE2000BAB32 /* KeypadController.m */,
 				8B9646BB0FCC85730006494F /* PollStopController.h */,
 				8B9646BC0FCC85730006494F /* PollStopController.m */,
 				8B6C627C0F65567200598AB1 /* StopGroupController.h */,
 				8B6C627D0F65567200598AB1 /* StopGroupController.m */,
-				A44DC3CF1559555F000C70FA /* StopGroupListController.h */,
-				A44DC3D01559555F000C70FA /* StopGroupListController.m */,
-				8B9241CA0FCC6A8600C172AC /* WebStopController.h */,
-				8B9241CB0FCC6A8600C172AC /* WebStopController.m */,
+				A44DC3CF1559555F000C70FA /* StopListController.h */,
+				A44DC3D01559555F000C70FA /* StopListController.m */,
 				A43321B014B3EECA0018A8F8 /* TourSelectionController.h */,
 				A43321B114B3EECA0018A8F8 /* TourSelectionController.m */,
+				8B9241CA0FCC6A8600C172AC /* WebStopController.h */,
+				8B9241CB0FCC6A8600C172AC /* WebStopController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -511,9 +519,10 @@
 				1765DA4814B4B48B0085F1E6 /* MainWindow-iPad.xib in Resources */,
 				17D6F54714F777F600C1F199 /* Bundles in Resources */,
 				A44DC3CE15595551000C70FA /* ImageGallery.xib in Resources */,
-				A44DC3D315595567000C70FA /* StopGroupListController.xib in Resources */,
+				A44DC3D315595567000C70FA /* StopListController.xib in Resources */,
 				A4CD67191559B6CD00F0B0D1 /* icon-list.png in Resources */,
 				A4CD671A1559B6CD00F0B0D1 /* icon-numbers.png in Resources */,
+				17AFBF6E155AAEC700F2DB5E /* ImageInfoController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,7 +553,8 @@
 				A43321B214B3EECA0018A8F8 /* TourSelectionController.m in Sources */,
 				1773392F1510D96D0087AE5D /* XPathQuery.m in Sources */,
 				A44DC3CB15595549000C70FA /* ImageGalleryController.m in Sources */,
-				A44DC3D11559555F000C70FA /* StopGroupListController.m in Sources */,
+				A44DC3D11559555F000C70FA /* StopListController.m in Sources */,
+				17AFBF6D155AAEC700F2DB5E /* ImageInfoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,13 +636,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -646,11 +660,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -681,11 +699,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tap_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

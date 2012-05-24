@@ -70,6 +70,7 @@
 	TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
 	[[[appDelegate navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
 	
+    [movieController release];
 	return YES;
 }
 

@@ -113,11 +113,11 @@ static const NSInteger ganDispatchPeriod = 10;
     
     UIButton *button = (UIButton*)toggleViewButton.customView;
     
-    if([currentController isEqualToString:@"StopGroupListController"]) {
+    if([currentController isEqualToString:@"StopListController"]) {
         newController = [[KeypadController alloc] init];
         [button setBackgroundImage: [UIImage imageNamed:@"icon-list.png"] forState: UIControlStateNormal];
     } else {
-        newController = [[StopGroupListController alloc] init];
+        newController = [[StopListController alloc] init];
         [button setBackgroundImage: [UIImage imageNamed:@"icon-numbers.png"] forState: UIControlStateNormal];
     }
 
@@ -180,6 +180,7 @@ static const NSInteger ganDispatchPeriod = 10;
     NSArray *buttonItems = [[NSArray alloc] initWithObjects:helpButton, toggleViewButton, nil];
     [[currentViewController navigationItem] setRightBarButtonItems:buttonItems];
     
+    [toggleView release];
     [buttonItems release];
 }
 
@@ -285,6 +286,7 @@ static const NSInteger ganDispatchPeriod = 10;
                     [tour setValue:tourName forKey:@"Name"];
                     [tour setValue:bundleName forKey:@"BundleName"];
                     [availableTours addObject:tour];
+                    [tour release];
                 }
             }
         }
@@ -321,8 +323,6 @@ static const NSInteger ganDispatchPeriod = 10;
     UIViewController *startController;
     
     helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStyleDone target:self action:@selector(helpButtonClicked:)];
-    
-    currentViewController = [[StopGroupListController alloc] init];
     
     if ([tourBundles count] > 1) {
         startController = [[TourSelectionController alloc] init];

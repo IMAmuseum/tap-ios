@@ -9,12 +9,11 @@
 	IBOutlet UIImageView *bannerImage;
 	
 	StopGroup *stopGroup;
-
+    BOOL sectionsEnabled;
 }
 
 @property (nonatomic, retain) UITableView *stopTable;
 @property (nonatomic, retain) UIImageView *bannerImage;
-
 @property (assign) StopGroup *stopGroup;
 
 - (id)initWithStopGroup:(StopGroup*)stop;

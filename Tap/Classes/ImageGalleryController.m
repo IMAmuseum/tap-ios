@@ -28,22 +28,21 @@
 {
     [super viewDidLoad];
 
-	NSArray *images = [imageStop getSources];
-    
-    for (int i = 0; i < images.count; i++) {
+	NSArray *assets = [imageStop getAssetIds];
+    for (int i = 0; i < assets.count; i++) {
         CGRect frame;
         frame.origin.x = galleryScrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = galleryScrollView.frame.size;
-        ImageStopController *image = [[ImageStopController alloc] initWithImageSource:[images objectAtIndex:i]];
+        ImageStopController *image = [[ImageStopController alloc] initWithAssetId:[assets objectAtIndex:i] rootController:self];
         image.view.frame = frame;
         [galleryScrollView addSubview:[image view]];
     }
     
-    galleryScrollView.contentSize = CGSizeMake(galleryScrollView.frame.size.width * images.count, 
+    galleryScrollView.contentSize = CGSizeMake(galleryScrollView.frame.size.width * assets.count, 
                                                     galleryScrollView.frame.size.height);
     pager.currentPage = 0;
-	pager.numberOfPages = images.count;
+	pager.numberOfPages = assets.count;
 }
 
 - (void)viewDidUnload

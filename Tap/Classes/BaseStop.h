@@ -3,9 +3,7 @@
 #import "Stop.h"
 
 @interface BaseStop : NSObject <Stop> {
-	
 	xmlNodePtr stopNode;
-
 }
 
 @property xmlNodePtr stopNode;

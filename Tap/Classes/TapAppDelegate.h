@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KeypadController.h"
 #import "TourSelectionController.h"
-#import "StopGroupListController.h"
+#import "StopListController.h"
 #import "TourSelectionController.h"
 #import "TourMLUtils.h"
 #import "Stop.h"
