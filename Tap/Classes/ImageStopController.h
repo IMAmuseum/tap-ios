@@ -13,7 +13,7 @@
     NSString *assetId;
 }
 
-@property (nonatomic, retain) UIViewController *rootController;
+@property (assign) UIViewController *rootController;
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UIButton *infoButton;
 @property (nonatomic, retain) UIImageView *imageView;

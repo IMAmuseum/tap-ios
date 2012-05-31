@@ -87,7 +87,7 @@
 {	
     TapAppDelegate *appDelegate = (TapAppDelegate*)[[UIApplication sharedApplication] delegate];
     
-    NSString *stopId;
+    NSString *stopId = [[[NSString alloc] init] autorelease];
     for(NSDictionary *attribute in [[stops objectAtIndex:indexPath.row] objectForKey:@"nodeAttributeArray"]) {
         if([[attribute objectForKey:@"attributeName"] isEqualToString:@"id"]) {
             stopId = [attribute objectForKey:@"nodeContent"];

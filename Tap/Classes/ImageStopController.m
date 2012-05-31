@@ -27,7 +27,6 @@
 	[assetId release];
 	[scrollView release];
     [infoButton release];
-    [rootController release];
 	[super dealloc];
 }
 

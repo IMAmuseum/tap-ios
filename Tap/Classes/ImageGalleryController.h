@@ -15,11 +15,14 @@
     UIScrollView *galleryScrollView;
     UIPageControl *pager;
     ImageStop *imageStop;
+    NSMutableArray *imageViews;    
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *galleryScrollView;
 @property (nonatomic, retain) IBOutlet UIPageControl *pager;
 @property (assign) ImageStop *imageStop;
+@property (nonatomic, retain) NSMutableArray *imageViews;
 
 - (id)initWithImageStop:(ImageStop*)stop;
+
 @end

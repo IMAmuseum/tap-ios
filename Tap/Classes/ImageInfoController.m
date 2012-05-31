@@ -60,7 +60,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
 {
     if(section == 0 && caption != nil) {
-        return @"Caption";
+        return @"About";
     } else if (creditLine != nil) {
         return @"Credit";
     } else {

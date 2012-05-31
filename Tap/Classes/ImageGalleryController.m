@@ -13,6 +13,7 @@
 @synthesize galleryScrollView;
 @synthesize pager;
 @synthesize imageStop;
+@synthesize imageViews;
 
 - (id)initWithImageStop:(ImageStop*)stop
 {
@@ -24,32 +25,38 @@
 	return self;
 }
 
+- (void)loadView
+{
+    [super loadView];
+    
+  	NSArray *assets = [imageStop getAssetIds];
+    imageViews = [[NSMutableArray alloc] init];
+    for (NSString *assetId in assets) {
+        ImageStopController *image = [[ImageStopController alloc] initWithAssetId:assetId rootController:self];
+        [imageViews addObject:image];
+        [image release];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-	NSArray *assets = [imageStop getAssetIds];
-    for (int i = 0; i < assets.count; i++) {
+    ImageStopController *image = nil;
+    for (int i = 0; i < [imageViews count]; i++) {        
+        image = (ImageStopController *)[self.imageViews objectAtIndex:i];
         CGRect frame;
         frame.origin.x = galleryScrollView.frame.size.width * i;
         frame.origin.y = 0;
         frame.size = galleryScrollView.frame.size;
-        ImageStopController *image = [[ImageStopController alloc] initWithAssetId:[assets objectAtIndex:i] rootController:self];
         image.view.frame = frame;
-        [galleryScrollView addSubview:[image view]];
+        [galleryScrollView addSubview:image.view];
     }
     
-    galleryScrollView.contentSize = CGSizeMake(galleryScrollView.frame.size.width * assets.count, 
+    galleryScrollView.contentSize = CGSizeMake(galleryScrollView.frame.size.width * [imageViews count], 
                                                     galleryScrollView.frame.size.height);
     pager.currentPage = 0;
-	pager.numberOfPages = assets.count;
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	pager.numberOfPages = [imageViews count];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -62,6 +69,8 @@
 	[galleryScrollView release];
 	[pager release];
 	[imageStop release];
+    [imageViews removeAllObjects];
+    [imageViews release];
     
 	[super dealloc];
 }
