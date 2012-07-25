@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "ISO8601DateFormatter.h"
 
+static NSMutableString *bundlePath;
+
 @implementation TourMLParser
 
 /**
@@ -18,7 +20,8 @@
  */
 + (void)loadTours 
 {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];  
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    bundlePath = nil;
     NSError *error;
     
     // process endpoint
@@ -35,8 +38,9 @@
         while (currBundlePath = [bundleEnumerator nextObject]) {
             if ([[currBundlePath pathExtension] isEqualToString:@"bundle"]) {
                 NSString *tourBundlePath = [bundleDir stringByAppendingPathComponent:currBundlePath];
+                bundlePath = [NSMutableString stringWithFormat:tourBundlePath];
                 NSBundle *bundle = [NSBundle bundleWithPath:tourBundlePath];
-                if (bundle) {                
+                if (bundle) {
                     NSString *tourDataPath = [bundle pathForResource:@"tour" ofType:@"xml"];
                     NSData *xmlData = [[[NSMutableData alloc] initWithContentsOfFile:tourDataPath] autorelease];
                     
@@ -155,6 +159,7 @@
     // Tour attributes
     tour.id = tourId;
     tour.lastModified = lastModified;
+    tour.bundlePath = bundlePath;
     // TourMetadata
     GDataXMLElement *tourMetadata = [[doc.rootElement elementsForName:@"tourml:TourMetadata"] objectAtIndex:0];
     tour.publishDate = [self convertStringToDate:[[[tourMetadata elementsForName:@"tourml:publishDate"] objectAtIndex:0] stringValue]];
@@ -180,6 +185,7 @@
         NSLog(@"Error saving: %@", [error localizedDescription]);
     }
     
+    bundlePath = nil;
     [request release];
 }
 

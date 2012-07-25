@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString *author;
 @property (nonatomic, retain) NSString *id;
+@property (nonatomic, retain) NSString *bundlePath;
 @property (nonatomic, retain) NSDate *lastModified;
 @property (nonatomic, retain) NSDate *publishDate;
 @property (nonatomic, retain, getter = title) NSDictionary *title;

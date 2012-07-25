@@ -68,6 +68,7 @@
     </entity>
     <entity name="Tour" representedClassName="TAPTour" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bundlePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
@@ -86,6 +87,6 @@
         <element name="Property" positionX="-171" positionY="-12" width="128" height="165"/>
         <element name="Source" positionX="9" positionY="171" width="128" height="150"/>
         <element name="Stop" positionX="-387" positionY="-351" width="128" height="195"/>
-        <element name="Tour" positionX="-587" positionY="-213" width="128" height="195"/>
+        <element name="Tour" positionX="-587" positionY="-213" width="128" height="210"/>
     </elements>
 </model>

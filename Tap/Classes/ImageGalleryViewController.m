@@ -482,7 +482,7 @@
     initializedToolbarAnimation = YES;
     
     if (displayInfoPane) {
-        CGRect newFrame = CGRectMake(0.0f, 0.0f, 0.0f, 0.0f);
+        CGRect newFrame;
 
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.2f];

@@ -39,6 +39,17 @@
         if ([[NSFileManager defaultManager] fileExistsAtPath:originalUri]) {
             return originalUri;
         }
+        
+        if (appDelegate.currentTour.bundlePath != nil) {
+            NSBundle *bundle = [NSBundle bundleWithPath:appDelegate.currentTour.bundlePath];
+            NSString *bundleUri = [bundle pathForResource:[[originalUri lastPathComponent] stringByDeletingPathExtension]
+                                                        ofType:[[originalUri lastPathComponent] pathExtension]
+                                                   inDirectory:[originalUri stringByDeletingLastPathComponent]];
+            
+            if ([[NSFileManager defaultManager] fileExistsAtPath:bundleUri]) {
+                return bundleUri;
+            }
+        }
     }
     
     NSString *localPath = nil;
