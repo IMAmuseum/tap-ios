@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Asset" representedClassName="TAPAsset" syncable="YES">
+        <attribute name="copyright" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creditLine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="expiration" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="machineRights" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="assetRef" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="asset" inverseEntity="AssetRef" syncable="YES"/>
+        <relationship name="content" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Content" inverseName="asset" inverseEntity="Content" syncable="YES"/>
+        <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="assetPropertySet" inverseEntity="Property" syncable="YES"/>
+        <relationship name="source" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Source" inverseName="relationship" inverseEntity="Source" syncable="YES"/>
+        <relationship name="watermark" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="asset" inverseEntity="AssetRef" syncable="YES"/>
+    </entity>
+    <entity name="AssetRef" representedClassName="TAPAssetRef" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usage" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="asset" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="assetRef" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="stop" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Stop" inverseName="assetRef" inverseEntity="Stop" syncable="YES"/>
+        <relationship name="tour" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Tour" inverseName="appResource" inverseEntity="Tour" syncable="YES"/>
+        <relationship name="watermark" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="watermark" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="Connection" representedClassName="TAPConnection" syncable="YES">
+        <attribute name="priority" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="usage" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="destinationStop" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Stop" inverseName="destinationConnection" inverseEntity="Stop" syncable="YES"/>
+        <relationship name="sourceStop" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Stop" inverseName="sourceConnection" inverseEntity="Stop" syncable="YES"/>
+    </entity>
+    <entity name="Content" representedClassName="TAPContent" syncable="YES">
+        <attribute name="data" attributeType="String" syncable="YES"/>
+        <attribute name="format" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="part" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="asset" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="content" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="contentPropertySet" inverseEntity="Property" syncable="YES"/>
+    </entity>
+    <entity name="Property" representedClassName="TAPProperty" syncable="YES">
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="assetPropertySet" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="propertySet" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="contentPropertySet" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Content" inverseName="propertySet" inverseEntity="Content" syncable="YES"/>
+        <relationship name="sourcePropertySet" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Source" inverseName="propertySet" inverseEntity="Source" syncable="YES"/>
+        <relationship name="stopPropertySet" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stop" inverseName="propertySet" inverseEntity="Stop" syncable="YES"/>
+        <relationship name="tourPropertySet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tour" inverseName="propertySet" inverseEntity="Tour" syncable="YES"/>
+    </entity>
+    <entity name="Source" representedClassName="TAPSource" syncable="YES">
+        <attribute name="format" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="part" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="sourcePropertySet" inverseEntity="Property" syncable="YES"/>
+        <relationship name="relationship" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="source" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="Stop" representedClassName="TAPStop" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="view" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="assetRef" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="stop" inverseEntity="AssetRef" syncable="YES"/>
+        <relationship name="destinationConnection" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Connection" inverseName="destinationStop" inverseEntity="Connection" syncable="YES"/>
+        <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="stopPropertySet" inverseEntity="Property" syncable="YES"/>
+        <relationship name="sourceConnection" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Connection" inverseName="sourceStop" inverseEntity="Connection" syncable="YES"/>
+        <relationship name="tour" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Tour" inverseName="stop" inverseEntity="Tour" syncable="YES"/>
+        <relationship name="tourRootStop" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Tour" inverseName="rootStopRef" inverseEntity="Tour" syncable="YES"/>
+    </entity>
+    <entity name="Tour" representedClassName="TAPTour" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="publishDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="appResource" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="tour" inverseEntity="AssetRef" syncable="YES"/>
+        <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="tourPropertySet" inverseEntity="Property" syncable="YES"/>
+        <relationship name="rootStopRef" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Stop" inverseName="tourRootStop" inverseEntity="Stop" syncable="YES"/>
+        <relationship name="stop" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stop" inverseName="tour" inverseEntity="Stop" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="-47" positionY="-297" width="128" height="225"/>
+        <element name="AssetRef" positionX="-470" positionY="156" width="128" height="135"/>
+        <element name="Connection" positionX="-198" positionY="-429" width="128" height="105"/>
+        <element name="Content" positionX="133" positionY="-54" width="128" height="135"/>
+        <element name="Property" positionX="-171" positionY="-12" width="128" height="165"/>
+        <element name="Source" positionX="9" positionY="171" width="128" height="150"/>
+        <element name="Stop" positionX="-387" positionY="-351" width="128" height="195"/>
+        <element name="Tour" positionX="-587" positionY="-213" width="128" height="195"/>
+    </elements>
+</model>
