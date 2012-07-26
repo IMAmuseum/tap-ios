@@ -129,9 +129,7 @@
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
     // set the current tour
-    [appDelegate setCurrentTour:tour];
-    // set the default navigation stop controller
-    [appDelegate.navigationSegmentControl setSelectedSegmentIndex:0];
+    [appDelegate loadTour:tour];
     [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
 }
 

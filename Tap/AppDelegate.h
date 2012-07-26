@@ -51,6 +51,7 @@
 @property (readonly) SystemSoundID errorFileObject;
 
 - (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl;
+- (void)loadTour:(TAPTour *)tour;
 - (void)loadStop:(TAPStop *)stop;
 - (IBAction)helpButtonClicked:(id)sender;
 - (void)animateSplashImage;

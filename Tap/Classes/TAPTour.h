@@ -25,7 +25,8 @@
 @property (nonatomic, retain) TAPStop *rootStopRef;
 @property (nonatomic, retain) NSSet *stop;
 
-- (TAPStop *)stopForKeycode:(NSString *)keycode;
+- (TAPStop *)stopFromKeycode:(NSString *)keycode;
+- (TAPStop *)stopFromId:(NSString *)id;
 
 @end
 

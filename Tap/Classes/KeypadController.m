@@ -84,7 +84,7 @@
 	NSString *stopCode = [lblCode text];
 	if ([stopCode length] < MINIMUM_CODE_LENGTH) return;
 	
-    TAPStop *stop = [appDelegate.currentTour stopForKeycode:stopCode];
+    TAPStop *stop = [appDelegate.currentTour stopFromKeycode:stopCode];
 	if (stop == nil) {
         [appDelegate playError];
 		UIAlertView *alert = [[UIAlertView alloc]

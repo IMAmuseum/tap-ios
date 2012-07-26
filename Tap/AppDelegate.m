@@ -44,7 +44,7 @@
 @synthesize errorFileURLRef;
 @synthesize errorFileObject;
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
     // Add the navigation controller to the window
     [self.window addSubview:[self.navigationController view]];
@@ -117,19 +117,6 @@
     [keypadController release];
     [stopListController release];
     
-    // if only one tour exists initialize it and add it to the stack
-    if ([tours count] == 1) {
-        // set the current tour
-        [self setCurrentTour:[tours objectAtIndex:0]];
-        // set the default controller
-        [_navigationSegmentControl setSelectedSegmentIndex:0];
-        
-        // starting in ios5 setSelectedSegmentIndex no longer triggers an event so we must do this explicitly for ios5 and greater
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")) {
-            [_navigationSegmentControl sendActionsForControlEvents:UIControlEventValueChanged];
-        }
-    }
-    
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
     [splashTop setTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
@@ -143,8 +130,63 @@
     [splashTop release];
     [splashBtm release];
     
+    // initialize only if we're not coming from a url
+    if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
+        // if only one tour exists initialize it and add it to the stack
+        if ([tours count] == 1) {
+            // set the current tour
+            [self loadTour:[tours objectAtIndex:0]];
+        }
+        [self animateSplashImage];
+    }
+    
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSError *error;
+    
+    if (url == nil) {
+        [self animateSplashImage];
+        return NO;
+    }
+    
+    NSString *tourId = [url host];
+    NSString *stopId;
+    
+    if ([[url pathComponents] count] == 2) {
+        stopId = [[url pathComponents] objectAtIndex:1];
+    }
+    
+    // setup fetch request for tour entity
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id = %@", tourId];
+    [request setPredicate:predicate];
+    
+
+    // retrieve tours
+    NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
+    [request release];
+    
+    if (![tours count]) {
+        [self animateSplashImage];
+        return NO;
+    }
+    [self loadTour:[tours objectAtIndex:0]];
+    
+    if (stopId != nil) {
+        TAPStop *stop = [_currentTour stopFromId:stopId];
+        if (stop != nil) {
+            [self loadStop:stop];
+        }
+    }
+    
     [self animateSplashImage];
+    return YES;
 }
 
 /**
@@ -160,6 +202,17 @@
         [self.navigationController pushViewController:selectedViewController animated:YES];
     }
     
+}
+
+- (void)loadTour:(TAPTour *)tour
+{
+    [self setCurrentTour:tour];
+    // set the default controller
+    [_navigationSegmentControl setSelectedSegmentIndex:0];
+    // starting in ios5 setSelectedSegmentIndex no longer triggers an event so we must do this explicitly for ios5 and greater
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")) {
+        [_navigationSegmentControl sendActionsForControlEvents:UIControlEventValueChanged];
+    }
 }
 
 /**

@@ -63,13 +63,23 @@
 /**
  * Retrieves the stop for a given keycode
  */
-- (TAPStop *)stopForKeycode:(NSString *)keycode
+- (TAPStop *)stopFromKeycode:(NSString *)keycode
 {
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'code' AND $ps.value = %@ AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", 
                               keycode, appDelegate.language];
-    TAPStop *newStop = [[self.stop filteredSetUsingPredicate:predicate] anyObject];
-    return newStop;
+    TAPStop *stop = [[self.stop filteredSetUsingPredicate:predicate] anyObject];
+    return stop;
+}
+
+/**
+ * Retrieves the stop for a given id
+ */
+- (TAPStop *)stopFromId:(NSString *)id
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id = %@", id];
+    TAPStop *stop = [[self.stop filteredSetUsingPredicate:predicate] anyObject];
+    return stop;
 }
 
 @end
