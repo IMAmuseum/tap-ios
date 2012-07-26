@@ -8,6 +8,7 @@
 
 #import "StopGroupController.h"
 #import "AppDelegate.h"
+#import "AudioControlViewController.h"
 #import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPSource.h"
@@ -45,6 +46,9 @@
         for (TAPConnection *connection in connections) {
             [_stops addObject:connection.destinationStop];
         }
+        
+        AudioControlViewController *audioControl = [[AudioControlViewController alloc] init];
+        [self.view addSubview:audioControl.view];
     }
 	
 	return self;
@@ -56,7 +60,7 @@
 
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
-	
+
     TAPAsset *headerAsset = [[_stopGroup getAssetsByUsage:@"header_image"] objectAtIndex:0];
     if (headerAsset != nil) {
         NSString *headerImageSrc = [[[headerAsset source] anyObject] uri];
