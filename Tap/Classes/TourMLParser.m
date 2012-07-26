@@ -38,7 +38,7 @@ static NSMutableString *bundlePath;
         while (currBundlePath = [bundleEnumerator nextObject]) {
             if ([[currBundlePath pathExtension] isEqualToString:@"bundle"]) {
                 NSString *tourBundlePath = [bundleDir stringByAppendingPathComponent:currBundlePath];
-                bundlePath = [NSMutableString stringWithFormat:tourBundlePath];
+                bundlePath = [NSMutableString stringWithFormat:@"%@", tourBundlePath];
                 NSBundle *bundle = [NSBundle bundleWithPath:tourBundlePath];
                 if (bundle) {
                     NSString *tourDataPath = [bundle pathForResource:@"tour" ofType:@"xml"];
