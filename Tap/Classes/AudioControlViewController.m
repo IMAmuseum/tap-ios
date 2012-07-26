@@ -41,7 +41,7 @@
     
     [_audioScrubber setThumbImage:[UIImage imageNamed:@"slider-button.png"] forState:UIControlStateNormal];
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"burn_it_down" ofType:@"mp3"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"classical" ofType:@"wav"]];
     _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
     if (error) {
         NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
@@ -75,7 +75,6 @@
 
 - (IBAction)moveScurbber:sender
 {
-    NSLog(@"%f", _audioScrubber.value);
     [_audioPlayer stop];
     [_audioPlayer setCurrentTime:_audioScrubber.value];
     [_audioPlayer prepareToPlay];

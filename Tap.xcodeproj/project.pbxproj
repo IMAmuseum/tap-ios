@@ -69,7 +69,6 @@
 		17BAAE1515685F170012F849 /* Tap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE1315685F170012F849 /* Tap.xcdatamodeld */; };
 		17BAAE2C1568B1B70012F849 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BAAE2B1568B1B70012F849 /* MainWindow.xib */; };
 		17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC4715772A9C0027B323 /* ImageScrollViewController.m */; };
-		17C7F5B015C0F5F1004DF2FD /* burn_it_down.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17C7F5AF15C0F5F1004DF2FD /* burn_it_down.mp3 */; };
 		17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */; };
 		17DE996D15ABA5C2004C8A25 /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996B15ABA5C2004C8A25 /* click.aif */; };
 		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
@@ -80,6 +79,7 @@
 		17E4D54F15C1337F00DE2F05 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54C15C1337F00DE2F05 /* pause.png */; };
 		17E4D55015C1337F00DE2F05 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54D15C1337F00DE2F05 /* play.png */; };
 		17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54E15C1337F00DE2F05 /* slider-button.png */; };
+		17FE6C9B15C1862C00500202 /* classical.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17FE6C9A15C1862C00500202 /* classical.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,7 +168,6 @@
 		17BAAE1115685F170012F849 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17BAAE1415685F170012F849 /* Tap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tap.xcdatamodel; sourceTree = "<group>"; };
 		17BAAE2B1568B1B70012F849 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		17C7F5AF15C0F5F1004DF2FD /* burn_it_down.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = burn_it_down.mp3; path = "Bundles/Snapshot:PaintersandPhotography,BonnardtoVuillard.bundle/en.lproj/assets/burn_it_down.mp3"; sourceTree = "<group>"; };
 		17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		17DE996B15ABA5C2004C8A25 /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
@@ -180,6 +179,7 @@
 		17E4D54C15C1337F00DE2F05 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		17E4D54D15C1337F00DE2F05 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		17E4D54E15C1337F00DE2F05 /* slider-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-button.png"; sourceTree = "<group>"; };
+		17FE6C9A15C1862C00500202 /* classical.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = classical.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,7 +242,7 @@
 		1707FBD915771AEB0027B323 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				17C7F5AF15C0F5F1004DF2FD /* burn_it_down.mp3 */,
+				17FE6C9A15C1862C00500202 /* classical.wav */,
 				17DE996B15ABA5C2004C8A25 /* click.aif */,
 				17DE996C15ABA5C2004C8A25 /* error.aif */,
 			);
@@ -488,11 +488,11 @@
 				17DE997015ABC568004C8A25 /* StopListController.xib in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
-				17C7F5B015C0F5F1004DF2FD /* burn_it_down.mp3 in Resources */,
 				17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */,
 				17E4D54F15C1337F00DE2F05 /* pause.png in Resources */,
 				17E4D55015C1337F00DE2F05 /* play.png in Resources */,
 				17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */,
+				17FE6C9B15C1862C00500202 /* classical.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

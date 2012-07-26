@@ -24,6 +24,7 @@
 
 @synthesize stopGroupTable = _stopGroupTable;
 @synthesize bannerImage = _bannerImage;
+@synthesize audioControl = _audioControl;
 @synthesize stopGroup = _stopGroup;
 @synthesize stops = _stops;
 
@@ -43,7 +44,7 @@
             [_stops addObject:connection.destinationStop];
         }
         
-        AudioControlViewController *audioControl = [[AudioControlViewController alloc] init];
+        audioControl = [[AudioControlViewController alloc] init];
         [self.view addSubview:audioControl.view];
     }
 	
@@ -196,6 +197,7 @@
 {
     [_stopGroupTable release];
     [_bannerImage release];
+    [_audioControl release];
     [_stopGroup release];
     [_stops release];
     [super dealloc];
