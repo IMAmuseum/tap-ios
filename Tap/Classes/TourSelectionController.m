@@ -15,10 +15,6 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
-@interface TourSelectionController ()
-
-@end
-
 @implementation TourSelectionController
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -99,9 +95,9 @@
     }
     
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = (NSString *)tour.title;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.numberOfLines = 0;
+    [[cell textLabel] setText:(NSString *)tour.title];
+    [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+    [[cell textLabel] setNumberOfLines:0];
     
     return cell;
 }

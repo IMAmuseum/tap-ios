@@ -27,6 +27,8 @@
 - (NSString *)getIconPath;
 - (NSArray *)getAssets;
 - (NSArray *)getAssetsByUsage:(NSString *)usage;
+- (NSString *)getPropertyValueByName:(NSString *)name;
+- (NSComparisonResult)compareByKeycode:(TAPStop *)otherObject;
 
 @end
 
