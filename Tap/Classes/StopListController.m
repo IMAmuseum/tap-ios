@@ -30,11 +30,11 @@
     [super viewDidLoad];
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];    
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
-    NSArray * descriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    _stops = [[NSArray alloc] initWithArray:[appDelegate.currentTour.stop sortedArrayUsingDescriptors:descriptors]];
-    [sortDescriptor release];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'code' AND $ps.value != nil AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", appDelegate.language];
+    NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
+    NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
+    _stops = [[NSArray alloc] initWithArray:sortedArray];
+    [filteredStops release];
 }
 
 - (void)viewWillAppear:(BOOL)animated

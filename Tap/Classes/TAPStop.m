@@ -108,4 +108,18 @@
     return [assets sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (NSString *)getPropertyValueByName:(NSString *)name
+{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND value != nil AND (language == %@ OR language == nil)", name, appDelegate.language];
+    TAPProperty *property = [[self.propertySet filteredSetUsingPredicate:predicate] anyObject];
+    return property.value;
+}
+
+- (NSComparisonResult)compareByKeycode:(TAPStop *)otherObject 
+{
+    TAPStop *stop = (TAPStop *)self;
+    return [[stop getPropertyValueByName:@"code"] compare:[otherObject getPropertyValueByName:@"code"]];
+}
+
 @end

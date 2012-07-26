@@ -20,10 +20,6 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
-@interface StopGroupController ()
-
-@end
-
 @implementation StopGroupController
 
 @synthesize stopGroupTable = _stopGroupTable;
@@ -87,14 +83,7 @@
 #pragma mark UITableViewDataSource
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    if (!sectionsEnabled) return @"";
-    
-    if(section == 0) {
-        return @"";
-    } else {
-        return @"Find Out More";
-    }
+    return @"";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -131,43 +120,39 @@
             [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
         }
         
-        cell.indentationWidth = CELL_INDENTATION;
-        cell.indentationLevel = 1;
-        
         // Set the title
         [[cell textLabel] setText:(NSString *)stop.title];
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.numberOfLines = 0;
+        [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell textLabel] setNumberOfLines:0];
         
         // Set the description if available
         [[cell detailTextLabel] setText:(NSString *)stop.desc];
-        cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.detailTextLabel.numberOfLines = 0;
+        [[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell detailTextLabel] setNumberOfLines:0];
         
         // Set the associated icon
-        UIImage *icon = [[UIImage alloc] initWithContentsOfFile:[stop getIconPath]];
-        UIImageView *iconView = [[UIImageView alloc] initWithImage:icon];
-        [iconView setFrame:CGRectMake(20, 10, icon.size.width, icon.size.height)];
-        [cell addSubview:iconView];
-        
-        [iconView release];
-        [icon release];
+        [[cell imageView] setImage:[UIImage imageWithContentsOfFile:[stop getIconPath]]];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"stop-group-description"];
         if (cell == nil) {
             // Create a new reusable table cell
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-group-description"] autorelease];
-            [[cell textLabel] setFont:[UIFont systemFontOfSize:12]];
+            [[cell textLabel] setFont:[UIFont systemFontOfSize:13]];
         }
         
         // Set the stop group description
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [[cell textLabel] setText:(NSString *)_stopGroup.desc];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.numberOfLines = 0;
+        [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell textLabel] setNumberOfLines:0];
     }
     
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -190,7 +175,7 @@
     } else {
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
         NSString *description = (NSString *)_stopGroup.desc;
-        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         height = MAX(descriptionSize.height, 44.0f);
     }
     

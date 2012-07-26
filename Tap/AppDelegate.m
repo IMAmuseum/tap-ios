@@ -86,7 +86,7 @@
                                                                   action:@selector(helpButtonClicked:)];    
     
     // set tour selection controller as root and add it to the stack
-    UIViewController *tourSelectionController = [[TourSelectionController alloc] initWithStyle:UITableViewStyleGrouped];
+    UIViewController *tourSelectionController = [[TourSelectionController alloc] initWithStyle:UITableViewStylePlain];
     [self setRootViewController:tourSelectionController];
     [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
     [self.navigationController pushViewController:tourSelectionController animated:YES];
@@ -154,7 +154,7 @@
     }
     
     NSString *tourId = [url host];
-    NSString *stopId;
+    NSString *stopId = nil;
     
     if ([[url pathComponents] count] == 2) {
         stopId = [[url pathComponents] objectAtIndex:1];
