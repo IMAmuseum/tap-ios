@@ -7,6 +7,11 @@
 //
 
 #import "AudioControlViewController.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
+
+#define PAUSE_ICON @"icon-pause-btn.png"
+#define PLAY_ICON @"icon-play-btn.png"
 
 @interface AudioControlViewController (Private)
 - (IBAction)togglePlay;
@@ -16,6 +21,7 @@
 
 @implementation AudioControlViewController
 
+@synthesize audio = _audio;
 @synthesize audioPlayer = _audioPlayer;
 @synthesize audioScrubber = _audioScrubber;
 @synthesize pausePlayButton = _pausePlayButton;
@@ -24,12 +30,19 @@
 @synthesize trackTitle = _trackTitle;
 @synthesize playbackTimer = _playbackTimer;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithAudio:(TAPAsset *)asset forViewController:(UIViewController *)controller
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-
-    }
+    if ((self = [super initWithNibName:@"AudioControlViewController" bundle:[NSBundle mainBundle]])) {
+        [self setAudio:asset];
+        
+        UIButton *musicControlView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 16, 16)];
+        [musicControlView addTarget:self action:@selector(toggleAudioControl:) forControlEvents:UIControlEventTouchUpInside];
+        [musicControlView setBackgroundImage: [UIImage imageNamed:@"icon-audio-btn.png"] forState: UIControlStateNormal];
+        UIBarButtonItem *audioControlToggle = [[UIBarButtonItem alloc] initWithCustomView:musicControlView];
+        [[controller navigationItem] setRightBarButtonItem:audioControlToggle];
+        [musicControlView release];
+        [audioControlToggle release];
+	}
     return self;
 }
 
@@ -41,8 +54,8 @@
     
     [_audioScrubber setThumbImage:[UIImage imageNamed:@"slider-button.png"] forState:UIControlStateNormal];
     
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"classical" ofType:@"wav"]];
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    NSURL *audioUrl = [NSURL fileURLWithPath:[[[_audio source] anyObject] uri]];
+    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:&error];
     if (error) {
         NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
     } else {
@@ -57,31 +70,44 @@
         [_trackDuration setText:duration];
         [duration release];
         [self togglePlay];
-    }    
+    }
+    [self toggleAudioControl:nil];
 }
 
 - (IBAction)togglePlay
 {
     if ([_audioPlayer isPlaying]) {
         [_audioPlayer stop];
-        [_pausePlayButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [_pausePlayButton setImage:[UIImage imageNamed:PLAY_ICON] forState:UIControlStateNormal];
         [_playbackTimer invalidate];
     } else {
         [_audioPlayer play];
-        [_pausePlayButton setImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
+        [_pausePlayButton setImage:[UIImage imageNamed:PAUSE_ICON] forState:UIControlStateNormal];
         _playbackTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     }
 }
 
-- (IBAction)moveScurbber:sender
+- (void)stopAudio
 {
     [_audioPlayer stop];
-    [_audioPlayer setCurrentTime:_audioScrubber.value];
-    [_audioPlayer prepareToPlay];
-    [_audioPlayer play];
+    [_pausePlayButton setImage:[UIImage imageNamed:PLAY_ICON] forState:UIControlStateNormal];
 }
 
--(void)updateTime
+- (IBAction)moveScurbber:sender
+{
+    if ([_audioPlayer isPlaying]) {
+        [_audioPlayer stop];
+        [_audioPlayer setCurrentTime:_audioScrubber.value];
+        [_audioPlayer prepareToPlay];
+        [_audioPlayer play];
+    } else {
+        [_audioPlayer setCurrentTime:_audioScrubber.value];
+        [_audioPlayer prepareToPlay];
+        [self updateTime];
+    }
+}
+
+- (void)updateTime
 {
     float minutes = floor(_audioPlayer.currentTime / 60);
     float seconds = _audioPlayer.currentTime - (minutes * 60);
@@ -93,16 +119,32 @@
     [_audioScrubber setValue:_audioPlayer.currentTime];
 }
 
+- (IBAction)toggleAudioControl:(id)sender
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    if ([self.view alpha] == 0.0f) {
+        [self.view setAlpha:1.0f];
+    } else {
+        [self.view setAlpha:0.0f];
+    }
+    
+    [UIView commitAnimations];
+}
+
 #pragma mark AVAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     if (flag) {
-        [_pausePlayButton setImage:[UIImage imageNamed:@"play.png"] forState:UIControlStateNormal];
+        [_pausePlayButton setImage:[UIImage imageNamed:PLAY_ICON] forState:UIControlStateNormal];
     }
 }
 
 - (void)dealloc
 {
+    [_audio release];
     [_audioPlayer release];
     [_audioScrubber release];
     [_pausePlayButton release];
