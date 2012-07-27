@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "TAPTour.h"
 
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
 #define CELL_DISCLOSURE_WIDTH 40.0f
@@ -126,7 +127,10 @@
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
     // set the current tour
     [appDelegate loadTour:tour];
-    [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
+
+    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
+        [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
+    }
 }
 
 - (void)dealloc 

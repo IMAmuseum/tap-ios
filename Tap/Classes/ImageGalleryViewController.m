@@ -195,7 +195,7 @@
 
     UILabel *lblCopyright = (UILabel *)[infoPane viewWithTag:COPYRIGHT_LABEL];
     TAPContent *copyright = [[asset getContentsByPart:@"copyright"] objectAtIndex:0];
-    if (copyright == nil) {
+    if (copyright != nil) {
         // calculate height
         CGSize copyrightSize = [copyright.data sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         copyrightHeight = copyrightSize.height;
@@ -253,6 +253,7 @@
         
         [infoPane setFrame:infoPaneFrame];
     }
+    [infoPane setHidden:!displayInfoPane];
 }
 
 - (void)toggleInfoPane:(UIGestureRecognizer*)tap
