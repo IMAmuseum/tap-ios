@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1707FBF915771B9F0027B323 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBDE15771B9F0027B323 /* bg-header-wide.png */; };
+		1707FBFA15771B9F0027B323 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBDF15771B9F0027B323 /* bg-header.png */; };
+		1707FBFB15771B9F0027B323 /* bg-main-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE015771B9F0027B323 /* bg-main-tile.png */; };
+		1707FBFC15771B9F0027B323 /* bg-main.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE115771B9F0027B323 /* bg-main.png */; };
+		1707FBFD15771B9F0027B323 /* bg-poll-bar-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE215771B9F0027B323 /* bg-poll-bar-left.png */; };
+		1707FBFE15771B9F0027B323 /* bg-poll-bar-middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE315771B9F0027B323 /* bg-poll-bar-middle.png */; };
+		1707FBFF15771B9F0027B323 /* bg-poll-bar-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE415771B9F0027B323 /* bg-poll-bar-right.png */; };
+		1707FC0015771B9F0027B323 /* bg-poll-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE515771B9F0027B323 /* bg-poll-landscape.png */; };
+		1707FC0115771B9F0027B323 /* bg-poll-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE615771B9F0027B323 /* bg-poll-portrait.png */; };
+		1707FC0215771B9F0027B323 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE715771B9F0027B323 /* Default.png */; };
+		1707FC0315771B9F0027B323 /* icon-tour_audio_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE815771B9F0027B323 /* icon-tour_audio_stop.png */; };
+		1707FC0415771B9F0027B323 /* icon-tour_image_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE915771B9F0027B323 /* icon-tour_image_stop.png */; };
+		1707FC0515771B9F0027B323 /* icon-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEA15771B9F0027B323 /* icon-list.png */; };
+		1707FC0615771B9F0027B323 /* icon-numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEB15771B9F0027B323 /* icon-numbers.png */; };
+		1707FC0715771B9F0027B323 /* icon-poll.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEC15771B9F0027B323 /* icon-poll.png */; };
+		1707FC0815771B9F0027B323 /* icon-tour_video_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBED15771B9F0027B323 /* icon-tour_video_stop.png */; };
+		1707FC0915771B9F0027B323 /* icon-webpage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEE15771B9F0027B323 /* icon-webpage.png */; };
+		1707FC0A15771B9F0027B323 /* keypad-clear-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEF15771B9F0027B323 /* keypad-clear-down.png */; };
+		1707FC0B15771B9F0027B323 /* keypad-clear-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF015771B9F0027B323 /* keypad-clear-up.png */; };
+		1707FC0C15771B9F0027B323 /* keypad-go-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF115771B9F0027B323 /* keypad-go-down.png */; };
+		1707FC0D15771B9F0027B323 /* keypad-go-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF215771B9F0027B323 /* keypad-go-up.png */; };
+		1707FC0E15771B9F0027B323 /* keypad-number-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF315771B9F0027B323 /* keypad-number-down.png */; };
+		1707FC0F15771B9F0027B323 /* keypad-number-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF415771B9F0027B323 /* keypad-number-up.png */; };
+		1707FC1015771B9F0027B323 /* keypad-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF515771B9F0027B323 /* keypad-textfield.png */; };
+		1707FC1115771B9F0027B323 /* submit-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF615771B9F0027B323 /* submit-btn.png */; };
+		1707FC1215771B9F0027B323 /* tap-title-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF715771B9F0027B323 /* tap-title-screen-btm.png */; };
+		1707FC1315771B9F0027B323 /* tap-title-screen-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF815771B9F0027B323 /* tap-title-screen-top.png */; };
+		1707FC1715771E640027B323 /* StopListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC1515771E640027B323 /* StopListController.m */; };
+		1707FC2115771F8E0027B323 /* KeypadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC1F15771F8E0027B323 /* KeypadController.m */; };
+		1707FC2215771F8E0027B323 /* KeypadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC2015771F8E0027B323 /* KeypadController.xib */; };
+		1707FC2615771FB10027B323 /* StopGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC2415771FB10027B323 /* StopGroupController.m */; };
+		1707FC2715771FB10027B323 /* StopGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC2515771FB10027B323 /* StopGroupController.xib */; };
+		1707FC2B15771FE70027B323 /* TourSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC2915771FE70027B323 /* TourSelectionController.m */; };
+		1707FC35157720520027B323 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC33157720520027B323 /* ImageGalleryViewController.m */; };
+		1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3C157728320027B323 /* libGoogleAnalytics.a */; };
+		1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3E157728C80027B323 /* AudioToolbox.framework */; };
+		1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3F157728C80027B323 /* MediaPlayer.framework */; };
+		1707FC4515772A270027B323 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC4415772A270027B323 /* Icon.png */; };
+		1714411215C08FF300E4F40F /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 1714411115C0501500E4F40F /* Bundles */; };
+		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
+		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
+		173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */; };
+		173F94C5156DE15B000DD580 /* TAPAssetRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C4156DE15B000DD580 /* TAPAssetRef.m */; };
+		173F94C9156DE15C000DD580 /* TAPSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C8156DE15C000DD580 /* TAPSource.m */; };
+		173F94CC156DE15C000DD580 /* TAPProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94CB156DE15C000DD580 /* TAPProperty.m */; };
+		173F94CF156DE15C000DD580 /* TAPTour.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94CE156DE15C000DD580 /* TAPTour.m */; };
+		173F94D2156DE15C000DD580 /* TAPContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94D1156DE15C000DD580 /* TAPContent.m */; };
+		173F94D5156DE15C000DD580 /* TAPAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94D4156DE15C000DD580 /* TAPAsset.m */; };
+		173F94D8156DE15C000DD580 /* TAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94D7156DE15C000DD580 /* TAPConnection.m */; };
+		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
+		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; };
+		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
+		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
+		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
+		17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0315685F160012F849 /* CoreGraphics.framework */; };
+		17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0515685F160012F849 /* CoreData.framework */; };
+		17BAAE0C15685F170012F849 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17BAAE0A15685F170012F849 /* InfoPlist.strings */; };
+		17BAAE0E15685F170012F849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE0D15685F170012F849 /* main.m */; };
+		17BAAE1215685F170012F849 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE1115685F170012F849 /* AppDelegate.m */; };
+		17BAAE1515685F170012F849 /* Tap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE1315685F170012F849 /* Tap.xcdatamodeld */; };
+		17BAAE2C1568B1B70012F849 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BAAE2B1568B1B70012F849 /* MainWindow.xib */; };
+		17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC4715772A9C0027B323 /* ImageScrollViewController.m */; };
+		17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */; };
+		17DE996D15ABA5C2004C8A25 /* click.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996B15ABA5C2004C8A25 /* click.aif */; };
+		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
+		17DE997015ABC568004C8A25 /* StopListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListController.xib */; };
+		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1707FBDE15771B9F0027B323 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header-wide.png"; sourceTree = "<group>"; };
+		1707FBDF15771B9F0027B323 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-header.png"; sourceTree = "<group>"; };
+		1707FBE015771B9F0027B323 /* bg-main-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main-tile.png"; sourceTree = "<group>"; };
+		1707FBE115771B9F0027B323 /* bg-main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-main.png"; sourceTree = "<group>"; };
+		1707FBE215771B9F0027B323 /* bg-poll-bar-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-left.png"; sourceTree = "<group>"; };
+		1707FBE315771B9F0027B323 /* bg-poll-bar-middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-middle.png"; sourceTree = "<group>"; };
+		1707FBE415771B9F0027B323 /* bg-poll-bar-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-bar-right.png"; sourceTree = "<group>"; };
+		1707FBE515771B9F0027B323 /* bg-poll-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-landscape.png"; sourceTree = "<group>"; };
+		1707FBE615771B9F0027B323 /* bg-poll-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-poll-portrait.png"; sourceTree = "<group>"; };
+		1707FBE715771B9F0027B323 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1707FBE815771B9F0027B323 /* icon-tour_audio_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tour_audio_stop.png"; sourceTree = "<group>"; };
+		1707FBE915771B9F0027B323 /* icon-tour_image_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tour_image_stop.png"; sourceTree = "<group>"; };
+		1707FBEA15771B9F0027B323 /* icon-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-list.png"; sourceTree = "<group>"; };
+		1707FBEB15771B9F0027B323 /* icon-numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-numbers.png"; sourceTree = "<group>"; };
+		1707FBEC15771B9F0027B323 /* icon-poll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-poll.png"; sourceTree = "<group>"; };
+		1707FBED15771B9F0027B323 /* icon-tour_video_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tour_video_stop.png"; sourceTree = "<group>"; };
+		1707FBEE15771B9F0027B323 /* icon-webpage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-webpage.png"; sourceTree = "<group>"; };
+		1707FBEF15771B9F0027B323 /* keypad-clear-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-down.png"; sourceTree = "<group>"; };
+		1707FBF015771B9F0027B323 /* keypad-clear-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-up.png"; sourceTree = "<group>"; };
+		1707FBF115771B9F0027B323 /* keypad-go-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down.png"; sourceTree = "<group>"; };
+		1707FBF215771B9F0027B323 /* keypad-go-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-up.png"; sourceTree = "<group>"; };
+		1707FBF315771B9F0027B323 /* keypad-number-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-down.png"; sourceTree = "<group>"; };
+		1707FBF415771B9F0027B323 /* keypad-number-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-number-up.png"; sourceTree = "<group>"; };
+		1707FBF515771B9F0027B323 /* keypad-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-textfield.png"; sourceTree = "<group>"; };
+		1707FBF615771B9F0027B323 /* submit-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submit-btn.png"; sourceTree = "<group>"; };
+		1707FBF715771B9F0027B323 /* tap-title-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-btm.png"; sourceTree = "<group>"; };
+		1707FBF815771B9F0027B323 /* tap-title-screen-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tap-title-screen-top.png"; sourceTree = "<group>"; };
+		1707FC1415771E640027B323 /* StopListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopListController.h; path = Classes/StopListController.h; sourceTree = "<group>"; };
+		1707FC1515771E640027B323 /* StopListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopListController.m; path = Classes/StopListController.m; sourceTree = "<group>"; };
+		1707FC1E15771F8E0027B323 /* KeypadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeypadController.h; path = Classes/KeypadController.h; sourceTree = "<group>"; };
+		1707FC1F15771F8E0027B323 /* KeypadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeypadController.m; path = Classes/KeypadController.m; sourceTree = "<group>"; };
+		1707FC2015771F8E0027B323 /* KeypadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KeypadController.xib; path = Classes/KeypadController.xib; sourceTree = "<group>"; };
+		1707FC2315771FB10027B323 /* StopGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopGroupController.h; path = Classes/StopGroupController.h; sourceTree = "<group>"; };
+		1707FC2415771FB10027B323 /* StopGroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopGroupController.m; path = Classes/StopGroupController.m; sourceTree = "<group>"; };
+		1707FC2515771FB10027B323 /* StopGroupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopGroupController.xib; path = Classes/StopGroupController.xib; sourceTree = "<group>"; };
+		1707FC2815771FE70027B323 /* TourSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourSelectionController.h; path = Classes/TourSelectionController.h; sourceTree = "<group>"; };
+		1707FC2915771FE70027B323 /* TourSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourSelectionController.m; path = Classes/TourSelectionController.m; sourceTree = "<group>"; };
+		1707FC32157720520027B323 /* ImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageGalleryViewController.h; path = Classes/ImageGalleryViewController.h; sourceTree = "<group>"; };
+		1707FC33157720520027B323 /* ImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageGalleryViewController.m; path = Classes/ImageGalleryViewController.m; sourceTree = "<group>"; };
+		1707FC3C157728320027B323 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Tap/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		1707FC3E157728C80027B323 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1707FC3F157728C80027B323 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1707FC4415772A270027B323 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		1707FC4615772A9C0027B323 /* ImageScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageScrollViewController.h; path = Classes/ImageScrollViewController.h; sourceTree = "<group>"; };
+		1707FC4715772A9C0027B323 /* ImageScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ImageScrollViewController.m; path = Classes/ImageScrollViewController.m; sourceTree = "<group>"; };
+		1714411115C0501500E4F40F /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bundles; path = Tap/Bundles; sourceTree = "<group>"; };
+		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
+		171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonSelectableTextView.m; path = Classes/NonSelectableTextView.m; sourceTree = "<group>"; };
+		1730F41B1577B46B003333C4 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
+		173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
+		173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
+		173F94C3156DE15B000DD580 /* TAPAssetRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPAssetRef.h; path = Classes/TAPAssetRef.h; sourceTree = "<group>"; };
+		173F94C4156DE15B000DD580 /* TAPAssetRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPAssetRef.m; path = Classes/TAPAssetRef.m; sourceTree = "<group>"; };
+		173F94C7156DE15C000DD580 /* TAPSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPSource.h; path = Classes/TAPSource.h; sourceTree = "<group>"; };
+		173F94C8156DE15C000DD580 /* TAPSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPSource.m; path = Classes/TAPSource.m; sourceTree = "<group>"; };
+		173F94CA156DE15C000DD580 /* TAPProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPProperty.h; path = Classes/TAPProperty.h; sourceTree = "<group>"; };
+		173F94CB156DE15C000DD580 /* TAPProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPProperty.m; path = Classes/TAPProperty.m; sourceTree = "<group>"; };
+		173F94CD156DE15C000DD580 /* TAPTour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPTour.h; path = Classes/TAPTour.h; sourceTree = "<group>"; };
+		173F94CE156DE15C000DD580 /* TAPTour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPTour.m; path = Classes/TAPTour.m; sourceTree = "<group>"; };
+		173F94D0156DE15C000DD580 /* TAPContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPContent.h; path = Classes/TAPContent.h; sourceTree = "<group>"; };
+		173F94D1156DE15C000DD580 /* TAPContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPContent.m; path = Classes/TAPContent.m; sourceTree = "<group>"; };
+		173F94D3156DE15C000DD580 /* TAPAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPAsset.h; path = Classes/TAPAsset.h; sourceTree = "<group>"; };
+		173F94D4156DE15C000DD580 /* TAPAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPAsset.m; path = Classes/TAPAsset.m; sourceTree = "<group>"; };
+		173F94D6156DE15C000DD580 /* TAPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPConnection.h; path = Classes/TAPConnection.h; sourceTree = "<group>"; };
+		173F94D7156DE15C000DD580 /* TAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPConnection.m; path = Classes/TAPConnection.m; sourceTree = "<group>"; };
+		173F94D9156DE15C000DD580 /* TAPStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPStop.h; path = Classes/TAPStop.h; sourceTree = "<group>"; };
+		173F94DA156DE15C000DD580 /* TAPStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPStop.m; path = Classes/TAPStop.m; sourceTree = "<group>"; };
+		173F94ED156DE3A3000DD580 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		173F94EE156DE3A3000DD580 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
+		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
+		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BAADFF15685F160012F849 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		17BAAE0115685F160012F849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17BAAE0315685F160012F849 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		17BAAE0515685F160012F849 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		17BAAE0915685F170012F849 /* Tap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tap-Info.plist"; sourceTree = "<group>"; };
+		17BAAE0B15685F170012F849 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17BAAE0D15685F170012F849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17BAAE0F15685F170012F849 /* Tap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tap-Prefix.pch"; sourceTree = "<group>"; };
+		17BAAE1015685F170012F849 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		17BAAE1115685F170012F849 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		17BAAE1415685F170012F849 /* Tap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tap.xcdatamodel; sourceTree = "<group>"; };
+		17BAAE2B1568B1B70012F849 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		17DE996B15ABA5C2004C8A25 /* click.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.aif; sourceTree = "<group>"; };
+		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
+		17DE996F15ABC568004C8A25 /* StopListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListController.xib; path = Classes/StopListController.xib; sourceTree = "<group>"; };
+		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TAP Help Video.mp4"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17BAADF815685F160012F849 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
+				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
+				1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */,
+				1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */,
+				17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */,
+				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
+				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
+				17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1707FBD815771AE30027B323 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1707FC4415772A270027B323 /* Icon.png */,
+				1707FBDE15771B9F0027B323 /* bg-header-wide.png */,
+				1707FBDF15771B9F0027B323 /* bg-header.png */,
+				1707FBE015771B9F0027B323 /* bg-main-tile.png */,
+				1707FBE115771B9F0027B323 /* bg-main.png */,
+				1707FBE215771B9F0027B323 /* bg-poll-bar-left.png */,
+				1707FBE315771B9F0027B323 /* bg-poll-bar-middle.png */,
+				1707FBE415771B9F0027B323 /* bg-poll-bar-right.png */,
+				1707FBE515771B9F0027B323 /* bg-poll-landscape.png */,
+				1707FBE615771B9F0027B323 /* bg-poll-portrait.png */,
+				1707FBE715771B9F0027B323 /* Default.png */,
+				1707FBE815771B9F0027B323 /* icon-tour_audio_stop.png */,
+				1707FBE915771B9F0027B323 /* icon-tour_image_stop.png */,
+				1707FBEA15771B9F0027B323 /* icon-list.png */,
+				1707FBEB15771B9F0027B323 /* icon-numbers.png */,
+				1707FBEC15771B9F0027B323 /* icon-poll.png */,
+				1707FBED15771B9F0027B323 /* icon-tour_video_stop.png */,
+				1707FBEE15771B9F0027B323 /* icon-webpage.png */,
+				1707FBEF15771B9F0027B323 /* keypad-clear-down.png */,
+				1707FBF015771B9F0027B323 /* keypad-clear-up.png */,
+				1707FBF115771B9F0027B323 /* keypad-go-down.png */,
+				1707FBF215771B9F0027B323 /* keypad-go-up.png */,
+				1707FBF315771B9F0027B323 /* keypad-number-down.png */,
+				1707FBF415771B9F0027B323 /* keypad-number-up.png */,
+				1707FBF515771B9F0027B323 /* keypad-textfield.png */,
+				1707FBF615771B9F0027B323 /* submit-btn.png */,
+				1707FBF715771B9F0027B323 /* tap-title-screen-btm.png */,
+				1707FBF815771B9F0027B323 /* tap-title-screen-top.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1707FBD915771AEB0027B323 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				17DE996B15ABA5C2004C8A25 /* click.aif */,
+				17DE996C15ABA5C2004C8A25 /* error.aif */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		1730F41E1577B64E003333C4 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		173F94DC156DE17E000DD580 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				173F94D3156DE15C000DD580 /* TAPAsset.h */,
+				173F94D4156DE15C000DD580 /* TAPAsset.m */,
+				173F94C3156DE15B000DD580 /* TAPAssetRef.h */,
+				173F94C4156DE15B000DD580 /* TAPAssetRef.m */,
+				173F94D6156DE15C000DD580 /* TAPConnection.h */,
+				173F94D7156DE15C000DD580 /* TAPConnection.m */,
+				173F94D0156DE15C000DD580 /* TAPContent.h */,
+				173F94D1156DE15C000DD580 /* TAPContent.m */,
+				173F94CA156DE15C000DD580 /* TAPProperty.h */,
+				173F94CB156DE15C000DD580 /* TAPProperty.m */,
+				173F94C7156DE15C000DD580 /* TAPSource.h */,
+				173F94C8156DE15C000DD580 /* TAPSource.m */,
+				173F94D9156DE15C000DD580 /* TAPStop.h */,
+				173F94DA156DE15C000DD580 /* TAPStop.m */,
+				173F94CD156DE15C000DD580 /* TAPTour.h */,
+				173F94CE156DE15C000DD580 /* TAPTour.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		173F94F1156DE417000DD580 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				173F94DC156DE17E000DD580 /* Models */,
+				171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */,
+				171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */,
+				173F94F5156DE4A6000DD580 /* TourMLParser.h */,
+				173F94F6156DE4A6000DD580 /* TourMLParser.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		17BAADF015685F150012F849 = {
+			isa = PBXGroup;
+			children = (
+				1714411115C0501500E4F40F /* Bundles */,
+				17BAAE0715685F170012F849 /* Tap */,
+				17BAADFE15685F160012F849 /* Frameworks */,
+				17BAADFC15685F160012F849 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17BAADFC15685F160012F849 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17BAADFB15685F160012F849 /* Tap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17BAADFE15685F160012F849 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
+				1707FC3E157728C80027B323 /* AudioToolbox.framework */,
+				1707FC3F157728C80027B323 /* MediaPlayer.framework */,
+				1707FC3C157728320027B323 /* libGoogleAnalytics.a */,
+				17BAADFF15685F160012F849 /* UIKit.framework */,
+				17BAAE0115685F160012F849 /* Foundation.framework */,
+				17BAAE0315685F160012F849 /* CoreGraphics.framework */,
+				17BAAE0515685F160012F849 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17BAAE0715685F170012F849 /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				173F94F1156DE417000DD580 /* Classes */,
+				17BAAE2A15685F510012F849 /* Libraries */,
+				17BAAE2915685F450012F849 /* Controllers */,
+				17BAAE2815685F400012F849 /* Views */,
+				17BAAE1015685F170012F849 /* AppDelegate.h */,
+				17BAAE1115685F170012F849 /* AppDelegate.m */,
+				17BAAE1315685F170012F849 /* Tap.xcdatamodeld */,
+				17BAAE0815685F170012F849 /* Supporting Files */,
+			);
+			path = Tap;
+			sourceTree = "<group>";
+		};
+		17BAAE0815685F170012F849 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1730F41E1577B64E003333C4 /* Video */,
+				1707FBD915771AEB0027B323 /* Audio */,
+				1707FBD815771AE30027B323 /* Images */,
+				17BAAE0915685F170012F849 /* Tap-Info.plist */,
+				17BAAE0A15685F170012F849 /* InfoPlist.strings */,
+				17BAAE0D15685F170012F849 /* main.m */,
+				17BAAE0F15685F170012F849 /* Tap-Prefix.pch */,
+				1730F41B1577B46B003333C4 /* TapConfig.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17BAAE2815685F400012F849 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1707FC2015771F8E0027B323 /* KeypadController.xib */,
+				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
+				1707FC2515771FB10027B323 /* StopGroupController.xib */,
+				17DE996F15ABC568004C8A25 /* StopListController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		17BAAE2915685F450012F849 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
+				1707FC33157720520027B323 /* ImageGalleryViewController.m */,
+				1707FC4615772A9C0027B323 /* ImageScrollViewController.h */,
+				1707FC4715772A9C0027B323 /* ImageScrollViewController.m */,
+				1707FC1E15771F8E0027B323 /* KeypadController.h */,
+				1707FC1F15771F8E0027B323 /* KeypadController.m */,
+				1707FC2315771FB10027B323 /* StopGroupController.h */,
+				1707FC2415771FB10027B323 /* StopGroupController.m */,
+				1707FC1415771E640027B323 /* StopListController.h */,
+				1707FC1515771E640027B323 /* StopListController.m */,
+				1707FC2815771FE70027B323 /* TourSelectionController.h */,
+				1707FC2915771FE70027B323 /* TourSelectionController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		17BAAE2A15685F510012F849 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
+				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
+				173F94ED156DE3A3000DD580 /* GANTracker.h */,
+				173F94EE156DE3A3000DD580 /* GDataXMLNode.h */,
+				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17BAADFA15685F160012F849 /* Tap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17BAAE2415685F170012F849 /* Build configuration list for PBXNativeTarget "Tap" */;
+			buildPhases = (
+				17BAADF715685F160012F849 /* Sources */,
+				17BAADF815685F160012F849 /* Frameworks */,
+				17BAADF915685F160012F849 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tap;
+			productName = Tap;
+			productReference = 17BAADFB15685F160012F849 /* Tap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17BAADF215685F150012F849 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17BAADF015685F150012F849;
+			productRefGroup = 17BAADFC15685F160012F849 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17BAADFA15685F160012F849 /* Tap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17BAADF915685F160012F849 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BAAE0C15685F170012F849 /* InfoPlist.strings in Resources */,
+				17BAAE2C1568B1B70012F849 /* MainWindow.xib in Resources */,
+				1707FBF915771B9F0027B323 /* bg-header-wide.png in Resources */,
+				1707FBFA15771B9F0027B323 /* bg-header.png in Resources */,
+				1707FBFB15771B9F0027B323 /* bg-main-tile.png in Resources */,
+				1707FBFC15771B9F0027B323 /* bg-main.png in Resources */,
+				1707FBFD15771B9F0027B323 /* bg-poll-bar-left.png in Resources */,
+				1707FBFE15771B9F0027B323 /* bg-poll-bar-middle.png in Resources */,
+				1707FBFF15771B9F0027B323 /* bg-poll-bar-right.png in Resources */,
+				1707FC0015771B9F0027B323 /* bg-poll-landscape.png in Resources */,
+				1707FC0115771B9F0027B323 /* bg-poll-portrait.png in Resources */,
+				1707FC0215771B9F0027B323 /* Default.png in Resources */,
+				1707FC0315771B9F0027B323 /* icon-tour_audio_stop.png in Resources */,
+				1707FC0415771B9F0027B323 /* icon-tour_image_stop.png in Resources */,
+				1707FC0515771B9F0027B323 /* icon-list.png in Resources */,
+				1707FC0615771B9F0027B323 /* icon-numbers.png in Resources */,
+				1707FC0715771B9F0027B323 /* icon-poll.png in Resources */,
+				1707FC0815771B9F0027B323 /* icon-tour_video_stop.png in Resources */,
+				1707FC0915771B9F0027B323 /* icon-webpage.png in Resources */,
+				1707FC0A15771B9F0027B323 /* keypad-clear-down.png in Resources */,
+				1707FC0B15771B9F0027B323 /* keypad-clear-up.png in Resources */,
+				1707FC0C15771B9F0027B323 /* keypad-go-down.png in Resources */,
+				1707FC0D15771B9F0027B323 /* keypad-go-up.png in Resources */,
+				1707FC0E15771B9F0027B323 /* keypad-number-down.png in Resources */,
+				1707FC0F15771B9F0027B323 /* keypad-number-up.png in Resources */,
+				1707FC1015771B9F0027B323 /* keypad-textfield.png in Resources */,
+				1707FC1115771B9F0027B323 /* submit-btn.png in Resources */,
+				1707FC1215771B9F0027B323 /* tap-title-screen-btm.png in Resources */,
+				1707FC1315771B9F0027B323 /* tap-title-screen-top.png in Resources */,
+				1707FC2215771F8E0027B323 /* KeypadController.xib in Resources */,
+				1707FC2715771FB10027B323 /* StopGroupController.xib in Resources */,
+				1707FC4515772A270027B323 /* Icon.png in Resources */,
+				1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */,
+				17DE996D15ABA5C2004C8A25 /* click.aif in Resources */,
+				17DE996E15ABA5C2004C8A25 /* error.aif in Resources */,
+				17DE997015ABC568004C8A25 /* StopListController.xib in Resources */,
+				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
+				1714411215C08FF300E4F40F /* Bundles in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17BAADF715685F160012F849 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BAAE0E15685F170012F849 /* main.m in Sources */,
+				17BAAE1215685F170012F849 /* AppDelegate.m in Sources */,
+				17BAAE1515685F170012F849 /* Tap.xcdatamodeld in Sources */,
+				173F94C5156DE15B000DD580 /* TAPAssetRef.m in Sources */,
+				173F94C9156DE15C000DD580 /* TAPSource.m in Sources */,
+				173F94CC156DE15C000DD580 /* TAPProperty.m in Sources */,
+				173F94CF156DE15C000DD580 /* TAPTour.m in Sources */,
+				173F94D2156DE15C000DD580 /* TAPContent.m in Sources */,
+				173F94D5156DE15C000DD580 /* TAPAsset.m in Sources */,
+				173F94D8156DE15C000DD580 /* TAPConnection.m in Sources */,
+				173F94DB156DE15C000DD580 /* TAPStop.m in Sources */,
+				173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */,
+				173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */,
+				1707FC1715771E640027B323 /* StopListController.m in Sources */,
+				1707FC2115771F8E0027B323 /* KeypadController.m in Sources */,
+				1707FC2615771FB10027B323 /* StopGroupController.m in Sources */,
+				1707FC2B15771FE70027B323 /* TourSelectionController.m in Sources */,
+				1707FC35157720520027B323 /* ImageGalleryViewController.m in Sources */,
+				17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */,
+				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
+				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17BAAE0A15685F170012F849 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17BAAE0B15685F170012F849 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17BAAE2215685F170012F849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		17BAAE2315685F170012F849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17BAAE2515685F170012F849 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Cervantes (GAE8RG58RJ)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "Tap/Tap-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Tap\"",
+				);
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17953C5C-11DF-434F-8076-A813119047B8";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17BAAE2615685F170012F849 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "Tap/Tap-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Tap\"",
+				);
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17BAAE2215685F170012F849 /* Debug */,
+				17BAAE2315685F170012F849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17BAAE2415685F170012F849 /* Build configuration list for PBXNativeTarget "Tap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17BAAE2515685F170012F849 /* Debug */,
+				17BAAE2615685F170012F849 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		17BAAE1315685F170012F849 /* Tap.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				17BAAE1415685F170012F849 /* Tap.xcdatamodel */,
+			);
+			currentVersion = 17BAAE1415685F170012F849 /* Tap.xcdatamodel */;
+			path = Tap.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 17BAADF215685F150012F849 /* Project object */;
+}
