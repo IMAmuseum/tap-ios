@@ -59,6 +59,9 @@
 		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
 		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
+		17423F0B15C2ECF100E8CDFB /* icon-audio-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */; };
+		17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */; };
+		17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
 		17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0315685F160012F849 /* CoreGraphics.framework */; };
@@ -74,6 +77,10 @@
 		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
 		17DE997015ABC568004C8A25 /* StopListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
+		17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */; };
+		17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */; };
+		17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54E15C1337F00DE2F05 /* slider-button.png */; };
+		17FE6C9B15C1862C00500202 /* classical.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17FE6C9A15C1862C00500202 /* classical.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +156,9 @@
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
 		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
+		17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio-btn.png"; sourceTree = "<group>"; };
+		17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause-btn.png"; sourceTree = "<group>"; };
+		17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play-btn.png"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BAADFF15685F160012F849 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BAAE0115685F160012F849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -167,6 +177,11 @@
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
 		17DE996F15ABC568004C8A25 /* StopListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListController.xib; path = Classes/StopListController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TAP Help Video.mp4"; sourceTree = "<group>"; };
+		17E4D54615C1334E00DE2F05 /* AudioControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioControlViewController.h; path = Classes/AudioControlViewController.h; sourceTree = "<group>"; };
+		17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioControlViewController.m; path = Classes/AudioControlViewController.m; sourceTree = "<group>"; };
+		17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioControlViewController.xib; path = Classes/AudioControlViewController.xib; sourceTree = "<group>"; };
+		17E4D54E15C1337F00DE2F05 /* slider-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-button.png"; sourceTree = "<group>"; };
+		17FE6C9A15C1862C00500202 /* classical.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = classical.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +206,10 @@
 		1707FBD815771AE30027B323 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */,
+				17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */,
+				17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */,
+				17E4D54E15C1337F00DE2F05 /* slider-button.png */,
 				1707FC4415772A270027B323 /* Icon.png */,
 				1707FBDE15771B9F0027B323 /* bg-header-wide.png */,
 				1707FBDF15771B9F0027B323 /* bg-header.png */,
@@ -226,6 +245,7 @@
 		1707FBD915771AEB0027B323 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				17FE6C9A15C1862C00500202 /* classical.wav */,
 				17DE996B15ABA5C2004C8A25 /* click.aif */,
 				17DE996C15ABA5C2004C8A25 /* error.aif */,
 			);
@@ -341,6 +361,7 @@
 		17BAAE2815685F400012F849 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */,
 				1707FC2015771F8E0027B323 /* KeypadController.xib */,
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupController.xib */,
@@ -352,6 +373,8 @@
 		17BAAE2915685F450012F849 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				17E4D54615C1334E00DE2F05 /* AudioControlViewController.h */,
+				17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */,
 				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
 				1707FC33157720520027B323 /* ImageGalleryViewController.m */,
 				1707FC4615772A9C0027B323 /* ImageScrollViewController.h */,
@@ -468,6 +491,12 @@
 				17DE997015ABC568004C8A25 /* StopListController.xib in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
+				17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */,
+				17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */,
+				17FE6C9B15C1862C00500202 /* classical.wav in Resources */,
+				17423F0B15C2ECF100E8CDFB /* icon-audio-btn.png in Resources */,
+				17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */,
+				17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +528,7 @@
 				17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */,
 				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
 				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
+				17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +624,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Cervantes";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -606,6 +637,7 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6DDEA88-D2CC-444B-BD24-05D28E1D4CFF";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
