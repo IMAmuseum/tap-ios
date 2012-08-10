@@ -33,6 +33,5 @@
 
 - (id)initWithAudio:(TAPAsset *)asset forViewController:(UIViewController *)controller;
 - (void)stopAudio;
-- (IBAction)toggleAudioControl:(id)sender;
-
+- (void)hideAudioControl;
 @end

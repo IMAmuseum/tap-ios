@@ -13,22 +13,15 @@
 #define PAUSE_ICON @"icon-pause-btn.png"
 #define PLAY_ICON @"icon-play-btn.png"
 
-@interface AudioControlViewController (Private)
+@interface AudioControlViewController ()
+
 - (IBAction)togglePlay;
 - (IBAction)moveScurbber:sender;
+- (IBAction)toggleAudioControl:(id)sender;
 - (void)updateTime;
 @end
 
 @implementation AudioControlViewController
-
-@synthesize audio = _audio;
-@synthesize audioPlayer = _audioPlayer;
-@synthesize audioScrubber = _audioScrubber;
-@synthesize pausePlayButton = _pausePlayButton;
-@synthesize currentTime = _currentTime;
-@synthesize trackDuration = _trackDuration;
-@synthesize trackTitle = _trackTitle;
-@synthesize playbackTimer = _playbackTimer;
 
 - (id)initWithAudio:(TAPAsset *)asset forViewController:(UIViewController *)controller
 {
@@ -50,28 +43,35 @@
 {
     [super viewDidLoad];
 
-    NSError *error;
-    
     [_audioScrubber setThumbImage:[UIImage imageNamed:@"slider-button.png"] forState:UIControlStateNormal];
-    
-    NSURL *audioUrl = [NSURL fileURLWithPath:[[[_audio source] anyObject] uri]];
-    _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:&error];
-    if (error) {
-        NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
-    } else {
-        [_audioPlayer setDelegate:self];
-        [_audioPlayer prepareToPlay];
-        [_audioScrubber setMaximumValue:(int)[_audioPlayer duration] - 1];
-        [_audioScrubber setMinimumValue:0.0f];
-        [_audioScrubber setValue:0.0f];
-        float minutes = floor(_audioPlayer.duration / 60);
-        float seconds = _audioPlayer.duration - (minutes * 60);
-        NSString *duration = [[NSString alloc] initWithFormat:@"%0.0f:%02.0f", minutes, seconds];
-        [_trackDuration setText:duration];
-        [duration release];
-        [self togglePlay];
-    }
+    _playbackTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+    [_pausePlayButton setImage:[UIImage imageNamed:PAUSE_ICON] forState:UIControlStateNormal];
     [self toggleAudioControl:nil];
+
+    dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(dispatchQueue, ^(void) {
+        NSError *error;
+        NSURL *audioUrl = [NSURL fileURLWithPath:[[[_audio source] anyObject] uri]];
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:&error];
+        if (error) {
+            NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
+        } else {
+            float minutes = floor(_audioPlayer.duration / 60);
+            float seconds = _audioPlayer.duration - (minutes * 60);
+            NSString *duration = [[NSString alloc] initWithFormat:@"%0.0f:%02.0f", minutes, seconds];
+            [_trackDuration setText:duration];
+            [duration release];
+            
+            [_audioScrubber setMaximumValue:(int)[_audioPlayer duration] - 1];
+            [_audioScrubber setMinimumValue:0.0f];
+            [_audioScrubber setValue:0.0f];
+            
+            [_audioPlayer setDelegate:self];
+            if ([_audioPlayer prepareToPlay] && [_audioPlayer play]) {
+                [_pausePlayButton setImage:[UIImage imageNamed:PAUSE_ICON] forState:UIControlStateNormal];
+            }
+        }
+    });
 }
 
 - (IBAction)togglePlay
@@ -119,6 +119,15 @@
     [_audioScrubber setValue:_audioPlayer.currentTime];
 }
 
+- (void)hideAudioControl
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2f];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [self.view setAlpha:0.0f];    
+    [UIView commitAnimations];
+}
+
 - (IBAction)toggleAudioControl:(id)sender
 {
     [UIView beginAnimations:nil context:nil];
@@ -151,7 +160,6 @@
     [_currentTime release];
     [_trackDuration release];
     [_trackTitle release];
-    [_playbackTimer release];
     [super dealloc];
 }
 

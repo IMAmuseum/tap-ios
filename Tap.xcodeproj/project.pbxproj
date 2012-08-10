@@ -80,7 +80,6 @@
 		17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */; };
 		17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */; };
 		17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54E15C1337F00DE2F05 /* slider-button.png */; };
-		17FE6C9B15C1862C00500202 /* classical.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17FE6C9A15C1862C00500202 /* classical.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,7 +180,6 @@
 		17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioControlViewController.m; path = Classes/AudioControlViewController.m; sourceTree = "<group>"; };
 		17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioControlViewController.xib; path = Classes/AudioControlViewController.xib; sourceTree = "<group>"; };
 		17E4D54E15C1337F00DE2F05 /* slider-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-button.png"; sourceTree = "<group>"; };
-		17FE6C9A15C1862C00500202 /* classical.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = classical.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +243,6 @@
 		1707FBD915771AEB0027B323 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				17FE6C9A15C1862C00500202 /* classical.wav */,
 				17DE996B15ABA5C2004C8A25 /* click.aif */,
 				17DE996C15ABA5C2004C8A25 /* error.aif */,
 			);
@@ -493,7 +490,6 @@
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
 				17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */,
 				17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */,
-				17FE6C9B15C1862C00500202 /* classical.wav in Resources */,
 				17423F0B15C2ECF100E8CDFB /* icon-audio-btn.png in Resources */,
 				17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */,
 				17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */,

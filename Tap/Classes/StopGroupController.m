@@ -48,11 +48,10 @@
         if ([assets count]) {
             TAPAsset *audioAsset = [assets objectAtIndex:0];
             if (audioAsset != nil) {
-                audioControl = [[AudioControlViewController alloc] initWithAudio:audioAsset forViewController:self];
-                [self.view addSubview:audioControl.view];
+               _audioControl = [[AudioControlViewController alloc] initWithAudio:audioAsset forViewController:self];
+                [self.view addSubview:_audioControl.view];
             }
         }
-
     }
 	
 	return self;
@@ -82,10 +81,16 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    // Deselect anything from the table
+	[_stopGroupTable deselectRowAtIndexPath:[_stopGroupTable indexPathForSelectedRow] animated:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [audioControl stopAudio];
+    [_audioControl stopAudio];
 }
 
 #pragma mark UITableViewDataSource

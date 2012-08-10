@@ -8,6 +8,7 @@
 
 #import "ImageGalleryViewController.h"
 #import "ImageScrollViewController.h"
+#import "AudioControlViewController.h"
 #import "NonSelectableTextView.h"
 #import "TAPStop.h"
 #import "TAPProperty.h"
@@ -36,15 +37,27 @@
 
 @synthesize imageStop = _imageStop;
 @synthesize assets = _assets;
+@synthesize audioControl = _audioControl;
+
 - (id)initWithStop:(TAPStop *)stop
 {
     self = [super init];
     if(self) {
         [self setImageStop:stop];
-        [self setAssets:[stop getAssets]];
+        [self setAssets:[stop getAssetsByUsage:@"image_asset"]];
         [self setWantsFullScreenLayout:YES];
         initializedToolbarAnimation = NO;
         currentIndex = 1;
+        NSArray *audioAssets = [_imageStop getAssetsByUsage:@"tour_audio"];
+        if ([audioAssets count]) {
+            TAPAsset *audioAsset = [audioAssets objectAtIndex:0];
+            if (audioAsset != nil) {
+                _audioControl = [[AudioControlViewController alloc] initWithAudio:audioAsset forViewController:self];
+                CGRect audioControlFrame = CGRectMake(0.0f, 44.0f, self.view.frame.size.width, _audioControl.view.frame.size.height);
+                [_audioControl.view setFrame:audioControlFrame];
+                [self.view addSubview:_audioControl.view];
+            }
+        }
     }
 	return self;
 }
@@ -73,6 +86,7 @@
     // Reset nav bar translucency bar style to whatever it was before.
     [[[self navigationController] navigationBar] setTranslucent:navbarWasTranslucent];
     [super viewWillDisappear:animated];
+    [_audioControl stopAudio];
 }
 	
 - (void)loadView 
@@ -459,6 +473,11 @@
     CGFloat pageWidth = pagingScrollView.bounds.size.width;
     CGFloat newOffset = (firstVisiblePageIndexBeforeRotation * pageWidth) + (percentScrolledIntoFirstVisiblePage * pageWidth);
     pagingScrollView.contentOffset = CGPointMake(newOffset, 0);
+
+    // adjust audio control frame
+    CGRect navBarFrame = [[[self navigationController] navigationBar] frame];
+    CGRect audioControlFrame = CGRectMake(0.0f, navBarFrame.size.height, navBarFrame.size.width, _audioControl.view.frame.size.height);
+    [_audioControl.view setFrame:audioControlFrame];
     
     // adjust info pane
     CGRect newInfoPaneFrame = infoPane.frame;
@@ -503,6 +522,10 @@
         [infoPane setFrame:newFrame];
         [UIView commitAnimations];
     }
+    
+    if (hide) {
+        [_audioControl hideAudioControl];
+    }
 }
 
 - (void)hideToolbars 
@@ -518,6 +541,7 @@
 - (void)dealloc
 {
     [_assets release];
+    [_audioControl release];
     [_imageStop release];
     [pagingScrollView release];
     [infoPane release];
