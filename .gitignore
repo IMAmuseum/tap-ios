@@ -1,1 +1,4 @@
-Bundles*
+# Ignore any bundles
+Bundles/*
+# Don't ignore README
+!Bundles/README.md
