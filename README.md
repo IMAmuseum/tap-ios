@@ -1,7 +1,7 @@
 Tap
 --------
 <br>
-The TAP iOS application provides a keypad based navigation experience for <a href="http://www.tapintomuseums.org/tourml">TourML</a>. For help setting up the iOS application please visit our wiki. Further information about the TAP project can also be found at <a href="www.tapintomuseums.org">tapintomuseums.org</a>. 
+The TAP iOS application provides a keypad based navigation experience for <a href="http://www.tapintomuseums.org/tourml">TourML</a>. For help setting up the iOS application please visit our wiki. Further information about the TAP project can also be found at <a href="http://www.tapintomuseums.org">tapintomuseums.org</a>. 
 
 Before running the application, it is assumed you have already created a tour in the <a href="https://github.com/IMAmuseum/tap-cms">CMS</a> and exported a tour.
 
