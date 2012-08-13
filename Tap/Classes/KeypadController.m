@@ -12,7 +12,7 @@
 #import "TAPStop.h"
 #import <AudioToolbox/AudioToolbox.h>
 
-#define MINIMUM_CODE_LENGTH	2
+#define MINIMUM_CODE_LENGTH	1
 #define MAXIMUM_CODE_LENGTH	5
 
 @interface KeypadController (Private)

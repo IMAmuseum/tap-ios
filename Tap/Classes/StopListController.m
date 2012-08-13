@@ -58,9 +58,13 @@
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
         
 		[[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
+		[[cell textLabel] setTextColor:[UIColor whiteColor]];
 		[[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
-		
-		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+		[[cell detailTextLabel] setTextColor:[UIColor whiteColor]];
+        //UITableViewCellAccessoryDisclosureIndicator
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uitableviewcellaccessor.png"]];
+		[cell setAccessoryView:imageView];
+        [imageView release];
 	}
 
     TAPStop *stop = [_stops objectAtIndex:indexPath.row];
