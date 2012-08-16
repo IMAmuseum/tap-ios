@@ -48,7 +48,6 @@
 		170F4A6C15D95929002EC0C3 /* uitableviewcellaccessor.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */; };
 		170F4A7415D98AB7002EC0C3 /* AudioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */; };
 		1714411215C08FF300E4F40F /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 1714411115C0501500E4F40F /* Bundles */; };
-		171570E215DB447800883FD0 /* AudioStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E115DB447800883FD0 /* AudioStopController.m */; };
 		171570E615DB448E00883FD0 /* VideoStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E515DB448E00883FD0 /* VideoStopController.m */; };
 		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
 		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
@@ -81,8 +80,6 @@
 		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
 		17DE997015ABC568004C8A25 /* StopListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
-		17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */; };
-		17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */; };
 		17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 17E4D54E15C1337F00DE2F05 /* slider-button.png */; };
 /* End PBXBuildFile section */
 
@@ -135,8 +132,6 @@
 		170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uitableviewcellaccessor.png; sourceTree = "<group>"; };
 		170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioControlView.xib; sourceTree = "<group>"; };
 		1714411115C0501500E4F40F /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bundles; path = Tap/Bundles; sourceTree = "<group>"; };
-		171570E015DB447800883FD0 /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStopController.h; path = Classes/AudioStopController.h; sourceTree = "<group>"; };
-		171570E115DB447800883FD0 /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStopController.m; path = Classes/AudioStopController.m; sourceTree = "<group>"; };
 		171570E415DB448E00883FD0 /* VideoStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStopController.h; sourceTree = "<group>"; };
 		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStopController.m; sourceTree = "<group>"; };
 		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
@@ -186,9 +181,6 @@
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
 		17DE996F15ABC568004C8A25 /* StopListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListController.xib; path = Classes/StopListController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TAP Help Video.mp4"; sourceTree = "<group>"; };
-		17E4D54615C1334E00DE2F05 /* AudioControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioControlViewController.h; path = Classes/AudioControlViewController.h; sourceTree = "<group>"; };
-		17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioControlViewController.m; path = Classes/AudioControlViewController.m; sourceTree = "<group>"; };
-		17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioControlViewController.xib; path = Classes/AudioControlViewController.xib; sourceTree = "<group>"; };
 		17E4D54E15C1337F00DE2F05 /* slider-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider-button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,7 +361,6 @@
 		17BAAE2815685F400012F849 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				17E4D54815C1334E00DE2F05 /* AudioControlViewController.xib */,
 				1707FC2015771F8E0027B323 /* KeypadController.xib */,
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupController.xib */,
@@ -382,8 +373,6 @@
 		17BAAE2915685F450012F849 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				17E4D54615C1334E00DE2F05 /* AudioControlViewController.h */,
-				17E4D54715C1334E00DE2F05 /* AudioControlViewController.m */,
 				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
 				1707FC33157720520027B323 /* ImageGalleryViewController.m */,
 				1707FC4615772A9C0027B323 /* ImageScrollViewController.h */,
@@ -396,8 +385,6 @@
 				1707FC1515771E640027B323 /* StopListController.m */,
 				1707FC2815771FE70027B323 /* TourSelectionController.h */,
 				1707FC2915771FE70027B323 /* TourSelectionController.m */,
-				171570E015DB447800883FD0 /* AudioStopController.h */,
-				171570E115DB447800883FD0 /* AudioStopController.m */,
 				171570E415DB448E00883FD0 /* VideoStopController.h */,
 				171570E515DB448E00883FD0 /* VideoStopController.m */,
 			);
@@ -504,7 +491,6 @@
 				17DE997015ABC568004C8A25 /* StopListController.xib in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
-				17E4D54A15C1334E00DE2F05 /* AudioControlViewController.xib in Resources */,
 				17E4D55115C1337F00DE2F05 /* slider-button.png in Resources */,
 				17423F0B15C2ECF100E8CDFB /* icon-audio-btn.png in Resources */,
 				17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */,
@@ -542,8 +528,6 @@
 				17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */,
 				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
 				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
-				17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */,
-				171570E215DB447800883FD0 /* AudioStopController.m in Sources */,
 				171570E615DB448E00883FD0 /* VideoStopController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

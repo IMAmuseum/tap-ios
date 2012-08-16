@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "17BAADFA15685F160012F849"
-               BuildableName = "Tap.app"
+               BuildableName = "Up.app"
                BlueprintName = "Tap"
                ReferencedContainer = "container:Tap.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17BAADFA15685F160012F849"
-            BuildableName = "Tap.app"
+            BuildableName = "Up.app"
             BlueprintName = "Tap"
             ReferencedContainer = "container:Tap.xcodeproj">
          </BuildableReference>
@@ -47,17 +47,23 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17BAADFA15685F160012F849"
-            BuildableName = "Tap.app"
+            BuildableName = "Up.app"
             BlueprintName = "Tap"
             ReferencedContainer = "container:Tap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -70,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17BAADFA15685F160012F849"
-            BuildableName = "Tap.app"
+            BuildableName = "Up.app"
             BlueprintName = "Tap"
             ReferencedContainer = "container:Tap.xcodeproj">
          </BuildableReference>
