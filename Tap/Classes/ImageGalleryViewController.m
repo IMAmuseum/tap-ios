@@ -8,7 +8,6 @@
 
 #import "ImageGalleryViewController.h"
 #import "ImageScrollViewController.h"
-#import "AudioControlViewController.h"
 #import "NonSelectableTextView.h"
 #import "TAPStop.h"
 #import "TAPProperty.h"

@@ -51,6 +51,7 @@
 		171570E615DB448E00883FD0 /* VideoStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E515DB448E00883FD0 /* VideoStopController.m */; };
 		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
 		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
+		1735520C15DD7F78008B3A5E /* AudioStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1735520B15DD7F78008B3A5E /* AudioStopController.m */; };
 		173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */; };
 		173F94C5156DE15B000DD580 /* TAPAssetRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C4156DE15B000DD580 /* TAPAssetRef.m */; };
 		173F94C9156DE15C000DD580 /* TAPSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C8156DE15C000DD580 /* TAPSource.m */; };
@@ -132,11 +133,13 @@
 		170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uitableviewcellaccessor.png; sourceTree = "<group>"; };
 		170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioControlView.xib; sourceTree = "<group>"; };
 		1714411115C0501500E4F40F /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bundles; path = Tap/Bundles; sourceTree = "<group>"; };
-		171570E415DB448E00883FD0 /* VideoStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStopController.h; sourceTree = "<group>"; };
-		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStopController.m; sourceTree = "<group>"; };
+		171570E415DB448E00883FD0 /* VideoStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoStopController.h; path = Classes/VideoStopController.h; sourceTree = "<group>"; };
+		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoStopController.m; path = Classes/VideoStopController.m; sourceTree = "<group>"; };
 		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
 		171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonSelectableTextView.m; path = Classes/NonSelectableTextView.m; sourceTree = "<group>"; };
 		1730F41B1577B46B003333C4 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
+		1735520A15DD7F78008B3A5E /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStopController.h; sourceTree = "<group>"; };
+		1735520B15DD7F78008B3A5E /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStopController.m; sourceTree = "<group>"; };
 		173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		173F94C3156DE15B000DD580 /* TAPAssetRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPAssetRef.h; path = Classes/TAPAssetRef.h; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				1707FC2915771FE70027B323 /* TourSelectionController.m */,
 				171570E415DB448E00883FD0 /* VideoStopController.h */,
 				171570E515DB448E00883FD0 /* VideoStopController.m */,
+				1735520A15DD7F78008B3A5E /* AudioStopController.h */,
+				1735520B15DD7F78008B3A5E /* AudioStopController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
 				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
 				171570E615DB448E00883FD0 /* VideoStopController.m in Sources */,
+				1735520C15DD7F78008B3A5E /* AudioStopController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
