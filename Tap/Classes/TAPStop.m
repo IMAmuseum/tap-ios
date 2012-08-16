@@ -116,10 +116,19 @@
     return property.value;
 }
 
-- (NSComparisonResult)compareByKeycode:(TAPStop *)otherObject 
+- (NSComparisonResult)compareByKeycode:(TAPStop *)otherObject
 {
     TAPStop *stop = (TAPStop *)self;
-    return [[stop getPropertyValueByName:@"code"] compare:[otherObject getPropertyValueByName:@"code"]];
+    int code = [[stop getPropertyValueByName:@"code"] intValue];
+    int otherCode = [[otherObject getPropertyValueByName:@"code"] intValue];
+    
+    if (code > otherCode) {
+        return (NSComparisonResult)NSOrderedDescending;
+    } else if (code < otherCode) {
+        return (NSComparisonResult)NSOrderedAscending;
+    } else {
+        return (NSComparisonResult)NSOrderedSame;
+    }
 }
 
 @end
