@@ -74,6 +74,12 @@
     });
 }
 
+- (void)viewDidUnload
+{
+    [_audioPlayer stop];
+    _audioPlayer = nil;
+}
+
 - (IBAction)togglePlay
 {
     if ([_audioPlayer isPlaying]) {

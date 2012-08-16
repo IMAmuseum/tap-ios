@@ -45,7 +45,11 @@
 		1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3E157728C80027B323 /* AudioToolbox.framework */; };
 		1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3F157728C80027B323 /* MediaPlayer.framework */; };
 		1707FC4515772A270027B323 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC4415772A270027B323 /* Icon.png */; };
+		170F4A6C15D95929002EC0C3 /* uitableviewcellaccessor.png in Resources */ = {isa = PBXBuildFile; fileRef = 170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */; };
+		170F4A7415D98AB7002EC0C3 /* AudioControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */; };
 		1714411215C08FF300E4F40F /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 1714411115C0501500E4F40F /* Bundles */; };
+		171570E215DB447800883FD0 /* AudioStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E115DB447800883FD0 /* AudioStopController.m */; };
+		171570E615DB448E00883FD0 /* VideoStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E515DB448E00883FD0 /* VideoStopController.m */; };
 		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
 		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
 		173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */; };
@@ -128,7 +132,13 @@
 		1707FC4415772A270027B323 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		1707FC4615772A9C0027B323 /* ImageScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageScrollViewController.h; path = Classes/ImageScrollViewController.h; sourceTree = "<group>"; };
 		1707FC4715772A9C0027B323 /* ImageScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ImageScrollViewController.m; path = Classes/ImageScrollViewController.m; sourceTree = "<group>"; };
+		170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uitableviewcellaccessor.png; sourceTree = "<group>"; };
+		170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioControlView.xib; sourceTree = "<group>"; };
 		1714411115C0501500E4F40F /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bundles; path = Tap/Bundles; sourceTree = "<group>"; };
+		171570E015DB447800883FD0 /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStopController.h; path = Classes/AudioStopController.h; sourceTree = "<group>"; };
+		171570E115DB447800883FD0 /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStopController.m; path = Classes/AudioStopController.m; sourceTree = "<group>"; };
+		171570E415DB448E00883FD0 /* VideoStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoStopController.h; sourceTree = "<group>"; };
+		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoStopController.m; sourceTree = "<group>"; };
 		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
 		171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonSelectableTextView.m; path = Classes/NonSelectableTextView.m; sourceTree = "<group>"; };
 		1730F41B1577B46B003333C4 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
@@ -158,7 +168,7 @@
 		17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-audio-btn.png"; sourceTree = "<group>"; };
 		17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause-btn.png"; sourceTree = "<group>"; };
 		17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play-btn.png"; sourceTree = "<group>"; };
-		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BAADFB15685F160012F849 /* Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Up.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BAADFF15685F160012F849 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BAAE0115685F160012F849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17BAAE0315685F160012F849 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -204,6 +214,7 @@
 		1707FBD815771AE30027B323 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */,
 				17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */,
 				17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */,
 				17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */,
@@ -305,7 +316,7 @@
 		17BAADFC15685F160012F849 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				17BAADFB15685F160012F849 /* Tap.app */,
+				17BAADFB15685F160012F849 /* Up.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,6 +374,7 @@
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupController.xib */,
 				17DE996F15ABC568004C8A25 /* StopListController.xib */,
+				170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -384,6 +396,10 @@
 				1707FC1515771E640027B323 /* StopListController.m */,
 				1707FC2815771FE70027B323 /* TourSelectionController.h */,
 				1707FC2915771FE70027B323 /* TourSelectionController.m */,
+				171570E015DB447800883FD0 /* AudioStopController.h */,
+				171570E115DB447800883FD0 /* AudioStopController.m */,
+				171570E415DB448E00883FD0 /* VideoStopController.h */,
+				171570E515DB448E00883FD0 /* VideoStopController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -417,7 +433,7 @@
 			);
 			name = Tap;
 			productName = Tap;
-			productReference = 17BAADFB15685F160012F849 /* Tap.app */;
+			productReference = 17BAADFB15685F160012F849 /* Up.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -493,6 +509,8 @@
 				17423F0B15C2ECF100E8CDFB /* icon-audio-btn.png in Resources */,
 				17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */,
 				17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */,
+				170F4A6C15D95929002EC0C3 /* uitableviewcellaccessor.png in Resources */,
+				170F4A7415D98AB7002EC0C3 /* AudioControlView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +543,8 @@
 				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
 				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
 				17E4D54915C1334E00DE2F05 /* AudioControlViewController.m in Sources */,
+				171570E215DB447800883FD0 /* AudioStopController.m in Sources */,
+				171570E615DB448E00883FD0 /* VideoStopController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +625,7 @@
 					"\"$(SRCROOT)/Tap\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Up;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17953C5C-11DF-434F-8076-A813119047B8";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -632,7 +652,7 @@
 					"\"$(SRCROOT)/Tap\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Up;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F6DDEA88-D2CC-444B-BD24-05D28E1D4CFF";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";

@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class ImageScrollViewController, AudioControlViewController, TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
+@class ImageScrollViewController, TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
 @interface ImageGalleryViewController : UIViewController <UIScrollViewDelegate> {
     UIScrollView *pagingScrollView;
     TAPStop *imageStop;
-    AudioControlViewController *audioControl;
     
     UIView *infoPane;
     CGRect currentPaneMinimizedFrame;
@@ -38,7 +37,6 @@
 }
 
 @property (nonatomic, retain) TAPStop *imageStop;
-@property (nonatomic, retain) AudioControlViewController *audioControl;
 @property (nonatomic, retain) NSArray *assets;
 
 - (id)initWithStop:(TAPStop *)stop;

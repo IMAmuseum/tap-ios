@@ -16,6 +16,10 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
+@interface TourSelectionController ()
+- (void)quitApplication;
+@end
+
 @implementation TourSelectionController
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -24,6 +28,13 @@
 - (id)initWithStyle:(UITableViewStyle)style 
 {
     self = [super initWithStyle:style];
+
+    UIBarButtonItem *quitApplicationBtn = [[UIBarButtonItem alloc] initWithTitle:@"Quit"
+                                           style:UIBarButtonItemStyleDone
+                                           target:self
+                                           action:@selector(quitApplication)];
+    [[self navigationItem] setLeftBarButtonItem:quitApplicationBtn];
+    
     return self;
 }
 
@@ -131,6 +142,11 @@
     if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
         [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
     }
+}
+
+- (void)quitApplication
+{
+    exit(0);
 }
 
 - (void)dealloc 

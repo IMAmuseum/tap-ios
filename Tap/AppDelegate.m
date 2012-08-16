@@ -13,6 +13,8 @@
 #import "StopListController.h"
 #import "StopGroupController.h"
 #import "ImageGalleryViewController.h"
+#import "AudioStopController.h"
+#import "VideoStopController.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
 #import "TAPAssetRef.h"
@@ -229,16 +231,16 @@
         StopGroupController *viewController = [[StopGroupController alloc] initWithStop:stop];
         [self.navigationController pushViewController:viewController animated:YES];
         [viewController release];
-    } else if ([stop.view isEqualToString:@"tour_video_stop"] || [stop.view isEqualToString:@"tour_audio_stop"]) {
-        TAPAsset *asset = [[stop getAssets] objectAtIndex:0];
-        NSString *videoPath = [[[asset source] anyObject] uri];
-        NSURL *videoURL = [NSURL fileURLWithPath:videoPath];	
-        MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-        [[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-        [[[self navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
-        [movieController release];
+    } else if ([stop.view isEqualToString:@"tour_video_stop"]) {
+        VideoStopController *viewController = [[VideoStopController alloc] initWithStop:stop];
+        [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+        [viewController release];
+    } else if ([stop.view isEqualToString:@"tour_audio_stop"]) {
+        AudioStopController *viewController = [[AudioStopController alloc] initWithStop:stop];
+        [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+        [viewController release];
     } else {
-        // Handle the view not existing
+        NSLog(@"Stop type doesn't exist.");
     }
 }
 
