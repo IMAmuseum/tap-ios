@@ -34,6 +34,7 @@
                                            target:self
                                            action:@selector(quitApplication)];
     [[self navigationItem] setLeftBarButtonItem:quitApplicationBtn];
+    [quitApplicationBtn release];
     
     return self;
 }

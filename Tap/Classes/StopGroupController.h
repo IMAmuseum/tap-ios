@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource, AudioControlView;
+@class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
 @interface StopGroupController : UIViewController <AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *stopGroupTable;

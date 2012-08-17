@@ -11,6 +11,7 @@
 #import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPSource.h"
+#import "TAPContent.h"
 #import "TAPConnection.h"
 
 #define PAUSE_ICON @"icon-pause-btn.png"
@@ -114,10 +115,11 @@
             _playbackTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
             [_pausePlayButton setImage:[UIImage imageNamed:PAUSE_ICON] forState:UIControlStateNormal];
             
+            NSURL *audioUrl = [NSURL fileURLWithPath:[[[audioAsset source] anyObject] uri]];
+
             dispatch_queue_t dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
             dispatch_async(dispatchQueue, ^(void) {
                 NSError *error;
-                NSURL *audioUrl = [NSURL fileURLWithPath:[[[audioAsset source] anyObject] uri]];
                 _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:&error];
                 if (error) {
                     NSLog(@"Error in audioPlayer: %@", [error localizedDescription]);
@@ -142,6 +144,12 @@
                     });
                 }
             });
+            
+            NSArray *trackAssets = [_stopGroup getAssetsByUsage:@"audio_title"];
+            if ([trackAssets count]) {
+                TAPAsset *trackAsset = [trackAssets objectAtIndex:0];
+                [_trackTitle setText:(NSString *)[[[trackAsset content] anyObject] data]];
+            }
         }
     }
 }

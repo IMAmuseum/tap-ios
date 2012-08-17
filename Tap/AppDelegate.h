@@ -54,7 +54,7 @@
 - (void)loadTour:(TAPTour *)tour;
 - (void)loadStop:(TAPStop *)stop;
 - (IBAction)helpButtonClicked:(id)sender;
-- (void)animateSplashImage;
+- (void)displayHelpPrompt;
 - (void)playHelpVideo;
 - (void)playClick;
 - (void)playError;

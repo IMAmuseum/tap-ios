@@ -119,19 +119,6 @@
     [keypadController release];
     [stopListController release];
     
-    // Add overlay images of the splash to slide apart
-    UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
-    [splashTop setTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
-    UIImageView *splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-btm.png"]];
-    [splashBtm setTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
-    
-    [self.window addSubview:splashTop];
-    [self.window addSubview:splashBtm];
-    
-    // Release extra ref
-    [splashTop release];
-    [splashBtm release];
-    
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
         // if only one tour exists initialize it and add it to the stack
@@ -139,7 +126,7 @@
             // set the current tour
             [self loadTour:[tours objectAtIndex:0]];
         }
-        [self animateSplashImage];
+        [self displayHelpPrompt];
     }
     
     [self.window makeKeyAndVisible];
@@ -151,7 +138,7 @@
     NSError *error;
     
     if (url == nil) {
-        [self animateSplashImage];
+        [self displayHelpPrompt];
         return NO;
     }
     
@@ -175,7 +162,7 @@
     [request release];
     
     if (![tours count]) {
-        [self animateSplashImage];
+        [self displayHelpPrompt];
         return NO;
     }
     [self loadTour:[tours objectAtIndex:0]];
@@ -186,9 +173,24 @@
             [self loadStop:stop];
         }
     }
-    
-    [self animateSplashImage];
+        
     return YES;
+}
+
+- (void)displayHelpPrompt
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+    // Show a prompt for the help video
+	UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Watch help video?", @"Prompt header")
+														 message:NSLocalizedString(@"Get an overview of how to use and make the most of TAP.", @"Prompt message")
+														delegate:self
+											   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
+											   otherButtonTitles:nil];
+	[helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
+	
+	[helpPrompt show];
+	[helpPrompt release];
+    });
 }
 
 /**
@@ -256,25 +258,6 @@
 /**
  * Handles the applications introduction animation
  */
-- (void)animateSplashImage 
-{
-    // See if we need to slide apart the splash image
-    UIView *splashTop = [self.window viewWithTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
-    UIView *splashBtm = [self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
-    
-    if (splashTop != nil && splashBtm != nil) {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:1.0f];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-        [UIView setAnimationDelegate:(AppDelegate *)[[UIApplication sharedApplication] delegate]];
-        [UIView setAnimationDidStopSelector:@selector(splashSlideAnimationDidStop:finished:context:)];
-        
-        [splashTop setFrame:CGRectMake(0.0f, -480.0f, CGRectGetWidth([splashTop frame]), CGRectGetHeight([splashTop frame]))];
-        [splashBtm setFrame:CGRectMake(0.0f, 480.0f, CGRectGetWidth([splashBtm frame]), CGRectGetHeight([splashBtm frame]))];
-        
-        [UIView commitAnimations];
-    }
-}
 
 /**
  * Plays help video
@@ -298,25 +281,6 @@
 
 - (void)playClick { AudioServicesPlaySystemSound(clickFileObject); }
 - (void)playError { AudioServicesPlaySystemSound(errorFileObject); }
-
-#pragma mark UIView animation delegate
-
-- (void)splashSlideAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context 
-{
-	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_TOP_TAG] removeFromSuperview];
-	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG] removeFromSuperview];
-	
-	// Show a prompt for the help video
-	UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Watch help video?", @"Prompt header")
-														 message:NSLocalizedString(@"Get an overview of how to use and make the most of TAP.", @"Prompt message")
-														delegate:self
-											   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
-											   otherButtonTitles:nil];
-	[helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
-	
-	[helpPrompt show];
-	[helpPrompt release];
-}
 
 #pragma mark UIAlertViewDelegate
 
