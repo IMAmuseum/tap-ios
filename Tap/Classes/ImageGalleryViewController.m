@@ -16,6 +16,14 @@
 #import "TAPSource.h"
 #import "TAPContent.h"
 
+#define PANEL_HEIGHT 0.4f
+#define CONTENT_PADDING 10
+#define TITLE_LABEL 1
+#define COPYRIGHT_LABEL 2
+#define CAPTION_TEXTVIEW 3
+#define INFO_PANE_TOGGLE 4
+#define INFO_PANE_TOGGLE_SIZE 16.0f
+
 @interface ImageGalleryViewController ()
 - (void)configurePage:(ImageScrollViewController *)page forIndex:(NSUInteger)index;
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
@@ -64,11 +72,6 @@
     [self setTitleWithCurrentPhotoIndex];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self hideToolbars];
-}
-
 - (void)viewWillDisappear:(BOOL)animated 
 {
     // Reset nav bar translucency bar style to whatever it was before.
@@ -104,11 +107,6 @@
 
 #pragma mark -
 #pragma mark Info pane handling
-#define PANEL_HEIGHT 0.4f
-#define CONTENT_PADDING 10
-#define TITLE_LABEL 1
-#define COPYRIGHT_LABEL 2
-#define CAPTION_TEXTVIEW 3
 
 - (void)setupInfoPane
 {
@@ -142,6 +140,13 @@
     [title setTag:TITLE_LABEL];
     [infoPane addSubview:title];
     [title release];
+    
+    UIImageView *infoPaneToggle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn-open"]];
+    [infoPaneToggle setTag:INFO_PANE_TOGGLE];
+    [infoPaneToggle setOpaque:TRUE];
+    [infoPaneToggle setAlpha:0.5f];
+    [infoPane addSubview:infoPaneToggle];
+    [infoPaneToggle release];
     
     UILabel *copyright = [[UILabel alloc] init];
     [copyright setLineBreakMode:UILineBreakModeWordWrap];
@@ -178,13 +183,16 @@
     
     TAPAsset *asset = [self.assets objectAtIndex:currentIndex - 1];
     
+    UIImageView *infoPaneToggle = (UIImageView *)[infoPane viewWithTag:INFO_PANE_TOGGLE];
+    [infoPaneToggle setFrame:CGRectMake(self.view.frame.size.width - INFO_PANE_TOGGLE_SIZE - CONTENT_PADDING, CONTENT_PADDING + 5.0f, INFO_PANE_TOGGLE_SIZE, INFO_PANE_TOGGLE_SIZE)];
+    
     UILabel *lblTitle = (UILabel *)[infoPane viewWithTag:TITLE_LABEL];
     TAPContent *title = [[asset getContentsByPart:@"title"] objectAtIndex:0];
     if (title != nil) {
         // calculate height
         CGSize titleSize = [title.data sizeWithFont:[UIFont boldSystemFontOfSize:13.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         titleHeight = titleSize.height;
-        CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + titleHeight);
+        CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING) - INFO_PANE_TOGGLE_SIZE, CONTENT_PADDING + titleHeight);
         
         // set label properties
         [lblTitle setText:title.data];
@@ -259,14 +267,20 @@
 
 - (void)toggleInfoPane:(UIGestureRecognizer*)tap
 {
+    UIImageView *infoPaneToggle = (UIImageView *)[infoPane viewWithTag:INFO_PANE_TOGGLE];
+
     CGRect newFrame;
     if (isInfoPaneFullscreen) {
         newFrame = currentPaneMinimizedFrame;
         isInfoPaneFullscreen = NO;
+        
+        [infoPaneToggle setImage:[UIImage imageNamed:@"btn-open"]];
     } else {
         newFrame = infoPane.frame;
         newFrame.origin.y = self.view.frame.size.height - (self.view.frame.size.height * PANEL_HEIGHT);
         isInfoPaneFullscreen = YES;
+        
+        [infoPaneToggle setImage:[UIImage imageNamed:@"btn-close"]];
     }
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2f];

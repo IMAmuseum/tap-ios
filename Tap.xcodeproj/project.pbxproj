@@ -52,6 +52,8 @@
 		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
 		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
 		1735520C15DD7F78008B3A5E /* AudioStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1735520B15DD7F78008B3A5E /* AudioStopController.m */; };
+		1735521715DD8965008B3A5E /* btn-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1735521515DD8965008B3A5E /* btn-close.png */; };
+		1735521815DD8965008B3A5E /* btn-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 1735521615DD8965008B3A5E /* btn-open.png */; };
 		173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */; };
 		173F94C5156DE15B000DD580 /* TAPAssetRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C4156DE15B000DD580 /* TAPAssetRef.m */; };
 		173F94C9156DE15C000DD580 /* TAPSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94C8156DE15C000DD580 /* TAPSource.m */; };
@@ -131,15 +133,17 @@
 		1707FC4615772A9C0027B323 /* ImageScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageScrollViewController.h; path = Classes/ImageScrollViewController.h; sourceTree = "<group>"; };
 		1707FC4715772A9C0027B323 /* ImageScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ImageScrollViewController.m; path = Classes/ImageScrollViewController.m; sourceTree = "<group>"; };
 		170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uitableviewcellaccessor.png; sourceTree = "<group>"; };
-		170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioControlView.xib; sourceTree = "<group>"; };
+		170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioControlView.xib; path = Classes/AudioControlView.xib; sourceTree = "<group>"; };
 		1714411115C0501500E4F40F /* Bundles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Bundles; path = Tap/Bundles; sourceTree = "<group>"; };
 		171570E415DB448E00883FD0 /* VideoStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoStopController.h; path = Classes/VideoStopController.h; sourceTree = "<group>"; };
 		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoStopController.m; path = Classes/VideoStopController.m; sourceTree = "<group>"; };
 		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
 		171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonSelectableTextView.m; path = Classes/NonSelectableTextView.m; sourceTree = "<group>"; };
 		1730F41B1577B46B003333C4 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
-		1735520A15DD7F78008B3A5E /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStopController.h; sourceTree = "<group>"; };
-		1735520B15DD7F78008B3A5E /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStopController.m; sourceTree = "<group>"; };
+		1735520A15DD7F78008B3A5E /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStopController.h; path = Classes/AudioStopController.h; sourceTree = "<group>"; };
+		1735520B15DD7F78008B3A5E /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStopController.m; path = Classes/AudioStopController.m; sourceTree = "<group>"; };
+		1735521515DD8965008B3A5E /* btn-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-close.png"; sourceTree = "<group>"; };
+		1735521615DD8965008B3A5E /* btn-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-open.png"; sourceTree = "<group>"; };
 		173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		173F94C3156DE15B000DD580 /* TAPAssetRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPAssetRef.h; path = Classes/TAPAssetRef.h; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 		1707FBD815771AE30027B323 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1735521515DD8965008B3A5E /* btn-close.png */,
+				1735521615DD8965008B3A5E /* btn-open.png */,
 				170F4A6B15D95929002EC0C3 /* uitableviewcellaccessor.png */,
 				17423F0815C2ECF100E8CDFB /* icon-audio-btn.png */,
 				17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */,
@@ -502,6 +508,8 @@
 				17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */,
 				170F4A6C15D95929002EC0C3 /* uitableviewcellaccessor.png in Resources */,
 				170F4A7415D98AB7002EC0C3 /* AudioControlView.xib in Resources */,
+				1735521715DD8965008B3A5E /* btn-close.png in Resources */,
+				1735521815DD8965008B3A5E /* btn-open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
