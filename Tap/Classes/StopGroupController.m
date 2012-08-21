@@ -28,6 +28,7 @@
 - (IBAction)moveScurbber:sender;
 - (IBAction)toggleAudioControl:(id)sender;
 - (void)updateTime;
+- (void)hideAudioControl;
 @end
 
 @implementation StopGroupController
@@ -347,7 +348,7 @@
     if (indexPath.section == 1 || !sectionsEnabled) {
         TAPStop *stop = [_stops objectAtIndex:indexPath.row];
         if (![stop.view isEqualToString:@"tour_image_stop"]) {
-            [_audioPlayer stop];
+            [self togglePlay];
         }
         [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];
     }

@@ -624,7 +624,6 @@
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = Up;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17953C5C-11DF-434F-8076-A813119047B8";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

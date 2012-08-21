@@ -41,6 +41,5 @@
 @property (nonatomic, retain) NSTimer *playbackTimer;
 
 - (id)initWithStop:(TAPStop *)stop;
-- (void)hideAudioControl;
 
 @end

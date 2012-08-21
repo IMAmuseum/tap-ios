@@ -30,7 +30,7 @@
     self = [super initWithStyle:style];
 
     UIBarButtonItem *quitApplicationBtn = [[UIBarButtonItem alloc] initWithTitle:@"Quit"
-                                           style:UIBarButtonItemStyleDone
+                                           style:UIBarButtonItemStyleBordered
                                            target:self
                                            action:@selector(quitApplication)];
     [[self navigationItem] setLeftBarButtonItem:quitApplicationBtn];
