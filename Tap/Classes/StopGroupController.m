@@ -24,6 +24,7 @@
 #define CELL_INDENTATION 44.0f
 
 @interface StopGroupController ()
+- (void)pausePlayer;
 - (IBAction)togglePlay;
 - (IBAction)moveScurbber:sender;
 - (IBAction)toggleAudioControl:(id)sender;
@@ -66,7 +67,7 @@
         if ([assets count]) {
             TAPAsset *audioAsset = [assets objectAtIndex:0];
             if (audioAsset != nil) {
-                UIButton *musicControlView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 16, 16)];
+                UIButton *musicControlView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 20, 20)];
                 [musicControlView addTarget:self action:@selector(toggleAudioControl:) forControlEvents:UIControlEventTouchUpInside];
                 [musicControlView setBackgroundImage: [UIImage imageNamed:@"icon-audio-btn.png"] forState: UIControlStateNormal];
                 UIBarButtonItem *audioControlToggle = [[UIBarButtonItem alloc] initWithCustomView:musicControlView];
@@ -171,6 +172,15 @@
 }
 
 #pragma mark AudioControls
+- (void)pausePlayer
+{
+    if ([_audioPlayer isPlaying]) {
+        [_audioPlayer stop];
+        [_pausePlayButton setImage:[UIImage imageNamed:PLAY_ICON] forState:UIControlStateNormal];
+        [_playbackTimer invalidate];
+    }
+}
+
 - (IBAction)togglePlay
 {
     if ([_audioPlayer isPlaying]) {
@@ -348,7 +358,7 @@
     if (indexPath.section == 1 || !sectionsEnabled) {
         TAPStop *stop = [_stops objectAtIndex:indexPath.row];
         if (![stop.view isEqualToString:@"tour_image_stop"]) {
-            [self togglePlay];
+            [self pausePlayer];
         }
         [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];
     }
