@@ -91,15 +91,17 @@
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
 
-    TAPAsset *headerAsset = [[_stopGroup getAssetsByUsage:@"header_image"] objectAtIndex:0];
-    if (headerAsset != nil) {
-        NSString *headerImageSrc = [[[headerAsset source] anyObject] uri];
-        UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:headerImageSrc]];
-		[headerImage setTag:HEADER_IMAGE_VIEW_TAG];
-		[_stopGroupTable setTableHeaderView:headerImage];
-		[headerImage release];
+    NSArray *headerAssets = [_stopGroup getAssetsByUsage:@"header_image"];
+    if ([headerAssets count]) {
+        TAPAsset *headerAsset = [headerAssets objectAtIndex:0];
+        if (headerAsset != nil) {
+            NSString *headerImageSrc = [[[headerAsset source] anyObject] uri];
+            UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:headerImageSrc]];
+            [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
+            [_stopGroupTable setTableHeaderView:headerImage];
+            [headerImage release];
+        }
     }
-    
     // determine whether or not the stop group has a description in order to layout the table correctly
     if ((NSString *)_stopGroup.desc != nil) {
         sectionsEnabled = true;
