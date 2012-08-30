@@ -37,7 +37,7 @@
 - (void)toggleToolbars:(BOOL)hide;
 - (void)hideToolbars;
 - (void)showToolbars;
-- (void)toggleInfoPane:(UIGestureRecognizer*)tap;
+- (void)toggleInfoPane;
 @end
 
 @implementation ImageGalleryViewController
@@ -118,7 +118,7 @@
     [[self view] addSubview:infoPane];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]
-                                                    initWithTarget:self action:@selector(toggleInfoPane:)];
+                                                    initWithTarget:self action:@selector(toggleInfoPane)];
     tapGestureRecognizer.numberOfTapsRequired = 1;
     NSArray *gestureRecognizers = [[NSArray alloc] initWithObjects:tapGestureRecognizer, nil];
     infoPane.gestureRecognizers = gestureRecognizers;
@@ -170,7 +170,7 @@
     [caption release];
     
     [self updateInfoPane];
-
+    [self toggleInfoPane];
 }
 
 - (void)updateInfoPane
@@ -265,7 +265,7 @@
     [infoPane setHidden:!displayInfoPane];
 }
 
-- (void)toggleInfoPane:(UIGestureRecognizer*)tap
+- (void)toggleInfoPane
 {
     UIImageView *infoPaneToggle = (UIImageView *)[infoPane viewWithTag:INFO_PANE_TOGGLE];
 

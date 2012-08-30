@@ -55,7 +55,7 @@
 					<object class="IBUIButton" id="527612877">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{7, 291}, {100, 66}}</string>
+						<string key="NSFrame">{{7, 285}, {100, 66}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="983251585"/>
@@ -106,7 +106,7 @@
 					<object class="IBUIButton" id="983251585">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{110, 291}, {100, 66}}</string>
+						<string key="NSFrame">{{110, 285}, {100, 66}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="150957653"/>
@@ -136,7 +136,7 @@
 					<object class="IBUIButton" id="150957653">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{213, 291}, {100, 66}}</string>
+						<string key="NSFrame">{{213, 285}, {100, 66}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="471867964"/>
@@ -346,7 +346,7 @@
 					<object class="IBUIButton" id="471867964">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{7, 359}, {100, 66}}</string>
+						<string key="NSFrame">{{8, 350}, {100, 66}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1022543360"/>
@@ -376,7 +376,7 @@
 					<object class="IBUIButton" id="1022543360">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{110, 359}, {203, 66}}</string>
+						<string key="NSFrame">{{110, 350}, {203, 66}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -860,19 +860,19 @@
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="468179638"/>
-							<reference ref="527612877"/>
-							<reference ref="983251585"/>
-							<reference ref="150957653"/>
+							<reference ref="898017372"/>
+							<reference ref="798611817"/>
 							<reference ref="603841404"/>
 							<reference ref="621375410"/>
 							<reference ref="280361775"/>
 							<reference ref="911963587"/>
 							<reference ref="865631103"/>
 							<reference ref="144196470"/>
+							<reference ref="527612877"/>
+							<reference ref="983251585"/>
+							<reference ref="150957653"/>
 							<reference ref="471867964"/>
 							<reference ref="1022543360"/>
-							<reference ref="898017372"/>
-							<reference ref="798611817"/>
 							<reference ref="154073359"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -991,7 +991,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">85</int>
+			<int key="maxID">86</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
