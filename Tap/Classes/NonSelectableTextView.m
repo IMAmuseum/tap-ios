@@ -3,7 +3,7 @@
 //  Tap
 //
 //  Created by Daniel Cervantes on 7/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
 #import "NonSelectableTextView.h"
