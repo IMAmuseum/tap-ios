@@ -5,6 +5,6 @@
 	<key>TapHelpVideo</key>
 	<string>TAP Help Video.mp4</string>
 	<key>TapTourMLEndpoint</key>
-	<string></string>
+	<string>http://www.museumgeluid.nl/tap/?q=node/2/tourml.xml</string>
 </dict>
 </plist>
