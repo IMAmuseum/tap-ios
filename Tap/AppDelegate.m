@@ -66,7 +66,7 @@
     self.tapConfig = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
     // set default language
-    [self setLanguage:@"en"];
+    [self setLanguage: [[NSLocale preferredLanguages] objectAtIndex:0]];
     
     // load tour data
     [TourMLParser loadTours];
