@@ -82,7 +82,7 @@
     [request release];
     
     // setup help button
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" 
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
                                                                    style:UIBarButtonItemStyleDone 
                                                                   target:self 
                                                                   action:@selector(helpButtonClicked:)];    

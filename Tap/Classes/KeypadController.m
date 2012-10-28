@@ -32,7 +32,7 @@
 {
     self = [super init];
     if(self) {
-        [self setTitle:@"Keypad"];
+        [self setTitle:NSLocalizedString(@"Keypad", @"")];
     }
     return self;
 }
