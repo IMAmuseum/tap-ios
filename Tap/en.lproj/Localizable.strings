@@ -12,3 +12,5 @@
 "Keypad" = "Keypad";
 "Index" = "Index";
 "Invalid code: %@" = "Invalid code: %@";
+"Go" = "Go";
+"Clear" = "Clear";
