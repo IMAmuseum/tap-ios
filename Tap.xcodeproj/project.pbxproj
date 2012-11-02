@@ -41,7 +41,6 @@
 		1707FC2715771FB10027B323 /* StopGroupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC2515771FB10027B323 /* StopGroupController.xib */; };
 		1707FC2B15771FE70027B323 /* TourSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC2915771FE70027B323 /* TourSelectionController.m */; };
 		1707FC35157720520027B323 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC33157720520027B323 /* ImageGalleryViewController.m */; };
-		1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3C157728320027B323 /* libGoogleAnalytics.a */; };
 		1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3E157728C80027B323 /* AudioToolbox.framework */; };
 		1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3F157728C80027B323 /* MediaPlayer.framework */; };
 		1707FC4515772A270027B323 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC4415772A270027B323 /* Icon.png */; };
@@ -185,7 +184,6 @@
 		173F94D7156DE15C000DD580 /* TAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPConnection.m; path = Classes/TAPConnection.m; sourceTree = "<group>"; };
 		173F94D9156DE15C000DD580 /* TAPStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPStop.h; path = Classes/TAPStop.h; sourceTree = "<group>"; };
 		173F94DA156DE15C000DD580 /* TAPStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPStop.m; path = Classes/TAPStop.m; sourceTree = "<group>"; };
-		173F94ED156DE3A3000DD580 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		173F94EE156DE3A3000DD580 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
 				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
 				1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */,
-				1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */,
 				17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */,
 				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
@@ -492,7 +489,6 @@
 			children = (
 				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
 				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
-				173F94ED156DE3A3000DD580 /* GANTracker.h */,
 				173F94EE156DE3A3000DD580 /* GDataXMLNode.h */,
 				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
 			);
@@ -673,7 +669,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Cervantes";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -687,8 +684,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "64FB46E3-2CB4-4B8C-A255-F76A4B9C4F64";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -698,16 +695,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Cervantes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "64FB46E3-2CB4-4B8C-A255-F76A4B9C4F64";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -721,19 +718,20 @@
 					armv6,
 				);
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Cervantes (GAE8RG58RJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = Up;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -747,19 +745,20 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Daniel Cervantes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = Up;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

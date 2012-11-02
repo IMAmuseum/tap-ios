@@ -147,7 +147,10 @@
 
 - (void)quitApplication
 {
-    exit(0);
+    NSURL *url = [NSURL URLWithString:@"x-si-nmai-launcher://"];
+    if (![[UIApplication sharedApplication] openURL:url]) {
+        NSLog(@"%@%@",@"Failed to open url:",[url description]);
+    }
 }
 
 - (void)dealloc 
