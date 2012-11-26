@@ -35,7 +35,6 @@
 @implementation StopGroupController
 
 @synthesize stopGroupTable = _stopGroupTable;
-@synthesize bannerImage = _bannerImage;
 @synthesize stopGroup = _stopGroup;
 @synthesize stops = _stops;
 @synthesize audioPlayer = _audioPlayer;
@@ -87,7 +86,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-
+    
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
 
@@ -156,6 +155,11 @@
             }
         }
     }
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    TAPTour *tour = appDelegate.currentTour;
+    TAPAsset *image = [[tour getAssetsByUsage:@"asset-image-banner"] objectAtIndex:0];
+    [bannerImage setImage:[UIImage imageWithContentsOfFile:[[[image source] anyObject] uri]]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -359,7 +363,7 @@
 {	
     if (indexPath.section == 1 || !sectionsEnabled) {
         TAPStop *stop = [_stops objectAtIndex:indexPath.row];
-        if (![stop.view isEqualToString:@"tour_image_stop"]) {
+        if (![stop.view isEqualToString:@"tour_image_stop"] && ![stop.view isEqualToString:@"transcript"]) {
             [self pausePlayer];
         }
         [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];
@@ -369,7 +373,6 @@
 - (void)dealloc 
 {
     [_stopGroupTable release];
-    [_bannerImage release];
     [_stopGroup release];
     [_stops release];
     [_audioPlayer release];

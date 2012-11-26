@@ -29,7 +29,6 @@
 }
 
 @property (nonatomic, retain) UITableView *stopGroupTable;
-@property (nonatomic, retain) UIImageView *bannerImage;
 @property (nonatomic, retain) TAPStop *stopGroup;
 @property (nonatomic, retain) NSMutableArray *stops;
 @property (nonatomic, retain) AVAudioPlayer *audioPlayer;

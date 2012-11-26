@@ -27,6 +27,8 @@
 
 - (TAPStop *)stopFromKeycode:(NSString *)keycode;
 - (TAPStop *)stopFromId:(NSString *)id;
+- (NSArray *)getAssets;
+- (NSArray *)getAssetsByUsage:(NSString *)usage;
 
 @end
 

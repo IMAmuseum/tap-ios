@@ -13,6 +13,7 @@
 #import "StopListController.h"
 #import "StopGroupController.h"
 #import "ImageGalleryViewController.h"
+#import "TranscriptStopController.h"
 #import "AudioStopController.h"
 #import "VideoStopController.h"
 #import "TAPTour.h"
@@ -50,6 +51,7 @@
 {
     // Add the navigation controller to the window
     [self.window addSubview:[self.navigationController view]];
+    [self.window setRootViewController:self.navigationController];
     
     // Allocate the sounds
     CFBundleRef mainBundle = CFBundleGetMainBundle();
@@ -241,8 +243,12 @@
         AudioStopController *viewController = [[AudioStopController alloc] initWithStop:stop];
         [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
         [viewController release];
+    } else if ([stop.view isEqualToString:@"transcript"]) {
+        TranscriptStopController *viewController = [[TranscriptStopController alloc] initWithStop:stop];
+        [self.navigationController pushViewController:viewController animated:YES];
+        [viewController release];
     } else {
-        NSLog(@"Stop type doesn't exist.");
+        NSLog(@"The following view doesn't exist %@.", stop.view);
     }
 }
 
@@ -303,10 +309,7 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
         } 
     }
 }

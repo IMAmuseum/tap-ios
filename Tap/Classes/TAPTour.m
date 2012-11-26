@@ -82,4 +82,35 @@
     return stop;
 }
 
+/**
+ * Convenience method for retrieving all assets for a stop
+ */
+- (NSArray *)getAssets
+{
+    NSMutableArray *assets = [[[NSMutableArray alloc] init] autorelease];
+    for (TAPAssetRef *assetRef in [self.appResource allObjects]) {
+        [assets addObject:assetRef.asset];
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [assets sortedArrayUsingDescriptors:sortDescriptors];
+}
+
+/**
+ * Convenience method for retrieving all assets with a particular usage
+ */
+- (NSArray *)getAssetsByUsage:(NSString *)usage
+{
+    NSMutableArray *assets = [[[NSMutableArray alloc] init] autorelease];
+    for (TAPAssetRef *assetRef in [self.appResource allObjects]) {
+        if ([assetRef.usage isEqualToString:usage]) {
+            [assets addObject:assetRef.asset];
+        }
+    }
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [assets sortedArrayUsingDescriptors:sortDescriptors];
+}
+
 @end

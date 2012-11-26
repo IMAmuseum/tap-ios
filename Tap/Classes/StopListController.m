@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
 
 @implementation StopListController
 
@@ -25,20 +27,23 @@
     return self;
 }
 
-- (void)viewDidLoad 
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    TAPTour *tour = appDelegate.currentTour;
+    TAPAsset *image = [[tour getAssetsByUsage:@"asset-image-banner"] objectAtIndex:0];
+    [bannerImage setImage:[UIImage imageWithContentsOfFile:[[[image source] anyObject] uri]]];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];    
+    // retrieve the current tour's stops
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'code' AND $ps.value != nil AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", appDelegate.language];
     NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
     NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
     _stops = [[NSArray alloc] initWithArray:sortedArray];
     [filteredStops release];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
+    // reload the table with the correct tour data
+    [_stopListTable reloadData];
+    
     // Deselect anything from the table
 	[_stopListTable deselectRowAtIndexPath:[_stopListTable indexPathForSelectedRow] animated:animated];
 }
@@ -56,15 +61,6 @@
 	if (cell == nil) {
 		// Create a new reusable table cell
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
-        
-		[[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
-		[[cell textLabel] setTextColor:[UIColor whiteColor]];
-		[[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
-		[[cell detailTextLabel] setTextColor:[UIColor whiteColor]];
-        //UITableViewCellAccessoryDisclosureIndicator
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uitableviewcellaccessor.png"]];
-		[cell setAccessoryView:imageView];
-        [imageView release];
 	}
 
     TAPStop *stop = [_stops objectAtIndex:indexPath.row];

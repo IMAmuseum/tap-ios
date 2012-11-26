@@ -9,6 +9,8 @@
 #import "TourSelectionController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define CELL_CONTENT_WIDTH 320.0f
@@ -106,11 +108,14 @@
         [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
-    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
-    [[cell textLabel] setText:(NSString *)tour.title];
-    [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
-    [[cell textLabel] setNumberOfLines:0];
+    [appDelegate setCurrentTour:tour];
+    
+    TAPAsset *image = [[tour getAssetsByUsage:@"asset-image-banner"] objectAtIndex:0];
+    
+    cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[[image source] anyObject] uri]]] autorelease];
+    cell.selectedBackgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[[[image source] anyObject] uri]]] autorelease];
     
     return cell;
 }

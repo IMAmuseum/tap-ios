@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 #define MINIMUM_CODE_LENGTH	1
@@ -39,6 +41,11 @@
 
 - (void)viewWillAppear:(BOOL)animated 
 {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    TAPTour *tour = appDelegate.currentTour;
+    TAPAsset *image = [[tour getAssetsByUsage:@"asset-image-banner"] objectAtIndex:0];    
+    [bannerImage setImage:[UIImage imageWithContentsOfFile:[[[image source] anyObject] uri]]];
+    
     [self clearCode];
 }
 
