@@ -25,20 +25,20 @@
     return self;
 }
 
-- (void)viewDidLoad 
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];    
+    // retrieve the current tour's stops
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'code' AND $ps.value != nil AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", appDelegate.language];
     NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
     NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
     _stops = [[NSArray alloc] initWithArray:sortedArray];
     [filteredStops release];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
+    // reload the table with the correct tour data
+    [_stopListTable reloadData];
+    
     // Deselect anything from the table
 	[_stopListTable deselectRowAtIndexPath:[_stopListTable indexPathForSelectedRow] animated:animated];
 }
