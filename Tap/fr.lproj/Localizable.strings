@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Tap
+*/
+
+"Help" = "Aide";
+"Language" = "Langue";
+"Skip" = "Passer";
+"Yes" = "Oui";
+"HelpVideoQuestion" = "Regarder la vidéo aide?";
+"HelpVideoExplanation" = "Obtenez un aperçu de la façon d'utiliser et de tirer le meilleur parti de la TAP.";
+"Keypad" = "Clavier";
+"Index" = "Index";
+"Tours" = "Tours";
+"Invalid code: %@" = "Code invalide: %@";
+"Go" = "Aller";
+"Clear" = "Effacer";

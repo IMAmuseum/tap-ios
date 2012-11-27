@@ -60,7 +60,7 @@
         NSLog(@"Error: %@", error);
     }
     
-    self.title = @"Tours";
+    self.title = NSLocalizedString(@"Tours", @"");
 }
 
 - (void)viewDidUnload 

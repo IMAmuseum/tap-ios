@@ -20,7 +20,7 @@
 {
     self = [super init];
     if(self) {
-        [self setTitle:@"Index"];
+        [self setTitle:NSLocalizedString(@"Index", @"")];
     }
     return self;
 }

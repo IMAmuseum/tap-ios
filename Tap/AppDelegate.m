@@ -66,7 +66,7 @@
     self.tapConfig = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     
     // set default language
-    [self setLanguage:@"en"];
+    [self setLanguage: [[NSLocale preferredLanguages] objectAtIndex:0]];
     
     // load tour data
     [TourMLParser loadTours];
@@ -82,7 +82,7 @@
     [request release];
     
     // setup help button
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" 
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
                                                                    style:UIBarButtonItemStyleDone 
                                                                   target:self 
                                                                   action:@selector(helpButtonClicked:)];    
@@ -307,8 +307,8 @@
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG] removeFromSuperview];
 	
 	// Show a prompt for the help video
-	UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Watch help video?", @"Prompt header")
-														 message:NSLocalizedString(@"Get an overview of how to use and make the most of TAP.", @"Prompt message")
+	UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
+														 message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
 														delegate:self
 											   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
 											   otherButtonTitles:nil];
