@@ -19,27 +19,12 @@
 #define CELL_INDENTATION 44.0f
 
 @interface TourSelectionController ()
-- (void)quitApplication;
 @end
 
 @implementation TourSelectionController
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize tourFetchedResultsController = _tourFetchedResultsController;
-
-- (id)initWithStyle:(UITableViewStyle)style 
-{
-    self = [super initWithStyle:style];
-
-    UIBarButtonItem *quitApplicationBtn = [[UIBarButtonItem alloc] initWithTitle:@"Quit"
-                                           style:UIBarButtonItemStyleBordered
-                                           target:self
-                                           action:@selector(quitApplication)];
-    [[self navigationItem] setLeftBarButtonItem:quitApplicationBtn];
-    [quitApplicationBtn release];
-    
-    return self;
-}
 
 - (void)viewDidLoad 
 {
@@ -106,7 +91,6 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tour-cell"] autorelease];
         [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
@@ -147,14 +131,6 @@
 
     if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
         [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
-    }
-}
-
-- (void)quitApplication
-{
-    NSURL *url = [NSURL URLWithString:@"x-si-nmai-launcher://"];
-    if (![[UIApplication sharedApplication] openURL:url]) {
-        NSLog(@"%@%@",@"Failed to open url:",[url description]);
     }
 }
 
