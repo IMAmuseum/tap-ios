@@ -3,7 +3,7 @@
 //  Tap
 //
 //  Created by Daniel Cervantes on 5/19/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 IMA Labs. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -72,17 +72,7 @@
     
     // load tour data
     [TourMLParser loadTours];
-    
-    // setup fetch request for tour entity
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSError *error;
-    // retrieve tours
-    NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
-    [request release];
-    
+     
     // setup help button
     UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" 
                                                                    style:UIBarButtonItemStyleDone 
@@ -123,11 +113,6 @@
     
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
-        // if only one tour exists initialize it and add it to the stack
-        if ([tours count] == 1) {
-            // set the current tour
-            [self loadTour:[tours objectAtIndex:0]];
-        }
         [self displayHelpPrompt];
     }
     
@@ -260,10 +245,6 @@
 	// Play the help video
 	[self playHelpVideo];
 }
-
-/**
- * Handles the applications introduction animation
- */
 
 /**
  * Plays help video

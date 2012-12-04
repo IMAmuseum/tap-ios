@@ -26,6 +26,13 @@
 		1714411215C08FF300E4F40F /* Bundles in Resources */ = {isa = PBXBuildFile; fileRef = 1714411115C0501500E4F40F /* Bundles */; };
 		171570E615DB448E00883FD0 /* VideoStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 171570E515DB448E00883FD0 /* VideoStopController.m */; };
 		171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */; };
+		172CBB011667AA3C00DF4431 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172CBAFF1667AA3C00DF4431 /* AboutViewController.m */; };
+		172CBB021667AA3C00DF4431 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB001667AA3C00DF4431 /* AboutViewController.xib */; };
+		172CBB051667AB7700DF4431 /* NMAINY-banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB041667AB7700DF4431 /* NMAINY-banner.png */; };
+		172CBB071667B35B00DF4431 /* NMAINY-banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB061667B35B00DF4431 /* NMAINY-banner@2x.png */; };
+		172CBB0A1667B77800DF4431 /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB091667B77800DF4431 /* About.html */; };
+		172CBB1E1667F05B00DF4431 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB1D1667F05B00DF4431 /* iTunesArtwork.png */; };
+		172CBB201667F06200DF4431 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172CBB1F1667F06200DF4431 /* iTunesArtwork@2x.png */; };
 		1730F41C1577B46B003333C4 /* TapConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1730F41B1577B46B003333C4 /* TapConfig.plist */; };
 		1735520C15DD7F78008B3A5E /* AudioStopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1735520B15DD7F78008B3A5E /* AudioStopController.m */; };
 		1735521715DD8965008B3A5E /* btn-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 1735521515DD8965008B3A5E /* btn-close.png */; };
@@ -45,8 +52,6 @@
 		17423F0C15C2ECF100E8CDFB /* icon-pause-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */; };
 		17423F0D15C2ECF100E8CDFB /* icon-play-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */; };
 		176489B3165C0983005B3FA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 176489B2165C0983005B3FA1 /* Default-568h@2x.png */; };
-		176489B7165C0A9F005B3FA1 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 176489B6165C0A9F005B3FA1 /* TourCell.m */; };
-		176489B9165C0AC3005B3FA1 /* TourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176489B8165C0AC3005B3FA1 /* TourCell.xib */; };
 		17661DD8164AAE4D00F763AA /* keypad-clear-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17661DD2164AAE4D00F763AA /* keypad-clear-down@2x.png */; };
 		17661DD9164AAE4D00F763AA /* keypad-clear-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17661DD3164AAE4D00F763AA /* keypad-clear-up@2x.png */; };
 		17661DDA164AAE4D00F763AA /* keypad-go-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17661DD4164AAE4D00F763AA /* keypad-go-down@2x.png */; };
@@ -133,6 +138,14 @@
 		171570E515DB448E00883FD0 /* VideoStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoStopController.m; path = Classes/VideoStopController.m; sourceTree = "<group>"; };
 		171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NonSelectableTextView.h; path = Classes/NonSelectableTextView.h; sourceTree = "<group>"; };
 		171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NonSelectableTextView.m; path = Classes/NonSelectableTextView.m; sourceTree = "<group>"; };
+		172CBAFE1667AA3C00DF4431 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = Classes/AboutViewController.h; sourceTree = "<group>"; };
+		172CBAFF1667AA3C00DF4431 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = Classes/AboutViewController.m; sourceTree = "<group>"; };
+		172CBB001667AA3C00DF4431 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutViewController.xib; path = Classes/AboutViewController.xib; sourceTree = "<group>"; };
+		172CBB041667AB7700DF4431 /* NMAINY-banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NMAINY-banner.png"; sourceTree = "<group>"; };
+		172CBB061667B35B00DF4431 /* NMAINY-banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NMAINY-banner@2x.png"; sourceTree = "<group>"; };
+		172CBB091667B77800DF4431 /* About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = About.html; sourceTree = "<group>"; };
+		172CBB1D1667F05B00DF4431 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		172CBB1F1667F06200DF4431 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		1730F41B1577B46B003333C4 /* TapConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TapConfig.plist; sourceTree = "<group>"; };
 		1735520A15DD7F78008B3A5E /* AudioStopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStopController.h; path = Classes/AudioStopController.h; sourceTree = "<group>"; };
 		1735520B15DD7F78008B3A5E /* AudioStopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStopController.m; path = Classes/AudioStopController.m; sourceTree = "<group>"; };
@@ -164,9 +177,6 @@
 		17423F0915C2ECF100E8CDFB /* icon-pause-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-pause-btn.png"; sourceTree = "<group>"; };
 		17423F0A15C2ECF100E8CDFB /* icon-play-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-play-btn.png"; sourceTree = "<group>"; };
 		176489B2165C0983005B3FA1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		176489B5165C0A9F005B3FA1 /* TourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourCell.h; sourceTree = "<group>"; };
-		176489B6165C0A9F005B3FA1 /* TourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourCell.m; sourceTree = "<group>"; };
-		176489B8165C0AC3005B3FA1 /* TourCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourCell.xib; sourceTree = "<group>"; };
 		17661DD2164AAE4D00F763AA /* keypad-clear-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-down@2x.png"; sourceTree = "<group>"; };
 		17661DD3164AAE4D00F763AA /* keypad-clear-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-clear-up@2x.png"; sourceTree = "<group>"; };
 		17661DD4164AAE4D00F763AA /* keypad-go-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-go-down@2x.png"; sourceTree = "<group>"; };
@@ -263,6 +273,14 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
+		172CBB081667B76400DF4431 /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				172CBB091667B77800DF4431 /* About.html */,
+			);
+			name = HTML;
+			sourceTree = "<group>";
+		};
 		1730F41E1577B64E003333C4 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +327,8 @@
 		1777C28815E42B1B00550C3B /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				172CBB1F1667F06200DF4431 /* iTunesArtwork@2x.png */,
+				172CBB061667B35B00DF4431 /* NMAINY-banner@2x.png */,
 				176489B2165C0983005B3FA1 /* Default-568h@2x.png */,
 				17661DF816513DE500F763AA /* icon-poll@2x.png */,
 				17661DF916513DE600F763AA /* icon-tour_audio_stop@2x.png */,
@@ -338,6 +358,8 @@
 		1777C28915E42B2100550C3B /* Normal */ = {
 			isa = PBXGroup;
 			children = (
+				172CBB1D1667F05B00DF4431 /* iTunesArtwork.png */,
+				172CBB041667AB7700DF4431 /* NMAINY-banner.png */,
 				1779C0CA16513F3C00476620 /* icon-poll.png */,
 				1779C0CB16513F3C00476620 /* icon-tour_audio_stop.png */,
 				1779C0CC16513F3C00476620 /* icon-tour_image_stop.png */,
@@ -420,6 +442,7 @@
 		17BAAE0815685F170012F849 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				172CBB081667B76400DF4431 /* HTML */,
 				1730F41E1577B64E003333C4 /* Video */,
 				1707FBD915771AEB0027B323 /* Audio */,
 				1707FBD815771AE30027B323 /* Images */,
@@ -435,13 +458,13 @@
 		17BAAE2815685F400012F849 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				172CBB001667AA3C00DF4431 /* AboutViewController.xib */,
 				170F4A7315D98AB7002EC0C3 /* AudioControlView.xib */,
 				1707FC2015771F8E0027B323 /* KeypadController.xib */,
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupController.xib */,
 				17DE996F15ABC568004C8A25 /* StopListController.xib */,
 				17C6F4A7164744370007E914 /* TranscriptStopController.xib */,
-				176489B8165C0AC3005B3FA1 /* TourCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -449,6 +472,8 @@
 		17BAAE2915685F450012F849 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				172CBAFE1667AA3C00DF4431 /* AboutViewController.h */,
+				172CBAFF1667AA3C00DF4431 /* AboutViewController.m */,
 				1735520A15DD7F78008B3A5E /* AudioStopController.h */,
 				1735520B15DD7F78008B3A5E /* AudioStopController.m */,
 				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
@@ -467,8 +492,6 @@
 				17C6F4A6164744370007E914 /* TranscriptStopController.m */,
 				171570E415DB448E00883FD0 /* VideoStopController.h */,
 				171570E515DB448E00883FD0 /* VideoStopController.m */,
-				176489B5165C0A9F005B3FA1 /* TourCell.h */,
-				176489B6165C0A9F005B3FA1 /* TourCell.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -595,7 +618,12 @@
 				1779C0D216513F3C00476620 /* icon-tour_video_stop.png in Resources */,
 				1779C0D316513F3C00476620 /* icon-webpage.png in Resources */,
 				176489B3165C0983005B3FA1 /* Default-568h@2x.png in Resources */,
-				176489B9165C0AC3005B3FA1 /* TourCell.xib in Resources */,
+				172CBB021667AA3C00DF4431 /* AboutViewController.xib in Resources */,
+				172CBB051667AB7700DF4431 /* NMAINY-banner.png in Resources */,
+				172CBB071667B35B00DF4431 /* NMAINY-banner@2x.png in Resources */,
+				172CBB0A1667B77800DF4431 /* About.html in Resources */,
+				172CBB1E1667F05B00DF4431 /* iTunesArtwork.png in Resources */,
+				172CBB201667F06200DF4431 /* iTunesArtwork@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +658,7 @@
 				171570E615DB448E00883FD0 /* VideoStopController.m in Sources */,
 				1735520C15DD7F78008B3A5E /* AudioStopController.m in Sources */,
 				17C6F4A8164744370007E914 /* TranscriptStopController.m in Sources */,
-				176489B7165C0A9F005B3FA1 /* TourCell.m in Sources */,
+				172CBB011667AA3C00DF4431 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +676,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		172CBB211667F95100DF4431 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		172CBB221667F95100DF4431 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = "Tap/Tap-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Tap\"",
+				);
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_NAME = "NMAI NY";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = AppStore;
+		};
 		17BAAE2215685F170012F849 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -746,6 +822,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -758,6 +835,7 @@
 			buildConfigurations = (
 				17BAAE2215685F170012F849 /* Debug */,
 				17BAAE2315685F170012F849 /* Release */,
+				172CBB211667F95100DF4431 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -767,6 +845,7 @@
 			buildConfigurations = (
 				17BAAE2515685F170012F849 /* Debug */,
 				17BAAE2615685F170012F849 /* Release */,
+				172CBB221667F95100DF4431 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -3,7 +3,7 @@
 //  Tap
 //
 //  Created by Daniel Cervantes on 5/30/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 IMA Labs. All rights reserved.
 //
 
 #import "StopListController.h"

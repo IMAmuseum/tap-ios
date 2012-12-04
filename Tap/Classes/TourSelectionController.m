@@ -3,10 +3,11 @@
 //  Tap
 //
 //  Created by Daniel Cervantes on 5/30/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 IMA Labs. All rights reserved.
 //
 
 #import "TourSelectionController.h"
+#import "AboutViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
 #import "TAPAsset.h"
@@ -19,6 +20,7 @@
 #define CELL_INDENTATION 44.0f
 
 @interface TourSelectionController ()
+- (IBAction)aboutButtonClicked:(id)sender;
 @end
 
 @implementation TourSelectionController
@@ -30,6 +32,15 @@
 {
     [super viewDidLoad];
 
+    // setup help button
+    UIBarButtonItem *aboutButton = [[UIBarButtonItem alloc] initWithTitle:@"About"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(aboutButtonClicked:)];
+    // add about button
+    [[self navigationItem] setLeftBarButtonItem:aboutButton];
+    [aboutButton release];
+    
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     
@@ -66,6 +77,15 @@
 {
     [super viewDidUnload];
     self.tourFetchedResultsController = nil;
+}
+
+/**
+ * Action method that is fired when the about button is selected
+ */
+- (IBAction)aboutButtonClicked:(id)sender
+{
+    AboutViewController *aboutView = [[[AboutViewController alloc] init] autorelease];
+    [self presentModalViewController:aboutView animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -106,19 +126,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    CGFloat height;
-    CGSize constraint;
-    
-    TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
-    
-    constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
-    
-    NSString *title = (NSString *)tour.title;
-    CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-    
-    height = MAX(titleSize.height, 44.0f);
-    
-    return height + (CELL_CONTENT_MARGIN * 2);
+    return 60.0f;
 }
 
 #pragma mark - Table view delegate
