@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Tap
+*/
+
+"Help" = "Help";
+"Language" = "Taal";
+"Skip" = "Overslaan";
+"Yes" = "Ja";
+"HelpVideoQuestion" = "Helpvideo bekijken?";
+"HelpVideoExplanation" = "Bekijk een introductievideo over het gebruik van TAP.";
+"Keypad" = "Toetsen";
+"Index" = "Overzicht";
+"Tours" = "Tours";
+"Invalid code: %@" = "Ongeldige code: %@";
+"Go" = "Ga";
+"Clear" = "Wis";

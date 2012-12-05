@@ -32,9 +32,14 @@
 {
     self = [super init];
     if(self) {
-        [self setTitle:@"Keypad"];
+        [self setTitle:NSLocalizedString(@"Keypad", @"")];
     }
     return self;
+}
+
+- (void)viewDidLoad{
+ [btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
+ [btnGo setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated 
@@ -71,6 +76,9 @@
 	
 	if ([lblCode.text length] >= MINIMUM_CODE_LENGTH) {
 		btnGo.enabled = TRUE;
+	}
+	if ([lblCode.text length] > 0) {
+		btnClear.enabled = TRUE;
 	}
 }
 
@@ -118,6 +126,7 @@
 {
 	[lblCode setText:@""];
 	btnGo.enabled = FALSE;
+	btnClear.enabled = FALSE;
 }
 
 -(void)dealloc 

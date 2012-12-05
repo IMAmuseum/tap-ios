@@ -1,4 +1,6 @@
 # Ignore any bundles
 Bundles/*
+*.xcuserdatad
+.DS_Store
 # Don't ignore README
 !Bundles/README.md

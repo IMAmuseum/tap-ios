@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Tap
+*/
+
+"Help" = "使い方";
+"Language" = "言語";
+"Skip" = "スキップ";
+"Yes" = "OK";
+"HelpVideoQuestion" = "使い方を見ますか?";
+"HelpVideoExplanation" = "TAPのいろいろな使い方を知りましょう";
+"Keypad" = "入力画面";
+"Index" = "一覧";
+"Tours" = "ツアー";
+"Invalid code: %@" = "番号がありません: %@";
+"Go" = "開始";
+"Clear" = "とりけし";

@@ -65,7 +65,6 @@
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
 		17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0315685F160012F849 /* CoreGraphics.framework */; };
 		17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0515685F160012F849 /* CoreData.framework */; };
-		17BAAE0C15685F170012F849 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17BAAE0A15685F170012F849 /* InfoPlist.strings */; };
 		17BAAE0E15685F170012F849 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE0D15685F170012F849 /* main.m */; };
 		17BAAE1215685F170012F849 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE1115685F170012F849 /* AppDelegate.m */; };
 		17BAAE1515685F170012F849 /* Tap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17BAAE1315685F170012F849 /* Tap.xcdatamodeld */; };
@@ -76,6 +75,8 @@
 		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
 		17DE997015ABC568004C8A25 /* StopListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
+		39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A48D4416380480009B03AD /* Default-568h@2x.png */; };
+		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,7 +162,6 @@
 		17BAAE0315685F160012F849 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		17BAAE0515685F160012F849 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		17BAAE0915685F170012F849 /* Tap-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tap-Info.plist"; sourceTree = "<group>"; };
-		17BAAE0B15685F170012F849 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17BAAE0D15685F170012F849 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17BAAE0F15685F170012F849 /* Tap-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tap-Prefix.pch"; sourceTree = "<group>"; };
 		17BAAE1015685F170012F849 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -173,6 +173,12 @@
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
 		17DE996F15ABC568004C8A25 /* StopListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListController.xib; path = Classes/StopListController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TAP Help Video.mp4"; sourceTree = "<group>"; };
+		39A48D4416380480009B03AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		39A7967F163DC99F0052DCDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39AE2ECF163EFE9E003A32E5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39B8A564163DD0F700197596 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39B8A565163DD10000197596 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39B8A566163DD10800197596 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +290,7 @@
 		17BAADF015685F150012F849 = {
 			isa = PBXGroup;
 			children = (
+				39A48D4416380480009B03AD /* Default-568h@2x.png */,
 				1714411115C0501500E4F40F /* Bundles */,
 				17BAAE0715685F170012F849 /* Tap */,
 				17BAADFE15685F160012F849 /* Frameworks */,
@@ -336,7 +343,7 @@
 				1707FBD915771AEB0027B323 /* Audio */,
 				1707FBD815771AE30027B323 /* Images */,
 				17BAAE0915685F170012F849 /* Tap-Info.plist */,
-				17BAAE0A15685F170012F849 /* InfoPlist.strings */,
+				39A79680163DC99F0052DCDF /* Localizable.strings */,
 				17BAAE0D15685F170012F849 /* main.m */,
 				17BAAE0F15685F170012F849 /* Tap-Prefix.pch */,
 				1730F41B1577B46B003333C4 /* TapConfig.plist */,
@@ -424,6 +431,10 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				nl,
+				fr,
+				de,
+				es,
 			);
 			mainGroup = 17BAADF015685F150012F849;
 			productRefGroup = 17BAADFC15685F160012F849 /* Products */;
@@ -440,7 +451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17BAAE0C15685F170012F849 /* InfoPlist.strings in Resources */,
 				17BAAE2C1568B1B70012F849 /* MainWindow.xib in Resources */,
 				1707FBF915771B9F0027B323 /* bg-header-wide.png in Resources */,
 				1707FBFA15771B9F0027B323 /* bg-header.png in Resources */,
@@ -478,6 +488,8 @@
 				17DE997015ABC568004C8A25 /* StopListController.xib in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
+				39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */,
+				39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,12 +529,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		17BAAE0A15685F170012F849 /* InfoPlist.strings */ = {
+		39A79680163DC99F0052DCDF /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				17BAAE0B15685F170012F849 /* en */,
+				39A7967F163DC99F0052DCDF /* en */,
+				39B8A564163DD0F700197596 /* nl */,
+				39B8A565163DD10000197596 /* fr */,
+				39B8A566163DD10800197596 /* de */,
+				39AE2ECF163EFE9E003A32E5 /* es */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
