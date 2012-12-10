@@ -191,6 +191,13 @@
     }
 }
 
+#pragma mark View controller rotation methods
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)dealloc 
 {
     [_stopGroupTable release];

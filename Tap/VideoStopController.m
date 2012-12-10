@@ -33,6 +33,11 @@
 	return self;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 - (void)dealloc
 {
     [_videoStop release];

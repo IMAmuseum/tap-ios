@@ -77,6 +77,13 @@
     [appDelegate loadStop:[_stops objectAtIndex:indexPath.row]];
 }
 
+#pragma mark View controller rotation methods
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)dealloc 
 {
     [_stopListTable release];

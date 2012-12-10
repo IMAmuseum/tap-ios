@@ -61,6 +61,7 @@
 		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
 		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
+		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
 		17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0315685F160012F849 /* CoreGraphics.framework */; };
@@ -156,6 +157,8 @@
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
 		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
+		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
+		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BAADFF15685F160012F849 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		17BAAE0115685F160012F849 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -283,6 +286,8 @@
 				171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */,
 				173F94F5156DE4A6000DD580 /* TourMLParser.h */,
 				173F94F6156DE4A6000DD580 /* TourMLParser.m */,
+				1788D0FA16759051004B577B /* UINavigationController+Rotation.h */,
+				1788D0FB16759051004B577B /* UINavigationController+Rotation.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				171ADD8F15BCE41D000D06F3 /* NonSelectableTextView.m in Sources */,
 				1735520015DD7D4B008B3A5E /* AudioStopController.m in Sources */,
 				1735520415DD7DE9008B3A5E /* VideoStopController.m in Sources */,
+				1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

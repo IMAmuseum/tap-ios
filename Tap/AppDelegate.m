@@ -49,8 +49,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
     // Add the navigation controller to the window
-    [self.window addSubview:[self.navigationController view]];
-    
+    [self.window setRootViewController:self.navigationController];
     // Allocate the sounds
     CFBundleRef mainBundle = CFBundleGetMainBundle();
     clickFileURLRef = CFBundleCopyResourceURL(mainBundle, CFSTR("click"), CFSTR("aif"), NULL);
@@ -89,9 +88,9 @@
     
     // set tour selection controller as root and add it to the stack
     UIViewController *tourSelectionController = [[TourSelectionController alloc] initWithStyle:UITableViewStylePlain];
-    [self setRootViewController:tourSelectionController];
     [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
     [self.navigationController pushViewController:tourSelectionController animated:YES];
+    //[self setRootViewController:tourSelectionController];
     [tourSelectionController release];
 
     // setup stop navigation controllers

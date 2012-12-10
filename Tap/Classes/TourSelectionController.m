@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     
     if (self.tourFetchedResultsController == nil) {
@@ -131,6 +131,13 @@
     if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
         [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
     }
+}
+
+#pragma mark View controller rotation methods
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)dealloc 
