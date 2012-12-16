@@ -1,6 +1,7 @@
-# Ignore any bundles
-Bundles/*
-*.xcuserdatad
 .DS_Store
-# Don't ignore README
-!Bundles/README.md
+# Ignore Xcode Specific
+*.xcuserdatad
+xcuserdata
+# Ignore any bundles
+Tap/Bundles/*
+!Tap/Bundles/README.md
