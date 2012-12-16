@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "StopListController.h"
+#import "StopListViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
 
-@implementation StopListController
+@implementation StopListViewController
 
 @synthesize stopListTable = _stopListTable;
 @synthesize stops = _stops;

@@ -1,5 +1,5 @@
 //
-//  VideoStopController.h
+//  AudioStopController.h
 //  Tap
 //
 //  Created by Daniel Cervantes on 8/16/12.
@@ -10,11 +10,11 @@
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
-@interface VideoStopController : MPMoviePlayerViewController {
-    TAPStop *videoStop;
+@interface AudioStopViewController : MPMoviePlayerViewController {
+    TAPStop *audioStop;
 }
 
-@property (nonatomic, retain) TAPStop *videoStop;
+@property (nonatomic, retain) TAPStop *audioStop;
 
 - (id)initWithStop:(TAPStop *)stop;
 

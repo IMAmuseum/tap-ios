@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TourSelectionController : UITableViewController<NSFetchedResultsControllerDelegate>
+@interface TourSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *tourFetchedResultsController;

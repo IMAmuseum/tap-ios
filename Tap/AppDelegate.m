@@ -8,12 +8,12 @@
 
 #import "AppDelegate.h"
 #import "TourMLParser.h"
-#import "TourSelectionController.h"
-#import "KeypadController.h"
-#import "StopListController.h"
-#import "StopGroupController.h"
-#import "AudioStopController.h"
-#import "VideoStopController.h"
+#import "TourSelectionViewController.h"
+#import "KeypadViewController.h"
+#import "StopListViewController.h"
+#import "StopGroupViewController.h"
+#import "AudioStopViewController.h"
+#import "VideoStopViewController.h"
 #import "ImageGalleryViewController.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
@@ -87,23 +87,23 @@
                                                                   action:@selector(helpButtonClicked:)];    
     
     // set tour selection controller as root and add it to the stack
-    UIViewController *tourSelectionController = [[TourSelectionController alloc] initWithStyle:UITableViewStylePlain];
+    UIViewController *tourSelectionController = [[TourSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
     [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
     [self.navigationController pushViewController:tourSelectionController animated:YES];
     //[self setRootViewController:tourSelectionController];
     [tourSelectionController release];
 
     // setup stop navigation controllers
-    UIViewController *keypadController = [[KeypadController alloc] init];
-    UIViewController *stopListController = [[StopListController alloc] init];
+    UIViewController *keypadViewController = [[KeypadViewController alloc] init];
+    UIViewController *stopListViewController = [[StopListViewController alloc] init];
     // add help button
-    [[keypadController navigationItem] setRightBarButtonItem:helpButton];
-    [[stopListController navigationItem] setRightBarButtonItem:helpButton];
+    [[keypadViewController navigationItem] setRightBarButtonItem:helpButton];
+    [[stopListViewController navigationItem] setRightBarButtonItem:helpButton];
     
     [helpButton release];
     
     // store the stop navigation controllers 
-    self.stopNavigationControllers = [NSArray arrayWithObjects:keypadController, stopListController, nil];
+    self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
     // setup the segmented control
     _navigationSegmentControl = [[UISegmentedControl alloc] initWithItems:[self.stopNavigationControllers arrayByPerformingSelector:@selector(title)]];
     [_navigationSegmentControl setSegmentedControlStyle: UISegmentedControlStyleBar];
@@ -112,11 +112,11 @@
                                 forControlEvents:UIControlEventValueChanged];
     
     // add the control the the view controllers
-    [[keypadController navigationItem] setTitleView:_navigationSegmentControl];
-    [[stopListController navigationItem] setTitleView:_navigationSegmentControl];
+    [[keypadViewController navigationItem] setTitleView:_navigationSegmentControl];
+    [[stopListViewController navigationItem] setTitleView:_navigationSegmentControl];
     
-    [keypadController release];
-    [stopListController release];
+    [keypadViewController release];
+    [stopListViewController release];
     
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
@@ -227,15 +227,15 @@
         [self.navigationController pushViewController:viewController animated:YES];
         [viewController release];
     } else if ([stop.view isEqualToString:@"tour_stop_group"]) {
-        StopGroupController *viewController = [[StopGroupController alloc] initWithStop:stop];
+        StopGroupViewController *viewController = [[StopGroupViewController alloc] initWithStop:stop];
         [self.navigationController pushViewController:viewController animated:YES];
         [viewController release];
     } else if ([stop.view isEqualToString:@"tour_video_stop"]) {
-        VideoStopController *viewController = [[VideoStopController alloc] initWithStop:stop];
+        VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:stop];
         [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
         [viewController release];
     } else if ([stop.view isEqualToString:@"tour_audio_stop"]) {
-        AudioStopController *viewController = [[AudioStopController alloc] initWithStop:stop];
+        AudioStopViewController *viewController = [[AudioStopViewController alloc] initWithStop:stop];
         [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
         [viewController release];
     } else {

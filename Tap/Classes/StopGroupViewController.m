@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "StopGroupController.h"
+#import "StopGroupViewController.h"
 #import "AppDelegate.h"
 #import "TAPStop.h"
 #import "TAPAsset.h"
@@ -19,7 +19,7 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
-@implementation StopGroupController
+@implementation StopGroupViewController
 
 @synthesize stopGroupTable = _stopGroupTable;
 @synthesize bannerImage = _bannerImage;

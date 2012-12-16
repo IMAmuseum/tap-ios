@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "KeypadController.h"
+#import "KeypadViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
@@ -15,7 +15,7 @@
 #define MINIMUM_CODE_LENGTH	2
 #define MAXIMUM_CODE_LENGTH	5
 
-@interface KeypadController (Private)
+@interface KeypadViewController (Private)
 // Event for down press to play a sound
 - (IBAction)playKeyClick:(id)sender;
 // Event for pushing any numeric button or the clear button
@@ -26,7 +26,7 @@
 - (void)clearCode;
 @end
 
-@implementation KeypadController
+@implementation KeypadViewController
 
 -(id)init 
 {

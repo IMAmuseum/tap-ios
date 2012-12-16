@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "TourSelectionController.h"
+#import "TourSelectionViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
 
@@ -16,7 +16,7 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
-@implementation TourSelectionController
+@implementation TourSelectionViewController
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize tourFetchedResultsController = _tourFetchedResultsController;

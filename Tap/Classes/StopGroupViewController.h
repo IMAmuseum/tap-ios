@@ -10,7 +10,7 @@
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
-@interface StopGroupController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface StopGroupViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
 	IBOutlet UITableView *stopGroupTable;
 	IBOutlet UIImageView *bannerImage;
 	

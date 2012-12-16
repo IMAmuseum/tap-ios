@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KeypadController : UIViewController 
+@interface KeypadViewController : UIViewController
 {
     IBOutlet UIImageView *bannerImage;
 	IBOutlet UILabel *lblCode;

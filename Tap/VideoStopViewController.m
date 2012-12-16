@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "VideoStopController.h"
+#import "VideoStopViewController.h"
 #import "TAPStop.h"
 #import "TAPProperty.h"
 #import "TAPAssetRef.h"
@@ -14,7 +14,7 @@
 #import "TAPSource.h"
 #import "TAPContent.h"
 
-@implementation VideoStopController
+@implementation VideoStopViewController
 
 @synthesize videoStop = _videoStop;
 

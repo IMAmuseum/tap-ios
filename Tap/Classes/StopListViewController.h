@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class TAPStop;
-@interface StopListController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface StopListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     IBOutlet UITableView *stopListTable;
     NSArray *stops;
 }

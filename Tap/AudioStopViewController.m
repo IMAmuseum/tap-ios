@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import "AudioStopController.h"
+#import "AudioStopViewController.h"
 #import "TAPStop.h"
 #import "TAPProperty.h"
 #import "TAPAssetRef.h"
@@ -14,7 +14,7 @@
 #import "TAPSource.h"
 #import "TAPContent.h"
 
-@implementation AudioStopController
+@implementation AudioStopViewController
 
 @synthesize audioStop = _audioStop;
 
