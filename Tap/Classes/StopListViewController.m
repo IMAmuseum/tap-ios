@@ -52,7 +52,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tour-cell"];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
 	if (cell == nil) {
 		// Create a new reusable table cell
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
