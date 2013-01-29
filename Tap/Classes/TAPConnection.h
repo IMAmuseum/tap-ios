@@ -13,9 +13,9 @@
 
 @interface TAPConnection : NSManagedObject
 
-@property (nonatomic, retain) NSNumber *priority;
-@property (nonatomic, retain) NSString *usage;
-@property (nonatomic, retain) TAPStop *destinationStop;
-@property (nonatomic, retain) TAPStop *sourceStop;
+@property (nonatomic, strong) NSNumber *priority;
+@property (nonatomic, strong) NSString *usage;
+@property (nonatomic, strong) TAPStop *destinationStop;
+@property (nonatomic, strong) TAPStop *sourceStop;
 
 @end

@@ -34,7 +34,6 @@
     NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
     NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
     _stops = [[NSArray alloc] initWithArray:sortedArray];
-    [filteredStops release];
     
     // reload the table with the correct tour data
     [_stopListTable reloadData];
@@ -55,7 +54,7 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
 	if (cell == nil) {
 		// Create a new reusable table cell
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"];
         
 		[[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
 		[[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
@@ -84,11 +83,5 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)dealloc 
-{
-    [_stopListTable release];
-    [_stops release];
-    [super dealloc];
-}
 
 @end

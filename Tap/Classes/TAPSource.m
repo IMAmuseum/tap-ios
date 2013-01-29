@@ -33,44 +33,41 @@
     [self didAccessValueForKey:@"uri"];
     
     NSURL *url = [NSURL URLWithString:originalUri];
-    // verify uri isn't a remote path
-    if (![[url scheme] isEqualToString:@"http"] && ![[url scheme] isEqualToString:@"https"]) {
-        // check if file exists locally and return if true
-        if ([[NSFileManager defaultManager] fileExistsAtPath:originalUri]) {
-            return originalUri;
+    NSString *localPath = nil;
+    
+    // check if the asset is located remotely
+    if ([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) {
+        // setup request
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        // setup connection and make request for file
+        NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        if (data != nil){
+            // generate path for tour
+            NSString *assetsDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", appDelegate.currentTour.id]];
+            // get the local path
+            localPath = [assetsDirectory stringByAppendingPathComponent:[originalUri lastPathComponent]];
+            // write file to local path
+            [data writeToFile:localPath atomically:YES];
+            // update the model to include the new uri path
+            [self setUri:localPath];
         }
-        
-        if (appDelegate.currentTour.bundlePath != nil) {
-            NSBundle *bundle = [NSBundle bundleWithPath:appDelegate.currentTour.bundlePath];
-            NSString *bundleUri = [bundle pathForResource:[[originalUri lastPathComponent] stringByDeletingPathExtension]
-                                                        ofType:[[originalUri lastPathComponent] pathExtension]
-                                                   inDirectory:[originalUri stringByDeletingLastPathComponent]];
-            
-            if ([[NSFileManager defaultManager] fileExistsAtPath:bundleUri]) {
-                return bundleUri;
+    } else { // check if file exists locally
+        if ([[NSFileManager defaultManager] fileExistsAtPath:originalUri]) {
+            localPath = originalUri;
+        } else {
+            if (appDelegate.currentTour.bundlePath != nil) {
+                NSBundle *bundle = [NSBundle bundleWithPath:appDelegate.currentTour.bundlePath];
+                NSString *bundleUri = [bundle pathForResource:[[originalUri lastPathComponent] stringByDeletingPathExtension]
+                                                       ofType:[[originalUri lastPathComponent] pathExtension]
+                                                  inDirectory:[originalUri stringByDeletingLastPathComponent]];
+                
+                if ([[NSFileManager defaultManager] fileExistsAtPath:bundleUri]) {
+                    localPath = bundleUri;
+                }
             }
         }
     }
     
-    NSString *localPath = nil;
-    // setup request
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    // setup connection and make request for file
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    if (data != nil){
-        // generate path for tour
-        NSString *assetsDirectory = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", appDelegate.currentTour.id]];
-        // get the local path
-        localPath = [assetsDirectory stringByAppendingPathComponent:[originalUri lastPathComponent]];
-        // write file to local path
-        [data writeToFile:localPath atomically:YES];
-        // update the model to include the new uri path
-        [self setUri:localPath];
-    } else {
-        // if we fail here for whatever reason return the original uri
-        localPath = originalUri;
-        NSLog(@"%@", error);
-    }
     return localPath;
 }
 

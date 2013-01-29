@@ -13,13 +13,13 @@
 
 @interface TAPProperty : NSManagedObject
 
-@property (nonatomic, retain) NSString *language;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *value;
-@property (nonatomic, retain) TAPAsset *assetPropertySet;
-@property (nonatomic, retain) TAPContent *contentPropertySet;
-@property (nonatomic, retain) TAPSource *sourcePropertySet;
-@property (nonatomic, retain) TAPStop *stopPropertySet;
-@property (nonatomic, retain) TAPTour *tourPropertySet;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong) TAPAsset *assetPropertySet;
+@property (nonatomic, strong) TAPContent *contentPropertySet;
+@property (nonatomic, strong) TAPSource *sourcePropertySet;
+@property (nonatomic, strong) TAPStop *stopPropertySet;
+@property (nonatomic, strong) TAPTour *tourPropertySet;
 
 @end

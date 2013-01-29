@@ -91,9 +91,8 @@
     [newView setContentSize:CGSizeMake(scrollFrame.size.width * [self imageCount], scrollFrame.size.height)];
     [[self view] addSubview:newView];
     
-    pagingScrollView = [newView retain];
+    pagingScrollView = newView;
     
-    [newView release];
     
     recycledPages = [[NSMutableSet alloc] init];
     visiblePages  = [[NSMutableSet alloc] init];
@@ -123,15 +122,12 @@
     tapGestureRecognizer.numberOfTapsRequired = 1;
     NSArray *gestureRecognizers = [[NSArray alloc] initWithObjects:tapGestureRecognizer, nil];
     infoPane.gestureRecognizers = gestureRecognizers;
-    [tapGestureRecognizer release];
-    [gestureRecognizers release];
     
     UIView *background = [[UIView alloc] initWithFrame:infoPane.bounds];
     [background setBackgroundColor:[UIColor blackColor]];
     [background setAlpha:0.65f];
     [background setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [infoPane addSubview:background];
-    [background release];
     
     UILabel *title = [[UILabel alloc] init];
     [title setLineBreakMode:UILineBreakModeWordWrap];
@@ -140,7 +136,6 @@
     [title setBackgroundColor:[UIColor clearColor]];
     [title setTag:TITLE_LABEL];
     [infoPane addSubview:title];
-    [title release];
     
     UILabel *copyright = [[UILabel alloc] init];
     [copyright setLineBreakMode:UILineBreakModeWordWrap];
@@ -149,7 +144,6 @@
     [copyright setBackgroundColor:[UIColor clearColor]];
     [copyright setTag:COPYRIGHT_LABEL];
     [infoPane addSubview:copyright];
-    [copyright release];
     
     NonSelectableTextView *caption = [[NonSelectableTextView alloc] init];
     [caption setEditable:NO];
@@ -161,7 +155,6 @@
     [caption setBackgroundColor:[UIColor clearColor]];
     [caption setTag:CAPTION_TEXTVIEW];
     [infoPane addSubview:caption];
-    [caption release];
     
     [self updateInfoPane];
 
@@ -300,7 +293,7 @@
         if (![self isDisplayingPageForIndex:index]) {
             ImageScrollViewController *page = [self dequeueRecycledPage];
             if (page == nil) {
-                page = [[[ImageScrollViewController alloc] init] autorelease];
+                page = [[ImageScrollViewController alloc] init];
                 [page setScrollView:self];
             }
             [self configurePage:page forIndex:index];
@@ -314,7 +307,6 @@
 {
     ImageScrollViewController *page = [recycledPages anyObject];
     if (page) {
-        [[page retain] autorelease];
         [recycledPages removeObject:page];
     }
     return page;
@@ -393,14 +385,12 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"ImageData" ofType:@"plist"];
         NSData *plistData = [NSData dataWithContentsOfFile:path];
         NSString *error; NSPropertyListFormat format;
-        __imageData = [[NSPropertyListSerialization propertyListFromData:plistData
+        __imageData = [NSPropertyListSerialization propertyListFromData:plistData
                                                         mutabilityOption:NSPropertyListImmutable
                                                                   format:&format
-                                                        errorDescription:&error]
-                       retain];
+                                                        errorDescription:&error];
         if (!__imageData) {
             NSLog(@"Failed to read image names. Error: %@", error);
-            [error release];
         }
     }
     return __imageData;
@@ -520,13 +510,5 @@
     [self toggleToolbars:NO];
 }
 
-- (void)dealloc
-{
-    [_assets release];
-    [_imageStop release];
-    [pagingScrollView release];
-    [infoPane release];
-    [super dealloc];
-}
 
 @end

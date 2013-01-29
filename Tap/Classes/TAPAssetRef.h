@@ -13,11 +13,11 @@
 
 @interface TAPAssetRef : NSManagedObject
 
-@property (nonatomic, retain) NSString *id;
-@property (nonatomic, retain) NSString *usage;
-@property (nonatomic, retain) TAPAsset *asset;
-@property (nonatomic, retain) TAPStop *stop;
-@property (nonatomic, retain) TAPTour *tour;
-@property (nonatomic, retain) TAPAsset *watermark;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *usage;
+@property (nonatomic, strong) TAPAsset *asset;
+@property (nonatomic, strong) TAPStop *stop;
+@property (nonatomic, strong) TAPTour *tour;
+@property (nonatomic, strong) TAPAsset *watermark;
 
 @end

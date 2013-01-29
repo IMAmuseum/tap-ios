@@ -82,12 +82,12 @@
  */
 - (NSArray *)getAssets
 {
-    NSMutableArray *assets = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *assets = [[NSMutableArray alloc] init];
     for (TAPAssetRef *assetRef in [self.assetRef allObjects]) {
         [assets addObject:assetRef.asset];
     }
     
-    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     return [assets sortedArrayUsingDescriptors:sortDescriptors];
 }
@@ -97,13 +97,13 @@
  */
 - (NSArray *)getAssetsByUsage:(NSString *)usage
 {
-    NSMutableArray *assets = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *assets = [[NSMutableArray alloc] init];
     for (TAPAssetRef *assetRef in [self.assetRef allObjects]) {
         if ([assetRef.usage isEqualToString:usage]) {
             [assets addObject:assetRef.asset];
         }
     }
-    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     return [assets sortedArrayUsingDescriptors:sortDescriptors];
 }

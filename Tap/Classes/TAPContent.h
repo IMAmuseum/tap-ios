@@ -13,12 +13,12 @@
 
 @interface TAPContent : NSManagedObject
 
-@property (nonatomic, retain) NSString *data;
-@property (nonatomic, retain) NSString *format;
-@property (nonatomic, retain) NSString *language;
-@property (nonatomic, retain) NSString *part;
-@property (nonatomic, retain) TAPAsset *asset;
-@property (nonatomic, retain) NSSet *propertySet;
+@property (nonatomic, strong) NSString *data;
+@property (nonatomic, strong) NSString *format;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSString *part;
+@property (nonatomic, strong) TAPAsset *asset;
+@property (nonatomic, strong) NSSet *propertySet;
 @end
 
 @interface TAPContent (CoreDataGeneratedAccessors)

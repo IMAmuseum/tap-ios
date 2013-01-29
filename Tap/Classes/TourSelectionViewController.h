@@ -10,7 +10,7 @@
 
 @interface TourSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) NSFetchedResultsController *tourFetchedResultsController;
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *tourFetchedResultsController;
 
 @end

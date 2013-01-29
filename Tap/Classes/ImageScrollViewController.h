@@ -21,7 +21,7 @@
     BOOL twoFingerTapIsPossible; 
 }
 
-@property (nonatomic, assign) ImageGalleryViewController *scrollView;
+@property (nonatomic, unsafe_unretained) ImageGalleryViewController *scrollView;
 @property (assign) NSUInteger index;
 
 - (void)displayImage:(UIImage *)image;

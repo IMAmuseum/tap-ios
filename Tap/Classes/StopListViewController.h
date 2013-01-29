@@ -14,7 +14,7 @@
     NSArray *stops;
 }
 
-@property (nonatomic, retain) UITableView *stopListTable;
-@property (nonatomic, retain) NSArray *stops;
+@property (nonatomic, weak) UITableView *stopListTable;
+@property (nonatomic, strong) NSArray *stops;
 
 @end

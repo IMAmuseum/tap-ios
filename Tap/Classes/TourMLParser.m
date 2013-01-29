@@ -42,11 +42,10 @@ static NSMutableString *bundlePath;
                 NSBundle *bundle = [NSBundle bundleWithPath:tourBundlePath];
                 if (bundle) {
                     NSString *tourDataPath = [bundle pathForResource:@"tour" ofType:@"xml"];
-                    NSData *xmlData = [[[NSMutableData alloc] initWithContentsOfFile:tourDataPath] autorelease];
+                    NSData *xmlData = [[NSMutableData alloc] initWithContentsOfFile:tourDataPath];
                     
-                    GDataXMLDocument *doc = [[[GDataXMLDocument alloc] initWithData:xmlData options:0 error:&error] autorelease];
+                    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData options:0 error:&error];
                     if (doc == nil) {
-                        [doc release];
                         continue;
                     }
                     
@@ -86,10 +85,9 @@ static NSMutableString *bundlePath;
         return;
     }
     
-    GDataXMLDocument *doc = [[[GDataXMLDocument alloc] initWithData:xmlData options:0 error:&error] autorelease];
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData options:0 error:&error];
     
     if (doc == nil) {
-        [doc release];
         return;
     }
     
@@ -132,7 +130,6 @@ static NSMutableString *bundlePath;
             [context save:&error];
         } else {
             // tour in core data is newer so leave it alone
-            [request release];
             return;
         }
     }
@@ -186,7 +183,6 @@ static NSMutableString *bundlePath;
     }
     
     bundlePath = nil;
-    [request release];
 }
 
 /**
@@ -194,7 +190,7 @@ static NSMutableString *bundlePath;
  */
 + (NSSet *)processStops:(GDataXMLElement *)element fromRoot:(GDataXMLElement *)root withContext:(NSManagedObjectContext *)context 
 {
-    NSMutableSet *stops = [[[NSMutableSet alloc] init] autorelease];
+    NSMutableSet *stops = [[NSMutableSet alloc] init];
     
     for (GDataXMLElement *stopElement in [element elementsForName:@"tourml:Stop"]) {
         TAPStop *stop = [NSEntityDescription insertNewObjectForEntityForName:@"Stop" inManagedObjectContext:context];
@@ -225,7 +221,6 @@ static NSMutableString *bundlePath;
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         [formatter setNumberStyle:NSNumberFormatterNoStyle];
         connection.priority = [formatter numberFromString:[[connectionElement attributeForName:@"tourml:priority"] stringValue]];
-        [formatter release];
     }
     
     return stops;
@@ -237,7 +232,7 @@ static NSMutableString *bundlePath;
 + (NSSet *)processAssets:(NSArray *)elements fromRoot:(GDataXMLElement *)root withContext:(NSManagedObjectContext *)context
 {
     NSError *error;
-    NSMutableSet *assetRefs = [[[NSMutableSet alloc] init] autorelease];
+    NSMutableSet *assetRefs = [[NSMutableSet alloc] init];
     
     for (GDataXMLElement *assetRefElement in elements) {
         TAPAssetRef *assetRef = [NSEntityDescription insertNewObjectForEntityForName:@"AssetRef" inManagedObjectContext:context];
@@ -259,7 +254,7 @@ static NSMutableString *bundlePath;
         asset.propertySet = [self processPropertySet:[[assetElement elementsForName:@"tourml:PropertySet"] objectAtIndex:0] withContext:context];
         
         // add asset content
-        NSMutableSet *assetContent = [[[NSMutableSet alloc] init] autorelease];
+        NSMutableSet *assetContent = [[NSMutableSet alloc] init];
         for (GDataXMLElement *contentElement in [assetElement elementsForName:@"tourml:Content"]) {
             TAPContent *content = [NSEntityDescription insertNewObjectForEntityForName:@"Content" inManagedObjectContext:context];
             content.data = [[[contentElement elementsForName:@"tourml:Data"] objectAtIndex:0] stringValue];
@@ -272,7 +267,7 @@ static NSMutableString *bundlePath;
         asset.content = assetContent;
 
         // add asset sources
-        NSMutableSet *assetSources = [[[NSMutableSet alloc] init] autorelease];
+        NSMutableSet *assetSources = [[NSMutableSet alloc] init];
         for (GDataXMLElement *sourceElement in [assetElement elementsForName:@"tourml:Source"]) {
             TAPSource *source = [NSEntityDescription insertNewObjectForEntityForName:@"Source" inManagedObjectContext:context];
             source.format = [[sourceElement attributeForName:@"tourml:format"] stringValue];
@@ -298,7 +293,7 @@ static NSMutableString *bundlePath;
  */
 + (NSDictionary *)processTitle:(NSArray *)elements withContext:(NSManagedObjectContext *)context 
 {
-    NSMutableDictionary *titles = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableDictionary *titles = [[NSMutableDictionary alloc] init];
     
     for (GDataXMLElement *title in elements) {
         [titles setObject:[title stringValue] forKey:[[[title attributes] objectAtIndex:0] stringValue]];
@@ -312,7 +307,7 @@ static NSMutableString *bundlePath;
  */
 + (NSDictionary *)processDescription:(NSArray *)elements withContext:(NSManagedObjectContext *)context 
 {
-    NSMutableDictionary *descriptions = [[[NSMutableDictionary alloc] init] autorelease];
+    NSMutableDictionary *descriptions = [[NSMutableDictionary alloc] init];
     
     for (GDataXMLElement *description in elements) {
         [descriptions setObject:[description stringValue] forKey:[[[description attributes] objectAtIndex:0] stringValue]];
@@ -326,7 +321,7 @@ static NSMutableString *bundlePath;
  */
 + (NSSet *)processPropertySet:(GDataXMLElement *)element withContext:(NSManagedObjectContext *)context 
 {
-    NSMutableSet *propertySet = [[[NSMutableSet alloc] init] autorelease];
+    NSMutableSet *propertySet = [[NSMutableSet alloc] init];
     
     for (GDataXMLElement *propertyElement in element.children) {
         TAPProperty *property = [NSEntityDescription insertNewObjectForEntityForName:@"Property" inManagedObjectContext:context];
@@ -348,7 +343,7 @@ static NSMutableString *bundlePath;
     if (dateString == nil) return nil;
     ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
     NSDate *date = [formatter dateFromString:dateString];
-    [formatter release], formatter = nil;
+    formatter = nil;
     return date;
 }
 

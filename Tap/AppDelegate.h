@@ -32,19 +32,19 @@
     SystemSoundID errorFileObject;
 }
 
-@property (nonatomic, retain) UIWindow *window;
-@property (nonatomic, retain) UINavigationController *navigationController;
-@property (nonatomic, retain) UIViewController *rootViewController;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UIViewController *rootViewController;
 
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain) TAPTour *currentTour;
-@property (nonatomic, retain) NSDictionary *tapConfig;
-@property (nonatomic, retain) NSString *language;
-@property (nonatomic, retain) NSArray *stopNavigationControllers;
-@property (nonatomic, retain) UISegmentedControl *navigationSegmentControl;
+@property (nonatomic, strong) TAPTour *currentTour;
+@property (nonatomic, strong) NSDictionary *tapConfig;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSArray *stopNavigationControllers;
+@property (nonatomic, strong) UISegmentedControl *navigationSegmentControl;
 
 @property (readwrite) CFURLRef clickFileURLRef;
 @property (readonly) SystemSoundID clickFileObject;

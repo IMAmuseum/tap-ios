@@ -50,9 +50,6 @@
         self.tourFetchedResultsController = fetchResultsController;
         self.tourFetchedResultsController.delegate = self;
 
-        [fetchResultsController release];
-        [fetchRequest release];
-        [sort release];
     }
     
     NSError *error;
@@ -90,7 +87,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tour-cell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tour-cell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tour-cell"];
         [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
@@ -140,11 +137,5 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)dealloc 
-{
-    [_managedObjectContext release];
-    [_tourFetchedResultsController release];
-    [super dealloc];
-}
 
 @end

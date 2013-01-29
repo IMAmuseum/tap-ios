@@ -13,16 +13,16 @@
 
 @interface TAPStop : NSManagedObject
 
-@property (nonatomic, retain, getter = desc) NSDictionary *desc;
-@property (nonatomic, retain) NSString *id;
-@property (nonatomic, retain, getter = title) NSDictionary *title;
-@property (nonatomic, retain) NSString *view;
-@property (nonatomic, retain) NSSet *assetRef;
-@property (nonatomic, retain) NSSet *destinationConnection;
-@property (nonatomic, retain) NSSet *propertySet;
-@property (nonatomic, retain) NSSet *sourceConnection;
-@property (nonatomic, retain) TAPTour *tour;
-@property (nonatomic, retain) TAPTour *tourRootStop;
+@property (nonatomic, strong, getter = desc) NSDictionary *desc;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong, getter = title) NSDictionary *title;
+@property (nonatomic, strong) NSString *view;
+@property (nonatomic, strong) NSSet *assetRef;
+@property (nonatomic, strong) NSSet *destinationConnection;
+@property (nonatomic, strong) NSSet *propertySet;
+@property (nonatomic, strong) NSSet *sourceConnection;
+@property (nonatomic, strong) TAPTour *tour;
+@property (nonatomic, strong) TAPTour *tourRootStop;
 
 - (NSString *)getIconPath;
 - (NSArray *)getAssets;

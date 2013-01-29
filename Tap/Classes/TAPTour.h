@@ -13,17 +13,17 @@
 
 @interface TAPTour : NSManagedObject
 
-@property (nonatomic, retain) NSString *author;
-@property (nonatomic, retain) NSString *id;
-@property (nonatomic, retain) NSString *bundlePath;
-@property (nonatomic, retain) NSDate *lastModified;
-@property (nonatomic, retain) NSDate *publishDate;
-@property (nonatomic, retain, getter = title) NSDictionary *title;
-@property (nonatomic, retain, getter = desc) NSDictionary *desc;
-@property (nonatomic, retain) NSSet *appResource;
-@property (nonatomic, retain) NSSet *propertySet;
-@property (nonatomic, retain) TAPStop *rootStopRef;
-@property (nonatomic, retain) NSSet *stop;
+@property (nonatomic, strong) NSString *author;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *bundlePath;
+@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSDate *publishDate;
+@property (nonatomic, strong, getter = title) NSDictionary *title;
+@property (nonatomic, strong, getter = desc) NSDictionary *desc;
+@property (nonatomic, strong) NSSet *appResource;
+@property (nonatomic, strong) NSSet *propertySet;
+@property (nonatomic, strong) TAPStop *rootStopRef;
+@property (nonatomic, strong) NSSet *stop;
 
 - (TAPStop *)stopFromKeycode:(NSString *)keycode;
 - (TAPStop *)stopFromId:(NSString *)id;

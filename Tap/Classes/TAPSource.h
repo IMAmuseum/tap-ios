@@ -13,13 +13,13 @@
 
 @interface TAPSource : NSManagedObject
 
-@property (nonatomic, retain) NSString *format;
-@property (nonatomic, retain) NSString *language;
-@property (nonatomic, retain) NSDate *lastModified;
-@property (nonatomic, retain) NSString *part;
-@property (nonatomic, retain, getter = uri) NSString *uri;
-@property (nonatomic, retain) NSSet *propertySet;
-@property (nonatomic, retain) TAPAsset *relationship;
+@property (nonatomic, strong) NSString *format;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic, strong) NSDate *lastModified;
+@property (nonatomic, strong) NSString *part;
+@property (nonatomic, strong, getter = uri) NSString *uri;
+@property (nonatomic, strong) NSSet *propertySet;
+@property (nonatomic, strong) TAPAsset *relationship;
 @end
 
 @interface TAPSource (CoreDataGeneratedAccessors)

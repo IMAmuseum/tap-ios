@@ -102,7 +102,6 @@
 							  cancelButtonTitle:@"OK"
 							  otherButtonTitles:nil];
         [alert show];
-        [alert release];
 		
 		[self clearCode];
 		return;
@@ -136,9 +135,5 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
--(void)dealloc 
-{
-	[super dealloc];
-}
 
 @end

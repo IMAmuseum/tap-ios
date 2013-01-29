@@ -51,7 +51,7 @@ extern unichar ISO8601DefaultTimeSeparatorCharacter;
 //Call this if you get a memory warning.
 + (void) purgeGlobalCaches;
 
-@property(nonatomic, retain) NSTimeZone *defaultTimeZone;
+@property(nonatomic, strong) NSTimeZone *defaultTimeZone;
 
 #pragma mark Parsing
 

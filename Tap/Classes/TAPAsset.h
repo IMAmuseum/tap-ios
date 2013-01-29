@@ -13,17 +13,17 @@
 
 @interface TAPAsset : NSManagedObject
 
-@property (nonatomic, retain) NSString * copyright;
-@property (nonatomic, retain) NSString * creditLine;
-@property (nonatomic, retain) NSDate * expiration;
-@property (nonatomic, retain) NSString * id;
-@property (nonatomic, retain) NSString * machineRights;
-@property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) TAPAssetRef *assetRef;
-@property (nonatomic, retain) NSSet *content;
-@property (nonatomic, retain) NSSet *propertySet;
-@property (nonatomic, retain) NSSet *source;
-@property (nonatomic, retain) TAPAssetRef *watermark;
+@property (nonatomic, strong) NSString * copyright;
+@property (nonatomic, strong) NSString * creditLine;
+@property (nonatomic, strong) NSDate * expiration;
+@property (nonatomic, strong) NSString * id;
+@property (nonatomic, strong) NSString * machineRights;
+@property (nonatomic, strong) NSString * type;
+@property (nonatomic, strong) TAPAssetRef *assetRef;
+@property (nonatomic, strong) NSSet *content;
+@property (nonatomic, strong) NSSet *propertySet;
+@property (nonatomic, strong) NSSet *source;
+@property (nonatomic, strong) TAPAssetRef *watermark;
 
 - (NSArray *)getContentsByPart:(NSString *)part;
 - (NSArray *)getSourcesByPart:(NSString *)part;

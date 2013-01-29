@@ -59,7 +59,7 @@
 		173F94D5156DE15C000DD580 /* TAPAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94D4156DE15C000DD580 /* TAPAsset.m */; };
 		173F94D8156DE15C000DD580 /* TAPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94D7156DE15C000DD580 /* TAPConnection.m */; };
 		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
-		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; };
+		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = ""; }; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
@@ -80,6 +80,7 @@
 		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
 		6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */; };
+		6595A06A16B7791A00A6D87D /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,7 +179,7 @@
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = error.aif; sourceTree = "<group>"; };
 		17DE996F15ABC568004C8A25 /* StopListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListViewController.xib; path = Classes/StopListViewController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TAP Help Video.mp4"; sourceTree = "<group>"; };
-		39A48D4416380480009B03AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		39A48D4416380480009B03AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		39A7967F163DC99F0052DCDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39AE2ECF163EFE9E003A32E5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A564163DD0F700197596 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageSelectionViewController.h; path = Classes/LanguageSelectionViewController.h; sourceTree = "<group>"; };
 		6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageSelectionViewController.m; path = Classes/LanguageSelectionViewController.m; sourceTree = "<group>"; };
 		6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanguageSelectionViewController.xib; path = Classes/LanguageSelectionViewController.xib; sourceTree = "<group>"; };
+		6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		1707FBD815771AE30027B323 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				39A48D4416380480009B03AD /* Default-568h@2x.png */,
 				1707FC4415772A270027B323 /* Icon.png */,
 				1707FBDE15771B9F0027B323 /* bg-header-wide.png */,
 				1707FBDF15771B9F0027B323 /* bg-header.png */,
@@ -300,7 +303,6 @@
 		17BAADF015685F150012F849 = {
 			isa = PBXGroup;
 			children = (
-				39A48D4416380480009B03AD /* Default-568h@2x.png */,
 				1714411115C0501500E4F40F /* Bundles */,
 				17BAAE0715685F170012F849 /* Tap */,
 				17BAADFE15685F160012F849 /* Frameworks */,
@@ -334,6 +336,7 @@
 		17BAAE0715685F170012F849 /* Tap */ = {
 			isa = PBXGroup;
 			children = (
+				6595A06816B7791900A6D87D /* iPad */,
 				173F94F1156DE417000DD580 /* Classes */,
 				17BAAE2A15685F510012F849 /* Libraries */,
 				17BAAE2915685F450012F849 /* Controllers */,
@@ -364,6 +367,7 @@
 		17BAAE2815685F400012F849 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */,
 				1707FC2015771F8E0027B323 /* KeypadViewController.xib */,
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupViewController.xib */,
@@ -408,6 +412,13 @@
 				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6595A06816B7791900A6D87D /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +515,7 @@
 				39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */,
 				39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */,
 				6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */,
+				6595A06A16B7791A00A6D87D /* MainWindow-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +622,7 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Cervantes (GAE8RG58RJ)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -617,7 +630,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
@@ -626,6 +639,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17953C5C-11DF-434F-8076-A813119047B8";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -638,12 +652,13 @@
 					"$(ARCHS_STANDARD_32_BIT)",
 					armv6,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
@@ -651,6 +666,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

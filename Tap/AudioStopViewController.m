@@ -44,10 +44,5 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)dealloc
-{
-    [_audioStop release];
-    [super dealloc];
-}
 
 @end

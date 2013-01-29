@@ -14,7 +14,7 @@
     TAPStop *audioStop;
 }
 
-@property (nonatomic, retain) TAPStop *audioStop;
+@property (nonatomic, strong) TAPStop *audioStop;
 
 - (id)initWithStop:(TAPStop *)stop;
 

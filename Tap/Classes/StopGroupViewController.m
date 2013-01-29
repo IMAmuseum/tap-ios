@@ -33,7 +33,7 @@
         [self setTitle:(NSString *)stop.title];
         [self setStopGroup:stop];
         
-        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES] autorelease];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         NSArray *connections = [[stop.sourceConnection allObjects] sortedArrayUsingDescriptors:sortDescriptors];
         
@@ -61,7 +61,6 @@
             UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:headerImageSrc]];
             [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
             [_stopGroupTable setTableHeaderView:headerImage];
-            [headerImage release];
         }
     }
     
@@ -111,7 +110,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
         if (cell == nil) {
             // Create a new reusable table cell
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"];
             
             [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
             [[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
@@ -135,7 +134,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"stop-group-description"];
         if (cell == nil) {
             // Create a new reusable table cell
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-group-description"] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-group-description"];
             [[cell textLabel] setFont:[UIFont systemFontOfSize:13]];
         }
         
@@ -198,13 +197,5 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
-- (void)dealloc 
-{
-    [_stopGroupTable release];
-    [_bannerImage release];
-    [_stopGroup release];
-    [_stops release];
-    [super dealloc];
-}
 
 @end

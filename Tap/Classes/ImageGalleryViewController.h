@@ -36,8 +36,8 @@
     CGFloat percentScrolledIntoFirstVisiblePage;
 }
 
-@property (nonatomic, retain) TAPStop *imageStop;
-@property (nonatomic, retain) NSArray *assets;
+@property (nonatomic, strong) TAPStop *imageStop;
+@property (nonatomic, strong) NSArray *assets;
 
 - (id)initWithStop:(TAPStop *)stop;
 - (void)toggleToolbarsDisplay;

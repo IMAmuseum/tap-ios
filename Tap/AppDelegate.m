@@ -78,7 +78,6 @@
     NSError *error;
     // retrieve tours
     NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
-    [request release];
     
     // setup help button
     UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
@@ -91,7 +90,6 @@
     [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
     [self.navigationController pushViewController:tourSelectionController animated:YES];
     //[self setRootViewController:tourSelectionController];
-    [tourSelectionController release];
 
     // setup stop navigation controllers
     UIViewController *keypadViewController = [[KeypadViewController alloc] init];
@@ -100,7 +98,6 @@
     [[keypadViewController navigationItem] setRightBarButtonItem:helpButton];
     [[stopListViewController navigationItem] setRightBarButtonItem:helpButton];
     
-    [helpButton release];
     
     // store the stop navigation controllers 
     self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
@@ -115,8 +112,6 @@
     [[keypadViewController navigationItem] setTitleView:_navigationSegmentControl];
     [[stopListViewController navigationItem] setTitleView:_navigationSegmentControl];
     
-    [keypadViewController release];
-    [stopListViewController release];
     
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
@@ -128,8 +123,6 @@
     [self.window addSubview:splashBtm];
     
     // Release extra ref
-    [splashTop release];
-    [splashBtm release];
     
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
@@ -171,7 +164,6 @@
 
     // retrieve tours
     NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
-    [request release];
     
     if (![tours count]) {
         [self animateSplashImage];
@@ -225,19 +217,15 @@
     if ([stop.view isEqualToString:@"tour_image_stop"]) {
         ImageGalleryViewController *viewController = [[ImageGalleryViewController alloc] initWithStop:stop];
         [self.navigationController pushViewController:viewController animated:YES];
-        [viewController release];
     } else if ([stop.view isEqualToString:@"tour_stop_group"]) {
         StopGroupViewController *viewController = [[StopGroupViewController alloc] initWithStop:stop];
         [self.navigationController pushViewController:viewController animated:YES];
-        [viewController release];
     } else if ([stop.view isEqualToString:@"tour_video_stop"]) {
         VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:stop];
         [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
-        [viewController release];
     } else if ([stop.view isEqualToString:@"tour_audio_stop"]) {
         AudioStopViewController *viewController = [[AudioStopViewController alloc] initWithStop:stop];
         [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
-        [viewController release];
     } else {
         NSLog(@"Stop type doesn't exist.");
     }
@@ -290,7 +278,6 @@
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
 	[[[self navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
     
-    [movieController release];
 }
 
 #pragma mark Global system sounds
@@ -314,7 +301,6 @@
 	[helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
 	
 	[helpPrompt show];
-	[helpPrompt release];
 }
 
 #pragma mark UIAlertViewDelegate
@@ -406,22 +392,10 @@
 
 - (void)dealloc 
 {
-    [_window release];
-    [_navigationController release];
-    [_rootViewController release];
-    [__managedObjectContext release];
-    [__managedObjectModel release];
-    [__persistentStoreCoordinator release];
-    [_currentTour release];
-    [_tapConfig release];
-    [_language release];
-    [_stopNavigationControllers release];
-    [_navigationSegmentControl release];
     
 	AudioServicesDisposeSystemSoundID(clickFileObject);
 	AudioServicesDisposeSystemSoundID(errorFileObject);
     
-    [super dealloc];
 }
 
 @end
@@ -435,7 +409,10 @@
     NSMutableArray * results = [NSMutableArray array];
     
     for (id object in self) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         id result = [object performSelector:selector];
+        #pragma clang diagnostic pop
         [results addObject:result];
     }
     

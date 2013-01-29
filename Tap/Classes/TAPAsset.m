@@ -29,7 +29,7 @@
 
 - (NSArray *)getContentsByPart:(NSString *)part
 {
-    NSMutableArray *contents = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *contents = [[NSMutableArray alloc] init];
     for (TAPContent *content in [self.content allObjects]) {
         if ([content.part isEqualToString:part]) {
             [contents addObject:content];
@@ -44,7 +44,7 @@
 
 - (NSArray *)getSourcesByPart:(NSString *)part
 {
-    NSMutableArray *sources = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *sources = [[NSMutableArray alloc] init];
     for (TAPSource *source in self.content) {
         if ([source.part isEqualToString:part]) {
             [sources addObject:source];

@@ -19,10 +19,10 @@
     BOOL sectionsEnabled;
 }
 
-@property (nonatomic, retain) UITableView *stopGroupTable;
-@property (nonatomic, retain) UIImageView *bannerImage;
-@property (nonatomic, retain) TAPStop *stopGroup;
-@property (nonatomic, retain) NSMutableArray *stops;
+@property (nonatomic, weak) UITableView *stopGroupTable;
+@property (nonatomic, weak) UIImageView *bannerImage;
+@property (nonatomic, strong) TAPStop *stopGroup;
+@property (nonatomic, strong) NSMutableArray *stops;
 
 - (id)initWithStop:(TAPStop *)stop;
 

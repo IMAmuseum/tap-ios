@@ -38,10 +38,5 @@
     return UIInterfaceOrientationMaskAll;
 }
 
-- (void)dealloc
-{
-    [_videoStop release];
-    [super dealloc];
-}
 
 @end

@@ -82,7 +82,6 @@ CGPoint midpointBetweenPoints(CGPoint a, CGPoint b);
 {
     // clear the previous imageView
     [imageView removeFromSuperview];
-    [imageView release];
     imageView = nil;
         
     // make a new UIImageView for the new image
@@ -264,11 +263,6 @@ CGPoint midpointBetweenPoints(CGPoint a, CGPoint b);
 	}
 }
 
-- (void)dealloc
-{
-    [imageView release];
-    [super dealloc];
-}
 
 @end
 
