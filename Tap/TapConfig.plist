@@ -2,9 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TapHelpVideo</key>
+	<key>HelpVideo</key>
 	<string>TAP Help Video.mp4</string>
-	<key>TapTourMLEndpoint</key>
+	<key>TourMLEndpoint</key>
 	<string></string>
+	<key>Stops</key>
+	<dict>
+		<key>AudioStop</key>
+		<string>audio_stop</string>
+		<key>ImageStop</key>
+		<string>image_stop</string>
+		<key>StopGroup</key>
+		<string>stop_group</string>
+		<key>VideoStop</key>
+		<string>video_stop</string>
+	</dict>
 </dict>
 </plist>

@@ -268,7 +268,7 @@
  */
 - (void)playHelpVideo 
 {
-    NSString *videoSrc = [self.tapConfig objectForKey:@"TapHelpVideo"];
+    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
                                                           ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
 	if (!videoPath) return;

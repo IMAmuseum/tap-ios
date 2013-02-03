@@ -25,7 +25,7 @@ static NSMutableString *bundlePath;
     NSError *error;
     
     // process endpoint
-    NSString *endpoint = [[appDelegate tapConfig] objectForKey:@"TapTourMLEndpoint"];
+    NSString *endpoint = [[appDelegate tapConfig] objectForKey:@"TourMLEndpoint"];
     if (endpoint != nil) {
         [self getExternalTourMLDoc:endpoint];
     }
