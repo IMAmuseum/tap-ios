@@ -14,7 +14,7 @@
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
     IBOutlet UIWindow *window;
     IBOutlet UINavigationController *navigationController;
     IBOutlet UISegmentedControl *navigationSegmentControl;

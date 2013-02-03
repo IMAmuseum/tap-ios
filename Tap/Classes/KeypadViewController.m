@@ -15,7 +15,7 @@
 #define MINIMUM_CODE_LENGTH	1
 #define MAXIMUM_CODE_LENGTH	5
 
-@interface KeypadViewController (Private)
+@interface KeypadViewController ()
 // Event for down press to play a sound
 - (IBAction)playKeyClick:(id)sender;
 // Event for pushing any numeric button or the clear button
@@ -38,8 +38,8 @@
 }
 
 - (void)viewDidLoad{
- [btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
- [btnGo setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
+    [btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
+    [btnGo setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated 

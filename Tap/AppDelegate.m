@@ -392,10 +392,8 @@
 
 - (void)dealloc 
 {
-    
 	AudioServicesDisposeSystemSoundID(clickFileObject);
 	AudioServicesDisposeSystemSoundID(errorFileObject);
-    
 }
 
 @end
