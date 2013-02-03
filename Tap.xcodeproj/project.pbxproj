@@ -36,7 +36,6 @@
 		1707FC2715771FB10027B323 /* StopGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC2515771FB10027B323 /* StopGroupViewController.xib */; };
 		1707FC2B15771FE70027B323 /* TourSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC2915771FE70027B323 /* TourSelectionViewController.m */; };
 		1707FC35157720520027B323 /* ImageGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC33157720520027B323 /* ImageGalleryViewController.m */; };
-		1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3C157728320027B323 /* libGoogleAnalytics.a */; };
 		1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3E157728C80027B323 /* AudioToolbox.framework */; };
 		1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1707FC3F157728C80027B323 /* MediaPlayer.framework */; };
 		1707FC4515772A270027B323 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC4415772A270027B323 /* Icon.png */; };
@@ -113,7 +112,6 @@
 		1707FC2915771FE70027B323 /* TourSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourSelectionViewController.m; path = Classes/TourSelectionViewController.m; sourceTree = "<group>"; };
 		1707FC32157720520027B323 /* ImageGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = ImageGalleryViewController.h; path = Classes/ImageGalleryViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1707FC33157720520027B323 /* ImageGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageGalleryViewController.m; path = Classes/ImageGalleryViewController.m; sourceTree = "<group>"; };
-		1707FC3C157728320027B323 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Tap/Classes/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		1707FC3E157728C80027B323 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1707FC3F157728C80027B323 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1707FC4415772A270027B323 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
 				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
 				1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */,
-				1707FC3D157728320027B323 /* libGoogleAnalytics.a in Frameworks */,
 				17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */,
 				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
@@ -252,6 +249,7 @@
 		173F94F1156DE417000DD580 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				65AAFD3516BE275E00E2DA39 /* Stops */,
 				17BAAE1015685F170012F849 /* AppDelegate.h */,
 				17BAAE1115685F170012F849 /* AppDelegate.m */,
 				17BAAE2915685F450012F849 /* Controllers */,
@@ -287,7 +285,6 @@
 				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
 				1707FC3E157728C80027B323 /* AudioToolbox.framework */,
 				1707FC3F157728C80027B323 /* MediaPlayer.framework */,
-				1707FC3C157728320027B323 /* libGoogleAnalytics.a */,
 				17BAADFF15685F160012F849 /* UIKit.framework */,
 				17BAAE0115685F160012F849 /* Foundation.framework */,
 				17BAAE0315685F160012F849 /* CoreGraphics.framework */,
@@ -428,6 +425,13 @@
 				17BAAE0F15685F170012F849 /* Tap-Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		65AAFD3516BE275E00E2DA39 /* Stops */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Stops;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
