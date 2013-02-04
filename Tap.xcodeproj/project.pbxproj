@@ -150,7 +150,6 @@
 		173F94D7156DE15C000DD580 /* TAPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPConnection.m; path = Classes/TAPConnection.m; sourceTree = "<group>"; };
 		173F94D9156DE15C000DD580 /* TAPStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TAPStop.h; path = Classes/TAPStop.h; sourceTree = "<group>"; };
 		173F94DA156DE15C000DD580 /* TAPStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TAPStop.m; path = Classes/TAPStop.m; sourceTree = "<group>"; };
-		173F94ED156DE3A3000DD580 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GANTracker.h; path = Classes/GANTracker.h; sourceTree = "<group>"; };
 		173F94EE156DE3A3000DD580 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
@@ -388,7 +387,6 @@
 				651BC3BE16BFF3F00065E65E /* Google Analytics */,
 				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
 				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
-				173F94ED156DE3A3000DD580 /* GANTracker.h */,
 				173F94EE156DE3A3000DD580 /* GDataXMLNode.h */,
 				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
 			);
