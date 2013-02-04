@@ -72,6 +72,7 @@
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
 		39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A48D4416380480009B03AD /* Default-568h@2x.png */; };
 		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
+		651BC3C516BFF40A0065E65E /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */; };
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
 		6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */; };
 		6595A06A16B7791A00A6D87D /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */; };
@@ -179,6 +180,12 @@
 		39B8A564163DD0F700197596 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A565163DD10000197596 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A566163DD10800197596 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		651BC3BF16BFF40A0065E65E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		651BC3C016BFF40A0065E65E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		651BC3C116BFF40A0065E65E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		651BC3C216BFF40A0065E65E /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
+		651BC3C316BFF40A0065E65E /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
+		651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageSelectionViewController.h; path = Classes/LanguageSelectionViewController.h; sourceTree = "<group>"; };
 		6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageSelectionViewController.m; path = Classes/LanguageSelectionViewController.m; sourceTree = "<group>"; };
 		6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanguageSelectionViewController.xib; path = Classes/LanguageSelectionViewController.xib; sourceTree = "<group>"; };
@@ -210,6 +217,7 @@
 				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
 				17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */,
+				651BC3C516BFF40A0065E65E /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +385,7 @@
 		17BAAE2A15685F510012F849 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				651BC3BE16BFF3F00065E65E /* Google Analytics */,
 				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
 				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
 				173F94ED156DE3A3000DD580 /* GANTracker.h */,
@@ -384,6 +393,19 @@
 				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
 			);
 			name = Libraries;
+			sourceTree = "<group>";
+		};
+		651BC3BE16BFF3F00065E65E /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				651BC3BF16BFF40A0065E65E /* GAI.h */,
+				651BC3C016BFF40A0065E65E /* GAITrackedViewController.h */,
+				651BC3C116BFF40A0065E65E /* GAITracker.h */,
+				651BC3C216BFF40A0065E65E /* GAITransaction.h */,
+				651BC3C316BFF40A0065E65E /* GAITransactionItem.h */,
+				651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		65AAFD3016BE1AB000E2DA39 /* Utilities */ = {
