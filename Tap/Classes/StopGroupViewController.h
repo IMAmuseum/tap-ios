@@ -7,23 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StopGroup.h"
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
 @interface StopGroupViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-	IBOutlet UITableView *stopGroupTable;
-	IBOutlet UIImageView *bannerImage;
-	
-	TAPStop *stopGroup;
-    NSMutableArray *stops;
     BOOL sectionsEnabled;
 }
 
 @property (nonatomic, weak) UITableView *stopGroupTable;
 @property (nonatomic, weak) UIImageView *bannerImage;
-@property (nonatomic, strong) TAPStop *stopGroup;
+@property (nonatomic, strong) StopGroup *stopGroup;
 @property (nonatomic, strong) NSMutableArray *stops;
 
-- (id)initWithStop:(TAPStop *)stop;
+- (id)initWithStop:(StopGroup *)stop;
 
 @end

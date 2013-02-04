@@ -75,6 +75,12 @@
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
 		6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */; };
 		6595A06A16B7791A00A6D87D /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */; };
+		65AAFD3916BE27D700E2DA39 /* BaseStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3816BE27D700E2DA39 /* BaseStop.m */; };
+		65AAFD3C16BE28C200E2DA39 /* ImageStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3B16BE28C200E2DA39 /* ImageStop.m */; };
+		65AAFD3F16BE28D200E2DA39 /* AudioStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3E16BE28D200E2DA39 /* AudioStop.m */; };
+		65AAFD4216BE28E300E2DA39 /* StopGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD4116BE28E300E2DA39 /* StopGroup.m */; };
+		65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD4416BF163C00E2DA39 /* VideoStop.m */; };
+		65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD4716BF171C00E2DA39 /* StopFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +183,19 @@
 		6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageSelectionViewController.m; path = Classes/LanguageSelectionViewController.m; sourceTree = "<group>"; };
 		6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanguageSelectionViewController.xib; path = Classes/LanguageSelectionViewController.xib; sourceTree = "<group>"; };
 		6595A06916B7791A00A6D87D /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Classes/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		65AAFD3616BE27B100E2DA39 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stop.h; path = Classes/Stop.h; sourceTree = "<group>"; };
+		65AAFD3716BE27D700E2DA39 /* BaseStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseStop.h; path = Classes/BaseStop.h; sourceTree = "<group>"; };
+		65AAFD3816BE27D700E2DA39 /* BaseStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseStop.m; path = Classes/BaseStop.m; sourceTree = "<group>"; };
+		65AAFD3A16BE28C200E2DA39 /* ImageStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageStop.h; path = Classes/ImageStop.h; sourceTree = "<group>"; };
+		65AAFD3B16BE28C200E2DA39 /* ImageStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageStop.m; path = Classes/ImageStop.m; sourceTree = "<group>"; };
+		65AAFD3D16BE28D200E2DA39 /* AudioStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStop.h; path = Classes/AudioStop.h; sourceTree = "<group>"; };
+		65AAFD3E16BE28D200E2DA39 /* AudioStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStop.m; path = Classes/AudioStop.m; sourceTree = "<group>"; };
+		65AAFD4016BE28E300E2DA39 /* StopGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopGroup.h; path = Classes/StopGroup.h; sourceTree = "<group>"; };
+		65AAFD4116BE28E300E2DA39 /* StopGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopGroup.m; path = Classes/StopGroup.m; sourceTree = "<group>"; };
+		65AAFD4316BF163C00E2DA39 /* VideoStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoStop.h; path = Classes/VideoStop.h; sourceTree = "<group>"; };
+		65AAFD4416BF163C00E2DA39 /* VideoStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoStop.m; path = Classes/VideoStop.m; sourceTree = "<group>"; };
+		65AAFD4616BF171C00E2DA39 /* StopFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopFactory.h; path = Classes/StopFactory.h; sourceTree = "<group>"; };
+		65AAFD4716BF171C00E2DA39 /* StopFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopFactory.m; path = Classes/StopFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +449,19 @@
 		65AAFD3516BE275E00E2DA39 /* Stops */ = {
 			isa = PBXGroup;
 			children = (
+				65AAFD3D16BE28D200E2DA39 /* AudioStop.h */,
+				65AAFD3E16BE28D200E2DA39 /* AudioStop.m */,
+				65AAFD3716BE27D700E2DA39 /* BaseStop.h */,
+				65AAFD3816BE27D700E2DA39 /* BaseStop.m */,
+				65AAFD3A16BE28C200E2DA39 /* ImageStop.h */,
+				65AAFD3B16BE28C200E2DA39 /* ImageStop.m */,
+				65AAFD3616BE27B100E2DA39 /* Stop.h */,
+				65AAFD4016BE28E300E2DA39 /* StopGroup.h */,
+				65AAFD4116BE28E300E2DA39 /* StopGroup.m */,
+				65AAFD4316BF163C00E2DA39 /* VideoStop.h */,
+				65AAFD4416BF163C00E2DA39 /* VideoStop.m */,
+				65AAFD4616BF171C00E2DA39 /* StopFactory.h */,
+				65AAFD4716BF171C00E2DA39 /* StopFactory.m */,
 			);
 			name = Stops;
 			sourceTree = "<group>";
@@ -559,6 +591,12 @@
 				1735520415DD7DE9008B3A5E /* VideoStopViewController.m in Sources */,
 				1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */,
 				6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */,
+				65AAFD3916BE27D700E2DA39 /* BaseStop.m in Sources */,
+				65AAFD3C16BE28C200E2DA39 /* ImageStop.m in Sources */,
+				65AAFD3F16BE28D200E2DA39 /* AudioStop.m in Sources */,
+				65AAFD4216BE28E300E2DA39 /* StopGroup.m in Sources */,
+				65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */,
+				65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

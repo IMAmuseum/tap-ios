@@ -14,23 +14,7 @@
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
-    IBOutlet UIWindow *window;
-    IBOutlet UINavigationController *navigationController;
-    IBOutlet UISegmentedControl *navigationSegmentControl;
-    
-    UIViewController *rootViewController;
-    
-    TAPTour *currentTour;
-    NSDictionary *tapConfig;
-    NSString *language;
-    NSArray *stopNavigationControllers;
-    
-    CFURLRef clickFileURLRef;
-    SystemSoundID clickFileObject;
-	CFURLRef errorFileURLRef;
-    SystemSoundID errorFileObject;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UINavigationController *navigationController;
@@ -53,7 +37,7 @@
 
 - (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl;
 - (void)loadTour:(TAPTour *)tour;
-- (void)loadStop:(TAPStop *)stop;
+- (void)loadStop:(TAPStop *)stopModel;
 - (IBAction)helpButtonClicked:(id)sender;
 - (void)animateSplashImage;
 - (void)playHelpVideo;

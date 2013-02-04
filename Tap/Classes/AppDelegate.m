@@ -7,14 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TourMLParser.h"
-#import "TourSelectionViewController.h"
-#import "KeypadViewController.h"
-#import "StopListViewController.h"
-#import "StopGroupViewController.h"
-#import "AudioStopViewController.h"
-#import "VideoStopViewController.h"
-#import "ImageGalleryViewController.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
 #import "TAPAssetRef.h"
@@ -23,6 +15,11 @@
 #import "TAPContent.h"
 #import "TAPProperty.h"
 #import "TAPConnection.h"
+#import "StopFactory.h"
+#import "TourMLParser.h"
+#import "TourSelectionViewController.h"
+#import "KeypadViewController.h"
+#import "StopListViewController.h"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
@@ -30,17 +27,9 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
-@synthesize navigationController = _navigationController;
-@synthesize rootViewController = _rootViewController;
-@synthesize managedObjectContext = __managedObjectContext;
-@synthesize managedObjectModel = __managedObjectModel;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize currentTour = _currentTour;
-@synthesize tapConfig = _tapConfig;
-@synthesize language = _language;
-@synthesize stopNavigationControllers = _stopNavigationControllers;
-@synthesize navigationSegmentControl = _navigationSegmentControl;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize clickFileURLRef;
 @synthesize clickFileObject;
 @synthesize errorFileURLRef;
@@ -171,6 +160,7 @@
     }
     [self loadTour:[tours objectAtIndex:0]];
     
+    // if a stop was specified attempt to load the stop
     if (stopId != nil) {
         TAPStop *stop = [_currentTour stopFromId:stopId];
         if (stop != nil) {
@@ -211,33 +201,16 @@
 /**
  * Handle loading a selected stop
  */
-- (void)loadStop:(TAPStop *)stop
-{ 
-    // Initialize the appropriate view controller
-    if ([stop.view isEqualToString:@"tour_image_stop"]) {
-        ImageGalleryViewController *viewController = [[ImageGalleryViewController alloc] initWithStop:stop];
+- (void)loadStop:(TAPStop *)stopModel
+{
+    BaseStop *stop = [StopFactory newStopForStopNode:stopModel];
+    
+    if ([stop providesViewController]) {
+        UIViewController *viewController = [stop newViewController];
         [self.navigationController pushViewController:viewController animated:YES];
-    } else if ([stop.view isEqualToString:@"tour_stop_group"]) {
-        StopGroupViewController *viewController = [[StopGroupViewController alloc] initWithStop:stop];
-        [self.navigationController pushViewController:viewController animated:YES];
-    } else if ([stop.view isEqualToString:@"tour_video_stop"]) {
-        VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:stop];
-        [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
-    } else if ([stop.view isEqualToString:@"tour_audio_stop"]) {
-        AudioStopViewController *viewController = [[AudioStopViewController alloc] initWithStop:stop];
-        [self.navigationController presentMoviePlayerViewControllerAnimated:viewController];
-    } else {
-        NSLog(@"Stop type doesn't exist.");
-    }
-}
-
-/**
- * Action method that is fired when the help button is selected
- */
-- (IBAction)helpButtonClicked:(id)sender
-{    
-	// Play the help video
-	[self playHelpVideo];
+	} else {
+		[stop loadStopView];
+	}
 }
 
 /**
@@ -263,26 +236,10 @@
     }
 }
 
-/**
- * Plays help video
- */
-- (void)playHelpVideo 
-{
-    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
-                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
-	if (!videoPath) return;
-	
-	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];	
-	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-	[[[self navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
-}
-
 #pragma mark Global system sounds
 
-- (void)playClick { AudioServicesPlaySystemSound(clickFileObject); }
-- (void)playError { AudioServicesPlaySystemSound(errorFileObject); }
+- (void)playClick { AudioServicesPlaySystemSound(self.clickFileObject); }
+- (void)playError { AudioServicesPlaySystemSound(self.errorFileObject); }
 
 #pragma mark UIView animation delegate
 
@@ -291,15 +248,20 @@
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_TOP_TAG] removeFromSuperview];
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG] removeFromSuperview];
 	
-	// Show a prompt for the help video
-	UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
-														 message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
-														delegate:self
-											   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
-											   otherButtonTitles:nil];
-	[helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
-	
-	[helpPrompt show];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL helpVideoHasPlayed = [defaults objectForKey:@"helpVideoHasPlayed"];
+    
+    if (!helpVideoHasPlayed) {
+        // Show a prompt for the help video
+        UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
+                                                             message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
+                                                            delegate:self
+                                                   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
+                                                   otherButtonTitles:nil];
+        [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
+        
+        [helpPrompt show];
+    }
 }
 
 #pragma mark UIAlertViewDelegate
@@ -309,6 +271,40 @@
 	if (buttonIndex == 1) {
         [self playHelpVideo];
 	}
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL helpVideoHasPlayed = [defaults objectForKey:@"helpVideoHasPlayed"];
+    
+    if (!helpVideoHasPlayed) {
+        [defaults setBool:YES forKey:@"helpVideoHasPlayed"];
+    }
+}
+
+/**
+ * Action method that is fired when the help button is selected
+ */
+- (IBAction)helpButtonClicked:(id)sender
+{
+	[self playHelpVideo];
+}
+
+/**
+ * Plays help video
+ */
+- (void)playHelpVideo
+{
+    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
+                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
+	if (!videoPath) return;
+	
+	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
+	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+	[[[self navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application 
@@ -335,50 +331,50 @@
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext 
+- (NSManagedObjectContext *)managedObjectContext
 {
-    if (__managedObjectContext != nil) {
-        return __managedObjectContext;
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
-    return __managedObjectContext;
+    return _managedObjectContext;
 }
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel 
 {
-    if (__managedObjectModel != nil) {
-        return __managedObjectModel;
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Tap" withExtension:@"momd"];
-    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return __managedObjectModel;
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
 }
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator 
 {
-    if (__persistentStoreCoordinator != nil) {
-        return __persistentStoreCoordinator;
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Tap.sqlite"];
     
     NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }    
     
-    return __persistentStoreCoordinator;
+    return _persistentStoreCoordinator;
 }
 
 #pragma mark - Application's Documents directory

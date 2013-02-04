@@ -21,25 +21,20 @@
 
 @implementation StopGroupViewController
 
-@synthesize stopGroupTable = _stopGroupTable;
-@synthesize bannerImage = _bannerImage;
-@synthesize stopGroup = _stopGroup;
-@synthesize stops = _stops;
-
-- (id)initWithStop:(TAPStop *)stop
+- (id)initWithStop:(StopGroup *)stop
 {
     self = [super init];
     if(self) {
-        [self setTitle:(NSString *)stop.title];
         [self setStopGroup:stop];
+        [self setTitle: [self.stopGroup getTitle]];
         
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        NSArray *connections = [[stop.sourceConnection allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+        NSArray *connections = [[self.stopGroup.model.sourceConnection allObjects] sortedArrayUsingDescriptors:sortDescriptors];
         
-        _stops = [[NSMutableArray alloc] init];
+        self.stops = [[NSMutableArray alloc] init];
         for (TAPConnection *connection in connections) {
-            [_stops addObject:connection.destinationStop];
+            [self.stops addObject:connection.destinationStop];
         }
     }
 	
@@ -53,7 +48,7 @@
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
 	
-    NSArray *headerAssets = [_stopGroup getAssetsByUsage:@"header_image"];
+    NSArray *headerAssets = [self.stopGroup.model getAssetsByUsage:@"header_image"];
     if ([headerAssets count]) {
         TAPAsset *headerAsset = [headerAssets objectAtIndex:0];
         if (headerAsset != nil) {
@@ -65,7 +60,7 @@
     }
     
     // determine whether or not the stop group has a description in order to layout the table correctly
-    if ((NSString *)_stopGroup.desc != nil) {
+    if ((NSString *)[self.stopGroup getDescription] != nil) {
         sectionsEnabled = true;
     } else {
         sectionsEnabled = false;
@@ -140,7 +135,7 @@
         
         // Set the stop group description
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        [[cell textLabel] setText:(NSString *)_stopGroup.desc];
+        [[cell textLabel] setText:(NSString *)[self.stopGroup getDescription]];
         [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
         [[cell textLabel] setNumberOfLines:0];
     }
@@ -159,7 +154,7 @@
     CGSize constraint;
     
     if (indexPath.section == 1 || !sectionsEnabled) {
-        TAPStop *stop = [stops objectAtIndex:indexPath.row];
+        TAPStop *stop = [self.stops objectAtIndex:indexPath.row];
         
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
         
@@ -172,7 +167,7 @@
         height = MAX(titleSize.height + descriptionSize.height, 44.0f);
     } else {
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
-        NSString *description = (NSString *)_stopGroup.desc;
+        NSString *description = (NSString *)[self.stopGroup getDescription];
         CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         height = MAX(descriptionSize.height, 44.0f);
     }

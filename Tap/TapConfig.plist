@@ -8,14 +8,14 @@
 	<string></string>
 	<key>Stops</key>
 	<dict>
-		<key>AudioStop</key>
-		<string>audio_stop</string>
-		<key>ImageStop</key>
-		<string>image_stop</string>
-		<key>StopGroup</key>
-		<string>stop_group</string>
-		<key>VideoStop</key>
-		<string>video_stop</string>
+		<key>tour_audio_stop</key>
+		<string>AudioStop</string>
+		<key>tour_image_stop</key>
+		<string>ImageStop</string>
+		<key>tour_stop_group</key>
+		<string>StopGroup</string>
+		<key>tour_video_stop</key>
+		<string>VideoStop</string>
 	</dict>
 </dict>
 </plist>
