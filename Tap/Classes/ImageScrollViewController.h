@@ -13,9 +13,6 @@
 
 @interface ImageScrollViewController : UIScrollView <UIScrollViewDelegate> {
 	UIImageView *imageView;
-    ImageGalleryViewController *scrollView;
-    NSUInteger index;
-    
     CGPoint tapLocation;
     BOOL multipleTouches;
     BOOL twoFingerTapIsPossible; 

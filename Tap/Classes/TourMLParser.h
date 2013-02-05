@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GDataXMLNode.h"
-#import "TAPStop.h"
-#import "TAPConnection.h"
-#import "TAPAsset.h"
-#import "TAPContent.h"
-#import "TAPTour.h"
-#import "TAPProperty.h"
-#import "TAPSource.h"
-#import "TAPAssetRef.h"
 
 @interface TourMLParser : NSObject
 

@@ -71,6 +71,7 @@
 		17DE997015ABC568004C8A25 /* StopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListViewController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
 		17F3E92B16C001FA002E3957 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */; };
+		17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */; };
 		39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A48D4416380480009B03AD /* Default-568h@2x.png */; };
 		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
@@ -173,6 +174,7 @@
 		17DE996C15ABA5C2004C8A25 /* error.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = error.aif; path = Resources/error.aif; sourceTree = "<group>"; };
 		17DE996F15ABC568004C8A25 /* StopListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListViewController.xib; path = Classes/StopListViewController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TAP Help Video.mp4"; path = "Resources/TAP Help Video.mp4"; sourceTree = "<group>"; };
+		17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39A48D4416380480009B03AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		39A7967F163DC99F0052DCDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39AE2ECF163EFE9E003A32E5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */,
 				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
 				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
 				1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */,
@@ -308,13 +311,14 @@
 		17BAADFE15685F160012F849 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
 				1707FC3E157728C80027B323 /* AudioToolbox.framework */,
-				1707FC3F157728C80027B323 /* MediaPlayer.framework */,
-				17BAADFF15685F160012F849 /* UIKit.framework */,
-				17BAAE0115685F160012F849 /* Foundation.framework */,
-				17BAAE0315685F160012F849 /* CoreGraphics.framework */,
+				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
 				17BAAE0515685F160012F849 /* CoreData.framework */,
+				17BAAE0315685F160012F849 /* CoreGraphics.framework */,
+				17BAAE0115685F160012F849 /* Foundation.framework */,
+				1707FC3F157728C80027B323 /* MediaPlayer.framework */,
+				17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */,
+				17BAADFF15685F160012F849 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,13 +388,39 @@
 		17BAAE2A15685F510012F849 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
+				17F3E92D16C03261002E3957 /* TourML Parser */,
+				17F3E92C16C03251002E3957 /* GDataXML */,
 				651BC3BE16BFF3F00065E65E /* Google Analytics */,
-				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
-				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		17F3E92C16C03251002E3957 /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
 				173F94EE156DE3A3000DD580 /* GDataXMLNode.h */,
 				173F94EF156DE3A3000DD580 /* GDataXMLNode.m */,
 			);
-			name = Libraries;
+			name = GDataXML;
+			sourceTree = "<group>";
+		};
+		17F3E92D16C03261002E3957 /* TourML Parser */ = {
+			isa = PBXGroup;
+			children = (
+				173F94F5156DE4A6000DD580 /* TourMLParser.h */,
+				173F94F6156DE4A6000DD580 /* TourMLParser.m */,
+			);
+			name = "TourML Parser";
+			sourceTree = "<group>";
+		};
+		17F3E92E16C03270002E3957 /* ISO8601DataFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				173A566415B99A3F0060DDE2 /* ISO8601DateFormatter.h */,
+				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
+			);
+			name = ISO8601DataFormatter;
 			sourceTree = "<group>";
 		};
 		651BC3BE16BFF3F00065E65E /* Google Analytics */ = {
@@ -411,8 +441,6 @@
 			children = (
 				171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */,
 				171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */,
-				173F94F5156DE4A6000DD580 /* TourMLParser.h */,
-				173F94F6156DE4A6000DD580 /* TourMLParser.m */,
 				1788D0FA16759051004B577B /* UINavigationController+Rotation.h */,
 				1788D0FB16759051004B577B /* UINavigationController+Rotation.m */,
 			);

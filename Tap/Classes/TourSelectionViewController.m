@@ -18,9 +18,6 @@
 
 @implementation TourSelectionViewController
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize tourFetchedResultsController = _tourFetchedResultsController;
-
 - (id)initWithStyle:(UITableViewStyle)style 
 {
     self = [super initWithStyle:style];

@@ -8,6 +8,14 @@
 
 #import "TourMLParser.h"
 #import "AppDelegate.h"
+#import "TAPStop.h"
+#import "TAPConnection.h"
+#import "TAPAsset.h"
+#import "TAPContent.h"
+#import "TAPTour.h"
+#import "TAPProperty.h"
+#import "TAPSource.h"
+#import "TAPAssetRef.h"
 #import "ISO8601DateFormatter.h"
 
 static NSMutableString *bundlePath;

@@ -11,15 +11,12 @@
 @class ImageScrollViewController, TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
 @interface ImageGalleryViewController : UIViewController <UIScrollViewDelegate> {
-    UIScrollView *pagingScrollView;
-    TAPStop *imageStop;
-    
+    UIScrollView *pagingScrollView;    
     UIView *infoPane;
     CGRect currentPaneMinimizedFrame;
     BOOL displayInfoPane;
     BOOL isInfoPaneFullscreen;
     
-    NSArray *assets;
     NSMutableSet *recycledPages;
     NSMutableSet *visiblePages;
     NSInteger currentIndex;

@@ -19,8 +19,6 @@ CGPoint midpointBetweenPoints(CGPoint a, CGPoint b);
 @end
 
 @implementation ImageScrollViewController
-@synthesize scrollView = _scrollView;
-@synthesize index = _index;
 
 - (id)initWithFrame:(CGRect)frame
 {

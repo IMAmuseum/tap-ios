@@ -16,8 +16,6 @@
 
 @implementation VideoStopViewController
 
-@synthesize videoStop = _videoStop;
-
 - (id)initWithStop:(TAPStop *)stop
 {
     self = [super init];

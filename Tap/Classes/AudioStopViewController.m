@@ -16,8 +16,6 @@
 
 @implementation AudioStopViewController
 
-@synthesize audioStop = _audioStop;
-
 - (id)initWithStop:(TAPStop *)stop
 {
     self = [super init];

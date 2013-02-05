@@ -11,6 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UINavigationController+Rotation.h"
+#import "GAI.h"
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) NSString *language;
 @property (nonatomic, strong) NSArray *stopNavigationControllers;
 @property (nonatomic, strong) UISegmentedControl *navigationSegmentControl;
+@property (nonatomic, retain) id<GAITracker> tracker;
 
 @property (readwrite) CFURLRef clickFileURLRef;
 @property (readonly) SystemSoundID clickFileObject;

@@ -34,8 +34,6 @@
 
 @implementation ImageGalleryViewController
 
-@synthesize imageStop = _imageStop;
-@synthesize assets = _assets;
 - (id)initWithStop:(TAPStop *)stop
 {
     self = [super init];

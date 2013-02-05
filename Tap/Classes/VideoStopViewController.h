@@ -10,9 +10,7 @@
 
 @class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
 
-@interface VideoStopViewController : MPMoviePlayerViewController {
-    TAPStop *videoStop;
-}
+@interface VideoStopViewController : MPMoviePlayerViewController
 
 @property (nonatomic, strong) TAPStop *videoStop;
 

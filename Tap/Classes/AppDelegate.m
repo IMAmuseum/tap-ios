@@ -59,6 +59,18 @@
     // load tour data
     [TourMLParser loadTours];
     
+    
+    // retrieve tracker id
+    NSString *trackingId = [self.tapConfig objectForKey:@"GATrackerId"];
+    
+    // initialize Google Analytics
+    [GAI sharedInstance].debug = YES;
+    [GAI sharedInstance].dispatchInterval = 10;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
+    // start session
+    [self.tracker setSessionTimeout:60];
+
     // setup fetch request for tour entity
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -78,7 +90,6 @@
     UIViewController *tourSelectionController = [[TourSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
     [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
     [self.navigationController pushViewController:tourSelectionController animated:YES];
-    //[self setRootViewController:tourSelectionController];
 
     // setup stop navigation controllers
     UIViewController *keypadViewController = [[KeypadViewController alloc] init];
@@ -110,9 +121,7 @@
     
     [self.window addSubview:splashTop];
     [self.window addSubview:splashBtm];
-    
-    // Release extra ref
-    
+        
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
         // if only one tour exists initialize it and add it to the stack
@@ -296,6 +305,8 @@
  */
 - (void)playHelpVideo
 {
+    [self.tracker sendEventWithCategory:@"Help" withAction:@"buttonPress" withLabel:@"Requested help" withValue:[NSNumber numberWithInt:1]];
+ 
     NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
     NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
                                                           ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];

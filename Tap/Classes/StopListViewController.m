@@ -13,9 +13,6 @@
 
 @implementation StopListViewController
 
-@synthesize stopListTable = _stopListTable;
-@synthesize stops = _stops;
-
 -(id)init 
 {
     self = [super init];

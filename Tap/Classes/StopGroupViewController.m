@@ -181,7 +181,7 @@
 {	
     if (indexPath.section == 1 || !sectionsEnabled) {
         TAPStop *stop = [_stops objectAtIndex:indexPath.row];
-        [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];   
+        [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];
     }
 }
 

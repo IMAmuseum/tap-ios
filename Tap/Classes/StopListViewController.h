@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @class TAPStop;
-@interface StopListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-    IBOutlet UITableView *stopListTable;
-    NSArray *stops;
-}
+@interface StopListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) UITableView *stopListTable;
+@property (nonatomic, weak) IBOutlet UITableView *stopListTable;
 @property (nonatomic, strong) NSArray *stops;
 
 @end
