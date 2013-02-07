@@ -329,7 +329,6 @@
 				173F94F1156DE417000DD580 /* Classes */,
 				65AAFD3416BE1E7400E2DA39 /* Other Sources */,
 				17BAAE0815685F170012F849 /* Resources */,
-				17BAAE1315685F170012F849 /* Tap.xcdatamodeld */,
 			);
 			path = Tap;
 			sourceTree = "<group>";
@@ -337,12 +336,13 @@
 		17BAAE0815685F170012F849 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1730F41E1577B64E003333C4 /* Video */,
 				1707FBD915771AEB0027B323 /* Audio */,
 				1707FBD815771AE30027B323 /* Images */,
-				17BAAE0915685F170012F849 /* Tap-Info.plist */,
 				39A79680163DC99F0052DCDF /* Localizable.strings */,
+				17BAAE0915685F170012F849 /* Tap-Info.plist */,
+				17BAAE1315685F170012F849 /* Tap.xcdatamodeld */,
 				1730F41B1577B46B003333C4 /* TapConfig.plist */,
+				1730F41E1577B64E003333C4 /* Video */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

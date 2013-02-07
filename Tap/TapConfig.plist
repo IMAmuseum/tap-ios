@@ -6,6 +6,8 @@
 	<string></string>
 	<key>HelpVideo</key>
 	<string>TAP Help Video.mp4</string>
+	<key>KioskMode</key>
+	<false/>
 	<key>TourMLEndpoint</key>
 	<string></string>
 	<key>Stops</key>
