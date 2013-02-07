@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class TAPStop;
 @interface StopListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *stopListTable;

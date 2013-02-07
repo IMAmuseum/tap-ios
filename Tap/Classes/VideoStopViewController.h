@@ -8,12 +8,12 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 
-@class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
+@class VideoStop;
 
 @interface VideoStopViewController : MPMoviePlayerViewController
 
-@property (nonatomic, strong) TAPStop *videoStop;
+@property (nonatomic, strong) VideoStop *videoStop;
 
-- (id)initWithStop:(TAPStop *)stop;
+- (id)initWithStop:(VideoStop *)stop;
 
 @end

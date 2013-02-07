@@ -8,6 +8,7 @@
 
 #import "StopGroupViewController.h"
 #import "AppDelegate.h"
+#import "StopGroup.h"
 #import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPSource.h"

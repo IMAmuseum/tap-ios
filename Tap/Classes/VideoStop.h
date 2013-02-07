@@ -10,4 +10,6 @@
 
 @interface VideoStop : BaseStop<Stop>
 
+- (NSURL *)getVideoURL;
+
 @end

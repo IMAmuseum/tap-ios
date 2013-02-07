@@ -7,7 +7,31 @@
 //
 
 #import "VideoStop.h"
+#import "AppDelegate.h"
+#import "VideoStopViewController.h"
 
 @implementation VideoStop
+
+- (NSURL *)getVideoURL
+{
+    TAPAsset *asset = [[self.model getAssetsByUsage:@"tour_video"] objectAtIndex:0];
+    NSString *videoPath = [[[asset source] anyObject] uri];
+    return [NSURL fileURLWithPath:videoPath];
+}
+
+#pragma mark BaseStop Implementation
+
+-(BOOL)providesViewController
+{
+	return NO;
+}
+
+-(BOOL)loadStopView
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:self];
+    [appDelegate.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+	return YES;
+}
 
 @end

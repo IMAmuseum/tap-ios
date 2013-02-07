@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Stop.h"
 #import "TAPStop.h"
+#import "TAPProperty.h"
+#import "TAPAssetRef.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
+#import "TAPContent.h"
 
 @interface BaseStop : NSObject <Stop>
 

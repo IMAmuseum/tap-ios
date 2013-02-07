@@ -9,12 +9,7 @@
 #import "ImageGalleryViewController.h"
 #import "ImageScrollViewController.h"
 #import "NonSelectableTextView.h"
-#import "TAPStop.h"
-#import "TAPProperty.h"
-#import "TAPAssetRef.h"
-#import "TAPAsset.h"
-#import "TAPSource.h"
-#import "TAPContent.h"
+#import "ImageStop.h"
 
 @interface ImageGalleryViewController ()
 - (void)configurePage:(ImageScrollViewController *)page forIndex:(NSUInteger)index;
@@ -34,12 +29,12 @@
 
 @implementation ImageGalleryViewController
 
-- (id)initWithStop:(TAPStop *)stop
+- (id)initWithStop:(ImageStop *)stop
 {
     self = [super init];
     if(self) {
         [self setImageStop:stop];
-        [self setAssets:[stop getAssets]];
+        [self setAssets:[self.imageStop.model getAssets]];
         [self setWantsFullScreenLayout:YES];
         initializedToolbarAnimation = NO;
         currentIndex = 1;

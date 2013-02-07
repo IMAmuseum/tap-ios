@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class ImageScrollViewController, TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
+@class ImageScrollViewController, ImageStop;
 
 @interface ImageGalleryViewController : UIViewController <UIScrollViewDelegate> {
     UIScrollView *pagingScrollView;    
@@ -33,10 +33,10 @@
     CGFloat percentScrolledIntoFirstVisiblePage;
 }
 
-@property (nonatomic, strong) TAPStop *imageStop;
+@property (nonatomic, strong) ImageStop *imageStop;
 @property (nonatomic, strong) NSArray *assets;
 
-- (id)initWithStop:(TAPStop *)stop;
+- (id)initWithStop:(ImageStop *)stop;
 - (void)toggleToolbarsDisplay;
 
 @end

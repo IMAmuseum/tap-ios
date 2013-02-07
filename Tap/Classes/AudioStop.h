@@ -10,4 +10,6 @@
 
 @interface AudioStop : BaseStop<Stop>
 
+- (NSURL *)getAudioURL;
+
 @end

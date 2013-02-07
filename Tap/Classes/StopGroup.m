@@ -11,7 +11,7 @@
 
 @implementation StopGroup
 
-#pragma mark BaseStop
+#pragma mark BaseStop Implementation
 
 -(BOOL)providesViewController
 {

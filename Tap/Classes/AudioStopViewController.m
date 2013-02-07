@@ -7,24 +7,17 @@
 //
 
 #import "AudioStopViewController.h"
-#import "TAPStop.h"
-#import "TAPProperty.h"
-#import "TAPAssetRef.h"
-#import "TAPAsset.h"
-#import "TAPSource.h"
-#import "TAPContent.h"
+#import "AudioStop.h"
 
 @implementation AudioStopViewController
 
-- (id)initWithStop:(TAPStop *)stop
+- (id)initWithStop:(AudioStop *)stop
 {
     self = [super init];
     if(self) {
         [self setAudioStop:stop];
         
-        TAPAsset *asset = [[stop getAssetsByUsage:@"tour_audio"] objectAtIndex:0];
-        NSString *audioPath = [[[asset source] anyObject] uri];
-        NSURL *audioURL = [NSURL fileURLWithPath:audioPath];
+        NSURL *audioURL = [self.audioStop getAudioURL];
         [[self moviePlayer] setContentURL:audioURL];
         [[self moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
     }

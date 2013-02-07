@@ -7,7 +7,20 @@
 //
 
 #import "ImageStop.h"
+#import "ImageGalleryViewController.h"
 
 @implementation ImageStop
+
+#pragma mark BaseStop Implementation
+
+-(BOOL)providesViewController
+{
+	return YES;
+}
+
+-(UIViewController*)newViewController
+{
+	return [[ImageGalleryViewController alloc] initWithStop:self];
+}
 
 @end

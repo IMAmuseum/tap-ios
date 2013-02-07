@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StopGroup.h"
 
-@class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
+@class StopGroup;
 
 @interface StopGroupViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     BOOL sectionsEnabled;
