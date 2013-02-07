@@ -13,6 +13,11 @@
 
 #pragma mark BaseStop Implementation
 
+- (NSString *)getIconPath
+{
+	return [[NSBundle mainBundle] pathForResource:@"icon-image" ofType:@"png"];
+}
+
 -(BOOL)providesViewController
 {
 	return YES;

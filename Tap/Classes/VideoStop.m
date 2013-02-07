@@ -21,6 +21,11 @@
 
 #pragma mark BaseStop Implementation
 
+- (NSString *)getIconPath
+{
+	return [[NSBundle mainBundle] pathForResource:@"icon-video" ofType:@"png"];
+}
+
 -(BOOL)providesViewController
 {
 	return NO;

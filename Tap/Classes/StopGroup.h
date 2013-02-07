@@ -10,4 +10,6 @@
 
 @interface StopGroup : BaseStop<Stop>
 
+- (UIImageView *)getHeaderImage;
+
 @end

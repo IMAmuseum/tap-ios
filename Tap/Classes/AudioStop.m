@@ -21,6 +21,11 @@
 
 # pragma mark BaseStop Implementation
 
+- (NSString *)getIconPath
+{
+	return [[NSBundle mainBundle] pathForResource:@"icon-audio" ofType:@"png"];
+}
+
 -(BOOL)providesViewController
 {
 	return NO;

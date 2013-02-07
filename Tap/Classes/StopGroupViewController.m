@@ -9,6 +9,7 @@
 #import "StopGroupViewController.h"
 #import "AppDelegate.h"
 #import "StopGroup.h"
+#import "StopFactory.h"
 #import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPSource.h"
@@ -35,7 +36,9 @@
         
         self.stops = [[NSMutableArray alloc] init];
         for (TAPConnection *connection in connections) {
-            [self.stops addObject:connection.destinationStop];
+            TAPStop *childStopModel = connection.destinationStop;
+            BaseStop *childStop = [StopFactory newStopForStopNode:childStopModel];
+            [self.stops addObject:childStop];
         }
     }
 	
@@ -49,15 +52,11 @@
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
 	
-    NSArray *headerAssets = [self.stopGroup.model getAssetsByUsage:@"header_image"];
-    if ([headerAssets count]) {
-        TAPAsset *headerAsset = [headerAssets objectAtIndex:0];
-        if (headerAsset != nil) {
-            NSString *headerImageSrc = [[[headerAsset source] anyObject] uri];
-            UIImageView *headerImage = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:headerImageSrc]];
-            [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
-            [_stopGroupTable setTableHeaderView:headerImage];
-        }
+    // TODO: clean me up
+    UIImageView *headerImage = [self.stopGroup getHeaderImage];
+    if (headerImage) {
+        [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
+        [_stopGroupTable setTableHeaderView:headerImage];
     }
     
     // determine whether or not the stop group has a description in order to layout the table correctly
@@ -101,7 +100,7 @@
 {
     UITableViewCell *cell;
     if (indexPath.section == 1 || !sectionsEnabled) {
-        TAPStop *stop = [self.stops objectAtIndex:indexPath.row];
+        BaseStop *stop = [self.stops objectAtIndex:indexPath.row];
         
         cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
         if (cell == nil) {
@@ -115,12 +114,12 @@
         }
         
         // Set the title
-        [[cell textLabel] setText:(NSString *)stop.title];
+        [[cell textLabel] setText:[stop getTitle]];
         [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
         [[cell textLabel] setNumberOfLines:0];
         
         // Set the description if available
-        [[cell detailTextLabel] setText:(NSString *)stop.desc];
+        [[cell detailTextLabel] setText:[stop getDescription]];
         [[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
         [[cell detailTextLabel] setNumberOfLines:0];
         
@@ -155,14 +154,14 @@
     CGSize constraint;
     
     if (indexPath.section == 1 || !sectionsEnabled) {
-        TAPStop *stop = [self.stops objectAtIndex:indexPath.row];
+        BaseStop *stop = [self.stops objectAtIndex:indexPath.row];
         
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
         
-        NSString *title = (NSString *)stop.title;
+        NSString *title = [stop getTitle];
         CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         
-        NSString *description = (NSString *)stop.desc;
+        NSString *description = [stop getDescription];
         CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
         
         height = MAX(titleSize.height + descriptionSize.height, 44.0f);
@@ -181,8 +180,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {	
     if (indexPath.section == 1 || !sectionsEnabled) {
-        TAPStop *stop = [_stops objectAtIndex:indexPath.row];
-        [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop];
+        BaseStop *stop = [_stops objectAtIndex:indexPath.row];
+        [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop.model];
     }
 }
 
