@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "GAI.h"
 
-@class TAPTour;
+@class TAPTour, TAPStop;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
@@ -38,6 +38,7 @@
 - (void)playHelpVideo;
 - (void)playClick;
 - (void)playError;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

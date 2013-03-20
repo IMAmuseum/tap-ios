@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StopListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface StopListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, weak) IBOutlet UITableView *stopListTable;
+@property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
 @property (nonatomic, strong) NSArray *stops;
 
 @end

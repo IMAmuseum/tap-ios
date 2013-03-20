@@ -14,8 +14,8 @@
     BOOL sectionsEnabled;
 }
 
-@property (nonatomic, weak) UITableView *stopGroupTable;
-@property (nonatomic, weak) UIImageView *bannerImage;
+@property (nonatomic, unsafe_unretained) UITableView *stopGroupTable;
+@property (nonatomic, unsafe_unretained) UIImageView *bannerImage;
 @property (nonatomic, strong) StopGroup *stopGroup;
 @property (nonatomic, strong) NSMutableArray *stops;
 

@@ -15,49 +15,34 @@
 #import "StopFactory.h"
 #import "TAPTour.h"
 
-#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
+
+@interface TourSelectionViewController()
+@property (nonatomic, unsafe_unretained) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
+@property (nonatomic, strong) NSArray *stopNavigationControllers;
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *tourFetchedResultsController;
+@end
 
 @implementation TourSelectionViewController
 
 - (id)init
 {
     self = [super init];
-    if(self) {        
-        // setup help button
-        UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
-                                                                       style:UIBarButtonItemStyleDone
-                                                                      target:self
-                                                                      action:@selector(helpButtonClicked:)];
-        
-        // set tour selection controller as root and add it to the stack
-        UIViewController *tourSelectionController = [[TourSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
-        [[self navigationItem] setRightBarButtonItem:helpButton];
-        [self.navigationController pushViewController:tourSelectionController animated:YES];
-        
+    if(self) {
+
         // setup stop navigation controllers
         UIViewController *keypadViewController = [[KeypadViewController alloc] init];
         UIViewController *stopListViewController = [[StopListViewController alloc] init];
-        // add help button
-        [[keypadViewController navigationItem] setRightBarButtonItem:helpButton];
-        [[stopListViewController navigationItem] setRightBarButtonItem:helpButton];
-        
+
         
         // store the stop navigation controllers
         self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
-        // setup the segmented control
-        _navigationSegmentControl = [[UISegmentedControl alloc] initWithItems:[self.stopNavigationControllers arrayByPerformingSelector:@selector(title)]];
-        [_navigationSegmentControl setSegmentedControlStyle: UISegmentedControlStyleBar];
-        [_navigationSegmentControl addTarget:self
-                                      action:@selector(indexDidChangeForSegmentedControl:)
-                            forControlEvents:UIControlEventValueChanged];
-        
-        // add the control the the view controllers
-        [[keypadViewController navigationItem] setTitleView:_navigationSegmentControl];
-        [[stopListViewController navigationItem] setTitleView:_navigationSegmentControl];
+   
     }
     return self;
 }
@@ -65,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [appDelegate managedObjectContext];
     
@@ -84,7 +69,6 @@
                                             cacheName:@"Tours"];
         self.tourFetchedResultsController = fetchResultsController;
         self.tourFetchedResultsController.delegate = self;
-
     }
     
     NSError *error;
@@ -92,7 +76,14 @@
         NSLog(@"Error: %@", error);
     }
     
-    self.title = NSLocalizedString(@"Tours", @"");
+    // setup navigation bar
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(helpButtonClicked:)];
+    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Tours", @"")];
+    [navigationItem setRightBarButtonItem:helpButton];
+    [self.navigationBar pushNavigationItem:navigationItem animated:NO];    
 }
 
 - (void)viewDidUnload 
@@ -101,12 +92,22 @@
     self.tourFetchedResultsController = nil;
 }
 
-- (void)loadTour:(TAPTour *)tour
+/**
+ * Action method that is fired when the help button is selected
+ */
+- (IBAction)helpButtonClicked:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate setCurrentTour:tour];
-    [_navigationSegmentControl setSelectedSegmentIndex:0];
-    [_navigationSegmentControl sendActionsForControlEvents:UIControlEventValueChanged];
+    
+    NSString *videoSrc = [appDelegate.tapConfig objectForKey:@"HelpVideo"];
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
+                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
+	if (!videoPath) return;
+	
+	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
+	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 /**
@@ -122,21 +123,6 @@
 	} else {
 		[stop loadStopView];
 	}
-}
-
-/**
- * Handle toggling between navigation stop controllers
- */
-- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl {
-    NSUInteger index = segmentedControl.selectedSegmentIndex;
-    UIViewController *selectedViewController = [self.stopNavigationControllers objectAtIndex:index];
-    if ([[self.navigationController viewControllers] count] > 1) {
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:selectedViewController animated:NO];
-    } else {
-        [self.navigationController pushViewController:selectedViewController animated:YES];
-    }
-    
 }
 
 #pragma mark - Table view data source
@@ -193,10 +179,10 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
     // set the current tour
-    [self loadTour:tour];
-    [self indexDidChangeForSegmentedControl:self.navigationSegmentControl];
+    [appDelegate setCurrentTour:tour];
 }
 
 #pragma mark View controller rotation methods

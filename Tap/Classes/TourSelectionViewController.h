@@ -8,18 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class TAPTour, TAPStop;
+@class TAPStop;
 
-@interface TourSelectionViewController : UITableViewController<NSFetchedResultsControllerDelegate, UINavigationControllerDelegate>
+@interface TourSelectionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) UINavigationController *navigationController;
-@property (nonatomic, strong) UISegmentedControl *navigationSegmentControl;
-@property (nonatomic, strong) NSArray *stopNavigationControllers;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSFetchedResultsController *tourFetchedResultsController;
-
-- (void)loadTour:(TAPTour *)tour;
 - (void)loadStop:(TAPStop *)stopModel;
-- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl;
 
 @end

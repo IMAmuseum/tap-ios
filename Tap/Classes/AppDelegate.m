@@ -56,13 +56,13 @@
     
     // retrieve tracker id
     NSString *trackingId = [self.tapConfig objectForKey:@"GATrackerId"];
-    // initialize Google Analytics
-    [GAI sharedInstance].debug = YES;
-    [GAI sharedInstance].dispatchInterval = 10;
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
-    // start session
-    [self.tracker setSessionTimeout:60];    
+//    // initialize Google Analytics
+//    [GAI sharedInstance].debug = YES;
+//    [GAI sharedInstance].dispatchInterval = 10;
+//    [GAI sharedInstance].trackUncaughtExceptions = YES;
+//    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
+//    // start session
+//    [self.tracker setSessionTimeout:60];    
     
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
@@ -77,22 +77,8 @@
     // Add the navigation controller to the window
     [self.window setRootViewController:viewController];
     
-    // setup fetch request for tour entity
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSError *error;
-    // retrieve tours
-    NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
-        // if only one tour exists initialize it and add it to the stack
-        if ([tours count] == 1) {
-            // set the current tour
-            [(TourSelectionViewController *)self.rootViewController loadTour:[tours objectAtIndex:0]];
-        }
         [self animateSplashImage];
     }
     
@@ -131,15 +117,15 @@
         [self animateSplashImage];
         return NO;
     }
-    [(TourSelectionViewController *)self.rootViewController loadTour:[tours objectAtIndex:0]];
-    
-    // if a stop was specified attempt to load the stop
-    if (stopId != nil) {
-        TAPStop *stop = [_currentTour stopFromId:stopId];
-        if (stop != nil) {
-            [(TourSelectionViewController *)self.rootViewController loadStop:stop];
-        }
-    }
+//    [(TourSelectionViewController *)self.rootViewController loadTour:[tours objectAtIndex:0]];
+//    
+//    // if a stop was specified attempt to load the stop
+//    if (stopId != nil) {
+//        TAPStop *stop = [_currentTour stopFromId:stopId];
+//        if (stop != nil) {
+//            [(TourSelectionViewController *)self.rootViewController loadStop:stop];
+//        }
+//    }
     
     [self animateSplashImage];
     return YES;
@@ -216,29 +202,21 @@
 }
 
 /**
- * Action method that is fired when the help button is selected
- */
-- (IBAction)helpButtonClicked:(id)sender
-{
-	[self playHelpVideo];
-}
-
-/**
  * Plays help video
  */
 - (void)playHelpVideo
 {
-    [self.tracker sendEventWithCategory:@"Help" withAction:@"buttonPress" withLabel:@"Requested help" withValue:[NSNumber numberWithInt:1]];
- 
-    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
-                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
-	if (!videoPath) return;
-	
-	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
-	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-	[[[(TourSelectionViewController *)self.rootViewController navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
+//    [self.tracker sendEventWithCategory:@"Help" withAction:@"buttonPress" withLabel:@"Requested help" withValue:[NSNumber numberWithInt:1]];
+// 
+//    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
+//    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
+//                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
+//	if (!videoPath) return;
+//	
+//	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
+//	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+//	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+//    [self presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application 
