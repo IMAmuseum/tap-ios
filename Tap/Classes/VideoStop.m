@@ -14,7 +14,7 @@
 
 - (NSURL *)getVideoURL
 {
-    TAPAsset *asset = [[self.model getAssetsByUsage:@"tour_video"] objectAtIndex:0];
+    TAPAsset *asset = [[self.model getAssetsByUsage:@"video"] objectAtIndex:0];
     NSString *videoPath = [[[asset source] anyObject] uri];
     return [NSURL fileURLWithPath:videoPath];
 }
@@ -35,7 +35,7 @@
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:self];
-    [appDelegate.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+    [appDelegate.rootViewController.navigationController presentMoviePlayerViewControllerAnimated:viewController];
 	return YES;
 }
 

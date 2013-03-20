@@ -181,7 +181,7 @@
 {	
     if (indexPath.section == 1 || !sectionsEnabled) {
         BaseStop *stop = [_stops objectAtIndex:indexPath.row];
-        [(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop.model];
+        //[(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop.model];
     }
 }
 

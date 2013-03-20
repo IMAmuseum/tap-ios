@@ -8,6 +8,11 @@
 
 #import "TourSelectionViewController.h"
 #import "AppDelegate.h"
+#import "UINavigationController+Rotation.h"
+#import "KeypadViewController.h"
+#import "StopListViewController.h"
+#import "BaseStop.h"
+#import "StopFactory.h"
 #import "TAPTour.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -18,13 +23,46 @@
 
 @implementation TourSelectionViewController
 
-- (id)initWithStyle:(UITableViewStyle)style 
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
+    if(self) {        
+        // setup help button
+        UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
+                                                                       style:UIBarButtonItemStyleDone
+                                                                      target:self
+                                                                      action:@selector(helpButtonClicked:)];
+        
+        // set tour selection controller as root and add it to the stack
+        UIViewController *tourSelectionController = [[TourSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
+        [[self navigationItem] setRightBarButtonItem:helpButton];
+        [self.navigationController pushViewController:tourSelectionController animated:YES];
+        
+        // setup stop navigation controllers
+        UIViewController *keypadViewController = [[KeypadViewController alloc] init];
+        UIViewController *stopListViewController = [[StopListViewController alloc] init];
+        // add help button
+        [[keypadViewController navigationItem] setRightBarButtonItem:helpButton];
+        [[stopListViewController navigationItem] setRightBarButtonItem:helpButton];
+        
+        
+        // store the stop navigation controllers
+        self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
+        // setup the segmented control
+        _navigationSegmentControl = [[UISegmentedControl alloc] initWithItems:[self.stopNavigationControllers arrayByPerformingSelector:@selector(title)]];
+        [_navigationSegmentControl setSegmentedControlStyle: UISegmentedControlStyleBar];
+        [_navigationSegmentControl addTarget:self
+                                      action:@selector(indexDidChangeForSegmentedControl:)
+                            forControlEvents:UIControlEventValueChanged];
+        
+        // add the control the the view controllers
+        [[keypadViewController navigationItem] setTitleView:_navigationSegmentControl];
+        [[stopListViewController navigationItem] setTitleView:_navigationSegmentControl];
+    }
     return self;
 }
 
-- (void)viewDidLoad 
+- (void)viewDidLoad
 {
     [super viewDidLoad];
 
@@ -61,6 +99,44 @@
 {
     [super viewDidUnload];
     self.tourFetchedResultsController = nil;
+}
+
+- (void)loadTour:(TAPTour *)tour
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate setCurrentTour:tour];
+    [_navigationSegmentControl setSelectedSegmentIndex:0];
+    [_navigationSegmentControl sendActionsForControlEvents:UIControlEventValueChanged];
+}
+
+/**
+ * Handle loading a selected stop
+ */
+- (void)loadStop:(TAPStop *)stopModel
+{
+    BaseStop *stop = [StopFactory newStopForStopNode:stopModel];
+    
+    if ([stop providesViewController]) {
+        UIViewController *viewController = [stop newViewController];
+        [self.navigationController pushViewController:viewController animated:YES];
+	} else {
+		[stop loadStopView];
+	}
+}
+
+/**
+ * Handle toggling between navigation stop controllers
+ */
+- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl {
+    NSUInteger index = segmentedControl.selectedSegmentIndex;
+    UIViewController *selectedViewController = [self.stopNavigationControllers objectAtIndex:index];
+    if ([[self.navigationController viewControllers] count] > 1) {
+        [self.navigationController popViewControllerAnimated:NO];
+        [self.navigationController pushViewController:selectedViewController animated:NO];
+    } else {
+        [self.navigationController pushViewController:selectedViewController animated:YES];
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -117,14 +193,10 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
     // set the current tour
-    [appDelegate loadTour:tour];
-
-    if (SYSTEM_VERSION_LESS_THAN(@"5.0")) {
-        [appDelegate indexDidChangeForSegmentedControl:appDelegate.navigationSegmentControl];
-    }
+    [self loadTour:tour];
+    [self indexDidChangeForSegmentedControl:self.navigationSegmentControl];
 }
 
 #pragma mark View controller rotation methods

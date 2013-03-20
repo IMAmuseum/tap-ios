@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DefaultLanguage</key>
+	<string>en</string>
 	<key>GATrackerId</key>
 	<string></string>
 	<key>HelpVideo</key>
@@ -12,13 +14,13 @@
 	<string></string>
 	<key>Stops</key>
 	<dict>
-		<key>tour_audio_stop</key>
+		<key>audio_stop</key>
 		<string>AudioStop</string>
-		<key>tour_image_stop</key>
+		<key>image_stop</key>
 		<string>ImageStop</string>
-		<key>tour_stop_group</key>
+		<key>stop_group</key>
 		<string>StopGroup</string>
-		<key>tour_video_stop</key>
+		<key>video_stop</key>
 		<string>VideoStop</string>
 	</dict>
 </dict>

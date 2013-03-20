@@ -14,7 +14,7 @@
 
 - (NSURL *)getAudioURL
 {
-    TAPAsset *asset = [[self.model getAssetsByUsage:@"tour_audio"] objectAtIndex:0];
+    TAPAsset *asset = [[self.model getAssetsByUsage:@"audio"] objectAtIndex:0];
     NSString *audioPath = [[[asset source] anyObject] uri];
     return [NSURL fileURLWithPath:audioPath];
 }
@@ -35,7 +35,7 @@
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     AudioStopViewController *viewController = [[AudioStopViewController alloc] initWithStop:self];
-    [appDelegate.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+    [appDelegate.rootViewController.navigationController presentMoviePlayerViewControllerAnimated:viewController];
 	return YES;
 }
 

@@ -18,10 +18,7 @@
 #import "StopFactory.h"
 #import "TourMLParser.h"
 #import "TourSelectionViewController.h"
-#import "KeypadViewController.h"
-#import "StopListViewController.h"
 
-#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
 
@@ -36,9 +33,7 @@
 @synthesize errorFileObject;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-{
-    // Add the navigation controller to the window
-    [self.window setRootViewController:self.navigationController];
+{    
     // Allocate the sounds
     CFBundleRef mainBundle = CFBundleGetMainBundle();
     clickFileURLRef = CFBundleCopyResourceURL(mainBundle, CFSTR("click"), CFSTR("aif"), NULL);
@@ -59,59 +54,15 @@
     // load tour data
     [TourMLParser loadTours];
     
-    
     // retrieve tracker id
     NSString *trackingId = [self.tapConfig objectForKey:@"GATrackerId"];
-    
     // initialize Google Analytics
     [GAI sharedInstance].debug = YES;
     [GAI sharedInstance].dispatchInterval = 10;
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
     // start session
-    [self.tracker setSessionTimeout:60];
-
-    // setup fetch request for tour entity
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDescription];
-    
-    NSError *error;
-    // retrieve tours
-    NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
-    // setup help button
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
-                                                                   style:UIBarButtonItemStyleDone 
-                                                                  target:self 
-                                                                  action:@selector(helpButtonClicked:)];    
-    
-    // set tour selection controller as root and add it to the stack
-    UIViewController *tourSelectionController = [[TourSelectionViewController alloc] initWithStyle:UITableViewStylePlain];
-    [[self.rootViewController navigationItem] setRightBarButtonItem:helpButton];
-    [self.navigationController pushViewController:tourSelectionController animated:YES];
-
-    // setup stop navigation controllers
-    UIViewController *keypadViewController = [[KeypadViewController alloc] init];
-    UIViewController *stopListViewController = [[StopListViewController alloc] init];
-    // add help button
-    [[keypadViewController navigationItem] setRightBarButtonItem:helpButton];
-    [[stopListViewController navigationItem] setRightBarButtonItem:helpButton];
-    
-    
-    // store the stop navigation controllers 
-    self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
-    // setup the segmented control
-    _navigationSegmentControl = [[UISegmentedControl alloc] initWithItems:[self.stopNavigationControllers arrayByPerformingSelector:@selector(title)]];
-    [_navigationSegmentControl setSegmentedControlStyle: UISegmentedControlStyleBar];
-    [_navigationSegmentControl addTarget:self 
-                                action:@selector(indexDidChangeForSegmentedControl:) 
-                                forControlEvents:UIControlEventValueChanged];
-    
-    // add the control the the view controllers
-    [[keypadViewController navigationItem] setTitleView:_navigationSegmentControl];
-    [[stopListViewController navigationItem] setTitleView:_navigationSegmentControl];
-    
+    [self.tracker setSessionTimeout:60];    
     
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
@@ -121,13 +72,26 @@
     
     [self.window addSubview:splashTop];
     [self.window addSubview:splashBtm];
-        
+    
+    TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
+    // Add the navigation controller to the window
+    [self.window setRootViewController:viewController];
+    
+    // setup fetch request for tour entity
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    // retrieve tours
+    NSArray *tours = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
         // if only one tour exists initialize it and add it to the stack
         if ([tours count] == 1) {
             // set the current tour
-            [self loadTour:[tours objectAtIndex:0]];
+            [(TourSelectionViewController *)self.rootViewController loadTour:[tours objectAtIndex:0]];
         }
         [self animateSplashImage];
     }
@@ -167,59 +131,18 @@
         [self animateSplashImage];
         return NO;
     }
-    [self loadTour:[tours objectAtIndex:0]];
+    [(TourSelectionViewController *)self.rootViewController loadTour:[tours objectAtIndex:0]];
     
     // if a stop was specified attempt to load the stop
     if (stopId != nil) {
         TAPStop *stop = [_currentTour stopFromId:stopId];
         if (stop != nil) {
-            [self loadStop:stop];
+            [(TourSelectionViewController *)self.rootViewController loadStop:stop];
         }
     }
     
     [self animateSplashImage];
     return YES;
-}
-
-/**
- * Handle toggling between navigation stop controllers
- */
-- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl {
-    NSUInteger index = segmentedControl.selectedSegmentIndex;
-    UIViewController *selectedViewController = [self.stopNavigationControllers objectAtIndex:index];
-    if ([[self.navigationController viewControllers] count] > 1) {
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.navigationController pushViewController:selectedViewController animated:NO];
-    } else {
-        [self.navigationController pushViewController:selectedViewController animated:YES];
-    }
-    
-}
-
-- (void)loadTour:(TAPTour *)tour
-{
-    [self setCurrentTour:tour];
-    // set the default controller
-    [_navigationSegmentControl setSelectedSegmentIndex:0];
-    // starting in ios5 setSelectedSegmentIndex no longer triggers an event so we must do this explicitly for ios5 and greater
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")) {
-        [_navigationSegmentControl sendActionsForControlEvents:UIControlEventValueChanged];
-    }
-}
-
-/**
- * Handle loading a selected stop
- */
-- (void)loadStop:(TAPStop *)stopModel
-{
-    BaseStop *stop = [StopFactory newStopForStopNode:stopModel];
-    
-    if ([stop providesViewController]) {
-        UIViewController *viewController = [stop newViewController];
-        [self.navigationController pushViewController:viewController animated:YES];
-	} else {
-		[stop loadStopView];
-	}
 }
 
 /**
@@ -258,7 +181,7 @@
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG] removeFromSuperview];
 	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL helpVideoHasPlayed = [defaults objectForKey:@"helpVideoHasPlayed"];
+    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
     
     if (!helpVideoHasPlayed) {
         // Show a prompt for the help video
@@ -285,7 +208,7 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL helpVideoHasPlayed = [defaults objectForKey:@"helpVideoHasPlayed"];
+    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
     
     if (!helpVideoHasPlayed) {
         [defaults setBool:YES forKey:@"helpVideoHasPlayed"];
@@ -315,7 +238,7 @@
 	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
 	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-	[[[self navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
+	[[[(TourSelectionViewController *)self.rootViewController navigationController] visibleViewController] presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application 

@@ -10,15 +10,13 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-#import "UINavigationController+Rotation.h"
 #import "GAI.h"
 
-@class TAPTour, TAPStop, TAPAsset, TAPAssetRef, TAPConnection, TAPContent, TAPProperty, TAPSource;
+@class TAPTour;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
-@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) UIViewController *rootViewController;
 
 @property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
@@ -28,8 +26,7 @@
 @property (nonatomic, strong) TAPTour *currentTour;
 @property (nonatomic, strong) NSDictionary *tapConfig;
 @property (nonatomic, strong) NSString *language;
-@property (nonatomic, strong) NSArray *stopNavigationControllers;
-@property (nonatomic, strong) UISegmentedControl *navigationSegmentControl;
+
 @property (nonatomic, retain) id<GAITracker> tracker;
 
 @property (readwrite) CFURLRef clickFileURLRef;
@@ -37,10 +34,6 @@
 @property (readwrite) CFURLRef errorFileURLRef;
 @property (readonly) SystemSoundID errorFileObject;
 
-- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)segmentedControl;
-- (void)loadTour:(TAPTour *)tour;
-- (void)loadStop:(TAPStop *)stopModel;
-- (IBAction)helpButtonClicked:(id)sender;
 - (void)animateSplashImage;
 - (void)playHelpVideo;
 - (void)playClick;

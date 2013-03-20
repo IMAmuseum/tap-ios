@@ -106,7 +106,7 @@
 		[self clearCode];
 		return;
     } else {
-        [appDelegate loadStop:stop];
+        //[appDelegate.rootViewController loadStop:stop];
     }
 }
 

@@ -70,7 +70,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {	
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate loadStop:[_stops objectAtIndex:indexPath.row]];
+    //[appDelegate loadStop:[_stops objectAtIndex:indexPath.row]];
 }
 
 #pragma mark View controller rotation methods
