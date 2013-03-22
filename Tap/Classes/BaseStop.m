@@ -52,7 +52,7 @@
 	return nil;
 }
 
-- (BOOL)loadStopView
+- (BOOL)loadStopViewForViewController:(UIViewController *)viewController;
 {
 	[self doesNotRecognizeSelector:_cmd];
 	return NO;

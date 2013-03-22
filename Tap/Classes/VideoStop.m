@@ -7,7 +7,6 @@
 //
 
 #import "VideoStop.h"
-#import "AppDelegate.h"
 #import "VideoStopViewController.h"
 
 @implementation VideoStop
@@ -31,11 +30,10 @@
 	return NO;
 }
 
--(BOOL)loadStopView
+- (BOOL)loadStopViewForViewController:(UIViewController *)viewController
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    VideoStopViewController *viewController = [[VideoStopViewController alloc] initWithStop:self];
-    [appDelegate.rootViewController.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+    VideoStopViewController *videoViewController = [[VideoStopViewController alloc] initWithStop:self];
+    [viewController.navigationController presentMoviePlayerViewControllerAnimated:videoViewController];
 	return YES;
 }
 

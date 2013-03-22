@@ -83,6 +83,18 @@
 		65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD4416BF163C00E2DA39 /* VideoStop.m */; };
 		65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD4716BF171C00E2DA39 /* StopFactory.m */; };
 		65F424E216F972A9004D05B4 /* TourSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */; };
+		65F424E616FAADBB004D05B4 /* TourTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */; };
+		65F424EB16FBDCF0004D05B4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F424E916FBDCEF004D05B4 /* MapViewController.m */; };
+		65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F424EE16FBDD24004D05B4 /* StopNavigationViewController.m */; };
+		65F424F916FBF001004D05B4 /* keypad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424F616FBF001004D05B4 /* keypad@2x.png */; };
+		65F424FA16FBF001004D05B4 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424F716FBF001004D05B4 /* list@2x.png */; };
+		65F424FB16FBF001004D05B4 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424F816FBF001004D05B4 /* map@2x.png */; };
+		65F424FF16FBF00F004D05B4 /* keypad.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424FC16FBF00E004D05B4 /* keypad.png */; };
+		65F4250016FBF00F004D05B4 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424FD16FBF00E004D05B4 /* list.png */; };
+		65F4250116FBF00F004D05B4 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424FE16FBF00F004D05B4 /* map.png */; };
+		65F4250316FBFEE7004D05B4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250216FBFEE6004D05B4 /* MapKit.framework */; };
+		65F4250516FC022F004D05B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; };
+		65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -204,6 +216,22 @@
 		65AAFD4616BF171C00E2DA39 /* StopFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopFactory.h; path = Classes/StopFactory.h; sourceTree = "<group>"; };
 		65AAFD4716BF171C00E2DA39 /* StopFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopFactory.m; path = Classes/StopFactory.m; sourceTree = "<group>"; };
 		65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TourSelectionViewController.xib; path = Classes/TourSelectionViewController.xib; sourceTree = "<group>"; };
+		65F424E316FAADB9004D05B4 /* TourTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourTabBarViewController.h; path = Classes/TourTabBarViewController.h; sourceTree = "<group>"; };
+		65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourTabBarViewController.m; path = Classes/TourTabBarViewController.m; sourceTree = "<group>"; };
+		65F424E816FBDCEE004D05B4 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Classes/MapViewController.h; sourceTree = "<group>"; };
+		65F424E916FBDCEF004D05B4 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Classes/MapViewController.m; sourceTree = "<group>"; };
+		65F424ED16FBDD24004D05B4 /* StopNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopNavigationViewController.h; path = Classes/StopNavigationViewController.h; sourceTree = "<group>"; };
+		65F424EE16FBDD24004D05B4 /* StopNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopNavigationViewController.m; path = Classes/StopNavigationViewController.m; sourceTree = "<group>"; };
+		65F424F616FBF001004D05B4 /* keypad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad@2x.png"; path = "Resources/keypad@2x.png"; sourceTree = "<group>"; };
+		65F424F716FBF001004D05B4 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list@2x.png"; path = "Resources/list@2x.png"; sourceTree = "<group>"; };
+		65F424F816FBF001004D05B4 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "Resources/map@2x.png"; sourceTree = "<group>"; };
+		65F424FC16FBF00E004D05B4 /* keypad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keypad.png; path = Resources/keypad.png; sourceTree = "<group>"; };
+		65F424FD16FBF00E004D05B4 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Resources/list.png; sourceTree = "<group>"; };
+		65F424FE16FBF00F004D05B4 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Resources/map.png; sourceTree = "<group>"; };
+		65F4250216FBFEE6004D05B4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		65F4250416FC022F004D05B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		65F4250616FC03C0004D05B4 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKMapView+ZoomLevel.h"; path = "Classes/MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKMapView+ZoomLevel.m"; path = "Classes/MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +239,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F4250516FC022F004D05B4 /* CoreLocation.framework in Frameworks */,
+				65F4250316FBFEE7004D05B4 /* MapKit.framework in Frameworks */,
 				17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */,
 				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
 				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
@@ -311,11 +341,13 @@
 		17BAADFE15685F160012F849 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				65F4250416FC022F004D05B4 /* CoreLocation.framework */,
 				1707FC3E157728C80027B323 /* AudioToolbox.framework */,
 				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
 				17BAAE0515685F160012F849 /* CoreData.framework */,
 				17BAAE0315685F160012F849 /* CoreGraphics.framework */,
 				17BAAE0115685F160012F849 /* Foundation.framework */,
+				65F4250216FBFEE6004D05B4 /* MapKit.framework */,
 				1707FC3F157728C80027B323 /* MediaPlayer.framework */,
 				17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */,
 				17BAADFF15685F160012F849 /* UIKit.framework */,
@@ -363,8 +395,6 @@
 		17BAAE2915685F450012F849 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */,
-				6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */,
 				173551FE15DD7D4B008B3A5E /* AudioStopViewController.h */,
 				173551FF15DD7D4B008B3A5E /* AudioStopViewController.m */,
 				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
@@ -373,10 +403,18 @@
 				1707FC4715772A9C0027B323 /* ImageScrollViewController.m */,
 				1707FC1E15771F8E0027B323 /* KeypadViewController.h */,
 				1707FC1F15771F8E0027B323 /* KeypadViewController.m */,
+				6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */,
+				6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */,
+				65F424E816FBDCEE004D05B4 /* MapViewController.h */,
+				65F424E916FBDCEF004D05B4 /* MapViewController.m */,
 				1707FC2315771FB10027B323 /* StopGroupViewController.h */,
 				1707FC2415771FB10027B323 /* StopGroupViewController.m */,
 				1707FC1415771E640027B323 /* StopListViewController.h */,
 				1707FC1515771E640027B323 /* StopListViewController.m */,
+				65F424ED16FBDD24004D05B4 /* StopNavigationViewController.h */,
+				65F424EE16FBDD24004D05B4 /* StopNavigationViewController.m */,
+				65F424E316FAADB9004D05B4 /* TourTabBarViewController.h */,
+				65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */,
 				1707FC2815771FE70027B323 /* TourSelectionViewController.h */,
 				1707FC2915771FE70027B323 /* TourSelectionViewController.m */,
 				1735520215DD7DE9008B3A5E /* VideoStopViewController.h */,
@@ -443,6 +481,8 @@
 				171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */,
 				1788D0FA16759051004B577B /* UINavigationController+Rotation.h */,
 				1788D0FB16759051004B577B /* UINavigationController+Rotation.m */,
+				65F4250616FC03C0004D05B4 /* MKMapView+ZoomLevel.h */,
+				65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -450,6 +490,9 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				65F424F616FBF001004D05B4 /* keypad@2x.png */,
+				65F424F716FBF001004D05B4 /* list@2x.png */,
+				65F424F816FBF001004D05B4 /* map@2x.png */,
 				39A48D4416380480009B03AD /* Default-568h@2x.png */,
 			);
 			name = Retina;
@@ -458,6 +501,9 @@
 		65AAFD3216BE1B3100E2DA39 /* Non-retina */ = {
 			isa = PBXGroup;
 			children = (
+				65F424FC16FBF00E004D05B4 /* keypad.png */,
+				65F424FD16FBF00E004D05B4 /* list.png */,
+				65F424FE16FBF00F004D05B4 /* map.png */,
 				65376DD316C36860008BE3DD /* icon-audio.png */,
 				65376DD416C36860008BE3DD /* icon-image.png */,
 				65376DD516C36860008BE3DD /* icon-video.png */,
@@ -604,6 +650,12 @@
 				65376DD716C36860008BE3DD /* icon-image.png in Resources */,
 				65376DD816C36860008BE3DD /* icon-video.png in Resources */,
 				65F424E216F972A9004D05B4 /* TourSelectionViewController.xib in Resources */,
+				65F424F916FBF001004D05B4 /* keypad@2x.png in Resources */,
+				65F424FA16FBF001004D05B4 /* list@2x.png in Resources */,
+				65F424FB16FBF001004D05B4 /* map@2x.png in Resources */,
+				65F424FF16FBF00F004D05B4 /* keypad.png in Resources */,
+				65F4250016FBF00F004D05B4 /* list.png in Resources */,
+				65F4250116FBF00F004D05B4 /* map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +697,10 @@
 				65AAFD4216BE28E300E2DA39 /* StopGroup.m in Sources */,
 				65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */,
 				65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */,
+				65F424E616FAADBB004D05B4 /* TourTabBarViewController.m in Sources */,
+				65F424EB16FBDCF0004D05B4 /* MapViewController.m in Sources */,
+				65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */,
+				65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

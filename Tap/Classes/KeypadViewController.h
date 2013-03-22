@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "StopNavigationViewController.h"
 
-@interface KeypadViewController : UIViewController
+@interface KeypadViewController : StopNavigationViewController
 {
     IBOutlet UIImageView *bannerImage;
 	IBOutlet UILabel *lblCode;

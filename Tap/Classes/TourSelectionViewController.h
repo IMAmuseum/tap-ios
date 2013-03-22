@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class TAPStop;
-
 @interface TourSelectionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
-
-- (void)loadStop:(TAPStop *)stopModel;
 
 @end

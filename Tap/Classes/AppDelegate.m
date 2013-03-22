@@ -62,7 +62,11 @@
 //    [GAI sharedInstance].trackUncaughtExceptions = YES;
 //    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
 //    // start session
-//    [self.tracker setSessionTimeout:60];    
+//    [self.tracker setSessionTimeout:60];
+    
+    TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
+    [self setRootViewController:viewController];
+    [self.window setRootViewController:viewController];
     
     // Add overlay images of the splash to slide apart
     UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
@@ -72,10 +76,6 @@
     
     [self.window addSubview:splashTop];
     [self.window addSubview:splashBtm];
-    
-    TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
-    // Add the navigation controller to the window
-    [self.window setRootViewController:viewController];
     
     // initialize only if we're not coming from a url
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {

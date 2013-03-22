@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Indianapolis Museum of Art. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "StopNavigationViewController.h"
 
-@interface StopListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface StopListViewController : StopNavigationViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
 @property (nonatomic, strong) NSArray *stops;

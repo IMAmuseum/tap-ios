@@ -33,6 +33,6 @@
 - (UIViewController *)newViewController;
 
 // Let the stop run itself
-- (BOOL)loadStopView;
+- (BOOL)loadStopViewForViewController:(UIViewController *)viewController;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "TourSelectionViewController.h"
+#import "TourTabBarViewController.h"
 #import "AppDelegate.h"
 #import "UINavigationController+Rotation.h"
 #import "KeypadViewController.h"
@@ -22,30 +23,12 @@
 
 @interface TourSelectionViewController()
 @property (nonatomic, unsafe_unretained) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
-@property (nonatomic, strong) NSArray *stopNavigationControllers;
+@property (nonatomic, unsafe_unretained) IBOutlet UITableView *tourListTable;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *tourFetchedResultsController;
 @end
 
 @implementation TourSelectionViewController
-
-- (id)init
-{
-    self = [super init];
-    if(self) {
-
-        // setup stop navigation controllers
-        UIViewController *keypadViewController = [[KeypadViewController alloc] init];
-        UIViewController *stopListViewController = [[StopListViewController alloc] init];
-
-        
-        // store the stop navigation controllers
-        self.stopNavigationControllers = [NSArray arrayWithObjects:keypadViewController, stopListViewController, nil];
-   
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -86,6 +69,15 @@
     [self.navigationBar pushNavigationItem:navigationItem animated:NO];    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{  
+    // reload the table with the correct tour data
+    [self.tourListTable reloadData];
+    
+    // Deselect anything from the table
+	[self.tourListTable deselectRowAtIndexPath:[self.tourListTable indexPathForSelectedRow] animated:animated];
+}
+
 - (void)viewDidUnload 
 {
     [super viewDidUnload];
@@ -108,21 +100,6 @@
 	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
     [self presentMoviePlayerViewControllerAnimated:movieController];
-}
-
-/**
- * Handle loading a selected stop
- */
-- (void)loadStop:(TAPStop *)stopModel
-{
-    BaseStop *stop = [StopFactory newStopForStopNode:stopModel];
-    
-    if ([stop providesViewController]) {
-        UIViewController *viewController = [stop newViewController];
-        [self.navigationController pushViewController:viewController animated:YES];
-	} else {
-		[stop loadStopView];
-	}
 }
 
 #pragma mark - Table view data source
@@ -183,6 +160,11 @@
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
     // set the current tour
     [appDelegate setCurrentTour:tour];
+    
+    TourTabBarViewController *viewController = [[TourTabBarViewController alloc] init];
+    [viewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self presentViewController:viewController animated:YES completion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark View controller rotation methods

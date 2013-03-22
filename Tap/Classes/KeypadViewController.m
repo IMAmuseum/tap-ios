@@ -32,12 +32,16 @@
 {
     self = [super init];
     if(self) {
-        [self setTitle:NSLocalizedString(@"Keypad", @"")];
+        [self setTitle:NSLocalizedString(@"Enter a key code", @"")];
+        [self.tabBarItem setTitle:NSLocalizedString(@"Keypad", @"")];
+        [self.tabBarItem setImage:[UIImage imageNamed:@"keypad"]];
     }
     return self;
 }
 
 - (void)viewDidLoad{
+    [super viewDidLoad];
+    
     [btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
     [btnGo setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
 }
@@ -106,7 +110,7 @@
 		[self clearCode];
 		return;
     } else {
-        //[appDelegate.rootViewController loadStop:stop];
+        [self loadStop:stop];
     }
 }
 

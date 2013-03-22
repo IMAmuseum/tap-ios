@@ -31,11 +31,10 @@
 	return NO;
 }
 
--(BOOL)loadStopView
+- (BOOL)loadStopViewForViewController:(UIViewController *)viewController
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    AudioStopViewController *viewController = [[AudioStopViewController alloc] initWithStop:self];
-    [appDelegate.rootViewController.navigationController presentMoviePlayerViewControllerAnimated:viewController];
+    AudioStopViewController *audioViewController = [[AudioStopViewController alloc] initWithStop:self];
+    [viewController.navigationController presentMoviePlayerViewControllerAnimated:audioViewController];
 	return YES;
 }
 

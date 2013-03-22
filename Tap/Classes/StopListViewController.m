@@ -17,7 +17,9 @@
 {
     self = [super init];
     if(self) {
-        [self setTitle:NSLocalizedString(@"Index", @"")];
+        [self setTitle:NSLocalizedString(@"Select a Stop", @"")];
+        [self.tabBarItem setTitle:NSLocalizedString(@"Stop List", @"")];
+        [self.tabBarItem setImage:[UIImage imageNamed:@"list"]];
     }
     return self;
 }
@@ -69,8 +71,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {	
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    //[appDelegate loadStop:[_stops objectAtIndex:indexPath.row]];
+    [self loadStop:[_stops objectAtIndex:indexPath.row]];
 }
 
 #pragma mark View controller rotation methods

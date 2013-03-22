@@ -14,6 +14,7 @@
 #import "TAPAsset.h"
 #import "TAPSource.h"
 #import "TAPConnection.h"
+#import "StopNavigationViewController.h"
 
 #define HEADER_IMAGE_VIEW_TAG 8637
 #define CELL_CONTENT_WIDTH 320.0f
@@ -181,7 +182,8 @@
 {	
     if (indexPath.section == 1 || !sectionsEnabled) {
         BaseStop *stop = [_stops objectAtIndex:indexPath.row];
-        //[(AppDelegate *)[[UIApplication sharedApplication] delegate] loadStop:stop.model];
+        StopNavigationViewController *controller = (StopNavigationViewController *)[self.navigationController.viewControllers objectAtIndex:0];
+        [controller loadStop:stop.model];
     }
 }
 
