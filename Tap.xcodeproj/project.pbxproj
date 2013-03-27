@@ -76,6 +76,8 @@
 		65376DD816C36860008BE3DD /* icon-video.png in Resources */ = {isa = PBXBuildFile; fileRef = 65376DD516C36860008BE3DD /* icon-video.png */; };
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
 		6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */; };
+		655B390B1702A0D900BC1ED4 /* question-mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 655B390A1702A0D900BC1ED4 /* question-mark.png */; };
+		655B390D1702A33800BC1ED4 /* question-mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 655B390C1702A33800BC1ED4 /* question-mark@2x.png */; };
 		65AAFD3916BE27D700E2DA39 /* BaseStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3816BE27D700E2DA39 /* BaseStop.m */; };
 		65AAFD3C16BE28C200E2DA39 /* ImageStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3B16BE28C200E2DA39 /* ImageStop.m */; };
 		65AAFD3F16BE28D200E2DA39 /* AudioStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 65AAFD3E16BE28D200E2DA39 /* AudioStop.m */; };
@@ -202,6 +204,8 @@
 		6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageSelectionViewController.h; path = Classes/LanguageSelectionViewController.h; sourceTree = "<group>"; };
 		6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageSelectionViewController.m; path = Classes/LanguageSelectionViewController.m; sourceTree = "<group>"; };
 		6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanguageSelectionViewController.xib; path = Classes/LanguageSelectionViewController.xib; sourceTree = "<group>"; };
+		655B390A1702A0D900BC1ED4 /* question-mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "question-mark.png"; path = "Resources/question-mark.png"; sourceTree = "<group>"; };
+		655B390C1702A33800BC1ED4 /* question-mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "question-mark@2x.png"; path = "Resources/question-mark@2x.png"; sourceTree = "<group>"; };
 		65AAFD3616BE27B100E2DA39 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stop.h; path = Classes/Stop.h; sourceTree = "<group>"; };
 		65AAFD3716BE27D700E2DA39 /* BaseStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseStop.h; path = Classes/BaseStop.h; sourceTree = "<group>"; };
 		65AAFD3816BE27D700E2DA39 /* BaseStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseStop.m; path = Classes/BaseStop.m; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				655B390C1702A33800BC1ED4 /* question-mark@2x.png */,
 				65F424F616FBF001004D05B4 /* keypad@2x.png */,
 				65F424F716FBF001004D05B4 /* list@2x.png */,
 				65F424F816FBF001004D05B4 /* map@2x.png */,
@@ -501,6 +506,7 @@
 		65AAFD3216BE1B3100E2DA39 /* Non-retina */ = {
 			isa = PBXGroup;
 			children = (
+				655B390A1702A0D900BC1ED4 /* question-mark.png */,
 				65F424FC16FBF00E004D05B4 /* keypad.png */,
 				65F424FD16FBF00E004D05B4 /* list.png */,
 				65F424FE16FBF00F004D05B4 /* map.png */,
@@ -656,6 +662,8 @@
 				65F424FF16FBF00F004D05B4 /* keypad.png in Resources */,
 				65F4250016FBF00F004D05B4 /* list.png in Resources */,
 				65F4250116FBF00F004D05B4 /* map.png in Resources */,
+				655B390B1702A0D900BC1ED4 /* question-mark.png in Resources */,
+				655B390D1702A33800BC1ED4 /* question-mark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,12 +59,14 @@
         NSLog(@"Error: %@", error);
     }
     
+    // setup custom background button view
+    UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
+    [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [helpButtonView setBackgroundImage: [UIImage imageNamed:@"question-mark"] forState: UIControlStateNormal];
+    
     // setup navigation bar
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
-                                                                   style:UIBarButtonItemStyleDone
-                                                                  target:self
-                                                                  action:@selector(helpButtonClicked:)];
-    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Tours", @"")];
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
+    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Select a Tour", @"")];
     [navigationItem setRightBarButtonItem:helpButton];
     [self.navigationBar pushNavigationItem:navigationItem animated:NO];    
 }

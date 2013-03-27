@@ -11,6 +11,8 @@
 #import "AppDelegate.h"
 
 @interface StopNavigationViewController ()
+- (IBAction)navigateToTourSelection:(id)sender;
+- (IBAction)helpButtonClicked:(id)sender;
 @end
 
 @implementation StopNavigationViewController
@@ -18,15 +20,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // setup tours back button
     UIBarButtonItem *toursButton = [[UIBarButtonItem alloc] initWithTitle:@"Tours"
                                                         style:UIBarButtonItemStyleBordered
                                                         target:self
                                                         action:@selector(navigateToTourSelection:)];
-    // setup navigation bar
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Help", @"")
-                                                                   style:UIBarButtonItemStyleDone
-                                                                  target:self
-                                                                  action:@selector(helpButtonClicked:)];
+    // setup custom background button view for help button
+    UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
+    [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [helpButtonView setBackgroundImage: [UIImage imageNamed:@"question-mark"] forState: UIControlStateNormal];
+    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationItem setLeftBarButtonItem:toursButton];

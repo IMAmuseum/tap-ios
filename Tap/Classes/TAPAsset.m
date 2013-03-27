@@ -45,7 +45,7 @@
 - (NSArray *)getSourcesByPart:(NSString *)part
 {
     NSMutableArray *sources = [[NSMutableArray alloc] init];
-    for (TAPSource *source in self.content) {
+    for (TAPSource *source in self.source) {
         if ([source.part isEqualToString:part]) {
             [sources addObject:source];
         }
