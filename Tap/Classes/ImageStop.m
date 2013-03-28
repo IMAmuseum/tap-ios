@@ -15,7 +15,7 @@
 
 - (NSString *)getIconPath
 {
-	return [[NSBundle mainBundle] pathForResource:@"icon-image" ofType:@"png"];
+	return [[NSBundle mainBundle] pathForResource:@"photo-icon" ofType:@"png"];
 }
 
 -(BOOL)providesViewController

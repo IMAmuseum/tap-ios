@@ -22,7 +22,7 @@
 
 - (NSString *)getIconPath
 {
-	return [[NSBundle mainBundle] pathForResource:@"icon-video" ofType:@"png"];
+	return [[NSBundle mainBundle] pathForResource:@"video-icon" ofType:@"png"];
 }
 
 -(BOOL)providesViewController

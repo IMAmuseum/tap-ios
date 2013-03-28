@@ -23,7 +23,7 @@
 
 - (NSString *)getIconPath
 {
-	return [[NSBundle mainBundle] pathForResource:@"icon-audio" ofType:@"png"];
+	return [[NSBundle mainBundle] pathForResource:@"audio-icon" ofType:@"png"];
 }
 
 -(BOOL)providesViewController

@@ -10,6 +10,11 @@
 	<string>TAP Help Video.mp4</string>
 	<key>KioskMode</key>
 	<false/>
+	<key>TourConfig</key>
+	<dict>
+		<key>New item</key>
+		<string></string>
+	</dict>
 	<key>TourMLEndpoint</key>
 	<string></string>
 	<key>Stops</key>

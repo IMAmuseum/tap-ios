@@ -26,6 +26,9 @@
 @property (nonatomic, unsafe_unretained) IBOutlet UITableView *tourListTable;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *tourFetchedResultsController;
+
+- (IBAction)selectLanguage:(id)sender;
+- (IBAction)helpButtonClicked:(id)sender;
 @end
 
 @implementation TourSelectionViewController
@@ -59,15 +62,28 @@
         NSLog(@"Error: %@", error);
     }
     
-    // setup custom background button view
+    // setup navigation bar
+    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Select a Tour", @"")];
+    
+    // Enable language selection if in kiosk mode
+    if ([[appDelegate.tapConfig objectForKey:@"KioskMode"] boolValue]) {
+        // setup custom language button view
+        UIButton *languageSelectionView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
+        [languageSelectionView addTarget:self action:@selector(selectLanguage:) forControlEvents:UIControlEventTouchUpInside];
+        [languageSelectionView setBackgroundImage: [UIImage imageNamed:@"globe"] forState: UIControlStateNormal];
+
+        UIBarButtonItem *languageButton = [[UIBarButtonItem alloc] initWithCustomView:languageSelectionView];
+        [navigationItem setLeftBarButtonItem:languageButton];
+    }
+    
+    // setup custom help button view
     UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
     [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [helpButtonView setBackgroundImage: [UIImage imageNamed:@"question-mark"] forState: UIControlStateNormal];
     
-    // setup navigation bar
     UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
-    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Select a Tour", @"")];
     [navigationItem setRightBarButtonItem:helpButton];
+    
     [self.navigationBar pushNavigationItem:navigationItem animated:NO];    
 }
 
@@ -84,6 +100,11 @@
 {
     [super viewDidUnload];
     self.tourFetchedResultsController = nil;
+}
+
+- (IBAction)selectLanguage:(id)sender
+{
+    
 }
 
 /**
