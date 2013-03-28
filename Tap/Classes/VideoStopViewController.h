@@ -12,8 +12,6 @@
 
 @interface VideoStopViewController : MPMoviePlayerViewController
 
-@property (nonatomic, strong) VideoStop *videoStop;
-
 - (id)initWithStop:(VideoStop *)stop;
 
 @end

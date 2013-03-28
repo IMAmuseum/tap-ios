@@ -10,7 +10,4 @@
 
 @interface StopListViewController : StopNavigationViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
-@property (nonatomic, strong) NSArray *stops;
-
 @end

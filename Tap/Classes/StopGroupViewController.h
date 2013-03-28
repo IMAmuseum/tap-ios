@@ -10,14 +10,7 @@
 
 @class StopGroup;
 
-@interface StopGroupViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-    BOOL sectionsEnabled;
-}
-
-@property (nonatomic, unsafe_unretained) UITableView *stopGroupTable;
-@property (nonatomic, unsafe_unretained) UIImageView *bannerImage;
-@property (nonatomic, strong) StopGroup *stopGroup;
-@property (nonatomic, strong) NSMutableArray *stops;
+@interface StopGroupViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 - (id)initWithStop:(StopGroup *)stop;
 

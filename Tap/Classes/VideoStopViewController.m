@@ -9,6 +9,10 @@
 #import "VideoStopViewController.h"
 #import "VideoStop.h"
 
+@interface VideoStopViewController()
+@property (nonatomic, strong) VideoStop *videoStop;
+@end
+
 @implementation VideoStopViewController
 
 - (id)initWithStop:(VideoStop *)stop

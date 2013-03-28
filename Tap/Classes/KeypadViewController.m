@@ -15,7 +15,22 @@
 #define MINIMUM_CODE_LENGTH	1
 #define MAXIMUM_CODE_LENGTH	5
 
-@interface KeypadViewController ()
+@interface KeypadViewController () {
+    IBOutlet UIImageView *bannerImage;
+	IBOutlet UILabel *lblCode;
+	IBOutlet UIButton *btnGo;
+	IBOutlet UIButton *btn0;
+	IBOutlet UIButton *btn1;
+	IBOutlet UIButton *btn2;
+	IBOutlet UIButton *btn3;
+	IBOutlet UIButton *btn4;
+	IBOutlet UIButton *btn5;
+	IBOutlet UIButton *btn6;
+	IBOutlet UIButton *btn7;
+	IBOutlet UIButton *btn8;
+	IBOutlet UIButton *btn9;
+	IBOutlet UIButton *btnClear;
+}
 // Event for down press to play a sound
 - (IBAction)playKeyClick:(id)sender;
 // Event for pushing any numeric button or the clear button

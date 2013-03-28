@@ -11,6 +11,11 @@
 #import "TAPTour.h"
 #import "TAPStop.h"
 
+@interface StopNavigationViewController()
+@property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
+@property (nonatomic, strong) NSArray *stops;
+@end
+
 @implementation StopListViewController
 
 -(id)init 
@@ -32,20 +37,20 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'code' AND $ps.value != nil AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", appDelegate.language];
     NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
     NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
-    _stops = [[NSArray alloc] initWithArray:sortedArray];
+    self.stops = [[NSArray alloc] initWithArray:sortedArray];
     
     // reload the table with the correct tour data
-    [_stopListTable reloadData];
+    [self.stopListTable reloadData];
     
     // Deselect anything from the table
-	[_stopListTable deselectRowAtIndexPath:[_stopListTable indexPathForSelectedRow] animated:animated];
+	[self.stopListTable deselectRowAtIndexPath:[self.stopListTable indexPathForSelectedRow] animated:animated];
 }
 
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_stops count];
+    return [self.stops count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,7 +66,7 @@
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 
-    TAPStop *stop = [_stops objectAtIndex:indexPath.row];
+    TAPStop *stop = [self.stops objectAtIndex:indexPath.row];
     [[cell textLabel] setText:(NSString *)stop.title];
     
 	return cell;
@@ -71,7 +76,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {	
-    [self loadStop:[_stops objectAtIndex:indexPath.row]];
+    [self loadStop:[self.stops objectAtIndex:indexPath.row]];
 }
 
 #pragma mark View controller rotation methods

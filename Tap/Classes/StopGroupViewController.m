@@ -22,6 +22,17 @@
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
+@interface StopGroupViewController() {
+    BOOL sectionsEnabled;
+}
+    
+@property (nonatomic, unsafe_unretained) UITableView *stopGroupTable;
+@property (nonatomic, unsafe_unretained) UIImageView *bannerImage;
+@property (nonatomic, strong) StopGroup *stopGroup;
+@property (nonatomic, strong) NSMutableArray *stops;
+
+@end
+
 @implementation StopGroupViewController
 
 - (id)initWithStop:(StopGroup *)stop
@@ -48,11 +59,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-
-    // Set the table background image
-	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
-	
-
+    
     UIImageView *headerImage = [self.stopGroup getHeaderImage];
     if (headerImage) {
         [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
@@ -75,11 +82,13 @@
 
 #pragma mark UITableViewDataSource
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     return @"";
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     if (sectionsEnabled) {
         return 2;
     } else {

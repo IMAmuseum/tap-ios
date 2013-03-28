@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1707FBF915771B9F0027B323 /* bg-header-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBDE15771B9F0027B323 /* bg-header-wide.png */; };
 		1707FBFA15771B9F0027B323 /* bg-header.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBDF15771B9F0027B323 /* bg-header.png */; };
-		1707FBFB15771B9F0027B323 /* bg-main-tile.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE015771B9F0027B323 /* bg-main-tile.png */; };
-		1707FBFC15771B9F0027B323 /* bg-main.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE115771B9F0027B323 /* bg-main.png */; };
 		1707FC0215771B9F0027B323 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBE715771B9F0027B323 /* Default.png */; };
 		1707FC0A15771B9F0027B323 /* keypad-clear-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBEF15771B9F0027B323 /* keypad-clear-down.png */; };
 		1707FC0B15771B9F0027B323 /* keypad-clear-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF015771B9F0027B323 /* keypad-clear-up.png */; };
@@ -57,6 +54,14 @@
 		177318A71704D59000A53F67 /* tap-splash-btm-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A51704D59000A53F67 /* tap-splash-btm-568h@2x.png */; };
 		177318A81704D59000A53F67 /* tap-splash-top-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A61704D59000A53F67 /* tap-splash-top-568h@2x.png */; };
 		177318AA1704D70D00A53F67 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A91704D70D00A53F67 /* Icon@2x.png */; };
+		177318B21704DEB700A53F67 /* bg-header@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318AB1704DEB700A53F67 /* bg-header@2x.png */; };
+		177318B31704DEB700A53F67 /* keypad-clear-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318AC1704DEB700A53F67 /* keypad-clear-down@2x.png */; };
+		177318B41704DEB700A53F67 /* keypad-clear-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318AD1704DEB700A53F67 /* keypad-clear-up@2x.png */; };
+		177318B51704DEB700A53F67 /* keypad-go-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318AE1704DEB700A53F67 /* keypad-go-down@2x.png */; };
+		177318B61704DEB700A53F67 /* keypad-go-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318AF1704DEB700A53F67 /* keypad-go-up@2x.png */; };
+		177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B01704DEB700A53F67 /* keypad-number-down@2x.png */; };
+		177318B81704DEB700A53F67 /* keypad-number-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B11704DEB700A53F67 /* keypad-number-up@2x.png */; };
+		177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B91704DF1900A53F67 /* keypad-textfield@2x.png */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
@@ -117,10 +122,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1707FBDE15771B9F0027B323 /* bg-header-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-header-wide.png"; path = "Resources/bg-header-wide.png"; sourceTree = "<group>"; };
 		1707FBDF15771B9F0027B323 /* bg-header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-header.png"; path = "Resources/bg-header.png"; sourceTree = "<group>"; };
-		1707FBE015771B9F0027B323 /* bg-main-tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-main-tile.png"; path = "Resources/bg-main-tile.png"; sourceTree = "<group>"; };
-		1707FBE115771B9F0027B323 /* bg-main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-main.png"; path = "Resources/bg-main.png"; sourceTree = "<group>"; };
 		1707FBE715771B9F0027B323 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		1707FBEF15771B9F0027B323 /* keypad-clear-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-clear-down.png"; path = "Resources/keypad-clear-down.png"; sourceTree = "<group>"; };
 		1707FBF015771B9F0027B323 /* keypad-clear-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-clear-up.png"; path = "Resources/keypad-clear-up.png"; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 		177318A51704D59000A53F67 /* tap-splash-btm-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-btm-568h@2x.png"; path = "Resources/tap-splash-btm-568h@2x.png"; sourceTree = "<group>"; };
 		177318A61704D59000A53F67 /* tap-splash-top-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-top-568h@2x.png"; path = "Resources/tap-splash-top-568h@2x.png"; sourceTree = "<group>"; };
 		177318A91704D70D00A53F67 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		177318AB1704DEB700A53F67 /* bg-header@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bg-header@2x.png"; path = "Resources/bg-header@2x.png"; sourceTree = "<group>"; };
+		177318AC1704DEB700A53F67 /* keypad-clear-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-clear-down@2x.png"; path = "Resources/keypad-clear-down@2x.png"; sourceTree = "<group>"; };
+		177318AD1704DEB700A53F67 /* keypad-clear-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-clear-up@2x.png"; path = "Resources/keypad-clear-up@2x.png"; sourceTree = "<group>"; };
+		177318AE1704DEB700A53F67 /* keypad-go-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-go-down@2x.png"; path = "Resources/keypad-go-down@2x.png"; sourceTree = "<group>"; };
+		177318AF1704DEB700A53F67 /* keypad-go-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-go-up@2x.png"; path = "Resources/keypad-go-up@2x.png"; sourceTree = "<group>"; };
+		177318B01704DEB700A53F67 /* keypad-number-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-down@2x.png"; path = "Resources/keypad-number-down@2x.png"; sourceTree = "<group>"; };
+		177318B11704DEB700A53F67 /* keypad-number-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-up@2x.png"; path = "Resources/keypad-number-up@2x.png"; sourceTree = "<group>"; };
+		177318B91704DF1900A53F67 /* keypad-textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-textfield@2x.png"; path = "Resources/keypad-textfield@2x.png"; sourceTree = "<group>"; };
 		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
 		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -523,6 +533,14 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				177318B91704DF1900A53F67 /* keypad-textfield@2x.png */,
+				177318AB1704DEB700A53F67 /* bg-header@2x.png */,
+				177318AC1704DEB700A53F67 /* keypad-clear-down@2x.png */,
+				177318AD1704DEB700A53F67 /* keypad-clear-up@2x.png */,
+				177318AE1704DEB700A53F67 /* keypad-go-down@2x.png */,
+				177318AF1704DEB700A53F67 /* keypad-go-up@2x.png */,
+				177318B01704DEB700A53F67 /* keypad-number-down@2x.png */,
+				177318B11704DEB700A53F67 /* keypad-number-up@2x.png */,
 				65CBBE531703EF9500A78E7E /* audio-icon@2x.png */,
 				65CBBE6B1703F57100A78E7E /* btn-close@2x.png */,
 				65CBBE671703F45700A78E7E /* btn-open@2x.png */,
@@ -550,10 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				65CBBE5D1703EFB000A78E7E /* audio-icon.png */,
-				1707FBDE15771B9F0027B323 /* bg-header-wide.png */,
 				1707FBDF15771B9F0027B323 /* bg-header.png */,
-				1707FBE015771B9F0027B323 /* bg-main-tile.png */,
-				1707FBE115771B9F0027B323 /* bg-main.png */,
 				65CBBE6D1703F57800A78E7E /* btn-close.png */,
 				65CBBE691703F45E00A78E7E /* btn-open.png */,
 				1707FBE715771B9F0027B323 /* Default.png */,
@@ -665,10 +680,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17BAAE2C1568B1B70012F849 /* MainWindow.xib in Resources */,
-				1707FBF915771B9F0027B323 /* bg-header-wide.png in Resources */,
 				1707FBFA15771B9F0027B323 /* bg-header.png in Resources */,
-				1707FBFB15771B9F0027B323 /* bg-main-tile.png in Resources */,
-				1707FBFC15771B9F0027B323 /* bg-main.png in Resources */,
 				1707FC0215771B9F0027B323 /* Default.png in Resources */,
 				1707FC0A15771B9F0027B323 /* keypad-clear-down.png in Resources */,
 				1707FC0B15771B9F0027B323 /* keypad-clear-up.png in Resources */,
@@ -724,6 +736,14 @@
 				177318A71704D59000A53F67 /* tap-splash-btm-568h@2x.png in Resources */,
 				177318A81704D59000A53F67 /* tap-splash-top-568h@2x.png in Resources */,
 				177318AA1704D70D00A53F67 /* Icon@2x.png in Resources */,
+				177318B21704DEB700A53F67 /* bg-header@2x.png in Resources */,
+				177318B31704DEB700A53F67 /* keypad-clear-down@2x.png in Resources */,
+				177318B41704DEB700A53F67 /* keypad-clear-up@2x.png in Resources */,
+				177318B51704DEB700A53F67 /* keypad-go-down@2x.png in Resources */,
+				177318B61704DEB700A53F67 /* keypad-go-up@2x.png in Resources */,
+				177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */,
+				177318B81704DEB700A53F67 /* keypad-number-up@2x.png in Resources */,
+				177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
