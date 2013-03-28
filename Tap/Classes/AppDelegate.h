@@ -10,11 +10,10 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
-#import "GAI.h"
 
 @class TAPTour, TAPStop;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) UIViewController *rootViewController;
@@ -27,15 +26,12 @@
 @property (nonatomic, strong) NSDictionary *tapConfig;
 @property (nonatomic, strong) NSString *language;
 
-@property (nonatomic, retain) id<GAITracker> tracker;
-
 @property (readwrite) CFURLRef clickFileURLRef;
 @property (readonly) SystemSoundID clickFileObject;
 @property (readwrite) CFURLRef errorFileURLRef;
 @property (readonly) SystemSoundID errorFileObject;
 
 - (void)animateSplashImage;
-- (void)playHelpVideo;
 - (void)playClick;
 - (void)playError;
 

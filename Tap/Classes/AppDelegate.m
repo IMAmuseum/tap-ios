@@ -18,6 +18,7 @@
 #import "StopFactory.h"
 #import "TourMLParser.h"
 #import "TourSelectionViewController.h"
+#import "StopNavigationViewController.h"
 
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
@@ -55,14 +56,6 @@
     [TourMLParser loadTours];
     
     // retrieve tracker id
-    NSString *trackingId = [self.tapConfig objectForKey:@"GATrackerId"];
-//    // initialize Google Analytics
-//    [GAI sharedInstance].debug = YES;
-//    [GAI sharedInstance].dispatchInterval = 10;
-//    [GAI sharedInstance].trackUncaughtExceptions = YES;
-//    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
-//    // start session
-//    [self.tracker setSessionTimeout:60];
     
     TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
     [self setRootViewController:viewController];
@@ -166,57 +159,7 @@
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_TOP_TAG] removeFromSuperview];
 	[[self.window viewWithTag:SPLASH_SLIDE_IMAGE_BTM_TAG] removeFromSuperview];
 	
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
-    
-    if (!helpVideoHasPlayed) {
-        // Show a prompt for the help video
-        UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
-                                                             message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
-                                                            delegate:self
-                                                   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
-                                                   otherButtonTitles:nil];
-        [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
-        
-        [helpPrompt show];
-    }
-}
-
-#pragma mark UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex 
-{
-	if (buttonIndex == 1) {
-        [self playHelpVideo];
-	}
-}
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
-    
-    if (!helpVideoHasPlayed) {
-        [defaults setBool:YES forKey:@"helpVideoHasPlayed"];
-    }
-}
-
-/**
- * Plays help video
- */
-- (void)playHelpVideo
-{
-//    [self.tracker sendEventWithCategory:@"Help" withAction:@"buttonPress" withLabel:@"Requested help" withValue:[NSNumber numberWithInt:1]];
-// 
-//    NSString *videoSrc = [self.tapConfig objectForKey:@"HelpVideo"];
-//    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
-//                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
-//	if (!videoPath) return;
-//	
-//	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
-//	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-//	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-//    [self presentMoviePlayerViewControllerAnimated:movieController];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ApplicationDidFinishStartAnimation" object:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application 

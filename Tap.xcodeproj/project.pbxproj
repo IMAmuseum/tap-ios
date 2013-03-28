@@ -48,6 +48,7 @@
 		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
 		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = ""; }; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
+		177318971704B5CA00A53F67 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177318961704B5CA00A53F67 /* libFlurry.a */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
@@ -63,7 +64,6 @@
 		17DE996E15ABA5C2004C8A25 /* error.aif in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996C15ABA5C2004C8A25 /* error.aif */; };
 		17DE997015ABC568004C8A25 /* StopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListViewController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
-		17F3E92B16C001FA002E3957 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */; };
 		17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */; };
 		39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A48D4416380480009B03AD /* Default-568h@2x.png */; };
 		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
@@ -171,6 +171,8 @@
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
 		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
+		177318951704B5CA00A53F67 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		177318961704B5CA00A53F67 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
 		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,12 +199,6 @@
 		39B8A564163DD0F700197596 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A565163DD10000197596 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A566163DD10800197596 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		651BC3BF16BFF40A0065E65E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Classes/GAI.h; sourceTree = "<group>"; };
-		651BC3C016BFF40A0065E65E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Classes/GAITrackedViewController.h; sourceTree = "<group>"; };
-		651BC3C116BFF40A0065E65E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Classes/GAITracker.h; sourceTree = "<group>"; };
-		651BC3C216BFF40A0065E65E /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransaction.h; path = Classes/GAITransaction.h; sourceTree = "<group>"; };
-		651BC3C316BFF40A0065E65E /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITransactionItem.h; path = Classes/GAITransactionItem.h; sourceTree = "<group>"; };
-		651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Classes/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		6540AA9E167DBFD200C0EC65 /* LanguageSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageSelectionViewController.h; path = Classes/LanguageSelectionViewController.h; sourceTree = "<group>"; };
 		6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageSelectionViewController.m; path = Classes/LanguageSelectionViewController.m; sourceTree = "<group>"; };
 		6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LanguageSelectionViewController.xib; path = Classes/LanguageSelectionViewController.xib; sourceTree = "<group>"; };
@@ -271,7 +267,7 @@
 				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
 				17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */,
-				17F3E92B16C001FA002E3957 /* libGoogleAnalytics.a in Frameworks */,
+				177318971704B5CA00A53F67 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +336,16 @@
 				17BAAE2815685F400012F849 /* Views */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		177318941704B5CA00A53F67 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				177318951704B5CA00A53F67 /* Flurry.h */,
+				177318961704B5CA00A53F67 /* libFlurry.a */,
+			);
+			name = Flurry;
+			path = Classes/Flurry;
 			sourceTree = "<group>";
 		};
 		17BAADF015685F150012F849 = {
@@ -448,10 +454,10 @@
 		17BAAE2A15685F510012F849 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				177318941704B5CA00A53F67 /* Flurry */,
 				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
 				17F3E92D16C03261002E3957 /* TourML Parser */,
 				17F3E92C16C03251002E3957 /* GDataXML */,
-				651BC3BE16BFF3F00065E65E /* Google Analytics */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -481,19 +487,6 @@
 				173A566515B99A3F0060DDE2 /* ISO8601DateFormatter.m */,
 			);
 			name = ISO8601DataFormatter;
-			sourceTree = "<group>";
-		};
-		651BC3BE16BFF3F00065E65E /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				651BC3BF16BFF40A0065E65E /* GAI.h */,
-				651BC3C016BFF40A0065E65E /* GAITrackedViewController.h */,
-				651BC3C116BFF40A0065E65E /* GAITracker.h */,
-				651BC3C216BFF40A0065E65E /* GAITransaction.h */,
-				651BC3C316BFF40A0065E65E /* GAITransactionItem.h */,
-				651BC3C416BFF40A0065E65E /* libGoogleAnalytics.a */,
-			);
-			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		65AAFD3016BE1AB000E2DA39 /* Utilities */ = {
@@ -776,6 +769,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -791,6 +785,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -804,7 +799,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -813,6 +809,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -826,8 +824,8 @@
 					armv6,
 				);
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Daniel Cervantes (GAE8RG58RJ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
@@ -838,10 +836,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
 					"\"$(SRCROOT)/Tap/Classes\"",
+					"\"$(SRCROOT)/Tap/Classes/Flurry\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "17953C5C-11DF-434F-8076-A813119047B8";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -867,6 +867,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
 					"\"$(SRCROOT)/Tap/Classes\"",
+					"\"$(SRCROOT)/Tap/Classes/Flurry\"",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";

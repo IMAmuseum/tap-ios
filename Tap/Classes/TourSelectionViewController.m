@@ -33,6 +33,16 @@
 
 @implementation TourSelectionViewController
 
+- (id)init
+{
+    self = [super init];
+    if(self) {
+        // add timeout observer
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidFinishLaunching:) name:@"ApplicationDidFinishStartAnimation" object:nil];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -100,29 +110,6 @@
 {
     [super viewDidUnload];
     self.tourFetchedResultsController = nil;
-}
-
-- (IBAction)selectLanguage:(id)sender
-{
-    
-}
-
-/**
- * Action method that is fired when the help button is selected
- */
-- (IBAction)helpButtonClicked:(id)sender
-{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSString *videoSrc = [appDelegate.tapConfig objectForKey:@"HelpVideo"];
-    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
-                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
-	if (!videoPath) return;
-	
-	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
-	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
-	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-    [self presentMoviePlayerViewControllerAnimated:movieController];
 }
 
 #pragma mark - Table view data source
@@ -195,6 +182,77 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark - Notification handler
+
+-(void)applicationDidFinishLaunching:(NSNotification *)notification
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
+    
+    if (!helpVideoHasPlayed || [[appDelegate.tapConfig objectForKey:@"KioskMode"] boolValue]) {
+        // Show a prompt for the help video
+        UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
+                                                             message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
+                                                            delegate:self
+                                                   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
+                                                   otherButtonTitles:nil];
+        [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
+        
+        [helpPrompt show];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if (buttonIndex == 1) {
+        [self playHelpVideo];
+	}
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
+    
+    if (!helpVideoHasPlayed) {
+        [defaults setBool:YES forKey:@"helpVideoHasPlayed"];
+    }
+}
+
+/**
+ * Plays help video
+ */
+- (void)playHelpVideo
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    NSString *videoSrc = [appDelegate.tapConfig objectForKey:@"HelpVideo"];
+    NSString *videoPath = [[NSBundle mainBundle] pathForResource:[[videoSrc lastPathComponent] stringByDeletingPathExtension]
+                                                          ofType:[[videoSrc lastPathComponent] pathExtension] inDirectory:nil];
+	if (!videoPath) return;
+	
+	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
+	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+    [self presentMoviePlayerViewControllerAnimated:movieController];
+}
+
+#pragma mark - Action Methods
+
+- (IBAction)helpButtonClicked:(id)sender
+{
+    [self playHelpVideo];
+}
+
+- (IBAction)selectLanguage:(id)sender
+{
+    
 }
 
 @end

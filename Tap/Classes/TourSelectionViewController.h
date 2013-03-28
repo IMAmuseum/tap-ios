@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TourSelectionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
-
+@interface TourSelectionViewController : UIViewController <UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+- (void)playHelpVideo;
 @end
