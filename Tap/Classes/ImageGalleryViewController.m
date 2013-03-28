@@ -11,7 +11,34 @@
 #import "NonSelectableTextView.h"
 #import "ImageStop.h"
 
-@interface ImageGalleryViewController ()
+@interface ImageGalleryViewController () {
+    UIScrollView *_pagingScrollView;
+    UIView *_infoPane;
+    CGRect _currentPaneMinimizedFrame;
+    BOOL _displayInfoPane;
+    BOOL _isInfoPaneFullscreen;
+
+    NSMutableSet *_recycledPages;
+    NSMutableSet *_visiblePages;
+    NSInteger _currentIndex;
+
+    BOOL _isToolbarsHidden;
+    BOOL _rotationInProgress;
+
+    BOOL _viewDidAppearOnce;
+    BOOL _initializedToolbarAnimation;
+    BOOL _navbarWasTranslucent;
+
+    // these values are stored off before we start rotation so we adjust our content offset appropriately during rotation
+    int _firstVisiblePageIndexBeforeRotation;
+    CGFloat _percentScrolledIntoFirstVisiblePage;
+}
+
+@property (nonatomic, strong) ImageStop *imageStop;
+@property (nonatomic, strong) NSArray *assets;
+
+- (void)setupInfoPane;
+- (void)updateInfoPane;
 - (void)configurePage:(ImageScrollViewController *)page forIndex:(NSUInteger)index;
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (CGRect)frameForPagingScrollView;
@@ -24,7 +51,7 @@
 - (void)toggleToolbars:(BOOL)hide;
 - (void)hideToolbars;
 - (void)showToolbars;
-- (void)toggleInfoPane:(UIGestureRecognizer*)tap;
+- (void)toggleInfoPane:(UIGestureRecognizer *)tap;
 @end
 
 @implementation ImageGalleryViewController
@@ -36,8 +63,10 @@
         [self setImageStop:stop];
         [self setAssets:[self.imageStop.model getAssets]];
         [self setWantsFullScreenLayout:YES];
-        initializedToolbarAnimation = NO;
-        currentIndex = 1;
+        _initializedToolbarAnimation = NO;
+        _currentIndex = 1;
+        
+        [self setHidesBottomBarWhenPushed:YES];
     }
 	return self;
 }
@@ -47,9 +76,9 @@
     [super viewWillAppear:animated];
     
     // The first time the view appears, store away the previous controller's values so we can reset on pop.
-    if (!viewDidAppearOnce) {
-        viewDidAppearOnce = YES;
-        navbarWasTranslucent = [[[self navigationController] navigationBar] isTranslucent];
+    if (!_viewDidAppearOnce) {
+        _viewDidAppearOnce = YES;
+        _navbarWasTranslucent = [[[self navigationController] navigationBar] isTranslucent];
     }
     // Then ensure translucency. Without it, the view will appear below rather than under it.  
     [[[self navigationController] navigationBar] setTranslucent:YES];
@@ -64,12 +93,12 @@
 - (void)viewWillDisappear:(BOOL)animated 
 {
     // Reset nav bar translucency bar style to whatever it was before.
-    [[[self navigationController] navigationBar] setTranslucent:navbarWasTranslucent];
+    [[[self navigationController] navigationBar] setTranslucent:_navbarWasTranslucent];
     [super viewWillDisappear:animated];
 }
 	
 - (void)loadView 
-{    
+{
     [super loadView];
     
     CGRect scrollFrame = [self frameForPagingScrollView];
@@ -84,11 +113,11 @@
     [newView setContentSize:CGSizeMake(scrollFrame.size.width * [self imageCount], scrollFrame.size.height)];
     [[self view] addSubview:newView];
     
-    pagingScrollView = newView;
+    _pagingScrollView = newView;
     
     
-    recycledPages = [[NSMutableSet alloc] init];
-    visiblePages  = [[NSMutableSet alloc] init];
+    _recycledPages = [[NSMutableSet alloc] init];
+    _visiblePages  = [[NSMutableSet alloc] init];
     [self tilePages];
     [self setupInfoPane];
 }
@@ -105,24 +134,24 @@
 
 - (void)setupInfoPane
 {
-    isInfoPaneFullscreen = NO;
-    infoPane = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 240.0f)];
-    [infoPane setBackgroundColor:[UIColor clearColor]];
-    [infoPane setAlpha:1.0f];
-    [infoPane setAutoresizesSubviews:YES];
-    [[self view] addSubview:infoPane];
+    _isInfoPaneFullscreen = NO;
+    _infoPane = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 240.0f)];
+    [_infoPane setBackgroundColor:[UIColor clearColor]];
+    [_infoPane setAlpha:1.0f];
+    [_infoPane setAutoresizesSubviews:YES];
+    [[self view] addSubview:_infoPane];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]
                                                     initWithTarget:self action:@selector(toggleInfoPane:)];
     tapGestureRecognizer.numberOfTapsRequired = 1;
     NSArray *gestureRecognizers = [[NSArray alloc] initWithObjects:tapGestureRecognizer, nil];
-    infoPane.gestureRecognizers = gestureRecognizers;
+    _infoPane.gestureRecognizers = gestureRecognizers;
     
-    UIView *background = [[UIView alloc] initWithFrame:infoPane.bounds];
+    UIView *background = [[UIView alloc] initWithFrame:_infoPane.bounds];
     [background setBackgroundColor:[UIColor blackColor]];
     [background setAlpha:0.65f];
     [background setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [infoPane addSubview:background];
+    [_infoPane addSubview:background];
     
     UILabel *title = [[UILabel alloc] init];
     [title setLineBreakMode:UILineBreakModeWordWrap];
@@ -130,13 +159,13 @@
     [title setFont:[UIFont systemFontOfSize:13.0f]];
     [title setBackgroundColor:[UIColor clearColor]];
     [title setTag:TITLE_LABEL];
-    [infoPane addSubview:title];
+    [_infoPane addSubview:title];
     
     UIImageView *infoPaneToggle = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn-open"]];
     [infoPaneToggle setTag:INFO_PANE_TOGGLE];
     [infoPaneToggle setOpaque:TRUE];
     [infoPaneToggle setAlpha:0.5f];
-    [infoPane addSubview:infoPaneToggle];
+    [_infoPane addSubview:infoPaneToggle];
     
     UILabel *copyright = [[UILabel alloc] init];
     [copyright setLineBreakMode:UILineBreakModeWordWrap];
@@ -144,7 +173,7 @@
     [copyright setFont:[UIFont systemFontOfSize:12]];    
     [copyright setBackgroundColor:[UIColor clearColor]];
     [copyright setTag:COPYRIGHT_LABEL];
-    [infoPane addSubview:copyright];
+    [_infoPane addSubview:copyright];
     
     NonSelectableTextView *caption = [[NonSelectableTextView alloc] init];
     [caption setEditable:NO];
@@ -155,7 +184,7 @@
     [caption setFont:[UIFont systemFontOfSize:12]];
     [caption setBackgroundColor:[UIColor clearColor]];
     [caption setTag:CAPTION_TEXTVIEW];
-    [infoPane addSubview:caption];
+    [_infoPane addSubview:caption];
     
     [self updateInfoPane];
 
@@ -165,16 +194,16 @@
 {
     CGFloat titleHeight = 0;
     CGFloat copyrightHeight = 0;
-    displayInfoPane = NO;
+    _displayInfoPane = NO;
     
     CGSize constraint = CGSizeMake(self.view.frame.size.width - 2 * CONTENT_PADDING, 20000.0f);
     
-    TAPAsset *asset = [self.assets objectAtIndex:currentIndex - 1];
+    TAPAsset *asset = [self.assets objectAtIndex:_currentIndex - 1];
     
-    UIImageView *infoPaneToggle = (UIImageView *)[infoPane viewWithTag:INFO_PANE_TOGGLE];
+    UIImageView *infoPaneToggle = (UIImageView *)[_infoPane viewWithTag:INFO_PANE_TOGGLE];
     [infoPaneToggle setFrame:CGRectMake(self.view.frame.size.width - INFO_PANE_TOGGLE_SIZE - CONTENT_PADDING, CONTENT_PADDING + 5.0f, INFO_PANE_TOGGLE_SIZE, INFO_PANE_TOGGLE_SIZE)];
     
-    UILabel *lblTitle = (UILabel *)[infoPane viewWithTag:TITLE_LABEL];
+    UILabel *lblTitle = (UILabel *)[_infoPane viewWithTag:TITLE_LABEL];
     TAPContent *title = [[asset getContentsByPart:@"title"] objectAtIndex:0];
     
     if (title != nil) {
@@ -186,12 +215,12 @@
         // set label properties
         [lblTitle setText:title.data];
         [lblTitle setFrame:titleFrame];
-        displayInfoPane = YES;
+        _displayInfoPane = YES;
     } else {
         [lblTitle setText:@""];
     }
 
-    UILabel *lblCopyright = (UILabel *)[infoPane viewWithTag:COPYRIGHT_LABEL];
+    UILabel *lblCopyright = (UILabel *)[_infoPane viewWithTag:COPYRIGHT_LABEL];
     TAPContent *copyright = [[asset getContentsByPart:@"copyright"] objectAtIndex:0];
     if (copyright != nil) {
         // calculate height
@@ -203,12 +232,12 @@
         // set label properties
         [lblCopyright setText:copyright.data];
         [lblCopyright setFrame:copyrightFrame];
-        displayInfoPane = YES;
+        _displayInfoPane = YES;
     } else {
         [lblCopyright setText:@""];
     }
     
-    NonSelectableTextView *tvCaption = (NonSelectableTextView *)[infoPane viewWithTag:CAPTION_TEXTVIEW];    
+    NonSelectableTextView *tvCaption = (NonSelectableTextView *)[_infoPane viewWithTag:CAPTION_TEXTVIEW];    
     TAPContent *caption = [[asset getContentsByPart:@"caption"] objectAtIndex:0];
     if (caption != nil) {
         CGRect captionFrame = CGRectMake(0, CONTENT_PADDING, self.view.frame.size.width, 0);
@@ -223,56 +252,56 @@
         
         [tvCaption setText:caption.data];
         [tvCaption setFrame:captionFrame];
-        displayInfoPane = YES;
+        _displayInfoPane = YES;
     } else {
         [tvCaption setText:@""];
     }
 
-    if (displayInfoPane) {
-        float infoPaneY = self.view.frame.size.height;
-        if (infoPaneY != 0) {
-            infoPaneY -= titleHeight + (2 * CONTENT_PADDING);
+    if (_displayInfoPane) {
+        float _infoPaneY = self.view.frame.size.height;
+        if (_infoPaneY != 0) {
+            _infoPaneY -= titleHeight + (2 * CONTENT_PADDING);
         }
         
         if (copyrightHeight != 0) {
-            infoPaneY -= copyrightHeight;
+            _infoPaneY -= copyrightHeight;
         }
-        CGRect infoPaneFrame = CGRectMake(infoPane.frame.origin.x, infoPane.frame.origin.y, infoPane.frame.size.width, infoPane.frame.size.height);
+        CGRect infoPaneFrame = CGRectMake(_infoPane.frame.origin.x, _infoPane.frame.origin.y, _infoPane.frame.size.width, _infoPane.frame.size.height);
         // calculate the minimized info pane height
-        infoPaneFrame.origin.y = MIN(infoPaneY, self.view.frame.size.height - 40);
+        infoPaneFrame.origin.y = MIN(_infoPaneY, self.view.frame.size.height - 40);
         // save frame for later use
-        currentPaneMinimizedFrame = infoPaneFrame;
+        _currentPaneMinimizedFrame = infoPaneFrame;
         
-        if (isToolbarsHidden) {
+        if (_isToolbarsHidden) {
             infoPaneFrame.origin.y = self.view.frame.size.height;
-        } else if (isInfoPaneFullscreen) {
+        } else if (_isInfoPaneFullscreen) {
             infoPaneFrame.origin.y = self.view.frame.size.height - (self.view.frame.size.height * PANEL_HEIGHT);
         }
         
-        [infoPane setFrame:infoPaneFrame];
+        [_infoPane setFrame:infoPaneFrame];
     }
-    [infoPane setHidden:!displayInfoPane];
+    [_infoPane setHidden:!_displayInfoPane];
 }
 
 - (void)toggleInfoPane:(UIGestureRecognizer*)tap
 {
-    UIImageView *infoPaneToggle = (UIImageView *)[infoPane viewWithTag:INFO_PANE_TOGGLE];
+    UIImageView *infoPaneToggle = (UIImageView *)[_infoPane viewWithTag:INFO_PANE_TOGGLE];
 
     CGRect newFrame;
-    if (isInfoPaneFullscreen) {
-        newFrame = currentPaneMinimizedFrame;
-        isInfoPaneFullscreen = NO;
+    if (_isInfoPaneFullscreen) {
+        newFrame = _currentPaneMinimizedFrame;
+        _isInfoPaneFullscreen = NO;
         [infoPaneToggle setImage:[UIImage imageNamed:@"btn-open"]];
     } else {
-        newFrame = infoPane.frame;
+        newFrame = _infoPane.frame;
         newFrame.origin.y = self.view.frame.size.height - (self.view.frame.size.height * PANEL_HEIGHT);
-        isInfoPaneFullscreen = YES;
+        _isInfoPaneFullscreen = YES;
         [infoPaneToggle setImage:[UIImage imageNamed:@"btn-close"]];
     }
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2f];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [infoPane setFrame:newFrame];
+    [_infoPane setFrame:newFrame];
     [UIView commitAnimations];
 }
 
@@ -282,20 +311,20 @@
 - (void)tilePages 
 {
     // Calculate which pages are visible
-    CGRect visibleBounds = pagingScrollView.bounds;
+    CGRect visibleBounds = _pagingScrollView.bounds;
     int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
     int lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
     lastNeededPageIndex  = MIN(lastNeededPageIndex, [self imageCount] - 1);
     
     // Recycle no-longer-visible pages 
-    for (ImageScrollViewController *page in visiblePages) {
+    for (ImageScrollViewController *page in _visiblePages) {
         if (page.index < firstNeededPageIndex || page.index > lastNeededPageIndex) {
-            [recycledPages addObject:page];
+            [_recycledPages addObject:page];
             [page removeFromSuperview];
         }
     }
-    [visiblePages minusSet:recycledPages];
+    [_visiblePages minusSet:_recycledPages];
     
     // add missing pages
     for (int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
@@ -306,17 +335,17 @@
                 [page setScrollView:self];
             }
             [self configurePage:page forIndex:index];
-            [pagingScrollView addSubview:page];
-            [visiblePages addObject:page];
+            [_pagingScrollView addSubview:page];
+            [_visiblePages addObject:page];
         }
     }
 }
 
 - (ImageScrollViewController *)dequeueRecycledPage
 {
-    ImageScrollViewController *page = [recycledPages anyObject];
+    ImageScrollViewController *page = [_recycledPages anyObject];
     if (page) {
-        [recycledPages removeObject:page];
+        [_recycledPages removeObject:page];
     }
     return page;
 }
@@ -324,7 +353,7 @@
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index
 {
     BOOL foundPage = NO;
-    for (ImageScrollViewController *page in visiblePages) {
+    for (ImageScrollViewController *page in _visiblePages) {
         if (page.index == index) {
             foundPage = YES;
             break;
@@ -343,7 +372,7 @@
 - (void)setTitleWithCurrentPhotoIndex
 {
     NSString *formatString = NSLocalizedString(@"%1$i of %2$i", @"Picture X out of Y total.");
-    NSString *title = [NSString stringWithFormat:formatString, currentIndex, [self imageCount], nil];
+    NSString *title = [NSString stringWithFormat:formatString, _currentIndex, [self imageCount], nil];
     [self setTitle:title];
 }
 
@@ -352,10 +381,10 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat pageWidth = pagingScrollView.frame.size.width;
-    int page = floor((pagingScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 2;
-    if (page != currentIndex) {
-        currentIndex = page;
+    CGFloat pageWidth = _pagingScrollView.frame.size.width;
+    int page = floor((_pagingScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 2;
+    if (page != _currentIndex) {
+        _currentIndex = page;
         [self setTitleWithCurrentPhotoIndex];
         [self updateInfoPane];
     }
@@ -376,7 +405,7 @@
 }
 
 - (CGRect)frameForPageAtIndex:(NSUInteger)index {
-    CGRect bounds = pagingScrollView.bounds;
+    CGRect bounds = _pagingScrollView.bounds;
     CGRect pageFrame = bounds;
     pageFrame.size.width -= (2 * PADDING);
     pageFrame.origin.x = (bounds.size.width * index) + PADDING;
@@ -415,7 +444,7 @@
 }
 
 - (CGSize)contentSizeForPagingScrollView {
-    CGRect scrollFrame = pagingScrollView.frame;
+    CGRect scrollFrame = _pagingScrollView.frame;
     return CGSizeMake(scrollFrame.size.width * [self imageCount], scrollFrame.size.height);
 }
 
@@ -433,24 +462,24 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    CGFloat offset = pagingScrollView.contentOffset.x;
-    CGFloat pageWidth = pagingScrollView.bounds.size.width;
+    CGFloat offset = _pagingScrollView.contentOffset.x;
+    CGFloat pageWidth = _pagingScrollView.bounds.size.width;
     
     if (offset >= 0) {
-        firstVisiblePageIndexBeforeRotation = floorf(offset / pageWidth);
-        percentScrolledIntoFirstVisiblePage = (offset - (firstVisiblePageIndexBeforeRotation * pageWidth)) / pageWidth;
+        _firstVisiblePageIndexBeforeRotation = floorf(offset / pageWidth);
+        _percentScrolledIntoFirstVisiblePage = (offset - (_firstVisiblePageIndexBeforeRotation * pageWidth)) / pageWidth;
     } else {
-        firstVisiblePageIndexBeforeRotation = 0;
-        percentScrolledIntoFirstVisiblePage = offset / pageWidth;
+        _firstVisiblePageIndexBeforeRotation = 0;
+        _percentScrolledIntoFirstVisiblePage = offset / pageWidth;
     }    
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     // recalculate contentSize based on current orientation
-    pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
+    _pagingScrollView.contentSize = [self contentSizeForPagingScrollView];
     // adjust frames and configuration of each visible page
-    for (ImageScrollViewController *page in visiblePages) {
+    for (ImageScrollViewController *page in _visiblePages) {
         CGPoint restorePoint = [page pointToCenterAfterRotation];
         CGFloat restoreScale = [page scaleToRestoreAfterRotation];
         page.frame = [self frameForPageAtIndex:page.index];
@@ -460,14 +489,14 @@
     }
     
     // adjust contentOffset to preserve page location based on values collected prior to location
-    CGFloat pageWidth = pagingScrollView.bounds.size.width;
-    CGFloat newOffset = (firstVisiblePageIndexBeforeRotation * pageWidth) + (percentScrolledIntoFirstVisiblePage * pageWidth);
-    pagingScrollView.contentOffset = CGPointMake(newOffset, 0);
+    CGFloat pageWidth = _pagingScrollView.bounds.size.width;
+    CGFloat newOffset = (_firstVisiblePageIndexBeforeRotation * pageWidth) + (_percentScrolledIntoFirstVisiblePage * pageWidth);
+    _pagingScrollView.contentOffset = CGPointMake(newOffset, 0);
     
     // adjust info pane
-    CGRect newInfoPaneFrame = infoPane.frame;
-    newInfoPaneFrame.size.width = self.view.frame.size.width;
-    infoPane.frame = newInfoPaneFrame;
+    CGRect new_infoPaneFrame = _infoPane.frame;
+    new_infoPaneFrame.size.width = self.view.frame.size.width;
+    _infoPane.frame = new_infoPaneFrame;
     
     [self updateInfoPane];
 }
@@ -477,16 +506,16 @@
 
 - (void)toggleToolbarsDisplay 
 {
-    [self toggleToolbars:!isToolbarsHidden];
+    [self toggleToolbars:!_isToolbarsHidden];
 }
 
 - (void)toggleToolbars:(BOOL)hide 
 {    
-    isToolbarsHidden = hide;    
-    [[self navigationController] setNavigationBarHidden:hide animated:initializedToolbarAnimation];
-    initializedToolbarAnimation = YES;
+    _isToolbarsHidden = hide;    
+    [[self navigationController] setNavigationBarHidden:hide animated:_initializedToolbarAnimation];
+    _initializedToolbarAnimation = YES;
     
-    if (displayInfoPane) {
+    if (_displayInfoPane) {
         CGRect newFrame;
 
         [UIView beginAnimations:nil context:nil];
@@ -494,17 +523,17 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         
         if (hide) {
-            newFrame = CGRectMake(0.0f, self.view.frame.size.height, currentPaneMinimizedFrame.size.width, currentPaneMinimizedFrame.size.height);
+            newFrame = CGRectMake(0.0f, self.view.frame.size.height, _currentPaneMinimizedFrame.size.width, _currentPaneMinimizedFrame.size.height);
         } else {
-            if (isInfoPaneFullscreen) {
-                newFrame = infoPane.frame;
+            if (_isInfoPaneFullscreen) {
+                newFrame = _infoPane.frame;
                 newFrame.origin.y = self.view.frame.size.height - (self.view.frame.size.height * PANEL_HEIGHT);
             } else {
-                newFrame = currentPaneMinimizedFrame;
+                newFrame = _currentPaneMinimizedFrame;
             }
         }
         
-        [infoPane setFrame:newFrame];
+        [_infoPane setFrame:newFrame];
         [UIView commitAnimations];
     }
 }
