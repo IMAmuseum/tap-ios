@@ -29,7 +29,6 @@
     self = [super init];
     if(self) {
         [self setStopGroup:stop];
-        [self setTitle: [self.stopGroup getTitle]];
         
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"priority" ascending:YES];
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
@@ -53,7 +52,7 @@
     // Set the table background image
 	[self.stopGroupTable setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-main-tile.png"]]];
 	
-    // TODO: clean me up
+
     UIImageView *headerImage = [self.stopGroup getHeaderImage];
     if (headerImage) {
         [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
@@ -103,10 +102,10 @@
     if (indexPath.section == 1 || !sectionsEnabled) {
         BaseStop *stop = [self.stops objectAtIndex:indexPath.row];
         
-        cell = [tableView dequeueReusableCellWithIdentifier:@"stop-cell"];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"stop-group-cell"];
         if (cell == nil) {
             // Create a new reusable table cell
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-cell"];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"stop-group-cell"];
             
             [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
             [[cell detailTextLabel] setFont:[UIFont systemFontOfSize:12]];
