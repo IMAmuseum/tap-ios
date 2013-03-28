@@ -11,7 +11,7 @@
 #import "TAPTour.h"
 #import "TAPStop.h"
 
-@interface StopNavigationViewController()
+@interface StopListViewController()
 @property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
 @property (nonatomic, strong) NSArray *stops;
 @end
