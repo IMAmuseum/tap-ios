@@ -62,9 +62,9 @@
     [self.window setRootViewController:viewController];
     
     // Add overlay images of the splash to slide apart
-    UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-top.png"]];
+    UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-screen-top"]];
     [splashTop setTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
-    UIImageView *splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-title-screen-btm.png"]];
+    UIImageView *splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-screen-btm"]];
     [splashBtm setTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
     
     [self.window addSubview:splashTop];
