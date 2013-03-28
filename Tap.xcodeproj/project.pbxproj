@@ -20,8 +20,8 @@
 		1707FC0F15771B9F0027B323 /* keypad-number-up.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF415771B9F0027B323 /* keypad-number-up.png */; };
 		1707FC1015771B9F0027B323 /* keypad-textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF515771B9F0027B323 /* keypad-textfield.png */; };
 		1707FC1115771B9F0027B323 /* submit-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF615771B9F0027B323 /* submit-btn.png */; };
-		1707FC1215771B9F0027B323 /* tap-splash-screen-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF715771B9F0027B323 /* tap-splash-screen-btm.png */; };
-		1707FC1315771B9F0027B323 /* tap-splash-screen-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF815771B9F0027B323 /* tap-splash-screen-top.png */; };
+		1707FC1215771B9F0027B323 /* tap-splash-btm.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF715771B9F0027B323 /* tap-splash-btm.png */; };
+		1707FC1315771B9F0027B323 /* tap-splash-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 1707FBF815771B9F0027B323 /* tap-splash-top.png */; };
 		1707FC1715771E640027B323 /* StopListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC1515771E640027B323 /* StopListViewController.m */; };
 		1707FC2115771F8E0027B323 /* KeypadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1707FC1F15771F8E0027B323 /* KeypadViewController.m */; };
 		1707FC2215771F8E0027B323 /* KeypadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1707FC2015771F8E0027B323 /* KeypadViewController.xib */; };
@@ -49,9 +49,14 @@
 		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = ""; }; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
 		177318971704B5CA00A53F67 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177318961704B5CA00A53F67 /* libFlurry.a */; };
-		1773189C1704D04200A53F67 /* tap-splash-screen-btm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189A1704D04200A53F67 /* tap-splash-screen-btm@2x.png */; };
-		1773189D1704D04200A53F67 /* tap-splash-screen-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189B1704D04200A53F67 /* tap-splash-screen-top@2x.png */; };
+		1773189C1704D04200A53F67 /* tap-splash-btm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189A1704D04200A53F67 /* tap-splash-btm@2x.png */; };
+		1773189D1704D04200A53F67 /* tap-splash-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189B1704D04200A53F67 /* tap-splash-top@2x.png */; };
 		1773189F1704D05700A53F67 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189E1704D05700A53F67 /* Default@2x.png */; };
+		177318A11704D24E00A53F67 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A01704D24D00A53F67 /* Default-568h@2x.png */; };
+		177318A41704D39400A53F67 /* UIDevice+Screen.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318A31704D39400A53F67 /* UIDevice+Screen.m */; };
+		177318A71704D59000A53F67 /* tap-splash-btm-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A51704D59000A53F67 /* tap-splash-btm-568h@2x.png */; };
+		177318A81704D59000A53F67 /* tap-splash-top-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A61704D59000A53F67 /* tap-splash-top-568h@2x.png */; };
+		177318AA1704D70D00A53F67 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318A91704D70D00A53F67 /* Icon@2x.png */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
@@ -68,7 +73,7 @@
 		17DE997015ABC568004C8A25 /* StopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17DE996F15ABC568004C8A25 /* StopListViewController.xib */; };
 		17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */; };
 		17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */; };
-		39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A48D4416380480009B03AD /* Default-568h@2x.png */; };
+		39A48D4B16380AD7009B03AD /* (null) in Resources */ = {isa = PBXBuildFile; };
 		39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A79680163DC99F0052DCDF /* Localizable.strings */; };
 		6540AAA1167DBFD200C0EC65 /* LanguageSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */; };
 		6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */; };
@@ -125,8 +130,8 @@
 		1707FBF415771B9F0027B323 /* keypad-number-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-up.png"; path = "Resources/keypad-number-up.png"; sourceTree = "<group>"; };
 		1707FBF515771B9F0027B323 /* keypad-textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-textfield.png"; path = "Resources/keypad-textfield.png"; sourceTree = "<group>"; };
 		1707FBF615771B9F0027B323 /* submit-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "submit-btn.png"; path = "Resources/submit-btn.png"; sourceTree = "<group>"; };
-		1707FBF715771B9F0027B323 /* tap-splash-screen-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-screen-btm.png"; path = "Resources/tap-splash-screen-btm.png"; sourceTree = "<group>"; };
-		1707FBF815771B9F0027B323 /* tap-splash-screen-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-screen-top.png"; path = "Resources/tap-splash-screen-top.png"; sourceTree = "<group>"; };
+		1707FBF715771B9F0027B323 /* tap-splash-btm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-btm.png"; path = "Resources/tap-splash-btm.png"; sourceTree = "<group>"; };
+		1707FBF815771B9F0027B323 /* tap-splash-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-top.png"; path = "Resources/tap-splash-top.png"; sourceTree = "<group>"; };
 		1707FC1415771E640027B323 /* StopListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = StopListViewController.h; path = Classes/StopListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1707FC1515771E640027B323 /* StopListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = StopListViewController.m; path = Classes/StopListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1707FC1E15771F8E0027B323 /* KeypadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = KeypadViewController.h; path = Classes/KeypadViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -176,9 +181,15 @@
 		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
 		177318951704B5CA00A53F67 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		177318961704B5CA00A53F67 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
-		1773189A1704D04200A53F67 /* tap-splash-screen-btm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-screen-btm@2x.png"; path = "Resources/tap-splash-screen-btm@2x.png"; sourceTree = "<group>"; };
-		1773189B1704D04200A53F67 /* tap-splash-screen-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-screen-top@2x.png"; path = "Resources/tap-splash-screen-top@2x.png"; sourceTree = "<group>"; };
+		1773189A1704D04200A53F67 /* tap-splash-btm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-btm@2x.png"; path = "Resources/tap-splash-btm@2x.png"; sourceTree = "<group>"; };
+		1773189B1704D04200A53F67 /* tap-splash-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-top@2x.png"; path = "Resources/tap-splash-top@2x.png"; sourceTree = "<group>"; };
 		1773189E1704D05700A53F67 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
+		177318A01704D24D00A53F67 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		177318A21704D39400A53F67 /* UIDevice+Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Screen.h"; path = "Classes/UIDevice+Screen.h"; sourceTree = "<group>"; };
+		177318A31704D39400A53F67 /* UIDevice+Screen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Screen.m"; path = "Classes/UIDevice+Screen.m"; sourceTree = "<group>"; };
+		177318A51704D59000A53F67 /* tap-splash-btm-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-btm-568h@2x.png"; path = "Resources/tap-splash-btm-568h@2x.png"; sourceTree = "<group>"; };
+		177318A61704D59000A53F67 /* tap-splash-top-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-top-568h@2x.png"; path = "Resources/tap-splash-top-568h@2x.png"; sourceTree = "<group>"; };
+		177318A91704D70D00A53F67 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
 		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +210,6 @@
 		17DE996F15ABC568004C8A25 /* StopListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopListViewController.xib; path = Classes/StopListViewController.xib; sourceTree = "<group>"; };
 		17DE997115AC7D02004C8A25 /* TAP Help Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TAP Help Video.mp4"; path = "Resources/TAP Help Video.mp4"; sourceTree = "<group>"; };
 		17F3E92F16C0CFAF002E3957 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		39A48D4416380480009B03AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		39A7967F163DC99F0052DCDF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39AE2ECF163EFE9E003A32E5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39B8A564163DD0F700197596 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -504,6 +514,8 @@
 				1788D0FB16759051004B577B /* UINavigationController+Rotation.m */,
 				65F4250616FC03C0004D05B4 /* MKMapView+ZoomLevel.h */,
 				65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */,
+				177318A21704D39400A53F67 /* UIDevice+Screen.h */,
+				177318A31704D39400A53F67 /* UIDevice+Screen.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -511,22 +523,25 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
-				1773189E1704D05700A53F67 /* Default@2x.png */,
-				1773189A1704D04200A53F67 /* tap-splash-screen-btm@2x.png */,
-				1773189B1704D04200A53F67 /* tap-splash-screen-top@2x.png */,
+				65CBBE531703EF9500A78E7E /* audio-icon@2x.png */,
 				65CBBE6B1703F57100A78E7E /* btn-close@2x.png */,
 				65CBBE671703F45700A78E7E /* btn-open@2x.png */,
-				65CBBE531703EF9500A78E7E /* audio-icon@2x.png */,
-				65CBBE541703EF9600A78E7E /* list-icon@2x.png */,
-				65CBBE551703EF9600A78E7E /* photo-icon@2x.png */,
-				65CBBE561703EF9600A78E7E /* video-icon@2x.png */,
-				65CBBE571703EF9600A78E7E /* web-icon@2x.png */,
+				177318A01704D24D00A53F67 /* Default-568h@2x.png */,
+				1773189E1704D05700A53F67 /* Default@2x.png */,
 				65CBBE4F1703E68F00A78E7E /* globe@2x.png */,
-				655B390C1702A33800BC1ED4 /* question-mark@2x.png */,
+				177318A91704D70D00A53F67 /* Icon@2x.png */,
 				65F424F616FBF001004D05B4 /* keypad@2x.png */,
+				65CBBE541703EF9600A78E7E /* list-icon@2x.png */,
 				65F424F716FBF001004D05B4 /* list@2x.png */,
 				65F424F816FBF001004D05B4 /* map@2x.png */,
-				39A48D4416380480009B03AD /* Default-568h@2x.png */,
+				65CBBE551703EF9600A78E7E /* photo-icon@2x.png */,
+				655B390C1702A33800BC1ED4 /* question-mark@2x.png */,
+				177318A51704D59000A53F67 /* tap-splash-btm-568h@2x.png */,
+				1773189A1704D04200A53F67 /* tap-splash-btm@2x.png */,
+				177318A61704D59000A53F67 /* tap-splash-top-568h@2x.png */,
+				1773189B1704D04200A53F67 /* tap-splash-top@2x.png */,
+				65CBBE561703EF9600A78E7E /* video-icon@2x.png */,
+				65CBBE571703EF9600A78E7E /* web-icon@2x.png */,
 			);
 			name = Retina;
 			sourceTree = "<group>";
@@ -534,24 +549,16 @@
 		65AAFD3216BE1B3100E2DA39 /* Non-retina */ = {
 			isa = PBXGroup;
 			children = (
-				65CBBE6D1703F57800A78E7E /* btn-close.png */,
-				65CBBE691703F45E00A78E7E /* btn-open.png */,
 				65CBBE5D1703EFB000A78E7E /* audio-icon.png */,
-				65CBBE5E1703EFB000A78E7E /* list-icon.png */,
-				65CBBE5F1703EFB000A78E7E /* photo-icon.png */,
-				65CBBE601703EFB000A78E7E /* video-icon.png */,
-				65CBBE611703EFB000A78E7E /* web-icon.png */,
-				65CBBE511703E69400A78E7E /* globe.png */,
-				655B390A1702A0D900BC1ED4 /* question-mark.png */,
-				65F424FC16FBF00E004D05B4 /* keypad.png */,
-				65F424FD16FBF00E004D05B4 /* list.png */,
-				65F424FE16FBF00F004D05B4 /* map.png */,
-				1707FC4415772A270027B323 /* Icon.png */,
 				1707FBDE15771B9F0027B323 /* bg-header-wide.png */,
 				1707FBDF15771B9F0027B323 /* bg-header.png */,
 				1707FBE015771B9F0027B323 /* bg-main-tile.png */,
 				1707FBE115771B9F0027B323 /* bg-main.png */,
+				65CBBE6D1703F57800A78E7E /* btn-close.png */,
+				65CBBE691703F45E00A78E7E /* btn-open.png */,
 				1707FBE715771B9F0027B323 /* Default.png */,
+				65CBBE511703E69400A78E7E /* globe.png */,
+				1707FC4415772A270027B323 /* Icon.png */,
 				1707FBEF15771B9F0027B323 /* keypad-clear-down.png */,
 				1707FBF015771B9F0027B323 /* keypad-clear-up.png */,
 				1707FBF115771B9F0027B323 /* keypad-go-down.png */,
@@ -559,9 +566,17 @@
 				1707FBF315771B9F0027B323 /* keypad-number-down.png */,
 				1707FBF415771B9F0027B323 /* keypad-number-up.png */,
 				1707FBF515771B9F0027B323 /* keypad-textfield.png */,
+				65F424FC16FBF00E004D05B4 /* keypad.png */,
+				65CBBE5E1703EFB000A78E7E /* list-icon.png */,
+				65F424FD16FBF00E004D05B4 /* list.png */,
+				65F424FE16FBF00F004D05B4 /* map.png */,
+				65CBBE5F1703EFB000A78E7E /* photo-icon.png */,
+				655B390A1702A0D900BC1ED4 /* question-mark.png */,
 				1707FBF615771B9F0027B323 /* submit-btn.png */,
-				1707FBF715771B9F0027B323 /* tap-splash-screen-btm.png */,
-				1707FBF815771B9F0027B323 /* tap-splash-screen-top.png */,
+				1707FBF715771B9F0027B323 /* tap-splash-btm.png */,
+				1707FBF815771B9F0027B323 /* tap-splash-top.png */,
+				65CBBE601703EFB000A78E7E /* video-icon.png */,
+				65CBBE611703EFB000A78E7E /* web-icon.png */,
 			);
 			name = "Non-retina";
 			sourceTree = "<group>";
@@ -663,8 +678,8 @@
 				1707FC0F15771B9F0027B323 /* keypad-number-up.png in Resources */,
 				1707FC1015771B9F0027B323 /* keypad-textfield.png in Resources */,
 				1707FC1115771B9F0027B323 /* submit-btn.png in Resources */,
-				1707FC1215771B9F0027B323 /* tap-splash-screen-btm.png in Resources */,
-				1707FC1315771B9F0027B323 /* tap-splash-screen-top.png in Resources */,
+				1707FC1215771B9F0027B323 /* tap-splash-btm.png in Resources */,
+				1707FC1315771B9F0027B323 /* tap-splash-top.png in Resources */,
 				1707FC2215771F8E0027B323 /* KeypadViewController.xib in Resources */,
 				1707FC2715771FB10027B323 /* StopGroupViewController.xib in Resources */,
 				1707FC4515772A270027B323 /* Icon.png in Resources */,
@@ -674,7 +689,7 @@
 				17DE997015ABC568004C8A25 /* StopListViewController.xib in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
-				39A48D4B16380AD7009B03AD /* Default-568h@2x.png in Resources */,
+				39A48D4B16380AD7009B03AD /* (null) in Resources */,
 				39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */,
 				6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */,
 				65F424E216F972A9004D05B4 /* TourSelectionViewController.xib in Resources */,
@@ -702,9 +717,13 @@
 				65CBBE6A1703F45E00A78E7E /* btn-open.png in Resources */,
 				65CBBE6C1703F57100A78E7E /* btn-close@2x.png in Resources */,
 				65CBBE6E1703F57800A78E7E /* btn-close.png in Resources */,
-				1773189C1704D04200A53F67 /* tap-splash-screen-btm@2x.png in Resources */,
-				1773189D1704D04200A53F67 /* tap-splash-screen-top@2x.png in Resources */,
+				1773189C1704D04200A53F67 /* tap-splash-btm@2x.png in Resources */,
+				1773189D1704D04200A53F67 /* tap-splash-top@2x.png in Resources */,
 				1773189F1704D05700A53F67 /* Default@2x.png in Resources */,
+				177318A11704D24E00A53F67 /* Default-568h@2x.png in Resources */,
+				177318A71704D59000A53F67 /* tap-splash-btm-568h@2x.png in Resources */,
+				177318A81704D59000A53F67 /* tap-splash-top-568h@2x.png in Resources */,
+				177318AA1704D70D00A53F67 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +769,7 @@
 				65F424EB16FBDCF0004D05B4 /* MapViewController.m in Sources */,
 				65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */,
 				65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */,
+				177318A41704D39400A53F67 /* UIDevice+Screen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UIDevice+Screen.h"
 #import "TAPTour.h"
 #import "TAPStop.h"
 #import "TAPAssetRef.h"
@@ -18,7 +19,6 @@
 #import "StopFactory.h"
 #import "TourMLParser.h"
 #import "TourSelectionViewController.h"
-#import "StopNavigationViewController.h"
 
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
@@ -60,13 +60,21 @@
     TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
     [self setRootViewController:viewController];
     [self.window setRootViewController:viewController];
-    
+
     // Add overlay images of the splash to slide apart
-    UIImageView *splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-screen-top"]];
-    [splashTop setTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
-    UIImageView *splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-screen-btm"]];
-    [splashBtm setTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
+    UIImageView *splashTop;
+    UIImageView *splashBtm;
+    if ([[UIDevice currentDevice] resolution] == UIDeviceResolution_iPhoneRetina5) {
+        splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-top-568h"]];
+        splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-btm-568h"]];
+    } else {
+        splashTop = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-top"]];
+        splashBtm = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tap-splash-btm"]];
+    }
     
+    [splashTop setTag:SPLASH_SLIDE_IMAGE_TOP_TAG];
+    [splashBtm setTag:SPLASH_SLIDE_IMAGE_BTM_TAG];
+
     [self.window addSubview:splashTop];
     [self.window addSubview:splashBtm];
     
