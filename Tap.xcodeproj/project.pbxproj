@@ -64,6 +64,8 @@
 		177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B91704DF1900A53F67 /* keypad-textfield@2x.png */; };
 		177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318BD1704FF0600A53F67 /* JSONKIT.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		177318C11705141C00A53F67 /* StopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318C01705141B00A53F67 /* StopAnnotation.m */; };
+		177318C81705D55600A53F67 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318C71705D55600A53F67 /* TourCell.m */; };
+		177318CA1705D5EB00A53F67 /* TourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177318C91705D5EB00A53F67 /* TourCell.xib */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
@@ -207,6 +209,9 @@
 		177318BD1704FF0600A53F67 /* JSONKIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKIT.m; path = JSONKIT/JSONKIT.m; sourceTree = "<group>"; };
 		177318BF1705141A00A53F67 /* StopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopAnnotation.h; path = Classes/StopAnnotation.h; sourceTree = "<group>"; };
 		177318C01705141B00A53F67 /* StopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopAnnotation.m; path = Classes/StopAnnotation.m; sourceTree = "<group>"; };
+		177318C61705D55600A53F67 /* TourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourCell.h; path = Classes/TourCell.h; sourceTree = "<group>"; };
+		177318C71705D55600A53F67 /* TourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourCell.m; path = Classes/TourCell.m; sourceTree = "<group>"; };
+		177318C91705D5EB00A53F67 /* TourCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TourCell.xib; path = Classes/TourCell.xib; sourceTree = "<group>"; };
 		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
 		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +369,7 @@
 				17BAAE1015685F170012F849 /* AppDelegate.h */,
 				17BAAE1115685F170012F849 /* AppDelegate.m */,
 				17BAAE2915685F450012F849 /* Controllers */,
+				177318C51705D52300A53F67 /* CustomViews */,
 				17BAAE2A15685F510012F849 /* Libraries */,
 				177318C21705D3CC00A53F67 /* TAP API */,
 				65AAFD3016BE1AB000E2DA39 /* Utilities */,
@@ -399,6 +405,17 @@
 				17F3E92D16C03261002E3957 /* TourML Parser */,
 			);
 			name = "TAP API";
+			sourceTree = "<group>";
+		};
+		177318C51705D52300A53F67 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				177318BF1705141A00A53F67 /* StopAnnotation.h */,
+				177318C01705141B00A53F67 /* StopAnnotation.m */,
+				177318C61705D55600A53F67 /* TourCell.h */,
+				177318C71705D55600A53F67 /* TourCell.m */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		17BAADF015685F150012F849 = {
@@ -470,6 +487,7 @@
 				17DE996F15ABC568004C8A25 /* StopListViewController.xib */,
 				6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */,
 				65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */,
+				177318C91705D5EB00A53F67 /* TourCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -489,8 +507,6 @@
 				6540AA9F167DBFD200C0EC65 /* LanguageSelectionViewController.m */,
 				65F424E816FBDCEE004D05B4 /* MapViewController.h */,
 				65F424E916FBDCEF004D05B4 /* MapViewController.m */,
-				177318BF1705141A00A53F67 /* StopAnnotation.h */,
-				177318C01705141B00A53F67 /* StopAnnotation.m */,
 				1707FC2315771FB10027B323 /* StopGroupViewController.h */,
 				1707FC2415771FB10027B323 /* StopGroupViewController.m */,
 				1707FC1415771E640027B323 /* StopListViewController.h */,
@@ -783,6 +799,7 @@
 				177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */,
 				177318B81704DEB700A53F67 /* keypad-number-up@2x.png in Resources */,
 				177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */,
+				177318CA1705D5EB00A53F67 /* TourCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +849,7 @@
 				177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */,
 				177318C11705141C00A53F67 /* StopAnnotation.m in Sources */,
 				65DC9AB41705688100E2D49A /* NSString+StripHTML.m in Sources */,
+				177318C81705D55600A53F67 /* TourCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

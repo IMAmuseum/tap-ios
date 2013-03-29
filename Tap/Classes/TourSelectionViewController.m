@@ -15,6 +15,9 @@
 #import "BaseStop.h"
 #import "StopFactory.h"
 #import "TAPTour.h"
+#import "TAPAsset.h"
+#import "TAPSource.h"
+#import "TourCell.h"
 
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
@@ -131,36 +134,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tour-cell"];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
+    TourCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TourCell"];
+
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"tour-cell"];
-        [[cell textLabel] setFont:[UIFont systemFontOfSize:14]];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TourCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[TourCell class]]) {
+                cell = (TourCell *)currentObject;
+                break;
+            }
+        }
     }
     
-    TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
-    [[cell textLabel] setText:(NSString *)tour.title];
-    [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
-    [[cell textLabel] setNumberOfLines:0];
+    // temporarily set the current tour in order to load tour assets
+    [appDelegate setCurrentTour:tour];
+    
+    // set tour title
+    [cell.tourTitle setText:(NSString *)tour.title];
+
+    // set tour image
+    TAPAsset *tourImageAsset = [[tour getAppResourcesByUsage:@"image"] objectAtIndex:0];
+    if (tourImageAsset != nil) {
+        NSString *tourImage = [[[tourImageAsset source] anyObject] uri];
+        [cell.tourImage setImage:[UIImage imageWithContentsOfFile:tourImage]];
+    }
+    
+    // reset current selected tour to nil
+    [appDelegate setCurrentTour:nil];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-    CGFloat height;
-    CGSize constraint;
-    
-    TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
-    
-    constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
-    
-    NSString *title = (NSString *)tour.title;
-    CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-    
-    height = MAX(titleSize.height, 44.0f);
-    
-    return height + (CELL_CONTENT_MARGIN * 2);
+{    
+    return 150.0f;
 }
 
 #pragma mark - Table view delegate
