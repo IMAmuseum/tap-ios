@@ -8,6 +8,6 @@
 
 #import "StopNavigationViewController.h"
 
-@interface StopListViewController : StopNavigationViewController <UITableViewDelegate, UITableViewDataSource>
+@interface StopListViewController : StopNavigationViewController <UISearchDisplayDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end

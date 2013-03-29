@@ -13,7 +13,10 @@
 
 @interface StopListViewController()
 @property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
+@property (nonatomic, strong) NSMutableArray *filteredStops;
 @property (nonatomic, strong) NSArray *stops;
+@property (nonatomic, copy) NSString *savedSearchTerm;
+@property (nonatomic) BOOL searchWasActive;
 @end
 
 @implementation StopListViewController
@@ -29,8 +32,10 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     // retrieve the current tour's stops
@@ -39,6 +44,18 @@
     NSArray *sortedArray = [[filteredStops allObjects] sortedArrayUsingSelector:@selector(compareByKeycode:)];
     self.stops = [[NSArray alloc] initWithArray:sortedArray];
     
+    self.filteredStops = [NSMutableArray arrayWithCapacity:[self.stops count]];
+    
+    if (self.savedSearchTerm) {
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setText:self.savedSearchTerm];        
+        self.savedSearchTerm = nil;
+    }
+    [self.stopListTable reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     // reload the table with the correct tour data
     [self.stopListTable reloadData];
     
@@ -46,11 +63,30 @@
 	[self.stopListTable deselectRowAtIndexPath:[self.stopListTable indexPathForSelectedRow] animated:animated];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    // save the state of the search UI so that it can be restored if the view is re-created
+    self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    self.filteredStops = nil;
+}
+
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.stops count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredStops count];
+    } else {
+        return [self.stops count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,7 +102,12 @@
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	}
 
-    TAPStop *stop = [self.stops objectAtIndex:indexPath.row];
+    TAPStop *stop;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        stop = [self.filteredStops objectAtIndex:indexPath.row];
+    } else {
+        stop = [self.stops objectAtIndex:indexPath.row];
+    }
     [[cell textLabel] setText:(NSString *)stop.title];
     
 	return cell;
@@ -75,8 +116,47 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{	
-    [self loadStop:[self.stops objectAtIndex:indexPath.row]];
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self loadStop:[self.filteredStops objectAtIndex:indexPath.row]];
+    } else {
+        [self loadStop:[self.stops objectAtIndex:indexPath.row]];
+    }
+}
+
+#pragma mark Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    [self.filteredStops removeAllObjects];
+    
+    for (TAPStop *stop in self.stops) {
+        NSComparisonResult result = [(NSString *)stop.title compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        if (result == NSOrderedSame) {
+            [self.filteredStops addObject:stop];
+        }
+    }
+}
+
+#pragma mark UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 #pragma mark View controller rotation methods
