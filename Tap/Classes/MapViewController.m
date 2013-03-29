@@ -10,14 +10,14 @@
 #import "MKMapView+ZoomLevel.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
+#import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPContent.h"
 #import "JSONKIT.h"
-#import "CustomAnnotation.h"
+#import "StopAnnotation.h"
 
 @interface MapViewController ()
 @property (nonatomic, strong) MKMapView *mapView;
-@property (nonatomic, strong) CLLocationManager *locationManager;
 @end
 
 @implementation MapViewController
@@ -26,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@""];
+        [self setTitle:@"Navigate the Map"];
         [self.tabBarItem setTitle:NSLocalizedString(@"Map", @"")];
         [self.tabBarItem setImage:[UIImage imageNamed:@"map"]];
     }
@@ -40,9 +40,12 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     self.mapView = [[MKMapView alloc] initWithFrame:self.view.frame];
+    [self.mapView setDelegate:self];
     [self.mapView setMapType:MKMapTypeHybrid];
-    [self.mapView setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    
+    [self.mapView setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];    
+    [self.mapView setShowsUserLocation:YES];
+    [self.view addSubview:self.mapView];
+
     // set map center
     NSArray *geoAssets = [appDelegate.currentTour getAppResourcesByUsage:@"geo"];
     if ([geoAssets count]) {
@@ -53,31 +56,25 @@
         float zoom = [[appDelegate.currentTour getPropertyValueByName:@"initial_map_zoom"] floatValue];
         [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake([[coordinates objectAtIndex:1] floatValue], [[coordinates objectAtIndex:0] floatValue]) zoomLevel:zoom animated:YES];
     }
-    
-    if ([CLLocationManager locationServicesEnabled]) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        [self.locationManager setDelegate:self];
-        [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-        [self.locationManager startUpdatingLocation];
-    } else {
-        // TODO: Decide what to do if location services is turned off
+       
+    for (TAPStop *stop in [appDelegate.currentTour.stop allObjects]) {
+        NSArray *stopGeoAssets = [stop getAssetsByUsage:@"geo"];
+        if ([stopGeoAssets count]) {
+            TAPContent *stopGeoContent = [[[stopGeoAssets objectAtIndex:0] content] anyObject];
+            NSDictionary *stopGeoData = [stopGeoContent.data objectFromJSONString];
+            NSArray *stopCoordinates = [stopGeoData objectForKey:@"coordinates"];
+            
+            StopAnnotation *annotation = [[StopAnnotation alloc] initWithCoordinates:CLLocationCoordinate2DMake([[stopCoordinates objectAtIndex:1] floatValue], [[stopCoordinates objectAtIndex:0] floatValue])
+                                                                               title:(NSString *)stop.title
+                                                                              stopID:stop.id];
+            [self.mapView addAnnotation:annotation];
+        }
     }
-
-    [self.view addSubview:self.mapView];
-    
-    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(39.8273, -86.1892);
-    
-    /* Create the annotation using the location */
-    CustomAnnotation *annotation = [[CustomAnnotation alloc] initWithCoordinates:location
-                                                                           title:@"My Title"
-                                                                        subTitle:@"My Sub Title"];
-    [self.mapView addAnnotation:annotation];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,15 +83,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - CLLocationManagerDelegate
+#pragma mark - MKMapViewDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    NSLog(@"Latitude = %f", newLocation.coordinate.latitude); NSLog(@"Longitude = %f", newLocation.coordinate.longitude);
+    static NSString *AnnotationView = @"AnnotationView";
+        
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    } else {
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:AnnotationView];
+
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationView];
+        }
+        [annotationView setAnnotation:(StopAnnotation *)annotation];
+        [annotationView setCanShowCallout:YES];
+        [annotationView setRightCalloutAccessoryView:[UIButton buttonWithType:UIButtonTypeDetailDisclosure]];
+        [annotationView setPinColor:MKPinAnnotationColorGreen];
+        return annotationView;
+    }
 }
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    /* Failed to receive user's location */
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    TAPStop *stop = [appDelegate.currentTour stopFromId:[(StopAnnotation *)view.annotation stopID]];
+    [self loadStop:stop];
 }
+
+
 
 @end
