@@ -34,7 +34,7 @@ static NSMutableString *bundlePath;
     
     // process endpoint
     NSString *endpoint = [[appDelegate tapConfig] objectForKey:@"TourMLEndpoint"];
-    if (endpoint != nil) {
+    if ([endpoint length]) {
         [self getExternalTourMLDoc:endpoint];
     }
 

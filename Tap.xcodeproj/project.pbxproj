@@ -365,8 +365,7 @@
 				17BAAE1115685F170012F849 /* AppDelegate.m */,
 				17BAAE2915685F450012F849 /* Controllers */,
 				17BAAE2A15685F510012F849 /* Libraries */,
-				173F94DC156DE17E000DD580 /* Models */,
-				65AAFD3516BE275E00E2DA39 /* Stops */,
+				177318C21705D3CC00A53F67 /* TAP API */,
 				65AAFD3016BE1AB000E2DA39 /* Utilities */,
 				17BAAE2815685F400012F849 /* Views */,
 			);
@@ -390,6 +389,16 @@
 				177318BD1704FF0600A53F67 /* JSONKIT.m */,
 			);
 			name = JSONKIT;
+			sourceTree = "<group>";
+		};
+		177318C21705D3CC00A53F67 /* TAP API */ = {
+			isa = PBXGroup;
+			children = (
+				65AAFD3516BE275E00E2DA39 /* Stops */,
+				173F94DC156DE17E000DD580 /* Models */,
+				17F3E92D16C03261002E3957 /* TourML Parser */,
+			);
+			name = "TAP API";
 			sourceTree = "<group>";
 		};
 		17BAADF015685F150012F849 = {
@@ -504,7 +513,6 @@
 				177318BB1704FED600A53F67 /* JSONKIT */,
 				177318941704B5CA00A53F67 /* Flurry */,
 				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
-				17F3E92D16C03261002E3957 /* TourML Parser */,
 				17F3E92C16C03251002E3957 /* GDataXML */,
 			);
 			name = Libraries;
