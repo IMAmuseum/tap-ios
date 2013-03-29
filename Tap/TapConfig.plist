@@ -32,7 +32,7 @@
 	</dict>
 	<key>TourConfig</key>
 	<dict>
-		<key>tour-37</key>
+		<key>tour-113</key>
 		<dict>
 			<key>EnabledViewControllers</key>
 			<array>
@@ -41,7 +41,7 @@
 				<string>MapViewController</string>
 			</array>
 		</dict>
-		<key>tour-113</key>
+		<key>tour-37</key>
 		<dict>
 			<key>EnabledViewControllers</key>
 			<array>

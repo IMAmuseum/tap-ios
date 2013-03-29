@@ -66,9 +66,9 @@
         [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
         [_stopGroupTable setTableHeaderView:headerImage];
     }
-    
+
     // determine whether or not the stop group has a description in order to layout the table correctly
-    if ((NSString *)[self.stopGroup getDescription] != nil) {
+    if ((NSString *)[self.stopGroup getDescription] != nil || (NSString *)[self.stopGroup getTitle] != nil) {
         sectionsEnabled = true;
     } else {
         sectionsEnabled = false;

@@ -79,6 +79,7 @@
 	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
 	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+    [movieController.view setBackgroundColor:[UIColor blackColor]];
     [self presentMoviePlayerViewControllerAnimated:movieController];
     
     // Log view event
