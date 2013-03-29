@@ -129,7 +129,7 @@
         [[cell textLabel] setNumberOfLines:0];
         
         // Set the description if available
-        [[cell detailTextLabel] setText:[stop getDescription]];
+        [[cell detailTextLabel] setText:[[stop getDescription] stripHtml]];
         [[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
         [[cell detailTextLabel] setNumberOfLines:0];
         
@@ -208,7 +208,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationPortrait;
 }
 
 @end

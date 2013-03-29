@@ -61,7 +61,7 @@
 - (IBAction)navigateToTourSelection:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    [appDelegate.rootViewController dismissModalViewControllerAnimated:YES];
 }
 
 /**

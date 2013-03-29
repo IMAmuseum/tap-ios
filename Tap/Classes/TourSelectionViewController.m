@@ -102,7 +102,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{  
+{
+    [self setWantsFullScreenLayout:YES];
     // reload the table with the correct tour data
     [self.tourListTable reloadData];
     
@@ -184,7 +185,7 @@
     
     TourTabBarViewController *viewController = [[TourTabBarViewController alloc] init];
     [viewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self presentModalViewController:viewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Log view event
@@ -196,7 +197,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationPortrait;
 }
 
 #pragma mark - Notification handler
@@ -255,6 +256,7 @@
 	NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
 	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+    [movieController.view setBackgroundColor:[UIColor blackColor]];
     [self presentMoviePlayerViewControllerAnimated:movieController];
     
     // Log view event

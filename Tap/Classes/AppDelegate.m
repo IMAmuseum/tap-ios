@@ -19,6 +19,7 @@
 #import "StopFactory.h"
 #import "TourMLParser.h"
 #import "TourSelectionViewController.h"
+#import "Flurry.h"
 
 #define SPLASH_SLIDE_IMAGE_TOP_TAG	956
 #define SPLASH_SLIDE_IMAGE_BTM_TAG	957
@@ -56,6 +57,10 @@
     [TourMLParser loadTours];
     
     // retrieve tracker id
+    NSString *fluryID =  [self.tapConfig objectForKey:@"FlurryKey"];
+    if (fluryID != nil) {
+        [Flurry startSession:fluryID];;
+    }
     
     TourSelectionViewController *viewController = [[TourSelectionViewController alloc] init];
     [self setRootViewController:viewController];

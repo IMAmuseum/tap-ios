@@ -21,9 +21,11 @@
         NSURL *audioURL = [self.audioStop getAudioURL];
         [[self moviePlayer] setContentURL:audioURL];
         [[self moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
-        
+
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerPlaybackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerPlayStateChanged:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];        
+
+        [self.view setBackgroundColor:[UIColor blackColor]];
     }
 	return self;
 }
@@ -51,7 +53,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationPortrait;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
