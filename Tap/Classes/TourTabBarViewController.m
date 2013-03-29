@@ -10,6 +10,7 @@
 #import "StopNavigationViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
+#import "Flurry.h"
 
 @interface TourTabBarViewController ()
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -52,6 +53,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    UINavigationController *navigationController = (UINavigationController *)viewController;
+    UIViewController *rootViewController = [navigationController.viewControllers objectAtIndex:0];
+
+    // Log view event
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[rootViewController class], @"Tab View", nil];
+    [Flurry logEvent:@"Tab_View_Selected" withParameters:params];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "VideoStopViewController.h"
 #import "VideoStop.h"
+#import "Flurry.h"
 
 @interface VideoStopViewController()
 @property (nonatomic, strong) VideoStop *videoStop;
@@ -23,11 +24,40 @@
         
         NSURL *videoURL = [self.videoStop getVideoURL];
         
-        [[self moviePlayer] setContentURL:videoURL];
-        [[self moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
+        [self.moviePlayer setContentURL:videoURL];
+        [self.moviePlayer setControlStyle:MPMovieControlStyleFullscreen];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerPlaybackDidFinish:) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviePlayerPlayStateChanged:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:nil];
     }
 	return self;
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    
+}
+
+#pragma mark - Notification handler
+
+- (void)moviePlayerPlayStateChanged:(NSNotification *)notification
+{
+    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
+        [Flurry logEvent:@"Video_Play" withParameters:params timed:YES];
+    } else if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused) {
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
+        [Flurry logEvent:@"Video_Pause" withParameters:params];
+    }
+}
+
+- (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
+    [Flurry logEvent:@"Video_Play" withParameters:params];
+}
+
+#pragma mark View controller rotation methods
 
 - (NSUInteger)supportedInterfaceOrientations
 {

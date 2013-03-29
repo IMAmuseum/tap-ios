@@ -18,6 +18,7 @@
 #import "TAPAsset.h"
 #import "TAPSource.h"
 #import "TourCell.h"
+#import "Flurry.h"
 
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
@@ -185,6 +186,10 @@
     [viewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:viewController animated:YES completion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Log view event
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:(NSString *)tour.title, @"Tour", nil];
+    [Flurry logEvent:@"Selected_Tour" withParameters:params];
 }
 
 #pragma mark View controller rotation methods
@@ -251,6 +256,9 @@
 	MPMoviePlayerViewController *movieController = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
 	[[movieController moviePlayer] setControlStyle:MPMovieControlStyleFullscreen];
     [self presentMoviePlayerViewControllerAnimated:movieController];
+    
+    // Log view event
+    [Flurry logEvent:@"Played_Help_Video"];
 }
 
 #pragma mark - Action Methods
