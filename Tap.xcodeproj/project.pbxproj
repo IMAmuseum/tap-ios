@@ -62,6 +62,8 @@
 		177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B01704DEB700A53F67 /* keypad-number-down@2x.png */; };
 		177318B81704DEB700A53F67 /* keypad-number-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B11704DEB700A53F67 /* keypad-number-up@2x.png */; };
 		177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B91704DF1900A53F67 /* keypad-textfield@2x.png */; };
+		177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318BD1704FF0600A53F67 /* JSONKIT.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		177318C11705141C00A53F67 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318C01705141B00A53F67 /* CustomAnnotation.m */; };
 		1788D0FC16759051004B577B /* UINavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1788D0FB16759051004B577B /* UINavigationController+Rotation.m */; };
 		17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAADFF15685F160012F849 /* UIKit.framework */; };
 		17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BAAE0115685F160012F849 /* Foundation.framework */; };
@@ -200,6 +202,10 @@
 		177318B01704DEB700A53F67 /* keypad-number-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-down@2x.png"; path = "Resources/keypad-number-down@2x.png"; sourceTree = "<group>"; };
 		177318B11704DEB700A53F67 /* keypad-number-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-up@2x.png"; path = "Resources/keypad-number-up@2x.png"; sourceTree = "<group>"; };
 		177318B91704DF1900A53F67 /* keypad-textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-textfield@2x.png"; path = "Resources/keypad-textfield@2x.png"; sourceTree = "<group>"; };
+		177318BC1704FF0600A53F67 /* JSONKIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKIT.h; path = JSONKIT/JSONKIT.h; sourceTree = "<group>"; };
+		177318BD1704FF0600A53F67 /* JSONKIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKIT.m; path = JSONKIT/JSONKIT.m; sourceTree = "<group>"; };
+		177318BF1705141A00A53F67 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomAnnotation.h; path = Classes/CustomAnnotation.h; sourceTree = "<group>"; };
+		177318C01705141B00A53F67 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAnnotation.m; path = Classes/CustomAnnotation.m; sourceTree = "<group>"; };
 		1788D0FA16759051004B577B /* UINavigationController+Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Rotation.h"; path = "Classes/UINavigationController+Rotation.h"; sourceTree = "<group>"; };
 		1788D0FB16759051004B577B /* UINavigationController+Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Rotation.m"; path = "Classes/UINavigationController+Rotation.m"; sourceTree = "<group>"; };
 		17BAADFB15685F160012F849 /* Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,6 +380,15 @@
 			path = Classes/Flurry;
 			sourceTree = "<group>";
 		};
+		177318BB1704FED600A53F67 /* JSONKIT */ = {
+			isa = PBXGroup;
+			children = (
+				177318BC1704FF0600A53F67 /* JSONKIT.h */,
+				177318BD1704FF0600A53F67 /* JSONKIT.m */,
+			);
+			name = JSONKIT;
+			sourceTree = "<group>";
+		};
 		17BAADF015685F150012F849 = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +466,8 @@
 			children = (
 				173551FE15DD7D4B008B3A5E /* AudioStopViewController.h */,
 				173551FF15DD7D4B008B3A5E /* AudioStopViewController.m */,
+				177318BF1705141A00A53F67 /* CustomAnnotation.h */,
+				177318C01705141B00A53F67 /* CustomAnnotation.m */,
 				1707FC32157720520027B323 /* ImageGalleryViewController.h */,
 				1707FC33157720520027B323 /* ImageGalleryViewController.m */,
 				1707FC4615772A9C0027B323 /* ImageScrollViewController.h */,
@@ -467,10 +484,10 @@
 				1707FC1515771E640027B323 /* StopListViewController.m */,
 				65F424ED16FBDD24004D05B4 /* StopNavigationViewController.h */,
 				65F424EE16FBDD24004D05B4 /* StopNavigationViewController.m */,
-				65F424E316FAADB9004D05B4 /* TourTabBarViewController.h */,
-				65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */,
 				1707FC2815771FE70027B323 /* TourSelectionViewController.h */,
 				1707FC2915771FE70027B323 /* TourSelectionViewController.m */,
+				65F424E316FAADB9004D05B4 /* TourTabBarViewController.h */,
+				65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */,
 				1735520215DD7DE9008B3A5E /* VideoStopViewController.h */,
 				1735520315DD7DE9008B3A5E /* VideoStopViewController.m */,
 			);
@@ -480,6 +497,7 @@
 		17BAAE2A15685F510012F849 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				177318BB1704FED600A53F67 /* JSONKIT */,
 				177318941704B5CA00A53F67 /* Flurry */,
 				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
 				17F3E92D16C03261002E3957 /* TourML Parser */,
@@ -790,6 +808,8 @@
 				65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */,
 				65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */,
 				177318A41704D39400A53F67 /* UIDevice+Screen.m in Sources */,
+				177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */,
+				177318C11705141C00A53F67 /* CustomAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

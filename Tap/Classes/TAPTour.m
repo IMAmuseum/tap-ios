@@ -10,6 +10,8 @@
 #import "TAPAssetRef.h"
 #import "TAPProperty.h"
 #import "TAPStop.h"
+#import "TAPAsset.h"
+#import "TAPAssetRef.h"
 #import "AppDelegate.h"
 
 @implementation TAPTour
@@ -58,6 +60,45 @@
     } else {
         return [description objectForKey:@""];
     }
+}
+
+/**
+ * Convenience method for retrieving all app resource assets
+ */
+- (NSArray *)getAppResources
+{
+    NSMutableArray *assets = [[NSMutableArray alloc] init];
+    for (TAPAssetRef *assetRef in [self.appResource allObjects]) {
+        [assets addObject:assetRef.asset];
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [assets sortedArrayUsingDescriptors:sortDescriptors];
+}
+
+/**
+ * Convenience method for retrieving all app resource assets with a particular usage
+ */
+- (NSArray *)getAppResourcesByUsage:(NSString *)usage
+{
+    NSMutableArray *assets = [[NSMutableArray alloc] init];
+    for (TAPAssetRef *assetRef in [self.appResource allObjects]) {
+        if ([assetRef.usage isEqualToString:usage]) {
+            [assets addObject:assetRef.asset];
+        }
+    }
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    return [assets sortedArrayUsingDescriptors:sortDescriptors];
+}
+
+- (NSString *)getPropertyValueByName:(NSString *)name
+{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ AND value != nil AND (language == %@ OR language == nil)", name, appDelegate.language];
+    TAPProperty *property = [[self.propertySet filteredSetUsingPredicate:predicate] anyObject];
+    return property.value;
 }
 
 /**

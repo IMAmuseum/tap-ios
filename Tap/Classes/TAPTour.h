@@ -25,6 +25,9 @@
 @property (nonatomic, strong) TAPStop *rootStopRef;
 @property (nonatomic, strong) NSSet *stop;
 
+- (NSArray *)getAppResources;
+- (NSArray *)getAppResourcesByUsage:(NSString *)usage;
+- (NSString *)getPropertyValueByName:(NSString *)name;
 - (TAPStop *)stopFromKeycode:(NSString *)keycode;
 - (TAPStop *)stopFromId:(NSString *)id;
 

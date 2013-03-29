@@ -7,8 +7,9 @@
 //
 
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "StopNavigationViewController.h"
 
-@interface MapViewController : StopNavigationViewController
+@interface MapViewController : StopNavigationViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @end
