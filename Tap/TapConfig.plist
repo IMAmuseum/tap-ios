@@ -32,6 +32,14 @@
 	</dict>
 	<key>TourConfig</key>
 	<dict>
+		<key>tour-113</key>
+		<dict>
+			<key>EnabledViewControllers</key>
+			<array>
+				<string>KeypadViewController</string>
+				<string>StopListViewController</string>
+			</array>
+		</dict>
 		<key>tour-1</key>
 		<dict>
 			<key>EnabledViewControllers</key>
