@@ -10,13 +10,38 @@
 	<string>TAP Help Video.mp4</string>
 	<key>KioskMode</key>
 	<false/>
+	<key>NavigationControllers</key>
+	<dict>
+		<key>StopListViewController</key>
+		<dict>
+			<key>FilterBy</key>
+			<string>stopGroup</string>
+			<key>Label</key>
+			<string>Stop List</string>
+		</dict>
+		<key>KeypadViewController</key>
+		<dict>
+			<key>Label</key>
+			<string>Keypad</string>
+		</dict>
+		<key>MapViewController</key>
+		<dict>
+			<key>Label</key>
+			<string>Map</string>
+		</dict>
+	</dict>
 	<key>TourConfig</key>
 	<dict>
-		<key>New item</key>
-		<string></string>
+		<key>tour-1</key>
+		<dict>
+			<key>EnabledViewControllers</key>
+			<array>
+				<string>KeypadViewController</string>
+				<string>StopListViewController</string>
+				<string>MapViewController</string>
+			</array>
+		</dict>
 	</dict>
-	<key>TourMLEndpoint</key>
-	<string></string>
 	<key>Stops</key>
 	<dict>
 		<key>audio_stop</key>
@@ -28,5 +53,7 @@
 		<key>video_stop</key>
 		<string>VideoStop</string>
 	</dict>
+	<key>TourMLEndpoint</key>
+	<string></string>
 </dict>
 </plist>

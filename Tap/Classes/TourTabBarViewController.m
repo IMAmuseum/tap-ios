@@ -7,10 +7,9 @@
 //
 
 #import "TourTabBarViewController.h"
-#import "KeypadViewController.h"
-#import "StopListViewController.h"
-#import "MapViewController.h"
+#import "StopNavigationViewController.h"
 #import "AppDelegate.h"
+#import "TAPTour.h"
 
 @interface TourTabBarViewController ()
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -22,20 +21,22 @@
 {
     self = [super init];
     if(self) {
-        KeypadViewController *keypadViewController = [[KeypadViewController alloc] init];
-        StopListViewController *stopListViewController = [[StopListViewController alloc] init];
-        MapViewController *mapViewController = [[MapViewController alloc] init];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+        NSMutableArray *tabBarControllers = [[NSMutableArray alloc] init];
         
-        UINavigationController *keypadNavigationController = [[UINavigationController alloc] initWithRootViewController:keypadViewController];
-        UINavigationController *stopListNavigationController = [[UINavigationController alloc] initWithRootViewController:stopListViewController];
-        UINavigationController *mapNavigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
-        
-        NSArray *viewControllers = [[NSArray alloc] initWithObjects:keypadNavigationController, stopListNavigationController, mapNavigationController, nil];
-        
+        NSDictionary *tourConfig = [appDelegate.tapConfig objectForKey:@"TourConfig"];
+        NSDictionary *currentTourConfig = [tourConfig objectForKey:appDelegate.currentTour.id];
+        NSArray *availableStopControllers = [currentTourConfig objectForKey:@"EnabledViewControllers"];
+        for (NSString *className in availableStopControllers) {
+            StopNavigationViewController *viewController = [[NSClassFromString(className) alloc] init];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [tabBarControllers addObject:navigationController];
+        }
         
         self.tabBarController = [[UITabBarController alloc] init];
         [self.tabBarController setDelegate:self];
-        [self.tabBarController setViewControllers:viewControllers];
+        [self.tabBarController setViewControllers:tabBarControllers];
         [self.view addSubview:self.tabBarController.view];
     }
     return self;
