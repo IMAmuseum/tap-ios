@@ -435,8 +435,8 @@
 }
 
 - (UIImage *)imageAtIndex:(NSUInteger)index {
-    NSString *imagePath = [[[[_assets objectAtIndex:index] source] anyObject] uri];
-    return [UIImage imageWithContentsOfFile:imagePath];    
+    NSString *imagePath = [[[[self.assets objectAtIndex:index] getSourcesByPart:@"image"] objectAtIndex:0] uri];
+    return [UIImage imageWithContentsOfFile:imagePath];
 }
 
 - (NSUInteger)imageCount {
