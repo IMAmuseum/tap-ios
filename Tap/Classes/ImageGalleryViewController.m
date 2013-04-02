@@ -240,7 +240,7 @@
     NonSelectableTextView *tvCaption = (NonSelectableTextView *)[_infoPane viewWithTag:CAPTION_TEXTVIEW];    
     TAPContent *caption = [[asset getContentsByPart:@"caption"] objectAtIndex:0];
     if (caption != nil) {
-        CGRect captionFrame = CGRectMake(0, CONTENT_PADDING, self.view.frame.size.width, 0);
+        CGRect captionFrame = CGRectMake(0, CONTENT_PADDING, self.view.frame.size.width - CONTENT_PADDING, 0);
         if (titleHeight != 0) {
             captionFrame.origin.y += titleHeight + CONTENT_PADDING;
         }
@@ -359,6 +359,7 @@
             break;
         }
     }
+    
     return foundPage;
 }
 
@@ -435,8 +436,9 @@
 }
 
 - (UIImage *)imageAtIndex:(NSUInteger)index {
-    NSString *imagePath = [[[[_assets objectAtIndex:index] source] anyObject] uri];
-    return [UIImage imageWithContentsOfFile:imagePath];    
+    TAPAsset *imageAsset = [[self.imageStop.model getAssetsByUsage:@"image_asset"] objectAtIndex:0];
+    NSString *image = [[[imageAsset getSourcesByPart:@"image"] objectAtIndex:0] uri];
+    return [UIImage imageWithContentsOfFile:image];    
 }
 
 - (NSUInteger)imageCount {
