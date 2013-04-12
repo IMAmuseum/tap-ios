@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     // setup tours back button
-    UIBarButtonItem *toursButton = [[UIBarButtonItem alloc] initWithTitle:@"Tours"
+    UIBarButtonItem *toursButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Tours", nil)
                                                         style:UIBarButtonItemStyleBordered
                                                         target:self
                                                         action:@selector(navigateToTourSelection:)];
