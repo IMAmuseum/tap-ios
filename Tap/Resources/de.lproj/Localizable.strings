@@ -15,3 +15,11 @@
 "Invalid code: %@" = "Ungültiger Code: %@";
 "Go" = "Gehe";
 "Clear" = "Löschen";
+"Tours" = "Tours";
+"Stop List" = "Stop List";
+"Map" = "Map";
+"Select a Stop" = "Select a Stop";
+"Select a Tour" = "Select a Tour";
+"Filter stops" = "Filter stops";
+"Enter a key code" = "Enter a key code";
+"Navigate the Map" = "Navigate the Map";
