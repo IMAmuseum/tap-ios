@@ -26,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@"Navigate the Map"];
+        [self setTitle:NSLocalizedString(@"Navigate the Map", @"")];
         [self.tabBarItem setTitle:NSLocalizedString(@"Map", @"")];
         [self.tabBarItem setImage:[UIImage imageNamed:@"map"]];
     }
