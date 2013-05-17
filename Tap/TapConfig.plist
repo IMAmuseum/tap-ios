@@ -40,7 +40,7 @@
 				<string>StopListViewController</string>
 			</array>
 		</dict>
-		<key>tour-1</key>
+		<key>default</key>
 		<dict>
 			<key>EnabledViewControllers</key>
 			<array>
