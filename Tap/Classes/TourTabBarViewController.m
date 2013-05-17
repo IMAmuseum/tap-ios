@@ -28,6 +28,7 @@
         
         NSDictionary *tourConfig = [appDelegate.tapConfig objectForKey:@"TourConfig"];
         NSDictionary *currentTourConfig = [tourConfig objectForKey:appDelegate.currentTour.id];
+        if (currentTourConfig == nil) currentTourConfig = [tourConfig objectForKey:@"default"];
         NSArray *availableStopControllers = [currentTourConfig objectForKey:@"EnabledViewControllers"];
         for (NSString *className in availableStopControllers) {
             StopNavigationViewController *viewController = [[NSClassFromString(className) alloc] init];
