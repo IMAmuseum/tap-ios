@@ -10,6 +10,7 @@
 #import "ImageScrollViewController.h"
 #import "NonSelectableTextView.h"
 #import "ImageStop.h"
+#import "GTMNSString+HTML.h"
 
 @interface ImageGalleryViewController () {
     UIScrollView *_pagingScrollView;
@@ -213,7 +214,7 @@
         CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + titleHeight);
         
         // set label properties
-        [lblTitle setText:title.data];
+        [lblTitle setText:[title.data gtm_stringByUnescapingFromHTML]];
         [lblTitle setFrame:titleFrame];
         _displayInfoPane = YES;
     } else {
@@ -230,7 +231,7 @@
         CGRect copyrightFrame = CGRectMake(CONTENT_PADDING, titleHeight + CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + copyrightHeight);
         
         // set label properties
-        [lblCopyright setText:copyright.data];
+        [lblCopyright setText:[copyright.data gtm_stringByUnescapingFromHTML]];
         [lblCopyright setFrame:copyrightFrame];
         _displayInfoPane = YES;
     } else {
@@ -250,7 +251,7 @@
         }
         captionFrame.size.height = (self.view.frame.size.height * PANEL_HEIGHT) - captionFrame.origin.y;
         
-        [tvCaption setText:caption.data];
+        [tvCaption setText:[caption.data gtm_stringByUnescapingFromHTML]];
         [tvCaption setFrame:captionFrame];
         _displayInfoPane = YES;
     } else {
