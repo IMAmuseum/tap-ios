@@ -22,11 +22,16 @@
 {
     [super viewDidLoad];
     
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     // setup tours back button
-    UIBarButtonItem *toursButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Tours", nil)
-                                                        style:UIBarButtonItemStyleBordered
-                                                        target:self
-                                                        action:@selector(navigateToTourSelection:)];
+    if ([appDelegate tourCount] > 1) {
+        UIBarButtonItem *toursButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Tours", nil)
+                                                            style:UIBarButtonItemStyleBordered
+                                                            target:self
+                                                            action:@selector(navigateToTourSelection:)];
+        [self.navigationItem setLeftBarButtonItem:toursButton];
+    }
     // setup custom background button view for help button
     UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
     [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -35,7 +40,6 @@
     
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
-    [self.navigationItem setLeftBarButtonItem:toursButton];
     [self.navigationItem setRightBarButtonItem:helpButton];
 }
 

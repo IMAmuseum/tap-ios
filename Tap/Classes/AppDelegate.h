@@ -25,6 +25,7 @@
 @property (nonatomic, strong) TAPTour *currentTour;
 @property (nonatomic, strong) NSDictionary *tapConfig;
 @property (nonatomic, strong) NSString *language;
+@property (nonatomic) NSUInteger tourCount;
 
 @property (readwrite) CFURLRef clickFileURLRef;
 @property (readonly) SystemSoundID clickFileObject;
