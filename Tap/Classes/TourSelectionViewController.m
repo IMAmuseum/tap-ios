@@ -76,6 +76,8 @@
         NSLog(@"Error: %@", error);
     }
     
+    [appDelegate setTourCount:[self.tourFetchedResultsController.fetchedObjects count]];
+    
     // setup navigation bar
     UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:NSLocalizedString(@"Select a Tour", @"")];
     
@@ -98,11 +100,11 @@
     UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
     [navigationItem setRightBarButtonItem:helpButton];
     
-    [self.navigationBar pushNavigationItem:navigationItem animated:NO];    
+    [self.navigationBar pushNavigationItem:navigationItem animated:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
-{  
+{
     // reload the table with the correct tour data
     [self.tourListTable reloadData];
     
@@ -177,15 +179,19 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     TAPTour *tour = [self.tourFetchedResultsController objectAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self loadTour:tour];
+}
+
+- (void)loadTour:(TAPTour *)tour {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     // set the current tour
     [appDelegate setCurrentTour:tour];
     
     TourTabBarViewController *viewController = [[TourTabBarViewController alloc] init];
     [viewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     [self presentViewController:viewController animated:YES completion:nil];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Log view event
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:(NSString *)tour.title, @"Tour", nil];
@@ -218,6 +224,12 @@
         [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
         
         [helpPrompt show];
+    }
+    
+    NSUInteger numTours = [self.tourFetchedResultsController.fetchedObjects count];
+    if (numTours == 1) {
+        TAPTour *tour = [self.tourFetchedResultsController.fetchedObjects objectAtIndex:0];
+        [self loadTour:tour];
     }
 }
 
