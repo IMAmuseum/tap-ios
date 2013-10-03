@@ -62,7 +62,6 @@
 		177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B01704DEB700A53F67 /* keypad-number-down@2x.png */; };
 		177318B81704DEB700A53F67 /* keypad-number-up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B11704DEB700A53F67 /* keypad-number-up@2x.png */; };
 		177318BA1704DF1900A53F67 /* keypad-textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 177318B91704DF1900A53F67 /* keypad-textfield@2x.png */; };
-		177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318BD1704FF0600A53F67 /* JSONKIT.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		177318C11705141C00A53F67 /* StopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318C01705141B00A53F67 /* StopAnnotation.m */; };
 		177318C81705D55600A53F67 /* TourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 177318C71705D55600A53F67 /* TourCell.m */; };
 		177318CA1705D5EB00A53F67 /* TourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177318C91705D5EB00A53F67 /* TourCell.xib */; };
@@ -125,6 +124,7 @@
 		65F4250316FBFEE7004D05B4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250216FBFEE6004D05B4 /* MapKit.framework */; };
 		65F4250516FC022F004D05B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; };
 		65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */; };
+		A446E07217FD10000027739C /* keypad-cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A446E07117FD10000027739C /* keypad-cancel@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,8 +206,6 @@
 		177318B01704DEB700A53F67 /* keypad-number-down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-down@2x.png"; path = "Resources/keypad-number-down@2x.png"; sourceTree = "<group>"; };
 		177318B11704DEB700A53F67 /* keypad-number-up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-number-up@2x.png"; path = "Resources/keypad-number-up@2x.png"; sourceTree = "<group>"; };
 		177318B91704DF1900A53F67 /* keypad-textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-textfield@2x.png"; path = "Resources/keypad-textfield@2x.png"; sourceTree = "<group>"; };
-		177318BC1704FF0600A53F67 /* JSONKIT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKIT.h; path = JSONKIT/JSONKIT.h; sourceTree = "<group>"; };
-		177318BD1704FF0600A53F67 /* JSONKIT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKIT.m; path = JSONKIT/JSONKIT.m; sourceTree = "<group>"; };
 		177318BF1705141A00A53F67 /* StopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopAnnotation.h; path = Classes/StopAnnotation.h; sourceTree = "<group>"; };
 		177318C01705141B00A53F67 /* StopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopAnnotation.m; path = Classes/StopAnnotation.m; sourceTree = "<group>"; };
 		177318C61705D55600A53F67 /* TourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourCell.h; path = Classes/TourCell.h; sourceTree = "<group>"; };
@@ -294,6 +292,7 @@
 		65F4250416FC022F004D05B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		65F4250616FC03C0004D05B4 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKMapView+ZoomLevel.h"; path = "Classes/MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKMapView+ZoomLevel.m"; path = "Classes/MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		A446E07117FD10000027739C /* keypad-cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-cancel@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,15 +389,6 @@
 			);
 			name = Flurry;
 			path = Classes/Flurry;
-			sourceTree = "<group>";
-		};
-		177318BB1704FED600A53F67 /* JSONKIT */ = {
-			isa = PBXGroup;
-			children = (
-				177318BC1704FF0600A53F67 /* JSONKIT.h */,
-				177318BD1704FF0600A53F67 /* JSONKIT.m */,
-			);
-			name = JSONKIT;
 			sourceTree = "<group>";
 		};
 		177318C21705D3CC00A53F67 /* TAP API */ = {
@@ -531,7 +521,6 @@
 			isa = PBXGroup;
 			children = (
 				51D58F4317510E540066A041 /* GTMNSString+HTML */,
-				177318BB1704FED600A53F67 /* JSONKIT */,
 				177318941704B5CA00A53F67 /* Flurry */,
 				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
 				17F3E92C16C03251002E3957 /* GDataXML */,
@@ -596,6 +585,7 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				A446E07117FD10000027739C /* keypad-cancel@2x.png */,
 				177318B91704DF1900A53F67 /* keypad-textfield@2x.png */,
 				177318AB1704DEB700A53F67 /* bg-header@2x.png */,
 				177318AC1704DEB700A53F67 /* keypad-clear-down@2x.png */,
@@ -721,7 +711,12 @@
 		17BAADF215685F150012F849 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					17BAADFA15685F160012F849 = {
+						DevelopmentTeam = 798ZSG9EDX;
+					};
+				};
 			};
 			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -778,6 +773,7 @@
 				65F424F916FBF001004D05B4 /* keypad@2x.png in Resources */,
 				65F424FA16FBF001004D05B4 /* list@2x.png in Resources */,
 				65F424FB16FBF001004D05B4 /* map@2x.png in Resources */,
+				A446E07217FD10000027739C /* keypad-cancel@2x.png in Resources */,
 				65F424FF16FBF00F004D05B4 /* keypad.png in Resources */,
 				65F4250016FBF00F004D05B4 /* list.png in Resources */,
 				65F4250116FBF00F004D05B4 /* map.png in Resources */,
@@ -861,7 +857,6 @@
 				65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */,
 				65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */,
 				177318A41704D39400A53F67 /* UIDevice+Screen.m in Sources */,
-				177318BE1704FF0600A53F67 /* JSONKIT.m in Sources */,
 				177318C11705141C00A53F67 /* StopAnnotation.m in Sources */,
 				65DC9AB41705688100E2D49A /* NSString+StripHTML.m in Sources */,
 				177318C81705D55600A53F67 /* TourCell.m in Sources */,
@@ -892,8 +887,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -909,10 +905,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
@@ -922,8 +922,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -932,8 +933,11 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -947,10 +951,6 @@
 		17BAAE2515685F170012F849 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -959,7 +959,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
@@ -980,17 +980,14 @@
 		17BAAE2615685F170012F849 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					"$(ARCHS_STANDARD_32_BIT)",
-					armv6,
-				);
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tap/Tap-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",

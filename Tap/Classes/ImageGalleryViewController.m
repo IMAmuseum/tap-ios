@@ -155,7 +155,7 @@
     [_infoPane addSubview:background];
     
     UILabel *title = [[UILabel alloc] init];
-    [title setLineBreakMode:UILineBreakModeWordWrap];
+    [title setLineBreakMode:NSLineBreakByWordWrapping];
     [title setTextColor:[UIColor whiteColor]];
     [title setFont:[UIFont systemFontOfSize:13.0f]];
     [title setBackgroundColor:[UIColor clearColor]];
@@ -169,7 +169,7 @@
     [_infoPane addSubview:infoPaneToggle];
     
     UILabel *copyright = [[UILabel alloc] init];
-    [copyright setLineBreakMode:UILineBreakModeWordWrap];
+    [copyright setLineBreakMode:NSLineBreakByWordWrapping];
     [copyright setTextColor:[UIColor lightGrayColor]];
     [copyright setFont:[UIFont systemFontOfSize:12]];    
     [copyright setBackgroundColor:[UIColor clearColor]];
@@ -209,7 +209,7 @@
     
     if (title != nil) {
         // calculate height
-        CGSize titleSize = [title.data sizeWithFont:[UIFont boldSystemFontOfSize:13.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize titleSize = [title.data sizeWithFont:[UIFont boldSystemFontOfSize:13.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         titleHeight = titleSize.height;
         CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + titleHeight);
         
@@ -225,7 +225,7 @@
     TAPContent *copyright = [[asset getContentsByPart:@"copyright"] objectAtIndex:0];
     if (copyright != nil) {
         // calculate height
-        CGSize copyrightSize = [copyright.data sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize copyrightSize = [copyright.data sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         copyrightHeight = copyrightSize.height;
         
         CGRect copyrightFrame = CGRectMake(CONTENT_PADDING, titleHeight + CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + copyrightHeight);

@@ -13,7 +13,6 @@
 #import "TAPStop.h"
 #import "TAPAsset.h"
 #import "TAPContent.h"
-#import "JSONKIT.h"
 #import "StopAnnotation.h"
 
 @interface MapViewController ()
@@ -50,7 +49,13 @@
     NSArray *geoAssets = [appDelegate.currentTour getAppResourcesByUsage:@"geo"];
     if ([geoAssets count]) {
         TAPContent *geoContent = [[[geoAssets objectAtIndex:0] content] anyObject];
-        NSDictionary *geoData = [geoContent.data objectFromJSONString];
+        
+        NSError *error = nil;
+        NSData *jsonData = [geoContent.data dataUsingEncoding:NSASCIIStringEncoding];
+        NSDictionary *geoData = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                options:kNilOptions
+                                                                  error:&error];
+        
         NSArray *coordinates = [geoData objectForKey:@"coordinates"];
         
         float zoom = [[appDelegate.currentTour getPropertyValueByName:@"initial_map_zoom"] floatValue];
@@ -61,7 +66,13 @@
         NSArray *stopGeoAssets = [stop getAssetsByUsage:@"geo"];
         if ([stopGeoAssets count]) {
             TAPContent *stopGeoContent = [[[stopGeoAssets objectAtIndex:0] content] anyObject];
-            NSDictionary *stopGeoData = [stopGeoContent.data objectFromJSONString];
+            
+            NSError *error = nil;
+            NSData *jsonData = [stopGeoContent.data dataUsingEncoding:NSASCIIStringEncoding];
+            NSDictionary *stopGeoData = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                        options:kNilOptions
+                                                                          error:&error];
+            
             NSArray *stopCoordinates = [stopGeoData objectForKey:@"coordinates"];
             
             StopAnnotation *annotation = [[StopAnnotation alloc] initWithCoordinates:CLLocationCoordinate2DMake([[stopCoordinates objectAtIndex:1] floatValue], [[stopCoordinates objectAtIndex:0] floatValue])

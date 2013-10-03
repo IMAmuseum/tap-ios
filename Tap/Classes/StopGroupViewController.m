@@ -125,12 +125,12 @@
         
         // Set the title
         [[cell textLabel] setText:[stop getTitle]];
-        [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell textLabel] setLineBreakMode:NSLineBreakByWordWrapping];
         [[cell textLabel] setNumberOfLines:0];
         
         // Set the description if available
         [[cell detailTextLabel] setText:[stop getDescription]];
-        [[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell detailTextLabel] setLineBreakMode:NSLineBreakByWordWrapping];
         [[cell detailTextLabel] setNumberOfLines:0];
         
         // Set the associated icon
@@ -147,12 +147,12 @@
         
         // Set the stop group title
         [[cell textLabel] setText:[(NSString *)[self.stopGroup getTitle] stripHtml]];
-        [[cell textLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell textLabel] setLineBreakMode:NSLineBreakByWordWrapping];
         [[cell textLabel] setNumberOfLines:0];
         
         // Set the stop group description
         [[cell detailTextLabel] setText:[(NSString *)[self.stopGroup getDescription] stripHtml]];
-        [[cell detailTextLabel] setLineBreakMode:UILineBreakModeWordWrap];
+        [[cell detailTextLabel] setLineBreakMode:NSLineBreakByWordWrapping];
         [[cell detailTextLabel] setNumberOfLines:0];
     }
     
@@ -175,18 +175,18 @@
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
         
         NSString *title = [stop getTitle];
-        CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         
         NSString *description = [stop getDescription];
-        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         
         height = MAX(titleSize.height + descriptionSize.height, 44.0f);
     } else {
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
         NSString *title = (NSString *)[self.stopGroup getTitle];
         NSString *description = (NSString *)[self.stopGroup getDescription];
-        CGSize titleSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:16.0f] constrainedToSize:constraint lineBreakMode:UILineBreakModeCharacterWrap];
-        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGSize titleSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:16.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
         height = MAX(titleSize.height + descriptionSize.height, 44.0f);
     }
     

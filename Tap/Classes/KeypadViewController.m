@@ -57,7 +57,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
+    //[btnClear setTitle:NSLocalizedString(@"Clear", nil) forState:UIControlStateNormal];
     [btnGo setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Asset" representedClassName="TAPAsset" syncable="YES">
         <attribute name="copyright" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creditLine" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,7 +11,7 @@
         <relationship name="content" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Content" inverseName="asset" inverseEntity="Content" syncable="YES"/>
         <relationship name="propertySet" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Property" inverseName="assetPropertySet" inverseEntity="Property" syncable="YES"/>
         <relationship name="source" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Source" inverseName="relationship" inverseEntity="Source" syncable="YES"/>
-        <relationship name="watermark" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="asset" inverseEntity="AssetRef" syncable="YES"/>
+        <relationship name="watermark" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AssetRef" inverseName="watermark" inverseEntity="AssetRef" syncable="YES"/>
     </entity>
     <entity name="AssetRef" representedClassName="TAPAssetRef" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -80,13 +80,13 @@
         <relationship name="stop" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Stop" inverseName="tour" inverseEntity="Stop" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Asset" positionX="-47" positionY="-297" width="128" height="225"/>
-        <element name="AssetRef" positionX="-470" positionY="156" width="128" height="135"/>
-        <element name="Connection" positionX="-198" positionY="-429" width="128" height="105"/>
-        <element name="Content" positionX="133" positionY="-54" width="128" height="135"/>
-        <element name="Property" positionX="-171" positionY="-12" width="128" height="165"/>
-        <element name="Source" positionX="9" positionY="171" width="128" height="150"/>
-        <element name="Stop" positionX="-387" positionY="-351" width="128" height="195"/>
-        <element name="Tour" positionX="-587" positionY="-213" width="128" height="210"/>
+        <element name="Asset" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="AssetRef" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Connection" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Content" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Property" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Source" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Stop" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Tour" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
