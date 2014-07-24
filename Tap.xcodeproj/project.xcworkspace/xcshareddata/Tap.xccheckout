@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7CD14CCE-0A17-422F-A2D0-68927CEA89F4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Tap</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>31B93E42-7957-4828-B24D-C394E59304DF</key>
+		<string>https://github.com/IMAmuseum/tap-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tap.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>31B93E42-7957-4828-B24D-C394E59304DF</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/IMAmuseum/tap-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>31B93E42-7957-4828-B24D-C394E59304DF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>31B93E42-7957-4828-B24D-C394E59304DF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tap-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

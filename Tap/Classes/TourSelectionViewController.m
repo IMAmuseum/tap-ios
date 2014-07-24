@@ -18,7 +18,6 @@
 #import "TAPAsset.h"
 #import "TAPSource.h"
 #import "TourCell.h"
-#import "Flurry.h"
 
 #define CELL_CONTENT_WIDTH 320.0f
 #define CELL_CONTENT_MARGIN 10.0f
@@ -194,8 +193,7 @@
     [self presentViewController:viewController animated:YES completion:nil];
     
     // Log view event
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:(NSString *)tour.title, @"Tour", nil];
-    [Flurry logEvent:@"Selected_Tour" withParameters:params];
+    // TODO: add new tracking code (selected tour)
 }
 
 #pragma mark View controller rotation methods
@@ -270,7 +268,7 @@
     [self presentMoviePlayerViewControllerAnimated:movieController];
     
     // Log view event
-    [Flurry logEvent:@"Played_Help_Video"];
+    // TODO: add new tracking code
 }
 
 #pragma mark - Action Methods

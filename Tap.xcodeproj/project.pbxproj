@@ -45,7 +45,6 @@
 		173F94DB156DE15C000DD580 /* TAPStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94DA156DE15C000DD580 /* TAPStop.m */; };
 		173F94F0156DE3A3000DD580 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94EF156DE3A3000DD580 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = ""; }; };
 		173F94F7156DE4A6000DD580 /* TourMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 173F94F6156DE4A6000DD580 /* TourMLParser.m */; };
-		177318971704B5CA00A53F67 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 177318961704B5CA00A53F67 /* libFlurry.a */; };
 		1773189C1704D04200A53F67 /* tap-splash-btm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189A1704D04200A53F67 /* tap-splash-btm@2x.png */; };
 		1773189D1704D04200A53F67 /* tap-splash-top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189B1704D04200A53F67 /* tap-splash-top@2x.png */; };
 		1773189F1704D05700A53F67 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1773189E1704D05700A53F67 /* Default@2x.png */; };
@@ -187,8 +186,6 @@
 		173F94EF156DE3A3000DD580 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		173F94F5156DE4A6000DD580 /* TourMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TourMLParser.h; path = Classes/TourMLParser.h; sourceTree = "<group>"; };
 		173F94F6156DE4A6000DD580 /* TourMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TourMLParser.m; path = Classes/TourMLParser.m; sourceTree = "<group>"; };
-		177318951704B5CA00A53F67 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		177318961704B5CA00A53F67 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		1773189A1704D04200A53F67 /* tap-splash-btm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-btm@2x.png"; path = "Resources/tap-splash-btm@2x.png"; sourceTree = "<group>"; };
 		1773189B1704D04200A53F67 /* tap-splash-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tap-splash-top@2x.png"; path = "Resources/tap-splash-top@2x.png"; sourceTree = "<group>"; };
 		1773189E1704D05700A53F67 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
@@ -310,7 +307,6 @@
 				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
 				17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */,
-				177318971704B5CA00A53F67 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,16 +375,6 @@
 				17BAAE2815685F400012F849 /* Views */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		177318941704B5CA00A53F67 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				177318951704B5CA00A53F67 /* Flurry.h */,
-				177318961704B5CA00A53F67 /* libFlurry.a */,
-			);
-			name = Flurry;
-			path = Classes/Flurry;
 			sourceTree = "<group>";
 		};
 		177318C21705D3CC00A53F67 /* TAP API */ = {
@@ -521,7 +507,6 @@
 			isa = PBXGroup;
 			children = (
 				51D58F4317510E540066A041 /* GTMNSString+HTML */,
-				177318941704B5CA00A53F67 /* Flurry */,
 				17F3E92E16C03270002E3957 /* ISO8601DataFormatter */,
 				17F3E92C16C03251002E3957 /* GDataXML */,
 			);

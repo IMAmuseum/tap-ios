@@ -10,7 +10,6 @@
 #import "StopNavigationViewController.h"
 #import "AppDelegate.h"
 #import "TAPTour.h"
-#import "Flurry.h"
 
 @interface TourTabBarViewController ()
 @property (nonatomic, strong) UITabBarController *tabBarController;
@@ -64,8 +63,7 @@
     UIViewController *rootViewController = [navigationController.viewControllers objectAtIndex:0];
 
     // Log view event
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[rootViewController class], @"Tab View", nil];
-    [Flurry logEvent:@"Tab_View_Selected" withParameters:params];
+    // TODO: add new tracking code (tab view selected)
 }
 
 @end

@@ -9,7 +9,6 @@
 #import "StopNavigationViewController.h"
 #import "StopFactory.h"
 #import "AppDelegate.h"
-#import "Flurry.h"
 
 @interface StopNavigationViewController ()
 - (IBAction)navigateToTourSelection:(id)sender;
@@ -51,8 +50,7 @@
     BaseStop *stop = [StopFactory newStopForStopNode:stopModel];
     
     // Log view event
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[stop getTitle], @"Stop", nil];
-    [Flurry logEvent:@"Viewed_Stop" withParameters:params];
+    // TODO: Add new tracking code
     
     if ([stop providesViewController]) {
         UIViewController *viewController = [stop newViewController];
@@ -86,7 +84,7 @@
     [self presentMoviePlayerViewControllerAnimated:movieController];
     
     // Log view event
-    [Flurry logEvent:@"Played_Help_Video"];
+    // TODO: Add new tracking code
 }
 
 @end

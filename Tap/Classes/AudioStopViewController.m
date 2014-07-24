@@ -8,7 +8,6 @@
 
 #import "AudioStopViewController.h"
 #import "AudioStop.h"
-#import "Flurry.h"
 
 @implementation AudioStopViewController
 
@@ -32,19 +31,17 @@
 
 - (void)moviePlayerPlayStateChanged:(NSNotification *)notification
 {
+    // TODO: add new tracking code
     if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.audioStop getTitle], @"Audio Stop", nil];
-        [Flurry logEvent:@"Audio_Play" withParameters:params timed:YES];
+        // log event Audio play
     } else if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused) {
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.audioStop getTitle], @"Audio Stop", nil];
-        [Flurry logEvent:@"Audio_Pause" withParameters:params];
+        // log event Audio pause
     }
 }
 
 - (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification
 {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.audioStop getTitle], @"Audio Stop", nil];
-    [Flurry logEvent:@"Audio_Play" withParameters:params];
+    // TODO: add new tracking code
 }
 
 #pragma mark View controller rotation methods

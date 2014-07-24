@@ -8,7 +8,6 @@
 
 #import "VideoStopViewController.h"
 #import "VideoStop.h"
-#import "Flurry.h"
 
 @interface VideoStopViewController()
 @property (nonatomic, strong) VideoStop *videoStop;
@@ -42,19 +41,17 @@
 
 - (void)moviePlayerPlayStateChanged:(NSNotification *)notification
 {
+    // TODO: add new tracking code
     if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
-        [Flurry logEvent:@"Video_Play" withParameters:params timed:YES];
+        // log event video played
     } else if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused) {
-        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
-        [Flurry logEvent:@"Video_Pause" withParameters:params];
+        // log event video paused
     }
 }
 
 - (void)moviePlayerPlaybackDidFinish:(NSNotification *)notification
 {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:[self.videoStop getTitle], @"Video Stop", nil];
-    [Flurry logEvent:@"Video_Play" withParameters:params];
+    // TODO: add new tracking code
 }
 
 #pragma mark View controller rotation methods
