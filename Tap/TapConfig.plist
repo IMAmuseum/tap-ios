@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BeaconUUID</key>
+	<array>
+		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D</string>
+	</array>
 	<key>DefaultLanguage</key>
 	<string>en</string>
 	<key>FlurryKey</key>
@@ -12,6 +16,11 @@
 	<false/>
 	<key>NavigationControllers</key>
 	<dict>
+		<key>BeaconTableViewController</key>
+		<dict>
+			<key>Label</key>
+			<string>Nearby</string>
+		</dict>
 		<key>StopListViewController</key>
 		<dict>
 			<key>FilterBy</key>
@@ -47,6 +56,7 @@
 				<string>KeypadViewController</string>
 				<string>StopListViewController</string>
 				<string>MapViewController</string>
+				<string>BeaconTableViewController</string>
 			</array>
 		</dict>
 	</dict>

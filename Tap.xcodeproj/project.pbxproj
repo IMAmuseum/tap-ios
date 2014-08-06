@@ -121,9 +121,16 @@
 		65F4250016FBF00F004D05B4 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424FD16FBF00E004D05B4 /* list.png */; };
 		65F4250116FBF00F004D05B4 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 65F424FE16FBF00F004D05B4 /* map.png */; };
 		65F4250316FBFEE7004D05B4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250216FBFEE6004D05B4 /* MapKit.framework */; };
-		65F4250516FC022F004D05B4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; };
 		65F4250816FC03C0004D05B4 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */; };
-		A446E07217FD10000027739C /* keypad-cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A446E07117FD10000027739C /* keypad-cancel@2x.png */; };
+		A06D38471992CCCF006A7457 /* near@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A06D38441992CCCF006A7457 /* near@2x.png */; };
+		A06D38481992CCCF006A7457 /* near-icon_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A06D38451992CCCF006A7457 /* near-icon_2x.png */; };
+		A06D38491992CCCF006A7457 /* keypad-cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A06D38461992CCCF006A7457 /* keypad-cancel@2x.png */; };
+		A06D384C1992CCD6006A7457 /* near-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A06D384A1992CCD6006A7457 /* near-icon.png */; };
+		A06D384D1992CCD6006A7457 /* near.png in Resources */ = {isa = PBXBuildFile; fileRef = A06D384B1992CCD6006A7457 /* near.png */; };
+		A0EE17221982E2FB001849C7 /* BeaconTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE17201982E2FB001849C7 /* BeaconTableViewController.m */; };
+		A0EE17231982E2FB001849C7 /* BeaconTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */; };
+		A0EE17281982F5DE001849C7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */; };
+		A0EE17291982F806001849C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,7 +296,15 @@
 		65F4250416FC022F004D05B4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		65F4250616FC03C0004D05B4 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKMapView+ZoomLevel.h"; path = "Classes/MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		65F4250716FC03C0004D05B4 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKMapView+ZoomLevel.m"; path = "Classes/MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
-		A446E07117FD10000027739C /* keypad-cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keypad-cancel@2x.png"; sourceTree = "<group>"; };
+		A06D38441992CCCF006A7457 /* near@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "near@2x.png"; path = "tap/resources/near@2x.png"; sourceTree = SOURCE_ROOT; };
+		A06D38451992CCCF006A7457 /* near-icon_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "near-icon_2x.png"; path = "tap/resources/near-icon_2x.png"; sourceTree = SOURCE_ROOT; };
+		A06D38461992CCCF006A7457 /* keypad-cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "keypad-cancel@2x.png"; path = "tap/resources/keypad-cancel@2x.png"; sourceTree = SOURCE_ROOT; };
+		A06D384A1992CCD6006A7457 /* near-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "near-icon.png"; path = "tap/resources/near-icon.png"; sourceTree = SOURCE_ROOT; };
+		A06D384B1992CCD6006A7457 /* near.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = near.png; path = tap/resources/near.png; sourceTree = SOURCE_ROOT; };
+		A0EE171F1982E2FB001849C7 /* BeaconTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconTableViewController.h; path = Classes/BeaconTableViewController.h; sourceTree = "<group>"; };
+		A0EE17201982E2FB001849C7 /* BeaconTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconTableViewController.m; path = Classes/BeaconTableViewController.m; sourceTree = "<group>"; };
+		A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeaconTableViewController.xib; path = Classes/BeaconTableViewController.xib; sourceTree = "<group>"; };
+		A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,14 +312,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F4250516FC022F004D05B4 /* CoreLocation.framework in Frameworks */,
+				A0EE17291982F806001849C7 /* CoreLocation.framework in Frameworks */,
+				A0EE17281982F5DE001849C7 /* CoreBluetooth.framework in Frameworks */,
+				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				65F4250316FBFEE7004D05B4 /* MapKit.framework in Frameworks */,
 				17F3E93016C0CFAF002E3957 /* SystemConfiguration.framework in Frameworks */,
 				17C7F5B215C0F7B8004DF2FD /* AVFoundation.framework in Frameworks */,
 				1707FC40157728C80027B323 /* AudioToolbox.framework in Frameworks */,
 				1707FC41157728C80027B323 /* MediaPlayer.framework in Frameworks */,
 				17BAAE0015685F160012F849 /* UIKit.framework in Frameworks */,
-				17BAAE0215685F160012F849 /* Foundation.framework in Frameworks */,
 				17BAAE0415685F160012F849 /* CoreGraphics.framework in Frameworks */,
 				17BAAE0615685F160012F849 /* CoreData.framework in Frameworks */,
 			);
@@ -419,6 +435,7 @@
 		17BAADFE15685F160012F849 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */,
 				65F4250416FC022F004D05B4 /* CoreLocation.framework */,
 				1707FC3E157728C80027B323 /* AudioToolbox.framework */,
 				17C7F5B115C0F7B7004DF2FD /* AVFoundation.framework */,
@@ -465,6 +482,7 @@
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupViewController.xib */,
 				17DE996F15ABC568004C8A25 /* StopListViewController.xib */,
+				A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */,
 				6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */,
 				65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */,
 				177318C91705D5EB00A53F67 /* TourCell.xib */,
@@ -489,6 +507,8 @@
 				65F424E916FBDCEF004D05B4 /* MapViewController.m */,
 				1707FC2315771FB10027B323 /* StopGroupViewController.h */,
 				1707FC2415771FB10027B323 /* StopGroupViewController.m */,
+				A0EE171F1982E2FB001849C7 /* BeaconTableViewController.h */,
+				A0EE17201982E2FB001849C7 /* BeaconTableViewController.m */,
 				1707FC1415771E640027B323 /* StopListViewController.h */,
 				1707FC1515771E640027B323 /* StopListViewController.m */,
 				65F424ED16FBDD24004D05B4 /* StopNavigationViewController.h */,
@@ -570,7 +590,9 @@
 		65AAFD3116BE1AE500E2DA39 /* Retina */ = {
 			isa = PBXGroup;
 			children = (
-				A446E07117FD10000027739C /* keypad-cancel@2x.png */,
+				A06D38441992CCCF006A7457 /* near@2x.png */,
+				A06D38451992CCCF006A7457 /* near-icon_2x.png */,
+				A06D38461992CCCF006A7457 /* keypad-cancel@2x.png */,
 				177318B91704DF1900A53F67 /* keypad-textfield@2x.png */,
 				177318AB1704DEB700A53F67 /* bg-header@2x.png */,
 				177318AC1704DEB700A53F67 /* keypad-clear-down@2x.png */,
@@ -605,6 +627,8 @@
 		65AAFD3216BE1B3100E2DA39 /* Non-retina */ = {
 			isa = PBXGroup;
 			children = (
+				A06D384A1992CCD6006A7457 /* near-icon.png */,
+				A06D384B1992CCD6006A7457 /* near.png */,
 				65CBBE5D1703EFB000A78E7E /* audio-icon.png */,
 				1707FBDF15771B9F0027B323 /* bg-header.png */,
 				65CBBE6D1703F57800A78E7E /* btn-close.png */,
@@ -703,7 +727,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */;
+			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -739,6 +763,8 @@
 				1707FC0E15771B9F0027B323 /* keypad-number-down.png in Resources */,
 				1707FC0F15771B9F0027B323 /* keypad-number-up.png in Resources */,
 				1707FC1015771B9F0027B323 /* keypad-textfield.png in Resources */,
+				A06D384C1992CCD6006A7457 /* near-icon.png in Resources */,
+				A06D38471992CCCF006A7457 /* near@2x.png in Resources */,
 				1707FC1115771B9F0027B323 /* submit-btn.png in Resources */,
 				1707FC1215771B9F0027B323 /* tap-splash-btm.png in Resources */,
 				1707FC1315771B9F0027B323 /* tap-splash-top.png in Resources */,
@@ -753,12 +779,12 @@
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
 				39A48D4B16380AD7009B03AD /* (null) in Resources */,
 				39A7967E163DC99F0052DCDF /* Localizable.strings in Resources */,
+				A06D38481992CCCF006A7457 /* near-icon_2x.png in Resources */,
 				6540AAA2167DBFD200C0EC65 /* LanguageSelectionViewController.xib in Resources */,
 				65F424E216F972A9004D05B4 /* TourSelectionViewController.xib in Resources */,
 				65F424F916FBF001004D05B4 /* keypad@2x.png in Resources */,
 				65F424FA16FBF001004D05B4 /* list@2x.png in Resources */,
 				65F424FB16FBF001004D05B4 /* map@2x.png in Resources */,
-				A446E07217FD10000027739C /* keypad-cancel@2x.png in Resources */,
 				65F424FF16FBF00F004D05B4 /* keypad.png in Resources */,
 				65F4250016FBF00F004D05B4 /* list.png in Resources */,
 				65F4250116FBF00F004D05B4 /* map.png in Resources */,
@@ -766,6 +792,7 @@
 				655B390D1702A33800BC1ED4 /* question-mark@2x.png in Resources */,
 				65CBBE501703E68F00A78E7E /* globe@2x.png in Resources */,
 				65CBBE521703E69400A78E7E /* globe.png in Resources */,
+				A0EE17231982E2FB001849C7 /* BeaconTableViewController.xib in Resources */,
 				65CBBE581703EF9600A78E7E /* audio-icon@2x.png in Resources */,
 				65CBBE591703EF9600A78E7E /* list-icon@2x.png in Resources */,
 				65CBBE5A1703EF9600A78E7E /* photo-icon@2x.png in Resources */,
@@ -789,7 +816,9 @@
 				177318AA1704D70D00A53F67 /* Icon@2x.png in Resources */,
 				177318B21704DEB700A53F67 /* bg-header@2x.png in Resources */,
 				177318B31704DEB700A53F67 /* keypad-clear-down@2x.png in Resources */,
+				A06D38491992CCCF006A7457 /* keypad-cancel@2x.png in Resources */,
 				177318B41704DEB700A53F67 /* keypad-clear-up@2x.png in Resources */,
+				A06D384D1992CCD6006A7457 /* near.png in Resources */,
 				177318B51704DEB700A53F67 /* keypad-go-down@2x.png in Resources */,
 				177318B61704DEB700A53F67 /* keypad-go-up@2x.png in Resources */,
 				177318B71704DEB700A53F67 /* keypad-number-down@2x.png in Resources */,
@@ -837,6 +866,7 @@
 				65AAFD4216BE28E300E2DA39 /* StopGroup.m in Sources */,
 				65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */,
 				65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */,
+				A0EE17221982E2FB001849C7 /* BeaconTableViewController.m in Sources */,
 				65F424E616FAADBB004D05B4 /* TourTabBarViewController.m in Sources */,
 				65F424EB16FBDCF0004D05B4 /* MapViewController.m in Sources */,
 				65F424EF16FBDD25004D05B4 /* StopNavigationViewController.m in Sources */,
@@ -944,7 +974,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
@@ -972,7 +1002,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Tap/Tap-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Tap\"",
@@ -991,7 +1021,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */ = {
+		17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BAAE2215685F170012F849 /* Debug */,
