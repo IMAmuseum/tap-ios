@@ -9,6 +9,7 @@
 #import "TAPContent.h"
 #import "TAPAsset.h"
 #import "TAPProperty.h"
+#import "GDataXMLNode.h"
 
 
 @implementation TAPContent
@@ -19,5 +20,18 @@
 @dynamic part;
 @dynamic asset;
 @dynamic propertySet;
+
+- (NSObject *)getParsedData {
+    NSObject *returnData = NULL;
+    NSError *error;
+    
+    if ([self.format isEqualToString:@"text/xml"]) {
+        returnData = [[GDataXMLDocument alloc] initWithXMLString:self.data options:0 error:&error];
+    } else {
+        returnData = self.data;
+    }
+    
+    return returnData;
+}
 
 @end

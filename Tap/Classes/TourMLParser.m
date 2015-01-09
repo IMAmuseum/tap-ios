@@ -265,8 +265,13 @@ static NSMutableString *bundlePath;
         NSMutableSet *assetContent = [[NSMutableSet alloc] init];
         for (GDataXMLElement *contentElement in [assetElement elementsForName:@"tourml:Content"]) {
             TAPContent *content = [NSEntityDescription insertNewObjectForEntityForName:@"Content" inManagedObjectContext:context];
-            content.data = [[[contentElement elementsForName:@"tourml:Data"] objectAtIndex:0] stringValue];
             content.format = [[contentElement attributeForName:@"tourml:format"] stringValue];
+            if ([content.format isEqual: @"text/xml"]) {
+                content.data = [[[[[contentElement elementsForName:@"tourml:Data"] objectAtIndex:0] children] objectAtIndex:0] XMLString];
+            } else {
+                content.data = [[[contentElement elementsForName:@"tourml:Data"] objectAtIndex:0] stringValue];
+            }
+            
             content.language = [[contentElement attributeForName:@"tourml:lang"] stringValue];
             content.part = [[contentElement attributeForName:@"tourml:part"] stringValue];
             content.propertySet = [self processPropertySet:[[contentElement elementsForName:@"tourml:PropertySet"] objectAtIndex:0] withContext:context];

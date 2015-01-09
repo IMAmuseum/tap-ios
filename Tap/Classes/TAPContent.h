@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString *part;
 @property (nonatomic, strong) TAPAsset *asset;
 @property (nonatomic, strong) NSSet *propertySet;
+
+- (NSObject *)getParsedData;
+
 @end
 
 @interface TAPContent (CoreDataGeneratedAccessors)
@@ -27,4 +30,5 @@
 - (void)removePropertySetObject:(TAPProperty *)value;
 - (void)addPropertySet:(NSSet *)values;
 - (void)removePropertySet:(NSSet *)values;
+
 @end

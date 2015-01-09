@@ -28,6 +28,7 @@
 - (NSArray *)getAssets;
 - (NSArray *)getAssetsByUsage:(NSString *)usage;
 - (NSString *)getPropertyValueByName:(NSString *)name;
+- (NSArray *)getPropertyValuesByName:(NSString *)name;
 - (NSComparisonResult)compareByKeycode:(TAPStop *)otherObject;
 
 @end

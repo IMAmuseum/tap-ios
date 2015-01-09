@@ -131,6 +131,8 @@
 		A0EE17231982E2FB001849C7 /* BeaconTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */; };
 		A0EE17281982F5DE001849C7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */; };
 		A0EE17291982F806001849C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		A4AC559A1A5CDE0C0021FED3 /* TapBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */; };
+		A4AC559D1A5EF9730021FED3 /* TapBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AC559C1A5EF9730021FED3 /* TapBeacon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -305,6 +307,10 @@
 		A0EE17201982E2FB001849C7 /* BeaconTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconTableViewController.m; path = Classes/BeaconTableViewController.m; sourceTree = "<group>"; };
 		A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeaconTableViewController.xib; path = Classes/BeaconTableViewController.xib; sourceTree = "<group>"; };
 		A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A4AC55981A5CDE0C0021FED3 /* TapBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapBeaconManager.h; path = Classes/TapBeaconManager.h; sourceTree = "<group>"; };
+		A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapBeaconManager.m; path = Classes/TapBeaconManager.m; sourceTree = "<group>"; };
+		A4AC559B1A5EF9720021FED3 /* TapBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapBeacon.h; path = Classes/TapBeacon.h; sourceTree = "<group>"; };
+		A4AC559C1A5EF9730021FED3 /* TapBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapBeacon.m; path = Classes/TapBeacon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +395,10 @@
 				177318C21705D3CC00A53F67 /* TAP API */,
 				65AAFD3016BE1AB000E2DA39 /* Utilities */,
 				17BAAE2815685F400012F849 /* Views */,
+				A4AC55981A5CDE0C0021FED3 /* TapBeaconManager.h */,
+				A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */,
+				A4AC559B1A5EF9720021FED3 /* TapBeacon.h */,
+				A4AC559C1A5EF9730021FED3 /* TapBeacon.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -727,7 +737,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */;
+			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -840,6 +850,7 @@
 				17BAAE1515685F170012F849 /* Tap.xcdatamodeld in Sources */,
 				173F94C5156DE15B000DD580 /* TAPAssetRef.m in Sources */,
 				173F94C9156DE15C000DD580 /* TAPSource.m in Sources */,
+				A4AC559D1A5EF9730021FED3 /* TapBeacon.m in Sources */,
 				173F94CC156DE15C000DD580 /* TAPProperty.m in Sources */,
 				173F94CF156DE15C000DD580 /* TAPTour.m in Sources */,
 				173F94D2156DE15C000DD580 /* TAPContent.m in Sources */,
@@ -852,6 +863,7 @@
 				1707FC2115771F8E0027B323 /* KeypadViewController.m in Sources */,
 				1707FC2615771FB10027B323 /* StopGroupViewController.m in Sources */,
 				1707FC2B15771FE70027B323 /* TourSelectionViewController.m in Sources */,
+				A4AC559A1A5CDE0C0021FED3 /* TapBeaconManager.m in Sources */,
 				1707FC35157720520027B323 /* ImageGalleryViewController.m in Sources */,
 				17BE366415B39DFE0015DE77 /* ImageScrollViewController.m in Sources */,
 				173A566615B99A3F0060DDE2 /* ISO8601DateFormatter.m in Sources */,
@@ -1021,7 +1033,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */ = {
+		17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BAAE2215685F170012F849 /* Debug */,
