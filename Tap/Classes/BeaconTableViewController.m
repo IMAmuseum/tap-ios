@@ -14,8 +14,11 @@
 #import "TAPContent.h"
 #import "GDataXMLNode.h"
 #import "TapBeaconManager.h"
+#import "TapBeacon.h"
 
 @interface BeaconTableViewController ()
+
+@property (nonatomic) BOOL displayBeaconData;
 
 @end
 
@@ -34,6 +37,8 @@
                                                  selector:@selector(tapBeaconRanged:)
                                                      name:@"TAPBeaconRanged"
                                                    object:beaconManager];
+        
+        self.displayBeaconData = YES;
     }
     
     return self;
@@ -45,16 +50,22 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    // retrieve the current tour's stops
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SUBQUERY(propertySet, $ps, $ps.name = 'beacon_id' AND $ps.value != nil AND ($ps.language == %@ OR $ps.language == nil)).@count > 0", appDelegate.language];
+    NSSet *filteredStops = [[NSSet alloc] initWithSet:[appDelegate.currentTour.stop filteredSetUsingPredicate:predicate]];
+    self.stops = [[NSArray alloc] initWithArray:[filteredStops allObjects]];
+    
     TapBeaconManager *beaconManager = [TapBeaconManager sharedInstance];
     [beaconManager startLocationServicesForTour:appDelegate.currentTour];
-    NSLog(@"Location!!!");
     
+    self.displayStops = [[NSMutableDictionary alloc] init];
+    [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityImmediate]];
+    [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityNear]];
 
-//    // initialize the timer
-//    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 10.0 target: self
-//                                                      selector: @selector(callAfterTenSecond:) userInfo: nil repeats: YES];
-//    
-//    [self.stopListTable reloadData];
+    [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityFar]];
+    [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityUnknown]];
+    
+    [self.stopListTable reloadData];
 
 }
 
@@ -85,26 +96,18 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     TapBeaconManager *beaconManager = [TapBeaconManager sharedInstance];
     [beaconManager stopLocationServicesForTour:appDelegate.currentTour];
-    self.filteredStops = nil;
-}
-
--(void) callAfterTenSecond:(NSTimer*) timex
-{
-    // update the data
-    [self filterStops:self.beacons];
-    [self.stopListTable reloadData];
 }
 
 #pragma mark UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.beacons.count;
+    return self.displayStops.count;
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *sectionValues = [self.beacons allValues];
+    NSArray *sectionValues = [self.displayStops allValues];
     return [sectionValues[section] count];
 }
 
@@ -112,7 +115,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *title;
-    NSArray *sectionKeys = [self.beacons allKeys];
+    NSArray *sectionKeys = [self.displayStops allKeys];
     
     // The table view will display artworks by proximity
     NSNumber *sectionKey = sectionKeys[section];
@@ -143,7 +146,7 @@
 {
 	static NSString *identifier = @"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    NSNumber *sectionKey = [self.beacons allKeys][indexPath.section];
+    NSNumber *sectionKey = [self.displayStops allKeys][indexPath.section];
     
     if (cell == nil) {
 		// Create a new reusable table cell
@@ -156,63 +159,67 @@
 	}
     
     // populate the cell
-    if ([self.filteredStops[sectionKey] count]>0){
-        TAPStop *stop;
-        stop = self.filteredStops[sectionKey][indexPath.row];
+    if ([self.displayStops[sectionKey] count]>0){
+        TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
         [[cell textLabel] setText:(NSString *)stop.title];
+        
+        if (self.displayBeaconData) {
+            BOOL foundBeacon = NO;
+            for (id tbId in self.beaconData) {
+                TapBeacon *tb = [self.beaconData objectForKey:tbId];
+                if ([tb.stopIds containsObject:stop.id]) {
+                    
+                    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"prox: %@ | acc: %f | rssi: %ld", [tb proximityToString], tb.beacon.accuracy, (long)tb.beacon.rssi]];
+                    foundBeacon = YES;
+                    break;
+                }
+            }
+            
+            if (!foundBeacon) {
+                [[cell detailTextLabel] setText:@"Not in range"];
+            }
+        }
     }
 
     return cell;
 }
 
-
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSNumber *sectionKey = [self.beacons allKeys][indexPath.section];
-    TAPStop *stop = self.filteredStops[sectionKey][indexPath.row];
+    NSNumber *sectionKey = [self.displayStops allKeys][indexPath.section];
+    TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
     [self loadStop:stop];
 }
 
-#pragma mark Content Filtering
-
-- (void)filterStops:(NSMutableDictionary*)beacons
-{
-    [self.filteredStops removeAllObjects];
-    
-    // add stops to the filteredStops dictionary by proximity
-    for (NSNumber *range in @[@(CLProximityImmediate), @(CLProximityNear), @(CLProximityFar)])
-    {
-        // retrieve all beacons of a certain proximity
-        NSArray *proximityBeacons = [beacons objectForKey:range];
-        NSMutableArray *proximityStops = [NSMutableArray array];
+- (void)tapBeaconRanged:(NSNotification *)notification {
+    if ([notification.userInfo count]) {
+        for (id key in self.displayStops) {
+            [[self.displayStops objectForKey:key] removeAllObjects];
+        }
         
-        for (int i = 0; i < [proximityBeacons count]; i++)
-        {
-            CLBeacon *beacon = proximityBeacons[i];
-            NSString *beaconMajor = [NSString stringWithFormat:@"%@",beacon.major];
-            NSString *beaconMinor = [NSString stringWithFormat:@"%@",beacon.minor];
-            
-            // use major and minor value of the beacon to find artworks associated with the beacon
-            for (TAPStop *stop in self.stops) {
-                NSString *stopMajor = [stop getPropertyValueByName:@"beacon_major"];
-                NSString *stopMinor = [stop getPropertyValueByName:@"beacon_minor"];
-                if ([stopMajor isEqualToString:beaconMajor] && [stopMinor isEqualToString:beaconMinor] ){
-                    [proximityStops addObject:stop];
+        self.beaconData = notification.userInfo;
+        
+        for (TAPStop *stop in self.stops) {
+            NSArray *stopBeaconIds = [stop getPropertyValuesByName:@"beacon_id"];
+            BOOL foundBeacon = NO;
+            for (NSString *stopBeaconId in stopBeaconIds) {
+                TapBeacon *tb = [notification.userInfo objectForKey:[NSNumber numberWithInteger:[stopBeaconId integerValue]]];
+                if (tb != nil) {
+                    [[self.displayStops objectForKey:[NSNumber numberWithInteger:tb.beacon.proximity]] addObject:stop];
+                    foundBeacon = YES;
+                    break;
                 }
+            }
+            
+            if (!foundBeacon) {
+                [[self.displayStops objectForKey:[NSNumber numberWithInteger:CLProximityUnknown]] addObject:stop];
             }
         }
         
-        // add the stops of the same proximity to the filteredStops dictionary
-        if ([proximityStops count]>0){
-            [self.filteredStops setObject:proximityStops forKey:range];
-        }
+        [self.stopListTable reloadData];
     }
-}
-
-- (void)tapBeaconRanged:(NSNotification *)notification {
-    NSLog(@"Got the notification");
 }
 
 #pragma mark View controller rotation methods

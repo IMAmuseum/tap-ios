@@ -81,6 +81,11 @@
                 CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                                  major:[major intValue]
                                                                             identifier:bId];
+                
+                region.notifyEntryStateOnDisplay = YES;
+                region.notifyOnEntry = YES;
+                region.notifyOnExit = YES;
+                
                 [self.regions setObject:region forKey:bId];
                 [beaconUUIDs addObject:beacon_lookup];
             }
@@ -186,7 +191,7 @@
                 tapBeacon.beacon = beacon;
                 
                 [beaconData addObject:tapBeacon];
-                [beaconKeys addObject:tapBeacon.bId];
+                [beaconKeys addObject:[NSNumber numberWithInteger:[tapBeacon.bId integerValue]]];
                 
                 break;
             }

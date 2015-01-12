@@ -12,16 +12,10 @@
 
 @interface BeaconTableViewController : StopNavigationViewController <CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableDictionary *beacons;
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSMutableDictionary *rangedRegions;
-
-@property (nonatomic, strong) NSString *currentRoom;
-@property (nonatomic, strong) CLBeacon *closestBeacon;
-
 @property (nonatomic, unsafe_unretained) IBOutlet UITableView *stopListTable;
 
 @property (nonatomic, strong) NSArray *stops;
-@property (nonatomic, strong) NSMutableDictionary *filteredStops;
+@property (nonatomic, strong) NSMutableDictionary *displayStops;
+@property (nonatomic, strong) NSDictionary *beaconData;
 
 @end
