@@ -309,4 +309,42 @@
     return eventData;
 }
 
+- (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId {
+    NSString *device_id = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSNumber *timestamp = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] integerValue]];
+    
+    
+    NSArray *interactions = @[@{@"event": event,
+                                @"stop_id": stopId,
+                                @"mobile_device_id": device_id,
+                                @"timestamp": timestamp}];
+    
+    NSDictionary *sendData = @{@"token": self.analyticsToken,
+                               @"events": interactions};
+    
+    NSString *data;
+    if ([NSJSONSerialization isValidJSONObject:sendData])
+    {
+        // Serialize the dictionary
+        NSData *json;
+        NSError *jsonError = nil;
+        json = [NSJSONSerialization dataWithJSONObject:sendData options:NSJSONWritingPrettyPrinted error:&jsonError];
+        
+        if (json != nil && jsonError == nil) {
+            data = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+        }
+    }
+    
+    if (data != nil) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *parameters = @{@"data": data};
+        NSString *endpoint = [NSString stringWithFormat:@"%@interactions", self.analyticsEndpoint];
+        [manager POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                        NSLog(@"Send ranged data");
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                        NSLog(@"Error: %@", error);
+        }];
+    }
+}
+
 @end

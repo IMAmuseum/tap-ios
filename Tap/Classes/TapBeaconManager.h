@@ -34,6 +34,7 @@
 - (void)stopUpdatingLocation;
 - (void)startLocationServicesForTour:(TAPTour *)tour;
 - (void)stopLocationServicesForTour:(TAPTour *)tour;
+- (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId;
 
 
 + (TapBeaconManager *)sharedInstance;

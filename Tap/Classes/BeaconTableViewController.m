@@ -190,6 +190,12 @@
 {
     NSNumber *sectionKey = [self.displayStops allKeys][indexPath.section];
     TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
+    
+    TapBeaconManager *beaconManager = [TapBeaconManager sharedInstance];
+    if (beaconManager.sendAnalytics) {
+        [beaconManager sendBeaconInteractionData:@"entered" stopId:stop.id];
+    }
+    
     [self loadStop:stop];
 }
 
