@@ -12,13 +12,14 @@
 @interface TapBeacon : NSObject
 
 @property (nonatomic, strong) NSUUID *uuid;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *bId;
 @property (nonatomic) int major;
 @property (nonatomic) int minor;
 @property (nonatomic, strong) CLBeacon *beacon;
 @property (nonatomic, strong) NSArray *stopIds;
 
-- (id)initWithId:(NSString *)bId uuid:(NSUUID *)uuid major:(int)major minor:(int)minor;
+- (id)initWithId:(NSString *)bId uuid:(NSUUID *)uuid major:(int)major minor:(int)minor name:(NSString *)name;
 - (NSString *)proximityToString;
 
 @end

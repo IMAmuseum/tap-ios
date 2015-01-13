@@ -14,6 +14,8 @@
 #import "TAPStop.h"
 #import "GDataXMLNode.h"
 #import "TapBeacon.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "AppDelegate.h"
 
 @implementation TapBeaconManager
 
@@ -37,6 +39,11 @@
         
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+        
+        self.sendAnalytics = YES;
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.analyticsEndpoint = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsEndpoint"];
+        self.analyticsToken = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsToken"];
     }
     
     return self;
@@ -66,11 +73,13 @@
             NSString *bId = [[beacon attributeForName:@"id"] stringValue];
             NSString *major = [[beacon attributeForName:@"major"] stringValue];
             NSString *minor = [[beacon attributeForName:@"minor"] stringValue];
+            NSString *name = [[beacon attributeForName:@"name"] stringValue];
             
             TapBeacon *beacon = [[TapBeacon alloc] initWithId:bId
                                                          uuid:uuid
                                                         major:[major intValue]
-                                                        minor:[minor intValue]];
+                                                        minor:[minor intValue]
+                                                         name:name];
 
             beacon.stopIds = [self.beaconStopMap objectForKey:bId];
             
@@ -179,6 +188,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
+    if ([beacons count] == 0) {
+        return;
+    }
+    
     NSMutableArray *beaconData = [[NSMutableArray alloc] init];
     NSMutableArray *beaconKeys = [[NSMutableArray alloc] init];
     
@@ -200,40 +213,15 @@
     
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:beaconData forKeys:beaconKeys];
     
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TAPBeaconRanged"
                                                         object:self
                                                       userInfo:userInfo];
     
-//    NSLog(@"Ranging - %lu", (unsigned long)[beacons count]);
-//    NSLog(@"===============");
-//    for (CLBeacon *beacon in beacons) {
-//        NSLog(@"Beacon - %@ | %@ - %ld", beacon.major, beacon.minor, beacon.proximity);
-//    }
-    // range beacons
-//    [self.beacons removeAllObjects];
-//    
-//    NSMutableArray *allBeacons = [NSMutableArray array];
-//    
-//    for (NSArray *regionResult in [self.rangedRegions allValues])
-//    {
-//        [allBeacons addObjectsFromArray:regionResult];
-//    }
-//    
-//    // put all beacons into a dictionary by proximity
-//    for (NSNumber *range in @[@(CLProximityImmediate), @(CLProximityNear), @(CLProximityFar)])
-//    {
-//        NSArray *proximityBeacons = [allBeacons filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"proximity = %d", [range intValue]]];
-//        if([proximityBeacons count])
-//        {
-//            self.beacons[range] = proximityBeacons;
-//        }
-//    }
-//    
-//    if ([self.filteredStops count] == 0){
-//        [self filterStops:self.beacons];
-//        [self.stopListTable reloadData];
-//    }
-    
+    if (self.sendAnalytics && [beaconData count] > 0) {
+        NSDictionary *event = [self createBeaconEvent:@"ranged" withBeacons:beaconData];
+        [self sendBeaconEventData:@[event]];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
@@ -269,6 +257,56 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSLog(@"Location manager failed: %@", error);
+}
+
+- (void)sendBeaconEventData:(NSArray *)events {
+    NSDictionary *sendData = @{@"token": self.analyticsToken,
+                               @"events": events};
+
+    NSString *data;
+    if ([NSJSONSerialization isValidJSONObject:sendData])
+    {
+        // Serialize the dictionary
+        NSData *json;
+        NSError *jsonError = nil;
+        json = [NSJSONSerialization dataWithJSONObject:sendData options:NSJSONWritingPrettyPrinted error:&jsonError];
+        
+        if (json != nil && jsonError == nil) {
+            data = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+        }
+    }
+    
+    if (data != nil) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSDictionary *parameters = @{@"data": data};
+        NSString *endpoint = [NSString stringWithFormat:@"%@beacons", self.analyticsEndpoint];
+        [manager POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"Send ranged data");
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            NSLog(@"Error: %@", error);
+        }];
+    }
+}
+
+- (NSDictionary *)createBeaconEvent:(NSString *)event withBeacons:(NSArray *)beacons
+{
+    NSString *device_id = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    NSNumber *timestamp = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] integerValue]];
+    NSMutableArray *beaconData = [[NSMutableArray alloc] init];
+    
+    for (TapBeacon *beacon in beacons) {
+        [beaconData addObject:@{@"beacon_id":beacon.bId,
+                                @"beacon_tx_power":[NSNumber numberWithInteger:beacon.beacon.rssi],
+                                @"beacon_range":[beacon proximityToString],
+                                @"beacon_accuracy":[NSNumber numberWithDouble:beacon.beacon.accuracy]}];
+    }
+    
+    NSDictionary *eventData = @{@"event": event,
+                                @"mobile_device_id": device_id,
+                                @"timestamp": timestamp,
+                                @"beacons":beaconData};
+    
+    return eventData;
 }
 
 @end

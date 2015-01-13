@@ -20,10 +20,11 @@
     return self;
 }
 
--(id)initWithId:(NSString *)bId uuid:(NSUUID *)uuid major:(int)major minor:(int)minor
+-(id)initWithId:(NSString *)bId uuid:(NSUUID *)uuid major:(int)major minor:(int)minor name:(NSString *)name
 {
     self = [super init];
     if (self) {
+        self.name = name;
         self.bId = bId;
         self.uuid = uuid;
         self.major = major;
@@ -40,19 +41,19 @@
     switch(self.beacon.proximity)
     {
         case CLProximityImmediate:
-            proximityString = NSLocalizedString(@"Closest", @"Immediate section header title");
+            proximityString = NSLocalizedString(@"immediate", @"Immediate section header title");
             break;
             
         case CLProximityNear:
-            proximityString = NSLocalizedString(@"Near", @"Near section header title");
+            proximityString = NSLocalizedString(@"near", @"Near section header title");
             break;
             
         case CLProximityFar:
-            proximityString = NSLocalizedString(@"Far", @"Far section header title");
+            proximityString = NSLocalizedString(@"far", @"Far section header title");
             break;
             
         default:
-            proximityString = NSLocalizedString(@"Unknown", @"Unknown section header title");
+            proximityString = NSLocalizedString(@"unknown", @"Unknown section header title");
             break;
     }
     

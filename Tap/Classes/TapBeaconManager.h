@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSMutableDictionary *regions;
 @property (nonatomic, strong) NSMutableDictionary *beaconStopMap;
+@property (nonatomic) BOOL sendAnalytics;
+@property (nonatomic, strong) NSString *analyticsEndpoint;
+@property (nonatomic, strong) NSString *analyticsToken;
 
 @property (nonatomic, strong) CLBeacon *closestBeacon;
 
