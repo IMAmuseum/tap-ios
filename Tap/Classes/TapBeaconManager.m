@@ -66,7 +66,7 @@
         }
         
         TAPContent *beacons = [[tourBeacons content] anyObject];
-        GDataXMLDocument *beaconXml = [beacons getParsedData];
+        GDataXMLDocument *beaconXml = (GDataXMLDocument *)[beacons getParsedData];
         NSMutableArray *beaconUUIDs = [[NSMutableArray alloc] init];
         for (GDataXMLElement *beacon in [beaconXml.rootElement elementsForName:@"beacon"]) {
             NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:[[beacon attributeForName:@"uuid"] stringValue]];
