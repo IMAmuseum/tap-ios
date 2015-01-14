@@ -63,7 +63,6 @@
     if(self) {
         [self setImageStop:stop];
         [self setAssets:[self.imageStop.model getAssets]];
-        [self setWantsFullScreenLayout:YES];
         _initializedToolbarAnimation = NO;
         _currentIndex = 1;
         
@@ -209,8 +208,12 @@
     
     if (title != nil) {
         // calculate height
-        CGSize titleSize = [title.data sizeWithFont:[UIFont boldSystemFontOfSize:13.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        titleHeight = titleSize.height;
+        CGRect titleSize = [title.data boundingRectWithSize:constraint
+                                                    options:NSStringDrawingUsesLineFragmentOrigin
+                                                 attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:13.0f]}
+                                                    context:nil];
+        
+        titleHeight = titleSize.size.height;
         CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + titleHeight);
         
         // set label properties
@@ -225,8 +228,13 @@
     TAPContent *copyright = [[asset getContentsByPart:@"copyright"] objectAtIndex:0];
     if (copyright != nil) {
         // calculate height
-        CGSize copyrightSize = [copyright.data sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        copyrightHeight = copyrightSize.height;
+        CGRect copyrightSize = [copyright.data boundingRectWithSize:constraint
+                                                            options:NSStringDrawingUsesLineFragmentOrigin
+                                                         attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}
+                                                            context:nil];
+        
+        
+        copyrightHeight = copyrightSize.size.height;
         
         CGRect copyrightFrame = CGRectMake(CONTENT_PADDING, titleHeight + CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + copyrightHeight);
         
@@ -313,8 +321,8 @@
 {
     // Calculate which pages are visible
     CGRect visibleBounds = _pagingScrollView.bounds;
-    int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    int lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
+    long firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    long lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
     lastNeededPageIndex  = MIN(lastNeededPageIndex, [self imageCount] - 1);
     
@@ -328,7 +336,7 @@
     [_visiblePages minusSet:_recycledPages];
     
     // add missing pages
-    for (int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
+    for (long index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
         if (![self isDisplayingPageForIndex:index]) {
             ImageScrollViewController *page = [self dequeueRecycledPage];
             if (page == nil) {

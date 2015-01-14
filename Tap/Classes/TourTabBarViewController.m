@@ -59,9 +59,6 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-    UINavigationController *navigationController = (UINavigationController *)viewController;
-    UIViewController *rootViewController = [navigationController.viewControllers objectAtIndex:0];
-
     // Log view event
     // TODO: add new tracking code (tab view selected)
 }

@@ -175,19 +175,36 @@
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2) - CELL_DISCLOSURE_WIDTH - CELL_INDENTATION, 20000.0f);
         
         NSString *title = [stop getTitle];
-        CGSize titleSize = [title sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGRect titleSize = [title boundingRectWithSize:constraint
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}
+                                               context:nil];
+
         
         NSString *description = [stop getDescription];
-        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        CGRect descriptionSize = [description boundingRectWithSize:constraint
+                                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0f]}
+                                                           context:nil];
         
-        height = MAX(titleSize.height + descriptionSize.height, 44.0f);
+        height = MAX(titleSize.size.height + descriptionSize.size.height, 44.0f);
     } else {
         constraint = CGSizeMake(CELL_CONTENT_WIDTH - (CELL_CONTENT_MARGIN * 2), 20000.0f);
         NSString *title = (NSString *)[self.stopGroup getTitle];
         NSString *description = (NSString *)[self.stopGroup getDescription];
-        CGSize titleSize = [title sizeWithFont:[UIFont boldSystemFontOfSize:16.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        CGSize descriptionSize = [description sizeWithFont:[UIFont systemFontOfSize:13] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        height = MAX(titleSize.height + descriptionSize.height, 44.0f);
+
+        CGRect titleSize = [title boundingRectWithSize:constraint
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                            attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16.0f]}
+                                               context:nil];
+
+        CGRect descriptionSize = [description boundingRectWithSize:constraint
+                                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                                        attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:13.0f]}
+                                                           context:nil];
+        
+        height = MAX(titleSize.size.height + descriptionSize.size.height, 44.0f);
+
     }
     
     return height + (CELL_CONTENT_MARGIN * 2);
