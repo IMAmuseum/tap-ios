@@ -16,6 +16,6 @@
 
 @property (nonatomic, strong) NSArray *stops;
 @property (nonatomic, strong) NSMutableDictionary *displayStops;
-@property (nonatomic, strong) NSDictionary *beaconData;
+@property (nonatomic, strong) NSMutableDictionary *beaconData;
 
 @end

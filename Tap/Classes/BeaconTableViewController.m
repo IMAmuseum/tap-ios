@@ -65,6 +65,8 @@
     [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityFar]];
     [self.displayStops setObject:[[NSMutableArray alloc] init] forKey:[NSNumber numberWithInt:CLProximityUnknown]];
     
+    self.beaconData = [[NSMutableDictionary alloc] init];
+    
     [self.stopListTable reloadData];
 
 }
@@ -159,7 +161,7 @@
 	}
     
     // populate the cell
-    if ([self.displayStops[sectionKey] count]>0){
+    if ([self.displayStops[sectionKey] count] > 0){
         TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
         [[cell textLabel] setText:(NSString *)stop.title];
         
@@ -180,6 +182,9 @@
             }
         }
     }
+    
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.preservesSuperviewLayoutMargins = NO;
 
     return cell;
 }
@@ -205,13 +210,15 @@
             [[self.displayStops objectForKey:key] removeAllObjects];
         }
         
-        self.beaconData = notification.userInfo;
+        [self.beaconData addEntriesFromDictionary:notification.userInfo];
+        
+//        self.beaconData = notification.userInfo;
         
         for (TAPStop *stop in self.stops) {
             NSArray *stopBeaconIds = [stop getPropertyValuesByName:@"beacon_id"];
             BOOL foundBeacon = NO;
             for (NSString *stopBeaconId in stopBeaconIds) {
-                TapBeacon *tb = [notification.userInfo objectForKey:[NSNumber numberWithInteger:[stopBeaconId integerValue]]];
+                TapBeacon *tb = [self.beaconData objectForKey:[NSNumber numberWithInteger:[stopBeaconId integerValue]]];
                 if (tb != nil) {
                     [[self.displayStops objectForKey:[NSNumber numberWithInteger:tb.beacon.proximity]] addObject:stop];
                     foundBeacon = YES;
