@@ -338,7 +338,7 @@
     if (data != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *parameters = @{@"data": data};
-        NSString *endpoint = [NSString stringWithFormat:@"%@interactions", self.analyticsEndpoint];
+        NSString *endpoint = [NSString stringWithFormat:@"%@content", self.analyticsEndpoint];
         [manager POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //                        NSLog(@"Send ranged data");
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
