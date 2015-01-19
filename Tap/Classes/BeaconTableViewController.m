@@ -15,10 +15,11 @@
 #import "GDataXMLNode.h"
 #import "TapBeaconManager.h"
 #import "TapBeacon.h"
+#import "BeaconDiagnosticViewController.h"
 
 @interface BeaconTableViewController ()
 
-@property (nonatomic) BOOL displayBeaconData;
+@property (nonatomic) BOOL displayDiagnostics;
 
 @end
 
@@ -38,7 +39,7 @@
                                                      name:@"TAPBeaconRanged"
                                                    object:beaconManager];
         
-        self.displayBeaconData = YES;
+        self.displayDiagnostics = YES;
     }
     
     return self;
@@ -67,8 +68,34 @@
     
     self.beaconData = [[NSMutableDictionary alloc] init];
     
-    [self.stopListTable reloadData];
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval: 5.0
+                                                        target: self
+                                                      selector: @selector(updateTableDisplayBuffered:)
+                                                      userInfo: nil
+                                                       repeats: YES];
+    
+    if (self.displayDiagnostics) {
+        // setup custom background button view for diagnostic button
+        UIButton *diagnosticButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
+        [diagnosticButtonView addTarget:self action:@selector(diagnosticButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [diagnosticButtonView setBackgroundImage: [UIImage imageNamed:@"cog"] forState: UIControlStateNormal];
+        UIBarButtonItem *diagnosticButton = [[UIBarButtonItem alloc] initWithCustomView:diagnosticButtonView];
 
+        [self.navigationItem setRightBarButtonItem:diagnosticButton];
+    }
+    
+    [self.stopListTable reloadData];
+}
+
+- (IBAction)diagnosticButtonClicked:(id)sender
+{
+    UIViewController *viewController = [[BeaconDiagnosticViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)updateTableDisplayBuffered:(NSTimer *)timer
+{
+    [self.stopListTable reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -165,22 +192,22 @@
         TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
         [[cell textLabel] setText:(NSString *)stop.title];
         
-        if (self.displayBeaconData) {
-            BOOL foundBeacon = NO;
-            for (id tbId in self.beaconData) {
-                TapBeacon *tb = [self.beaconData objectForKey:tbId];
-                if ([tb.stopIds containsObject:stop.id]) {
-                    
-                    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"prox: %@ | acc: %f | rssi: %ld", [tb proximityToString], tb.beacon.accuracy, (long)tb.beacon.rssi]];
-                    foundBeacon = YES;
-                    break;
-                }
-            }
-            
-            if (!foundBeacon) {
-                [[cell detailTextLabel] setText:@"Not in range"];
-            }
-        }
+//        if (self.displayBeaconData) {
+//            BOOL foundBeacon = NO;
+//            for (id tbId in self.beaconData) {
+//                TapBeacon *tb = [self.beaconData objectForKey:tbId];
+//                if ([tb.stopIds containsObject:stop.id]) {
+//                    
+//                    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"prox: %@ | acc: %f | rssi: %ld", [tb proximityToString], tb.beacon.accuracy, (long)tb.beacon.rssi]];
+//                    foundBeacon = YES;
+//                    break;
+//                }
+//            }
+//            
+//            if (!foundBeacon) {
+//                [[cell detailTextLabel] setText:@"Not in range"];
+//            }
+//        }
     }
     
     cell.layoutMargins = UIEdgeInsetsZero;
@@ -212,8 +239,6 @@
         
         [self.beaconData addEntriesFromDictionary:notification.userInfo];
         
-//        self.beaconData = notification.userInfo;
-        
         for (TAPStop *stop in self.stops) {
             NSArray *stopBeaconIds = [stop getPropertyValuesByName:@"beacon_id"];
             BOOL foundBeacon = NO;
@@ -231,7 +256,7 @@
             }
         }
         
-        [self.stopListTable reloadData];
+//        [self.stopListTable reloadData];
     }
 }
 

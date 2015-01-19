@@ -17,5 +17,7 @@
 @property (nonatomic, strong) NSArray *stops;
 @property (nonatomic, strong) NSMutableDictionary *displayStops;
 @property (nonatomic, strong) NSMutableDictionary *beaconData;
+@property (nonatomic, strong) NSTimer *updateTimer;
+@property (nonatomic) NSInteger tapIndex;
 
 @end

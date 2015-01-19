@@ -131,6 +131,9 @@
 		A0EE17231982E2FB001849C7 /* BeaconTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */; };
 		A0EE17281982F5DE001849C7 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */; };
 		A0EE17291982F806001849C7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F4250416FC022F004D05B4 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		A43E702B1A6CB65E00B531AF /* BeaconDiagnosticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E70291A6CB65E00B531AF /* BeaconDiagnosticViewController.m */; };
+		A43E702C1A6CB65E00B531AF /* BeaconDiagnosticViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43E702A1A6CB65E00B531AF /* BeaconDiagnosticViewController.xib */; };
+		A43E702E1A6D4FAC00B531AF /* cog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A43E702D1A6D4FAC00B531AF /* cog@2x.png */; };
 		A4AC559A1A5CDE0C0021FED3 /* TapBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */; };
 		A4AC559D1A5EF9730021FED3 /* TapBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AC559C1A5EF9730021FED3 /* TapBeacon.m */; };
 		A4D4416A1A6457890015B6DD /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D440D61A6457880015B6DD /* AFHTTPRequestOperation.m */; };
@@ -318,6 +321,10 @@
 		A0EE17201982E2FB001849C7 /* BeaconTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconTableViewController.m; path = Classes/BeaconTableViewController.m; sourceTree = "<group>"; };
 		A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeaconTableViewController.xib; path = Classes/BeaconTableViewController.xib; sourceTree = "<group>"; };
 		A0EE17271982F5DE001849C7 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A43E70281A6CB65E00B531AF /* BeaconDiagnosticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeaconDiagnosticViewController.h; path = Classes/BeaconDiagnosticViewController.h; sourceTree = "<group>"; };
+		A43E70291A6CB65E00B531AF /* BeaconDiagnosticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeaconDiagnosticViewController.m; path = Classes/BeaconDiagnosticViewController.m; sourceTree = "<group>"; };
+		A43E702A1A6CB65E00B531AF /* BeaconDiagnosticViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BeaconDiagnosticViewController.xib; path = Classes/BeaconDiagnosticViewController.xib; sourceTree = "<group>"; };
+		A43E702D1A6D4FAC00B531AF /* cog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cog@2x.png"; path = "Resources/cog@2x.png"; sourceTree = "<group>"; };
 		A4AC55981A5CDE0C0021FED3 /* TapBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapBeaconManager.h; path = Classes/TapBeaconManager.h; sourceTree = "<group>"; };
 		A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapBeaconManager.m; path = Classes/TapBeaconManager.m; sourceTree = "<group>"; };
 		A4AC559B1A5EF9720021FED3 /* TapBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapBeacon.h; path = Classes/TapBeacon.h; sourceTree = "<group>"; };
@@ -429,10 +436,6 @@
 				177318C21705D3CC00A53F67 /* TAP API */,
 				65AAFD3016BE1AB000E2DA39 /* Utilities */,
 				17BAAE2815685F400012F849 /* Views */,
-				A4AC55981A5CDE0C0021FED3 /* TapBeaconManager.h */,
-				A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */,
-				A4AC559B1A5EF9720021FED3 /* TapBeacon.h */,
-				A4AC559C1A5EF9730021FED3 /* TapBeacon.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 		177318C21705D3CC00A53F67 /* TAP API */ = {
 			isa = PBXGroup;
 			children = (
+				A43E70271A6CB33700B531AF /* Beacons */,
 				65AAFD3516BE275E00E2DA39 /* Stops */,
 				173F94DC156DE17E000DD580 /* Models */,
 				17F3E92D16C03261002E3957 /* TourML Parser */,
@@ -524,6 +528,7 @@
 		17BAAE2815685F400012F849 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A43E702A1A6CB65E00B531AF /* BeaconDiagnosticViewController.xib */,
 				1707FC2015771F8E0027B323 /* KeypadViewController.xib */,
 				17BAAE2B1568B1B70012F849 /* MainWindow.xib */,
 				1707FC2515771FB10027B323 /* StopGroupViewController.xib */,
@@ -565,6 +570,8 @@
 				65F424E416FAADBA004D05B4 /* TourTabBarViewController.m */,
 				1735520215DD7DE9008B3A5E /* VideoStopViewController.h */,
 				1735520315DD7DE9008B3A5E /* VideoStopViewController.m */,
+				A43E70281A6CB65E00B531AF /* BeaconDiagnosticViewController.h */,
+				A43E70291A6CB65E00B531AF /* BeaconDiagnosticViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -655,6 +662,7 @@
 				1773189E1704D05700A53F67 /* Default@2x.png */,
 				65CBBE4F1703E68F00A78E7E /* globe@2x.png */,
 				177318A91704D70D00A53F67 /* Icon@2x.png */,
+				A43E702D1A6D4FAC00B531AF /* cog@2x.png */,
 				65F424F616FBF001004D05B4 /* keypad@2x.png */,
 				65CBBE541703EF9600A78E7E /* list-icon@2x.png */,
 				65F424F716FBF001004D05B4 /* list@2x.png */,
@@ -739,6 +747,17 @@
 			children = (
 			);
 			name = HTML;
+			sourceTree = "<group>";
+		};
+		A43E70271A6CB33700B531AF /* Beacons */ = {
+			isa = PBXGroup;
+			children = (
+				A4AC55981A5CDE0C0021FED3 /* TapBeaconManager.h */,
+				A4AC55991A5CDE0C0021FED3 /* TapBeaconManager.m */,
+				A4AC559B1A5EF9720021FED3 /* TapBeacon.h */,
+				A4AC559C1A5EF9730021FED3 /* TapBeacon.m */,
+			);
+			name = Beacons;
 			sourceTree = "<group>";
 		};
 		A4D440D01A6457880015B6DD /* AFNetworking-2.5.0 */ = {
@@ -857,6 +876,7 @@
 				17DE996D15ABA5C2004C8A25 /* click.aif in Resources */,
 				17DE996E15ABA5C2004C8A25 /* error.aif in Resources */,
 				17DE997015ABC568004C8A25 /* StopListViewController.xib in Resources */,
+				A43E702E1A6D4FAC00B531AF /* cog@2x.png in Resources */,
 				17DE997215AC7D02004C8A25 /* TAP Help Video.mp4 in Resources */,
 				1714411215C08FF300E4F40F /* Bundles in Resources */,
 				39A48D4B16380AD7009B03AD /* (null) in Resources */,
@@ -882,6 +902,7 @@
 				65CBBE5C1703EF9600A78E7E /* web-icon@2x.png in Resources */,
 				65CBBE621703EFB000A78E7E /* audio-icon.png in Resources */,
 				65CBBE631703EFB000A78E7E /* list-icon.png in Resources */,
+				A43E702C1A6CB65E00B531AF /* BeaconDiagnosticViewController.xib in Resources */,
 				65CBBE641703EFB000A78E7E /* photo-icon.png in Resources */,
 				65CBBE651703EFB000A78E7E /* video-icon.png in Resources */,
 				65CBBE661703EFB000A78E7E /* web-icon.png in Resources */,
@@ -955,6 +976,7 @@
 				65AAFD3F16BE28D200E2DA39 /* AudioStop.m in Sources */,
 				65AAFD4216BE28E300E2DA39 /* StopGroup.m in Sources */,
 				A4D441721A6457890015B6DD /* AFURLSessionManager.m in Sources */,
+				A43E702B1A6CB65E00B531AF /* BeaconDiagnosticViewController.m in Sources */,
 				65AAFD4516BF163C00E2DA39 /* VideoStop.m in Sources */,
 				A4D4416A1A6457890015B6DD /* AFHTTPRequestOperation.m in Sources */,
 				65AAFD4816BF171C00E2DA39 /* StopFactory.m in Sources */,
