@@ -95,6 +95,27 @@
 
 - (void)updateTableDisplayBuffered:(NSTimer *)timer
 {
+    for (id key in self.displayStops) {
+        [[self.displayStops objectForKey:key] removeAllObjects];
+    }
+    
+    for (TAPStop *stop in self.stops) {
+        NSArray *stopBeaconIds = [stop getPropertyValuesByName:@"beacon_id"];
+        BOOL foundBeacon = NO;
+        for (NSString *stopBeaconId in stopBeaconIds) {
+            TapBeacon *tb = [self.beaconData objectForKey:[NSNumber numberWithInteger:[stopBeaconId integerValue]]];
+            if (tb != nil) {
+                [[self.displayStops objectForKey:[NSNumber numberWithInteger:tb.beacon.proximity]] addObject:stop];
+                foundBeacon = YES;
+                break;
+            }
+        }
+        
+        if (!foundBeacon) {
+            [[self.displayStops objectForKey:[NSNumber numberWithInteger:CLProximityUnknown]] addObject:stop];
+        }
+    }
+    
     [self.stopListTable reloadData];
 }
 
@@ -191,23 +212,6 @@
     if ([self.displayStops[sectionKey] count] > 0){
         TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
         [[cell textLabel] setText:(NSString *)stop.title];
-        
-//        if (self.displayBeaconData) {
-//            BOOL foundBeacon = NO;
-//            for (id tbId in self.beaconData) {
-//                TapBeacon *tb = [self.beaconData objectForKey:tbId];
-//                if ([tb.stopIds containsObject:stop.id]) {
-//                    
-//                    [[cell detailTextLabel] setText:[NSString stringWithFormat:@"prox: %@ | acc: %f | rssi: %ld", [tb proximityToString], tb.beacon.accuracy, (long)tb.beacon.rssi]];
-//                    foundBeacon = YES;
-//                    break;
-//                }
-//            }
-//            
-//            if (!foundBeacon) {
-//                [[cell detailTextLabel] setText:@"Not in range"];
-//            }
-//        }
     }
     
     cell.layoutMargins = UIEdgeInsetsZero;
@@ -223,40 +227,14 @@
     NSNumber *sectionKey = [self.displayStops allKeys][indexPath.section];
     TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
     
-    TapBeaconManager *beaconManager = [TapBeaconManager sharedInstance];
-    if (beaconManager.sendAnalytics) {
-        [beaconManager sendBeaconInteractionData:@"entered" stopId:stop.id];
-    }
+    [[TapBeaconManager sharedInstance] sendBeaconInteractionData:@"entered" stopId:stop.id];
     
     [self loadStop:stop];
 }
 
 - (void)tapBeaconRanged:(NSNotification *)notification {
     if ([notification.userInfo count]) {
-        for (id key in self.displayStops) {
-            [[self.displayStops objectForKey:key] removeAllObjects];
-        }
-        
         [self.beaconData addEntriesFromDictionary:notification.userInfo];
-        
-        for (TAPStop *stop in self.stops) {
-            NSArray *stopBeaconIds = [stop getPropertyValuesByName:@"beacon_id"];
-            BOOL foundBeacon = NO;
-            for (NSString *stopBeaconId in stopBeaconIds) {
-                TapBeacon *tb = [self.beaconData objectForKey:[NSNumber numberWithInteger:[stopBeaconId integerValue]]];
-                if (tb != nil) {
-                    [[self.displayStops objectForKey:[NSNumber numberWithInteger:tb.beacon.proximity]] addObject:stop];
-                    foundBeacon = YES;
-                    break;
-                }
-            }
-            
-            if (!foundBeacon) {
-                [[self.displayStops objectForKey:[NSNumber numberWithInteger:CLProximityUnknown]] addObject:stop];
-            }
-        }
-        
-//        [self.stopListTable reloadData];
     }
 }
 

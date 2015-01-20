@@ -17,6 +17,15 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "AppDelegate.h"
 
+@interface TapBeaconManager ()
+
+@property (nonatomic) BOOL isMonitoring;
+@property (nonatomic) BOOL sendAnalytics;
+@property (nonatomic, strong) NSString *analyticsEndpoint;
+@property (nonatomic, strong) NSString *analyticsToken;
+
+@end
+
 @implementation TapBeaconManager
 
 + (TapBeaconManager *)sharedInstance
@@ -34,13 +43,18 @@
     self = [super init];
     if (self) {
         self.beacons = [[NSMutableArray alloc] init];
-        self.regions = [[NSMutableDictionary alloc] init];
+        self.regions = [[NSMutableArray alloc] init];
         self.beaconStopMap = [[NSMutableDictionary alloc] init];
         
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         
-        self.sendAnalytics = YES;
+        self.isMonitoring = NO;
+        
+        //clear out any existing regions
+        [self stopMonitoringAndRangingBeacons];
+        
+        self.sendAnalytics = NO;
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         self.analyticsEndpoint = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsEndpoint"];
         self.analyticsToken = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsToken"];
@@ -51,6 +65,9 @@
 
 -(void)initBeaconsForTour:(TAPTour *)tour
 {
+    [self.regions removeAllObjects];
+    [self.beacons removeAllObjects];
+    
     TAPAsset *tourBeacons = [[tour getAppResourcesByUsage:@"beacons"] objectAtIndex:0];
     if (tourBeacons != nil) {
         for (TAPStop *stop in [[tour stop] allObjects]) {
@@ -95,11 +112,23 @@
                 region.notifyOnEntry = YES;
                 region.notifyOnExit = YES;
                 
-                [self.regions setObject:region forKey:bId];
+                [self.regions addObject:region];
                 [beaconUUIDs addObject:beacon_lookup];
             }
         }
     }
+}
+
+-(NSArray *)getBeaconsForRegion:(CLBeaconRegion *)region
+{
+    NSMutableArray *beacons = [[NSMutableArray alloc] init];
+    for (TapBeacon *beacon in self.beacons) {
+        if ([beacon.uuid isEqual:region.proximityUUID] && beacon.major == [region.major intValue]) {
+            [beacons addObject:beacon];
+        }
+    }
+    
+    return beacons;
 }
 
 -(void)startLocationServicesForTour:(TAPTour *)tour
@@ -112,65 +141,72 @@
 
 -(void)stopLocationServicesForTour:(TAPTour *)tour
 {
-    [self initBeaconsForTour:tour];
     [self stopMonitoringAndRangingBeacons];
     [self stopUpdatingLocation];
 }
 
 -(void)startMonitoringBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
-        [self.locationManager startMonitoringForRegion:region];
+    if (!self.isMonitoring) {
+        for (CLBeaconRegion *region in self.regions) {
+            [self.locationManager startMonitoringForRegion:region];
+        }
     }
 }
 
 -(void)startRangingBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
-        [self.locationManager startRangingBeaconsInRegion:region];
+    if (!self.isMonitoring) {
+        for (CLBeaconRegion *region in self.regions) {
+            [self.locationManager startRangingBeaconsInRegion:region];
+        }
+        
+        self.isMonitoring = YES;
     }
 }
 
 -(void)startMonitoringAndRangingBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
-        [self.locationManager startMonitoringForRegion:region];
-        [self.locationManager startRangingBeaconsInRegion:region];
+    if (!self.isMonitoring) {
+        for (CLBeaconRegion *region in self.regions) {
+            [self.locationManager startMonitoringForRegion:region];
+            [self.locationManager startRangingBeaconsInRegion:region];
+        }
+        
+        self.isMonitoring = YES;
     }
 }
 
 -(void)stopMonitoringBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
+    for (CLRegion *region in self.locationManager.monitoredRegions) {
         [self.locationManager stopMonitoringForRegion:region];
     }
+    
+    self.isMonitoring = NO;
 }
 
 -(void)stopRangingBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
+    for (CLBeaconRegion *region in self.locationManager.rangedRegions) {
         [self.locationManager stopRangingBeaconsInRegion:region];
     }
+    
+    self.isMonitoring = NO;
 }
 
 -(void)stopMonitoringAndRangingBeacons
 {
-    for (NSString *beaconId in self.regions) {
-        CLBeaconRegion *region = [self.regions objectForKey:beaconId];
-        [self.locationManager stopMonitoringForRegion:region];
-        [self.locationManager stopRangingBeaconsInRegion:region];
-    }
+    [self stopMonitoringBeacons];
+    [self stopRangingBeacons];
+    
+    self.isMonitoring = NO;
 }
 
 -(void)requestPermissions
 {
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
     }
 }
 
@@ -210,14 +246,14 @@
             }
         }
     }
-    
+
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjects:beaconData forKeys:beaconKeys];
     
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TAPBeaconRanged"
                                                         object:self
                                                       userInfo:userInfo];
-    
+
     if (self.sendAnalytics && [beaconData count] > 0) {
         NSDictionary *event = [self createBeaconEvent:@"ranged" withBeacons:beaconData];
         [self sendBeaconEventData:@[event]];
@@ -226,23 +262,70 @@
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
-    if ([region isKindOfClass:[CLBeaconRegion class]]) {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"Welcome to your beacon!";
-        notification.soundName = @"Default";
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    NSDictionary *data = @{@"region": region};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TAPEnteredRegion"
+                                                        object:self
+                                                      userInfo:data];
+    
+    if (self.sendAnalytics) {
+        CLBeaconRegion *r = (CLBeaconRegion *) region;
+        NSArray *beacons = [self getBeaconsForRegion:r];
+        
+        NSDictionary *event = [self createBeaconEvent:@"entered_region" withBeacons:beacons];
+        [self sendBeaconEventData:@[event]];
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region
 {
-    if ([region isKindOfClass:[CLBeaconRegion class]]) {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"Are you forgetting something?";
-        notification.soundName = @"Default";
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    NSDictionary *data = @{@"region": region};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TAPExitedRegion"
+                                                        object:self
+                                                      userInfo:data];
+    
+    if (self.sendAnalytics) {
+        CLBeaconRegion *r = (CLBeaconRegion *) region;
+        NSArray *beacons = [self getBeaconsForRegion:r];
+        
+        NSDictionary *event = [self createBeaconEvent:@"exited_region" withBeacons:beacons];
+        [self sendBeaconEventData:@[event]];
     }
 }
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    NSString *stateText = @"unknown";
+    switch (state) {
+        case CLRegionStateInside:
+            stateText = @"inside";
+            break;
+            
+        case CLRegionStateOutside:
+            stateText = @"outside";
+            break;
+            
+        default:
+            break;
+    }
+    
+    NSDictionary *data = @{@"region": region, @"state": stateText};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TAPDeterminedRegionState"
+                                                        object:self
+                                                      userInfo:data];
+    
+    if (self.sendAnalytics) {
+        CLBeaconRegion *r = (CLBeaconRegion *) region;
+        NSArray *beacons = [self getBeaconsForRegion:r];
+        
+        NSDictionary *event = [self createBeaconEvent:@"exited_region" withBeacons:beacons];
+        [self sendBeaconEventData:@[event]];
+    }
+}
+//
+//- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+//{
+//    NSLog(@"didStartMonitoringForRegion");
+//}
 
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
 {
@@ -260,6 +343,10 @@
 }
 
 - (void)sendBeaconEventData:(NSArray *)events {
+    if (!self.sendAnalytics) {
+        return;
+    }
+    
     NSDictionary *sendData = @{@"token": self.analyticsToken,
                                @"events": events};
 
@@ -310,6 +397,10 @@
 }
 
 - (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId {
+    if (!self.sendAnalytics) {
+        return;
+    }
+    
     NSString *device_id = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     NSNumber *timestamp = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] integerValue]];
     

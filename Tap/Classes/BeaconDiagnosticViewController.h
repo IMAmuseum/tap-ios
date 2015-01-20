@@ -10,7 +10,4 @@
 
 @interface BeaconDiagnosticViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableDictionary *beaconData;
-@property (nonatomic, strong) NSMutableArray * displayBeacons;
-
 @end

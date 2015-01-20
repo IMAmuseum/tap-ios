@@ -14,12 +14,8 @@
 
 @property (nonatomic, strong) NSMutableArray *beacons;
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSMutableDictionary *regions;
+@property (nonatomic, strong) NSMutableArray *regions;
 @property (nonatomic, strong) NSMutableDictionary *beaconStopMap;
-@property (nonatomic) BOOL sendAnalytics;
-@property (nonatomic, strong) NSString *analyticsEndpoint;
-@property (nonatomic, strong) NSString *analyticsToken;
-
 @property (nonatomic, strong) CLBeacon *closestBeacon;
 
 - (void)initBeaconsForTour:(TAPTour *)tour;
@@ -35,7 +31,7 @@
 - (void)startLocationServicesForTour:(TAPTour *)tour;
 - (void)stopLocationServicesForTour:(TAPTour *)tour;
 - (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId;
-
+- (NSArray *)getBeaconsForRegion:(CLBeaconRegion *)region;
 
 + (TapBeaconManager *)sharedInstance;
 
