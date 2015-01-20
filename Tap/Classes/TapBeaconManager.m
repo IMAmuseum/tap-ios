@@ -20,9 +20,7 @@
 @interface TapBeaconManager ()
 
 @property (nonatomic) BOOL isMonitoring;
-@property (nonatomic) BOOL sendAnalytics;
-@property (nonatomic, strong) NSString *analyticsEndpoint;
-@property (nonatomic, strong) NSString *analyticsToken;
+@property (nonatomic, strong) NSDictionary *config;
 
 @end
 
@@ -54,10 +52,9 @@
         //clear out any existing regions
         [self stopMonitoringAndRangingBeacons];
         
-        self.sendAnalytics = NO;
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.analyticsEndpoint = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsEndpoint"];
-        self.analyticsToken = [[appDelegate tapConfig] objectForKey:@"BeaconAnalyticsToken"];
+        
+        self.config = [[appDelegate tapConfig] objectForKey:@"TapBeaconConfig"];
     }
     
     return self;
@@ -205,8 +202,14 @@
 
 -(void)requestPermissions
 {
-    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
-        [self.locationManager requestAlwaysAuthorization];
+    if ([[[self.config objectForKey:@"PermissionLevel"] lowercaseString] isEqualToString:@"always"]) {
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [self.locationManager requestAlwaysAuthorization];
+        }
+    } else {
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
     }
 }
 
@@ -254,7 +257,7 @@
                                                         object:self
                                                       userInfo:userInfo];
 
-    if (self.sendAnalytics && [beaconData count] > 0) {
+    if ([self.config objectForKey:@"CollectAnalytics"] && [beaconData count] > 0) {
         NSDictionary *event = [self createBeaconEvent:@"ranged" withBeacons:beaconData];
         [self sendBeaconEventData:@[event]];
     }
@@ -267,7 +270,7 @@
                                                         object:self
                                                       userInfo:data];
     
-    if (self.sendAnalytics) {
+    if ([self.config objectForKey:@"CollectAnalytics"]) {
         CLBeaconRegion *r = (CLBeaconRegion *) region;
         NSArray *beacons = [self getBeaconsForRegion:r];
         
@@ -283,7 +286,7 @@
                                                         object:self
                                                       userInfo:data];
     
-    if (self.sendAnalytics) {
+    if ([self.config objectForKey:@"CollectAnalytics"]) {
         CLBeaconRegion *r = (CLBeaconRegion *) region;
         NSArray *beacons = [self getBeaconsForRegion:r];
         
@@ -313,15 +316,16 @@
                                                         object:self
                                                       userInfo:data];
     
-    if (self.sendAnalytics) {
-        CLBeaconRegion *r = (CLBeaconRegion *) region;
-        NSArray *beacons = [self getBeaconsForRegion:r];
-        
-        NSDictionary *event = [self createBeaconEvent:@"exited_region" withBeacons:beacons];
-        [self sendBeaconEventData:@[event]];
-    }
+    //TODO: Determine if sending this data would be useful
+    //    if (self.sendAnalytics) {
+    //        CLBeaconRegion *r = (CLBeaconRegion *) region;
+    //        NSArray *beacons = [self getBeaconsForRegion:r];
+    //        
+    //        NSDictionary *event = [self createBeaconEvent:@"exited_region" withBeacons:beacons];
+    //        [self sendBeaconEventData:@[event]];
+    //    }
 }
-//
+
 //- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
 //{
 //    NSLog(@"didStartMonitoringForRegion");
@@ -343,11 +347,11 @@
 }
 
 - (void)sendBeaconEventData:(NSArray *)events {
-    if (!self.sendAnalytics) {
+    if (![self.config objectForKey:@"CollectAnalytics"]) {
         return;
     }
     
-    NSDictionary *sendData = @{@"token": self.analyticsToken,
+    NSDictionary *sendData = @{@"token": [self.config objectForKey:@"BeaconAnalyticsToken"],
                                @"events": events};
 
     NSString *data;
@@ -366,7 +370,7 @@
     if (data != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *parameters = @{@"data": data};
-        NSString *endpoint = [NSString stringWithFormat:@"%@beacons", self.analyticsEndpoint];
+        NSString *endpoint = [NSString stringWithFormat:@"%@beacons", [self.config objectForKey:@"BeaconAnalyticsEndpoint"]];
         [manager POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //            NSLog(@"Send ranged data");
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -397,7 +401,7 @@
 }
 
 - (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId {
-    if (!self.sendAnalytics) {
+    if (![self.config objectForKey:@"CollectAnalytics"]) {
         return;
     }
     
@@ -410,7 +414,7 @@
                                 @"mobile_device_id": device_id,
                                 @"timestamp": timestamp}];
     
-    NSDictionary *sendData = @{@"token": self.analyticsToken,
+    NSDictionary *sendData = @{@"token": [self.config objectForKey:@"BeaconAnalyticsToken"],
                                @"events": interactions};
     
     NSString *data;
@@ -429,7 +433,7 @@
     if (data != nil) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSDictionary *parameters = @{@"data": data};
-        NSString *endpoint = [NSString stringWithFormat:@"%@content", self.analyticsEndpoint];
+        NSString *endpoint = [NSString stringWithFormat:@"%@content", [self.config objectForKey:@"BeaconAnalyticsEndpoint"]];
         [manager POST:endpoint parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //                        NSLog(@"Send ranged data");
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
