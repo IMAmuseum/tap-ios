@@ -19,8 +19,6 @@
 
 @interface BeaconTableViewController ()
 
-@property (nonatomic) BOOL displayDiagnostics;
-
 @end
 
 @implementation BeaconTableViewController
@@ -38,8 +36,6 @@
                                                  selector:@selector(tapBeaconRanged:)
                                                      name:@"TAPBeaconRanged"
                                                    object:beaconManager];
-        
-        self.displayDiagnostics = YES;
     }
     
     return self;
@@ -74,7 +70,7 @@
                                                       userInfo: nil
                                                        repeats: YES];
     
-    if (self.displayDiagnostics) {
+    if ([beaconManager diagnosticModeEnabled]) {
         // setup custom background button view for diagnostic button
         UIButton *diagnosticButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
         [diagnosticButtonView addTarget:self action:@selector(diagnosticButtonClicked:) forControlEvents:UIControlEventTouchUpInside];

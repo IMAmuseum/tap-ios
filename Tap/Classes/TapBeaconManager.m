@@ -202,7 +202,7 @@
 
 -(void)requestPermissions
 {
-    if ([[[self.config objectForKey:@"PermissionLevel"] lowercaseString] isEqualToString:@"always"]) {
+    if ([self.config objectForKey:@"PermissionLevelAlways"]) {
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
@@ -440,6 +440,11 @@
 //                        NSLog(@"Error: %@", error);
         }];
     }
+}
+
+- (BOOL)diagnosticModeEnabled
+{
+    return [self.config objectForKey:@"EnableDiagnostics"];
 }
 
 @end

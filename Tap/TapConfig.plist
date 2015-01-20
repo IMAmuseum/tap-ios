@@ -4,8 +4,10 @@
 <dict>
 	<key>TapBeaconConfig</key>
 	<dict>
-		<key>PermissionLevel</key>
-		<string>Always</string>
+		<key>EnableDiagnostics</key>
+		<true/>
+		<key>PermissionLevelAlways</key>
+		<true/>
 		<key>BeaconAnalyticsEndpoint</key>
 		<string></string>
 		<key>BeaconAnalyticsToken</key>

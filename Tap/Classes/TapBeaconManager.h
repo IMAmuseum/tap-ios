@@ -32,6 +32,7 @@
 - (void)stopLocationServicesForTour:(TAPTour *)tour;
 - (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId;
 - (NSArray *)getBeaconsForRegion:(CLBeaconRegion *)region;
+- (BOOL)diagnosticModeEnabled;
 
 + (TapBeaconManager *)sharedInstance;
 
