@@ -123,9 +123,6 @@
     [[cell textLabel] setText:beacon.name];
     [[cell detailTextLabel] setText:[NSString stringWithFormat:@"prox: %@ | acc: %f | rssi: %ld", [beacon proximityToString], beacon.beacon.accuracy, (long)beacon.beacon.rssi]];
     
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
-    
     return cell;
 }
 

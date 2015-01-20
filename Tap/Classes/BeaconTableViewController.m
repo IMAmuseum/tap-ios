@@ -209,9 +209,6 @@
         TAPStop *stop = self.displayStops[sectionKey][indexPath.row];
         [[cell textLabel] setText:(NSString *)stop.title];
     }
-    
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
 
     return cell;
 }
