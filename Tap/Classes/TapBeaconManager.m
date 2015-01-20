@@ -202,7 +202,7 @@
 
 -(void)requestPermissions
 {
-    if ([self.config objectForKey:@"PermissionLevelAlways"]) {
+    if ([[self.config objectForKey:@"PermissionLevelAlways"] boolValue]) {
         if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
@@ -257,7 +257,7 @@
                                                         object:self
                                                       userInfo:userInfo];
 
-    if ([self.config objectForKey:@"CollectAnalytics"] && [beaconData count] > 0) {
+    if ([[self.config objectForKey:@"CollectAnalytics"] boolValue] && [beaconData count] > 0) {
         NSDictionary *event = [self createBeaconEvent:@"ranged" withBeacons:beaconData];
         [self sendBeaconEventData:@[event]];
     }
@@ -270,7 +270,7 @@
                                                         object:self
                                                       userInfo:data];
     
-    if ([self.config objectForKey:@"CollectAnalytics"]) {
+    if ([[self.config objectForKey:@"CollectAnalytics"] boolValue]) {
         CLBeaconRegion *r = (CLBeaconRegion *) region;
         NSArray *beacons = [self getBeaconsForRegion:r];
         
@@ -286,7 +286,7 @@
                                                         object:self
                                                       userInfo:data];
     
-    if ([self.config objectForKey:@"CollectAnalytics"]) {
+    if ([[self.config objectForKey:@"CollectAnalytics"] boolValue]) {
         CLBeaconRegion *r = (CLBeaconRegion *) region;
         NSArray *beacons = [self getBeaconsForRegion:r];
         
@@ -347,7 +347,7 @@
 }
 
 - (void)sendBeaconEventData:(NSArray *)events {
-    if (![self.config objectForKey:@"CollectAnalytics"]) {
+    if (![[self.config objectForKey:@"CollectAnalytics"] boolValue]) {
         return;
     }
     
@@ -401,7 +401,7 @@
 }
 
 - (void)sendBeaconInteractionData:(NSString *)event stopId:(NSString *)stopId {
-    if (![self.config objectForKey:@"CollectAnalytics"]) {
+    if (![[self.config objectForKey:@"CollectAnalytics"] boolValue]) {
         return;
     }
     
@@ -444,7 +444,7 @@
 
 - (BOOL)diagnosticModeEnabled
 {
-    return [self.config objectForKey:@"EnableDiagnostics"];
+    return [[self.config objectForKey:@"EnableDiagnostics"] boolValue];
 }
 
 @end
