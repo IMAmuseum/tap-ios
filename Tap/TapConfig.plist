@@ -16,11 +16,6 @@
 	<false/>
 	<key>NavigationControllers</key>
 	<dict>
-		<key>BeaconTableViewController</key>
-		<dict>
-			<key>Label</key>
-			<string>Nearby</string>
-		</dict>
 		<key>StopListViewController</key>
 		<dict>
 			<key>FilterBy</key>
@@ -47,6 +42,7 @@
 			<array>
 				<string>KeypadViewController</string>
 				<string>StopListViewController</string>
+				<string>MapViewController</string>
 			</array>
 		</dict>
 		<key>default</key>
@@ -55,8 +51,6 @@
 			<array>
 				<string>KeypadViewController</string>
 				<string>StopListViewController</string>
-				<string>MapViewController</string>
-				<string>BeaconTableViewController</string>
 			</array>
 		</dict>
 	</dict>
