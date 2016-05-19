@@ -41,7 +41,7 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="bg-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="60"/>
                 </imageView>
                 <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19">
                     <rect key="frame" x="7" y="310" width="100" height="60"/>

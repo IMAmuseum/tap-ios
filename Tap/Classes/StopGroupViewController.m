@@ -65,6 +65,9 @@
     if (headerImage) {
         [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
         [_stopGroupTable setTableHeaderView:headerImage];
+        headerImage.contentMode = UIViewContentModeScaleAspectFit;
+        _stopGroupTable.frame = CGRectMake(_stopGroupTable.frame.origin.x, _stopGroupTable.frame.origin.y, _stopGroupTable.frame.size.width, 60);
+        [_stopGroupTable setContentSize:CGSizeMake(_stopGroupTable.frame.size.width, 60)];
     }
     
     // determine whether or not the stop group has a description in order to layout the table correctly
@@ -206,7 +209,7 @@
 
 #pragma mark View controller rotation methods
 
-- (NSUInteger)supportedInterfaceOrientations
+- (enum UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }

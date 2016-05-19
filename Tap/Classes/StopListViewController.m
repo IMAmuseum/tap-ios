@@ -161,7 +161,7 @@
 
 #pragma mark View controller rotation methods
 
-- (NSUInteger)supportedInterfaceOrientations
+- (enum UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
 }

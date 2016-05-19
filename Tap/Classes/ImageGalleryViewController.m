@@ -63,7 +63,6 @@
     if(self) {
         [self setImageStop:stop];
         [self setAssets:[self.imageStop.model getAssets]];
-        [self setWantsFullScreenLayout:YES];
         _initializedToolbarAnimation = NO;
         _currentIndex = 1;
         
@@ -210,6 +209,7 @@
     if (title != nil) {
         // calculate height
         CGSize titleSize = [title.data sizeWithFont:[UIFont boldSystemFontOfSize:13.0f] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+        
         titleHeight = titleSize.height;
         CGRect titleFrame = CGRectMake(CONTENT_PADDING, CONTENT_PADDING, self.view.frame.size.width - (2 * CONTENT_PADDING), CONTENT_PADDING + titleHeight);
         
@@ -316,7 +316,7 @@
     int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
     int lastNeededPageIndex  = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
     firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
-    lastNeededPageIndex  = MIN(lastNeededPageIndex, [self imageCount] - 1);
+    lastNeededPageIndex  = (int)MIN(lastNeededPageIndex, [self imageCount] - 1);
     
     // Recycle no-longer-visible pages 
     for (ImageScrollViewController *page in _visiblePages) {
@@ -456,7 +456,7 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
+- (enum UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
 }
