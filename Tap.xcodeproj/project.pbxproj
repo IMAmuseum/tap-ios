@@ -484,8 +484,8 @@
 				17DE996F15ABC568004C8A25 /* StopListViewController.xib */,
 				A0EE17211982E2FB001849C7 /* BeaconTableViewController.xib */,
 				6540AAA0167DBFD200C0EC65 /* LanguageSelectionViewController.xib */,
-				65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */,
 				177318C91705D5EB00A53F67 /* TourCell.xib */,
+				65F424E116F972A9004D05B4 /* TourSelectionViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -573,6 +573,7 @@
 		65AAFD3016BE1AB000E2DA39 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				17BAAE0D15685F170012F849 /* main.m */,
 				171ADD8D15BCE41D000D06F3 /* NonSelectableTextView.h */,
 				171ADD8E15BCE41D000D06F3 /* NonSelectableTextView.m */,
 				1788D0FA16759051004B577B /* UINavigationController+Rotation.h */,
@@ -661,7 +662,6 @@
 		65AAFD3416BE1E7400E2DA39 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				17BAAE0D15685F170012F849 /* main.m */,
 				17BAAE0F15685F170012F849 /* Tap-Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -727,7 +727,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */;
+			buildConfigurationList = 17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1021,7 +1021,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		17BAADF515685F150012F849 /* Build configuration list for PBXProject "tap" */ = {
+		17BAADF515685F150012F849 /* Build configuration list for PBXProject "Tap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17BAAE2215685F170012F849 /* Debug */,

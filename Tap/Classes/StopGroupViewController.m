@@ -19,7 +19,7 @@
 
 #define HEADER_IMAGE_VIEW_TAG 8637
 #define CELL_CONTENT_WIDTH 320.0f
-#define CELL_CONTENT_MARGIN 10.0f
+#define CELL_CONTENT_MARGIN 5.0f
 #define CELL_DISCLOSURE_WIDTH 40.0f
 #define CELL_INDENTATION 44.0f
 
@@ -57,17 +57,20 @@
 	return self;
 }
 
-- (void)viewDidLoad 
+- (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     UIImageView *headerImage = [self.stopGroup getHeaderImage];
+
     if (headerImage) {
         [headerImage setTag:HEADER_IMAGE_VIEW_TAG];
         [_stopGroupTable setTableHeaderView:headerImage];
         headerImage.contentMode = UIViewContentModeScaleAspectFit;
-        _stopGroupTable.frame = CGRectMake(_stopGroupTable.frame.origin.x, _stopGroupTable.frame.origin.y, _stopGroupTable.frame.size.width, 60);
-        [_stopGroupTable setContentSize:CGSizeMake(_stopGroupTable.frame.size.width, 60)];
+
+//        _stopGroupTable.tableHeaderView.frame = CGRectMake(0, 0, _stopGroupTable.tableHeaderView.frame.size.width, 140);
+        
+        _stopGroupTable.contentInset = UIEdgeInsetsMake(-54, 0, 0, 0);
     }
     
     // determine whether or not the stop group has a description in order to layout the table correctly
@@ -81,7 +84,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     // Deselect anything from the table
-	[_stopGroupTable deselectRowAtIndexPath:[_stopGroupTable indexPathForSelectedRow] animated:animated];
+    [_stopGroupTable deselectRowAtIndexPath:[_stopGroupTable indexPathForSelectedRow] animated:animated];
 }
 
 #pragma mark UITableViewDataSource

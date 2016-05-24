@@ -2,16 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BeaconUUID</key>
-	<array>
-		<string>B9407F30-F5F8-466E-AFF9-25556B57FE6D</string>
-	</array>
 	<key>DefaultLanguage</key>
 	<string>en</string>
-	<key>FlurryKey</key>
-	<string></string>
 	<key>HelpVideo</key>
-	<string>TAP Help Video.mp4</string>
+	<string></string>
 	<key>KioskMode</key>
 	<false/>
 	<key>NavigationControllers</key>
@@ -34,8 +28,16 @@
 			<string>Map</string>
 		</dict>
 	</dict>
-	<key>TourConfig</key>
+	<key>TourConfig-withMap</key>
 	<dict>
+		<key>default</key>
+		<dict>
+			<key>EnabledViewControllers</key>
+			<array>
+				<string>KeypadViewController</string>
+				<string>StopListViewController</string>
+			</array>
+		</dict>
 		<key>tour-113</key>
 		<dict>
 			<key>EnabledViewControllers</key>
@@ -45,7 +47,18 @@
 				<string>MapViewController</string>
 			</array>
 		</dict>
+	</dict>
+	<key>TourConfig</key>
+	<dict>
 		<key>default</key>
+		<dict>
+			<key>EnabledViewControllers</key>
+			<array>
+				<string>KeypadViewController</string>
+				<string>StopListViewController</string>
+			</array>
+		</dict>
+		<key>tour-113</key>
 		<dict>
 			<key>EnabledViewControllers</key>
 			<array>

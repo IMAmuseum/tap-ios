@@ -58,7 +58,7 @@
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tour" inManagedObjectContext:self.managedObjectContext];
         [fetchRequest setEntity:entity];
         
-        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:NO];
         [fetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
         [fetchRequest setFetchBatchSize:20];
         
@@ -92,12 +92,12 @@
     }
     
     // setup custom help button view
-    UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
-    [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [helpButtonView setBackgroundImage: [UIImage imageNamed:@"question-mark"] forState: UIControlStateNormal];
-    
-    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
-    [navigationItem setRightBarButtonItem:helpButton];
+//    UIButton *helpButtonView = [[UIButton alloc] initWithFrame: CGRectMake (0, 0, 25, 25)];
+//    [helpButtonView addTarget:self action:@selector(helpButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    [helpButtonView setBackgroundImage: [UIImage imageNamed:@"question-mark"] forState: UIControlStateNormal];
+//    
+//    UIBarButtonItem *helpButton = [[UIBarButtonItem alloc] initWithCustomView:helpButtonView];
+//    [navigationItem setRightBarButtonItem:helpButton];
     
     [self.navigationBar pushNavigationItem:navigationItem animated:NO];
 }
@@ -207,22 +207,22 @@
 
 -(void)applicationDidFinishLaunching:(NSNotification *)notification
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    BOOL helpVideoHasPlayed = (BOOL)[defaults objectForKey:@"helpVideoHasPlayed"];
     
-    if (!helpVideoHasPlayed || [[appDelegate.tapConfig objectForKey:@"KioskMode"] boolValue]) {
-        // Show a prompt for the help video
-        UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
-                                                             message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
-                                                            delegate:self
-                                                   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
-                                                   otherButtonTitles:nil];
-        [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
-        
-        [helpPrompt show];
-    }
+//    if (!helpVideoHasPlayed || [[appDelegate.tapConfig objectForKey:@"KioskMode"] boolValue]) {
+//        // Show a prompt for the help video
+//        UIAlertView *helpPrompt = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"HelpVideoQuestion", @"Prompt header")
+//                                                             message:NSLocalizedString(@"HelpVideoExplanation", @"Prompt message")
+//                                                            delegate:self
+//                                                   cancelButtonTitle:NSLocalizedString(@"Skip", @"Skip the video")
+//                                                   otherButtonTitles:nil];
+//        [helpPrompt addButtonWithTitle:NSLocalizedString(@"Yes", @"Confirm to watch video")];
+//        
+//        [helpPrompt show];
+//    }
     
     NSUInteger numTours = [self.tourFetchedResultsController.fetchedObjects count];
     if (numTours == 1) {
